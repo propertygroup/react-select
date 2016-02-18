@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
-    "react-input-autosize": "^0.6.8"
+    "react-input-autosize": "^0.6.8",
+    "react-virtual-list": "github:propertygroup/react-virtual-list"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -47,7 +48,7 @@
     "react-input-autosize": "global:AutosizeInput"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build",
+    "build": "gulp clean && set NODE_ENV=production&& gulp build",
     "bump": "gulp bump",
     "bump:major": "gulp bump:major",
     "bump:minor": "gulp bump:minor",

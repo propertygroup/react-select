@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Input from 'react-input-autosize';
 import classNames from 'classnames';
+import VirtualList from 'react-virtual-list';
 
 import stripDiacritics from './utils/stripDiacritics';
 
@@ -674,38 +675,58 @@ const Select = React.createClass({
 		}
 	},
 
+	renderOption (option, index, valueArray, focusedOption) {
+		let Option = this.props.optionComponent;
+		let renderLabel = this.props.optionRenderer || this.getOptionLabel;
+
+		let isSelected = valueArray && valueArray.indexOf(option) > -1;
+		let isFocused = option === focusedOption;
+		let optionRef = isFocused ? 'focused' : null;
+		let optionClass = classNames({
+			'Select-option': true,
+			'is-selected': isSelected,
+			'is-focused': isFocused,
+			'is-disabled': option.disabled,
+		});
+
+		return (
+		<Option
+			className={optionClass}
+			isDisabled={option.disabled}
+			isFocused={isFocused}
+			key={`option-${index}-${option[this.props.valueKey]}`}
+			onSelect={this.selectValue}
+			onFocus={this.focusOption}
+			option={option}
+			isSelected={isSelected}
+			ref={optionRef}
+		>
+			{renderLabel(option)}
+		</Option>
+		);
+	},
+
+	prevFocusedOption: null,
+
 	renderMenu (options, valueArray, focusedOption) {
 		if (options && options.length) {
-			let Option = this.props.optionComponent;
-			let renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
-			return options.map((option, i) => {
-				let isSelected = valueArray && valueArray.indexOf(option) > -1;
-				let isFocused = option === focusedOption;
-				let optionRef = isFocused ? 'focused' : null;
-				let optionClass = classNames({
-					'Select-option': true,
-					'is-selected': isSelected,
-					'is-focused': isFocused,
-					'is-disabled': option.disabled,
-				});
+			let focusChanged = this.prevFocusedOption && this.prevFocusedOption.value != focusedOption.value;
+			this.prevFocusedOption = focusedOption;
+			let i=0;
+			return (
+				<VirtualList
+						items={options}
+						forceUpdate={focusChanged}
+						container={this.refs.menu}
+						renderItem={(item)=>this.renderOption(item, i++, valueArray, focusedOption)}
+						itemBuffer={2}
+						itemHeight={35}
+				/>
+			);
 
-				return (
-					<Option
-						className={optionClass}
-						isDisabled={option.disabled}
-						isFocused={isFocused}
-						key={`option-${i}-${option[this.props.valueKey]}`}
-						onSelect={this.selectValue}
-						onFocus={this.focusOption}
-						option={option}
-						isSelected={isSelected}
-						ref={optionRef}
-						>
-						{renderLabel(option)}
-					</Option>
-				);
-			});
+			//return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+
 		} else if (this.props.noResultsText) {
 			return (
 				<div className="Select-noresults">
