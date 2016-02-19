@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "lodash": "^4.5.0",
     "react-input-autosize": "^0.6.8",
     "react-virtual-list": "github:propertygroup/react-virtual-list"
   },

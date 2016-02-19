@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Input from 'react-input-autosize';
 import classNames from 'classnames';
 import VirtualList from 'react-virtual-list';
+import * as _ from "lodash";
 
 import stripDiacritics from './utils/stripDiacritics';
 
@@ -133,6 +134,7 @@ const Select = React.createClass({
 		if (this.props.autofocus) {
 			this.focus();
 		}
+
 	},
 
 	componentWillUpdate (nextProps, nextState) {
@@ -140,6 +142,8 @@ const Select = React.createClass({
 			const handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
 		}
+
+
 	},
 
 	componentDidUpdate (prevProps, prevState) {
@@ -175,6 +179,20 @@ const Select = React.createClass({
 		if (prevProps.disabled !== this.props.disabled) {
 			this.setState({ isFocused: false }); // eslint-disable-line react/no-did-update-set-state
 		}
+
+		if (prevState.forceRenderList) {
+			this.setState({
+				forceRenderList: false
+			});
+		}
+
+		let shouldRenderList = this.state.isOpen && this.refs.list && this.refs.list.props.container === window;
+		if (shouldRenderList) {
+			this.setState({
+				forceRenderList: true
+			});
+		}
+
 	},
 
 	focus () {
@@ -281,7 +299,7 @@ const Select = React.createClass({
 		this.setState({
 			isOpen: false,
 			isPseudoFocused: this.state.isFocused && !this.props.multi,
-			inputValue: '',
+			//inputValue: '',
 		});
 		this.hasScrolledToOption = false;
 	},
@@ -312,7 +330,7 @@ const Select = React.createClass({
 			isPseudoFocused: false,
 		};
 		if (this.props.onBlurResetsInput) {
-			onBlurredState.inputValue = '';
+			//onBlurredState.inputValue = '';
 		}
 		this.setState(onBlurredState);
 	},
@@ -437,13 +455,13 @@ const Select = React.createClass({
 		if (this.props.multi) {
 			this.addValue(value);
 			this.setState({
-				inputValue: '',
+				inputValue: value.label,
 			});
 		} else {
 			this.setValue(value);
 			this.setState({
 				isOpen: false,
-				inputValue: '',
+				inputValue: value.label,
 				isPseudoFocused: this.state.isFocused,
 			});
 		}
@@ -502,7 +520,7 @@ const Select = React.createClass({
 		if (!this.state.isOpen) {
 			this.setState({
 				isOpen: true,
-				inputValue: '',
+				//inputValue: '',
 				focusedOption: this._focusedOption || options[dir === 'next' ? 0 : options.length - 1]
 			});
 			return;
@@ -569,7 +587,8 @@ const Select = React.createClass({
 					</ValueComponent>
 				);
 			});
-		} else if (!this.state.inputValue) {
+		}
+		else if (!this.props.searchable) {
 			if (isOpen) onClick = null;
 			return (
 				<ValueComponent
@@ -598,7 +617,7 @@ const Select = React.createClass({
 			);
 		}
 		return (
-			<Input
+			<input
 				{...this.props.inputProps}
 				className={className}
 				tabIndex={this.props.tabIndex}
@@ -637,7 +656,63 @@ const Select = React.createClass({
 
 	filterOptions (excludeOptions) {
 		var filterValue = this.state.inputValue;
+
 		var options = this.props.options || [];
+
+		if (!this.props.searchable || filterValue === "") {
+			return options;
+		}
+
+		let query = filterValue.toLowerCase().trim();
+
+		let queryTokens = query.split(" ");
+		let matchResults = {};
+		let result = [];
+		for (let i = 0; i < options.length; i++) {
+			let option = options[i];
+
+			let name = option.label.toLowerCase().trim();
+			let isValid = true;
+
+			if (name.indexOf(query) !== 0) {
+				let tokens = name.split(/[,-]/);
+				tokens.push(name);
+
+				for (let j = 0; j < queryTokens.length; j++) {
+					// "ma", "wa"
+					let tokenValid = false;
+					for (let k = 0; k < tokens.length; k++) {
+						// "mazowieckie", "warszawa"
+						if (tokens[k].trim().toLowerCase().indexOf(queryTokens[j].trim()) == 0) {
+							tokenValid = true;
+							break;
+						}
+					}
+					if (!tokenValid) {
+						isValid = false;
+						break;
+					}
+				}
+			}
+
+			if (isValid) {
+				if(!matchResults[name.length]) {
+					matchResults[name.length] = [];
+				}
+				matchResults[name.length].push(option);
+			}
+		}
+
+		let keys = _.keys(matchResults).sort((a, b) => a-b);
+
+		_.each(keys, (key) => {
+			_.each(matchResults[key], (res) => {
+				result.push(res);
+			});
+		});
+		return result;
+
+
 		if (typeof this.props.filterOptions === 'function') {
 			return this.props.filterOptions.call(this, options, filterValue, excludeOptions);
 		} else if (this.props.filterOptions) {
@@ -706,8 +781,6 @@ const Select = React.createClass({
 		);
 	},
 
-	prevFocusedOption: null,
-
 	renderMenu (options, valueArray, focusedOption) {
 		if (options && options.length) {
 
@@ -716,10 +789,12 @@ const Select = React.createClass({
 			let i=0;
 			return (
 				<VirtualList
+						ref="list"
 						items={options}
-						forceUpdate={focusChanged}
+						forceUpdate={this.state.forceRenderList || focusChanged}
+						preferredHeight={200}
 						container={this.refs.menu}
-						renderItem={(item)=>this.renderOption(item, i++, valueArray, focusedOption)}
+						renderItem={(item) => this.renderOption(item, i++, valueArray, focusedOption)}
 						itemBuffer={2}
 						itemHeight={35}
 				/>
@@ -766,10 +841,14 @@ const Select = React.createClass({
 			'is-focused': this.state.isFocused,
 			'is-loading': this.props.isLoading,
 			'is-open': isOpen,
-			'is-pseudo-focused': this.state.isPseudoFocused,
+			//'is-pseudo-focused': this.state.isPseudoFocused,
 			'is-searchable': this.props.searchable,
 			'has-value': valueArray.length,
 		});
+
+		//let shouldRenderList = this.state.isOpen && this.refs.menu;
+		//console.log("should render list", shouldRenderList);
+
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
 				{this.renderHiddenField(valueArray)}
