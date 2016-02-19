@@ -787,20 +787,20 @@ const Select = React.createClass({
 			let focusChanged = this.prevFocusedOption && this.prevFocusedOption.value != focusedOption.value;
 			this.prevFocusedOption = focusedOption;
 			let i=0;
-			return (
-				<VirtualList
-						ref="list"
-						items={options}
-						forceUpdate={this.state.forceRenderList || focusChanged}
-						preferredHeight={200}
-						container={this.refs.menu}
-						renderItem={(item) => this.renderOption(item, i++, valueArray, focusedOption)}
-						itemBuffer={2}
-						itemHeight={36}
-				/>
-			);
+			//return (
+			//	<VirtualList
+			//			ref="list"
+			//			items={options}
+			//			forceUpdate={this.state.forceRenderList || focusChanged}
+			//			preferredHeight={200}
+			//			container={this.refs.menu}
+			//			renderItem={(item) => this.renderOption(item, i++, valueArray, focusedOption)}
+			//			itemBuffer={2}
+			//			itemHeight={36}
+			//	/>
+			//);
 
-			//return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 
 		} else if (this.props.noResultsText) {
 			return (
