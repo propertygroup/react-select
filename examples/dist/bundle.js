@@ -14931,7 +14931,7 @@ var VirtualList = React.createClass({ displayName: "VirtualList",
         };
 
         // early return if nothing to render
-        if (typeof props.container === 'undefined' || props.items.length === 0 || props.itemHeight <= 0 || !this.isMounted()) return state;
+        if (typeof props.container === 'undefined' || props.items.length === 0 || props.itemHeight <= 0 /* || !this.isMounted()*/) return state;
 
         var items = props.items;
 
@@ -14953,14 +14953,13 @@ var VirtualList = React.createClass({ displayName: "VirtualList",
         if (renderStats.itemsInView.length === 0) return state;
 
         state.items = items.slice(renderStats.firstItemIndex, renderStats.lastItemIndex + 1);
-
         state.bufferStart = renderStats.firstItemIndex * props.itemHeight;
 
         return state;
     },
-    getInitialState: function () {
-        return this.getVirtualState(this.props);
-    },
+    //getInitialState: function() {
+    //    return this.getVirtualState(this.props);
+    //},
     shouldComponentUpdate: function (nextProps, nextState) {
         if (nextProps.forceUpdate === true) return true;
 
@@ -14976,19 +14975,15 @@ var VirtualList = React.createClass({ displayName: "VirtualList",
         return this.view = this.view || this._getViewBox(nextProps);
     },
     _getViewBox: function _getViewBox(nextProps) {
-        //return {
-		//    height: typeof nextProps.container.innerHeight !== 'undefined' ? nextProps.container.innerHeight : nextProps.container.clientHeight
-		//};
-
-		var height;
-		if (nextProps.preferredHeight) {
-			height = nextProps.preferredHeight;
-		} else if (typeof nextProps.container.innerHeight !== 'undefined') {
-			height = nextProps.container.innerHeight;
-		} else {
-			height = nextProps.container.clientHeight
-		}
-		return { height: height };
+        var height;
+        if (nextProps.preferredHeight) {
+            height = nextProps.preferredHeight;
+        } else if (typeof nextProps.container.innerHeight !== 'undefined') {
+            height = nextProps.container.innerHeight;
+        } else {
+            height = nextProps.container.clientHeight;
+        }
+        return { height: height };
     },
     _getListBox: function (nextProps) {
         var list = this.getDOMNode();
@@ -15009,36 +15004,27 @@ var VirtualList = React.createClass({ displayName: "VirtualList",
     componentWillReceiveProps: function (nextProps) {
         // clear caches
         this.view = this.list = null;
-
         var state = this.getVirtualState(nextProps);
         this.props.container.removeEventListener('scroll', this.onScrollDebounced);
-
         this.onScrollDebounced = utils.debounce(this.onScroll, nextProps.scrollDelay, false);
-
         nextProps.container.addEventListener('scroll', this.onScrollDebounced);
-
         this.setState(state);
     },
     componentWillMount: function () {
-
         this.onScrollDebounced = utils.debounce(this.onScroll, this.props.scrollDelay, false);
+        this.setState(this.getVirtualState(this.props));
     },
     componentDidMount: function () {
         var state = this.getVirtualState(this.props);
-
         this.setState(state);
-
-       this.props.container.addEventListener('scroll', this.onScrollDebounced);
-
+        this.props.container.addEventListener('scroll', this.onScrollDebounced);
     },
     componentWillUnmount: function () {
         this.props.container.removeEventListener('scroll', this.onScrollDebounced);
-
         this.view = this.list = null;
     },
     onScroll: function () {
         var state = this.getVirtualState(this.props);
-
         this.setState(state);
     },
     // in case you need to get the currently visible items
@@ -15091,7 +15077,6 @@ VirtualList.getItems = function (viewBox, listBox, itemHeight, itemCount, itemBu
 };
 
 module.exports = VirtualList;
-
 },{"./utils":3,"react":undefined}],3:[function(require,module,exports){
 function areArraysEqual(a, b) {
     if (!a || !b) return false;
@@ -16263,14 +16248,12 @@ var Select = _react2['default'].createClass({
 	},
 
 	filterOptions: function filterOptions(excludeOptions) {
-		var _this3 = this;
-
 		var filterValue = this.state.inputValue;
 
 		var options = this.props.options || [];
 
 		if (!this.props.searchable || filterValue === "") {
-			return options;
+			return options.slice(0, 30);
 		}
 
 		var query = filterValue.toLowerCase().trim();
@@ -16322,39 +16305,45 @@ var Select = _react2['default'].createClass({
 				result.push(res);
 			});
 		});
-		return result;
 
-		if (typeof this.props.filterOptions === 'function') {
-			return this.props.filterOptions.call(this, options, filterValue, excludeOptions);
-		} else if (this.props.filterOptions) {
-			if (this.props.ignoreAccents) {
-				filterValue = (0, _utilsStripDiacritics2['default'])(filterValue);
-			}
-			if (this.props.ignoreCase) {
-				filterValue = filterValue.toLowerCase();
-			}
-			if (excludeOptions) excludeOptions = excludeOptions.map(function (i) {
-				return i[_this3.props.valueKey];
-			});
-			return options.filter(function (option) {
-				if (excludeOptions && excludeOptions.indexOf(option[_this3.props.valueKey]) > -1) return false;
-				if (_this3.props.filterOption) return _this3.props.filterOption.call(_this3, option, filterValue);
-				if (!filterValue) return true;
-				var valueTest = String(option[_this3.props.valueKey]);
-				var labelTest = String(option[_this3.props.labelKey]);
-				if (_this3.props.ignoreAccents) {
-					if (_this3.props.matchProp !== 'label') valueTest = (0, _utilsStripDiacritics2['default'])(valueTest);
-					if (_this3.props.matchProp !== 'value') labelTest = (0, _utilsStripDiacritics2['default'])(labelTest);
-				}
-				if (_this3.props.ignoreCase) {
-					if (_this3.props.matchProp !== 'label') valueTest = valueTest.toLowerCase();
-					if (_this3.props.matchProp !== 'value') labelTest = labelTest.toLowerCase();
-				}
-				return _this3.props.matchPos === 'start' ? _this3.props.matchProp !== 'label' && valueTest.substr(0, filterValue.length) === filterValue || _this3.props.matchProp !== 'value' && labelTest.substr(0, filterValue.length) === filterValue : _this3.props.matchProp !== 'label' && valueTest.indexOf(filterValue) >= 0 || _this3.props.matchProp !== 'value' && labelTest.indexOf(filterValue) >= 0;
-			});
-		} else {
-			return options;
-		}
+		return result.slice(0, 30);
+		//
+		//
+		//if (typeof this.props.filterOptions === 'function') {
+		//	return this.props.filterOptions.call(this, options, filterValue, excludeOptions);
+		//} else if (this.props.filterOptions) {
+		//	if (this.props.ignoreAccents) {
+		//		filterValue = stripDiacritics(filterValue);
+		//	}
+		//	if (this.props.ignoreCase) {
+		//		filterValue = filterValue.toLowerCase();
+		//	}
+		//	if (excludeOptions) excludeOptions = excludeOptions.map(i => i[this.props.valueKey]);
+		//	return options.filter(option => {
+		//		if (excludeOptions && excludeOptions.indexOf(option[this.props.valueKey]) > -1) return false;
+		//		if (this.props.filterOption) return this.props.filterOption.call(this, option, filterValue);
+		//		if (!filterValue) return true;
+		//		var valueTest = String(option[this.props.valueKey]);
+		//		var labelTest = String(option[this.props.labelKey]);
+		//		if (this.props.ignoreAccents) {
+		//			if (this.props.matchProp !== 'label') valueTest = stripDiacritics(valueTest);
+		//			if (this.props.matchProp !== 'value') labelTest = stripDiacritics(labelTest);
+		//		}
+		//		if (this.props.ignoreCase) {
+		//			if (this.props.matchProp !== 'label') valueTest = valueTest.toLowerCase();
+		//			if (this.props.matchProp !== 'value') labelTest = labelTest.toLowerCase();
+		//		}
+		//		return this.props.matchPos === 'start' ? (
+		//			(this.props.matchProp !== 'label' && valueTest.substr(0, filterValue.length) === filterValue) ||
+		//			(this.props.matchProp !== 'value' && labelTest.substr(0, filterValue.length) === filterValue)
+		//		) : (
+		//			(this.props.matchProp !== 'label' && valueTest.indexOf(filterValue) >= 0) ||
+		//			(this.props.matchProp !== 'value' && labelTest.indexOf(filterValue) >= 0)
+		//		);
+		//	});
+		//} else {
+		//	return options;
+		//}
 	},
 
 	renderOption: function renderOption(option, index, valueArray, focusedOption) {
@@ -16389,7 +16378,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
-		var _this4 = this;
+		var _this3 = this;
 
 		if (options && options.length) {
 
@@ -16410,7 +16399,7 @@ var Select = _react2['default'].createClass({
 			//);
 
 			return options.map(function (option, i) {
-				return _this4.renderOption(option, i, valueArray, focusedOption);
+				return _this3.renderOption(option, i, valueArray, focusedOption);
 			});
 		} else if (this.props.noResultsText) {
 			return _react2['default'].createElement(
@@ -16424,11 +16413,11 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
-		var _this5 = this;
+		var _this4 = this;
 
 		if (!this.props.name) return;
 		var value = valueArray.map(function (i) {
-			return stringifyValue(i[_this5.props.valueKey]);
+			return stringifyValue(i[_this4.props.valueKey]);
 		}).join(this.props.delimiter);
 		return _react2['default'].createElement('input', { type: 'hidden', ref: 'value', name: this.props.name, value: value, disabled: this.props.disabled });
 	},

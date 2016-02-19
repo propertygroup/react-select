@@ -660,7 +660,7 @@ const Select = React.createClass({
 		var options = this.props.options || [];
 
 		if (!this.props.searchable || filterValue === "") {
-			return options;
+			return options.slice(0, 30);
 		}
 
 		let query = filterValue.toLowerCase().trim();
@@ -710,44 +710,45 @@ const Select = React.createClass({
 				result.push(res);
 			});
 		});
-		return result;
 
-
-		if (typeof this.props.filterOptions === 'function') {
-			return this.props.filterOptions.call(this, options, filterValue, excludeOptions);
-		} else if (this.props.filterOptions) {
-			if (this.props.ignoreAccents) {
-				filterValue = stripDiacritics(filterValue);
-			}
-			if (this.props.ignoreCase) {
-				filterValue = filterValue.toLowerCase();
-			}
-			if (excludeOptions) excludeOptions = excludeOptions.map(i => i[this.props.valueKey]);
-			return options.filter(option => {
-				if (excludeOptions && excludeOptions.indexOf(option[this.props.valueKey]) > -1) return false;
-				if (this.props.filterOption) return this.props.filterOption.call(this, option, filterValue);
-				if (!filterValue) return true;
-				var valueTest = String(option[this.props.valueKey]);
-				var labelTest = String(option[this.props.labelKey]);
-				if (this.props.ignoreAccents) {
-					if (this.props.matchProp !== 'label') valueTest = stripDiacritics(valueTest);
-					if (this.props.matchProp !== 'value') labelTest = stripDiacritics(labelTest);
-				}
-				if (this.props.ignoreCase) {
-					if (this.props.matchProp !== 'label') valueTest = valueTest.toLowerCase();
-					if (this.props.matchProp !== 'value') labelTest = labelTest.toLowerCase();
-				}
-				return this.props.matchPos === 'start' ? (
-					(this.props.matchProp !== 'label' && valueTest.substr(0, filterValue.length) === filterValue) ||
-					(this.props.matchProp !== 'value' && labelTest.substr(0, filterValue.length) === filterValue)
-				) : (
-					(this.props.matchProp !== 'label' && valueTest.indexOf(filterValue) >= 0) ||
-					(this.props.matchProp !== 'value' && labelTest.indexOf(filterValue) >= 0)
-				);
-			});
-		} else {
-			return options;
-		}
+		return result.slice(0, 30);
+        //
+        //
+		//if (typeof this.props.filterOptions === 'function') {
+		//	return this.props.filterOptions.call(this, options, filterValue, excludeOptions);
+		//} else if (this.props.filterOptions) {
+		//	if (this.props.ignoreAccents) {
+		//		filterValue = stripDiacritics(filterValue);
+		//	}
+		//	if (this.props.ignoreCase) {
+		//		filterValue = filterValue.toLowerCase();
+		//	}
+		//	if (excludeOptions) excludeOptions = excludeOptions.map(i => i[this.props.valueKey]);
+		//	return options.filter(option => {
+		//		if (excludeOptions && excludeOptions.indexOf(option[this.props.valueKey]) > -1) return false;
+		//		if (this.props.filterOption) return this.props.filterOption.call(this, option, filterValue);
+		//		if (!filterValue) return true;
+		//		var valueTest = String(option[this.props.valueKey]);
+		//		var labelTest = String(option[this.props.labelKey]);
+		//		if (this.props.ignoreAccents) {
+		//			if (this.props.matchProp !== 'label') valueTest = stripDiacritics(valueTest);
+		//			if (this.props.matchProp !== 'value') labelTest = stripDiacritics(labelTest);
+		//		}
+		//		if (this.props.ignoreCase) {
+		//			if (this.props.matchProp !== 'label') valueTest = valueTest.toLowerCase();
+		//			if (this.props.matchProp !== 'value') labelTest = labelTest.toLowerCase();
+		//		}
+		//		return this.props.matchPos === 'start' ? (
+		//			(this.props.matchProp !== 'label' && valueTest.substr(0, filterValue.length) === filterValue) ||
+		//			(this.props.matchProp !== 'value' && labelTest.substr(0, filterValue.length) === filterValue)
+		//		) : (
+		//			(this.props.matchProp !== 'label' && valueTest.indexOf(filterValue) >= 0) ||
+		//			(this.props.matchProp !== 'value' && labelTest.indexOf(filterValue) >= 0)
+		//		);
+		//	});
+		//} else {
+		//	return options;
+		//}
 	},
 
 	renderOption (option, index, valueArray, focusedOption) {
