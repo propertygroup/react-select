@@ -16392,39 +16392,35 @@ var Select = _react2['default'].createClass({
 		var _this4 = this;
 
 		if (options && options.length) {
-			var _ret = (function () {
 
-				var focusChanged = _this4.prevFocusedOption && _this4.prevFocusedOption.value != focusedOption.value;
-				_this4.prevFocusedOption = focusedOption;
-				var i = 0;
-				return {
-					v: _react2['default'].createElement(_reactVirtualList2['default'], {
-						ref: 'list',
-						items: options,
-						forceUpdate: _this4.state.forceRenderList || focusChanged,
-						preferredHeight: 200,
-						container: _this4.refs.menu,
-						renderItem: function (item) {
-							return _this4.renderOption(item, i++, valueArray, focusedOption);
-						},
-						itemBuffer: 2,
-						itemHeight: 36
-					})
-				};
+			var focusChanged = this.prevFocusedOption && this.prevFocusedOption.value != focusedOption.value;
+			this.prevFocusedOption = focusedOption;
+			var i = 0;
+			//return (
+			//	<VirtualList
+			//			ref="list"
+			//			items={options}
+			//			forceUpdate={this.state.forceRenderList || focusChanged}
+			//			preferredHeight={200}
+			//			container={this.refs.menu}
+			//			renderItem={(item) => this.renderOption(item, i++, valueArray, focusedOption)}
+			//			itemBuffer={2}
+			//			itemHeight={36}
+			//	/>
+			//);
 
-				//return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
-			})();
-
-			if (typeof _ret === 'object') return _ret.v;
+			return options.map(function (option, i) {
+				return _this4.renderOption(option, i, valueArray, focusedOption);
+			});
 		} else if (this.props.noResultsText) {
-				return _react2['default'].createElement(
-					'div',
-					{ className: 'Select-noresults' },
-					this.props.noResultsText
-				);
-			} else {
-				return null;
-			}
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'Select-noresults' },
+				this.props.noResultsText
+			);
+		} else {
+			return null;
+		}
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
