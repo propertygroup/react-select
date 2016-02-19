@@ -15890,7 +15890,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputBlur: function handleInputBlur(event) {
-		if (!this.state.focusedOption || this.state.focusedOption.label != this.state.inputValue) {
+		if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
 			this.setValue(this.props.options[0]);
 			this.setState({
 				isOpen: false,
