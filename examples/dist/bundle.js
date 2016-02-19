@@ -16187,7 +16187,7 @@ var Select = _react2['default'].createClass({
 					renderLabel(value)
 				);
 			});
-		} else if (!this.props.searchable) {
+		} else if (!this.props.searchable || !this.state.inputValue) {
 			if (isOpen) onClick = null;
 			return _react2['default'].createElement(
 				ValueComponent,

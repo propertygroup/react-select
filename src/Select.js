@@ -588,7 +588,7 @@ const Select = React.createClass({
 				);
 			});
 		}
-		else if (!this.props.searchable) {
+		else if (!this.props.searchable || !this.state.inputValue) {
 			if (isOpen) onClick = null;
 			return (
 				<ValueComponent

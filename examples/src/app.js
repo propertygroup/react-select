@@ -6056,7 +6056,7 @@ var options = [
 ];
 var Container = React.createClass({
 	getInitialState () {
-		return { value: '' };
+		return options[0];
 	},
 	updateValue (value) {
 		this.setState({ value: value });
