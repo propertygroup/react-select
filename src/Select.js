@@ -91,8 +91,8 @@ const Select = React.createClass({
 			allowCreate: false,
 			backspaceRemoves: true,
 			clearable: true,
-			clearAllText: 'Clear all',
-			clearValueText: 'Clear value',
+			clearAllText: 'Wyczyść wszysttko',
+			clearValueText: 'Wyczyść wartość',
 			delimiter: ',',
 			disabled: false,
 			escapeClearsValue: true,
@@ -106,10 +106,10 @@ const Select = React.createClass({
 			matchProp: 'any',
 			menuBuffer: 0,
 			multi: false,
-			noResultsText: 'No results found',
+			noResultsText: 'Brak wyników',
 			onBlurResetsInput: true,
 			optionComponent: Option,
-			placeholder: 'Select...',
+			placeholder: 'Wybierz...',
 			required: false,
 			scrollMenuIntoView: true,
 			searchable: true,
@@ -317,6 +317,14 @@ const Select = React.createClass({
 	},
 
 	handleInputBlur (event) {
+		if(!this.state.focusedOption || this.state.focusedOption.label != this.state.inputValue) {
+			this.setValue(this.props.options[0]);
+			this.setState({
+				isOpen: false,
+				inputValue: '',
+			}, this.focus);
+		}
+
  		if (this.refs.menu && document.activeElement.isEqualNode(this.refs.menu)) {
  			return;
  		}
