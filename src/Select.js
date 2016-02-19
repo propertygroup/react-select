@@ -796,7 +796,7 @@ const Select = React.createClass({
 						container={this.refs.menu}
 						renderItem={(item) => this.renderOption(item, i++, valueArray, focusedOption)}
 						itemBuffer={2}
-						itemHeight={35}
+						itemHeight={36}
 				/>
 			);
 

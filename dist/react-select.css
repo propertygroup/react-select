@@ -101,6 +101,8 @@
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
+  border: 0;
+  width: 100%;
 }
 .Select-input > input {
   background: none transparent;
