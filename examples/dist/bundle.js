@@ -16408,7 +16408,7 @@ var Select = _react2['default'].createClass({
 							return _this4.renderOption(item, i++, valueArray, focusedOption);
 						},
 						itemBuffer: 2,
-						itemHeight: 70
+						itemHeight: 36
 					})
 				};
 
