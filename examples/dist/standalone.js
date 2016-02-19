@@ -15782,7 +15782,7 @@ var Select = _react2['default'].createClass({
 			this.setState({
 				isOpen: false,
 				inputValue: ''
-			}, this.focus);
+			});
 		}
 
 		if (this.refs.menu && document.activeElement.isEqualNode(this.refs.menu)) {
