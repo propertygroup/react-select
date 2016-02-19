@@ -321,8 +321,8 @@ const Select = React.createClass({
 			this.setValue(this.props.options[0]);
 			this.setState({
 				isOpen: false,
-				inputValue: '',
-			}, this.focus);
+				inputValue: ''
+			});
 		}
 
  		if (this.refs.menu && document.activeElement.isEqualNode(this.refs.menu)) {
