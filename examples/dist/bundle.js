@@ -15890,12 +15890,14 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputBlur: function handleInputBlur(event) {
-		if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
-			this.setValue(this.props.options[0]);
-			this.setState({
-				isOpen: false,
-				inputValue: ''
-			});
+		if (!this.props.multi) {
+			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
+				this.setValue(this.props.options[0]);
+				this.setState({
+					isOpen: false,
+					inputValue: ''
+				});
+			}
 		}
 
 		if (this.refs.menu && document.activeElement.isEqualNode(this.refs.menu)) {
@@ -16049,25 +16051,34 @@ var Select = _react2['default'].createClass({
 	},
 
 	selectValue: function selectValue(value) {
-		this.hasScrolledToOption = false;
+		//this.hasScrolledToOption = false;
 		if (this.props.multi) {
-			this.addValue(value);
-			this.setState({
-				inputValue: value.label
-			});
+			this.toggleValue(value);
+			//this.setState({
+			//	inputValue: value.label,
+			//});
 		} else {
-			this.setValue(value);
-			this.setState({
-				isOpen: false,
-				inputValue: value.label,
-				isPseudoFocused: this.state.isFocused
-			});
-		}
+				this.setValue(value);
+				this.setState({
+					isOpen: false,
+					inputValue: value.label,
+					isPseudoFocused: this.state.isFocused
+				});
+			}
 	},
 
 	addValue: function addValue(value) {
+		console.log("adding", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.concat(value));
+	},
+
+	toggleValue: function toggleValue(value) {
+		var valueArray = this.getValueArray();
+		var option = _.find(valueArray, function (elem) {
+			return elem.label == value.label && elem.value == value.value;
+		});
+		option == null ? this.addValue(value) : this.removeValue(value);
 	},
 
 	popValue: function popValue() {
@@ -16078,6 +16089,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	removeValue: function removeValue(value) {
+		console.log("removing", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(function (i) {
 			return i !== value;
@@ -16168,45 +16180,63 @@ var Select = _react2['default'].createClass({
 		);
 	},
 
-	renderValue: function renderValue(valueArray, isOpen) {
-		var _this2 = this;
-
+	renderValue: function renderValue(valueArray, isOpen, options) {
 		var renderLabel = this.props.valueRenderer || this.getOptionLabel;
 		var ValueComponent = this.props.valueComponent;
-		if (!valueArray.length) {
-			return !this.state.inputValue ? _react2['default'].createElement(
-				'div',
-				{ className: 'Select-placeholder' },
-				this.props.placeholder
-			) : null;
-		}
+
+		//if (!valueArray.length) {
+		//	return !this.state.inputValue ? <div className="Select-placeholder">{this.props.placeholder}</div> : null;
+		//}
+
 		var onClick = this.props.onValueClick ? this.handleValueClick : null;
 		if (this.props.multi) {
-			return valueArray.map(function (value, i) {
-				return _react2['default'].createElement(
-					ValueComponent,
-					{
-						disabled: _this2.props.disabled || value.clearableValue === false,
-						key: 'value-' + i + '-' + value[_this2.props.valueKey],
-						onClick: onClick,
-						onRemove: _this2.removeValue,
-						value: value
-					},
-					renderLabel(value)
-				);
-			});
-		} else if (!this.props.searchable || !this.state.inputValue) {
 			if (isOpen) onClick = null;
+			var label = undefined;
+			var valueArray = this.getValueArray();
+			if (valueArray.length === 0) {
+				label = "Wybierz";
+			} else if (valueArray.length === 1) {
+				label = valueArray[0].label;
+			} else if (valueArray.length === options.length) {
+				label = "Wybrano wszystkie (" + options.length + ")";
+			} else {
+				label = valueArray.length + " wybrane";
+			}
 			return _react2['default'].createElement(
 				ValueComponent,
 				{
 					disabled: this.props.disabled,
 					onClick: onClick,
-					value: valueArray[0]
+					value: {}
 				},
-				renderLabel(valueArray[0])
+				label
 			);
-		}
+
+			//return valueArray.map((value, i) => {
+			//	return (
+			//		<ValueComponent
+			//			disabled={this.props.disabled || value.clearableValue === false}
+			//			key={`value-${i}-${value[this.props.valueKey]}`}
+			//			onClick={onClick}
+			//			onRemove={this.removeValue}
+			//			value={value}
+			//			>
+			//			{renderLabel(value)}
+			//		</ValueComponent>
+			//	);
+			//});
+		} else if (!this.props.searchable || !this.state.inputValue) {
+				if (isOpen) onClick = null;
+				return _react2['default'].createElement(
+					ValueComponent,
+					{
+						disabled: this.props.disabled,
+						onClick: onClick,
+						value: valueArray[0]
+					},
+					renderLabel(valueArray[0])
+				);
+			}
 	},
 
 	renderInput: function renderInput(valueArray) {
@@ -16386,7 +16416,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
-		var _this3 = this;
+		var _this2 = this;
 
 		if (options && options.length) {
 
@@ -16407,7 +16437,7 @@ var Select = _react2['default'].createClass({
 			//);
 
 			return options.map(function (option, i) {
-				return _this3.renderOption(option, i, valueArray, focusedOption);
+				return _this2.renderOption(option, i, valueArray, focusedOption);
 			});
 		} else if (this.props.noResultsText) {
 			return _react2['default'].createElement(
@@ -16421,11 +16451,11 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
-		var _this4 = this;
+		var _this3 = this;
 
 		if (!this.props.name) return;
 		var value = valueArray.map(function (i) {
-			return stringifyValue(i[_this4.props.valueKey]);
+			return stringifyValue(i[_this3.props.valueKey]);
 		}).join(this.props.delimiter);
 		return _react2['default'].createElement('input', { type: 'hidden', ref: 'value', name: this.props.name, value: value, disabled: this.props.disabled });
 	},
@@ -16436,10 +16466,13 @@ var Select = _react2['default'].createClass({
 		var focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
 		// zamiast tego porownujemy label i value
-		var index = _.findIndex(options, function (elem) {
-			return elem.value === focusedOption.value && elem.label === focusedOption.label;
-		});
-		if (focusedOption && index > -1) return options[index];
+		if (focusedOption) {
+			var index = _.findIndex(options, function (elem) {
+				return elem.value === focusedOption.value && elem.label === focusedOption.label;
+			});
+			if (index > -1) return options[index];
+		}
+
 		for (var i = 0; i < options.length; i++) {
 			if (!options[i].disabled) return options[i];
 		}
@@ -16452,7 +16485,7 @@ var Select = _react2['default'].createClass({
 		if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
 		var focusedOption = this._focusedOption = this.getFocusableOption(valueArray[0]);
 		var className = (0, _classnames2['default'])('Select', this.props.className, {
-			'Select--multi': this.props.multi,
+			//'Select--multi': this.props.multi,
 			'is-disabled': this.props.disabled,
 			'is-focused': this.state.isFocused,
 			'is-loading': this.props.isLoading,
@@ -16479,7 +16512,7 @@ var Select = _react2['default'].createClass({
 					onTouchEnd: this.handleTouchEnd,
 					onTouchStart: this.handleTouchStart,
 					onTouchMove: this.handleTouchMove },
-				this.renderValue(valueArray, isOpen),
+				this.renderValue(valueArray, isOpen, options),
 				this.renderInput(valueArray),
 				this.renderLoading(),
 				this.renderClear(),
@@ -16494,7 +16527,7 @@ var Select = _react2['default'].createClass({
 						style: this.props.menuStyle,
 						onScroll: this.handleMenuScroll,
 						onMouseDown: this.handleMouseDownOnMenu },
-					this.renderMenu(options, !this.props.multi ? valueArray : null, focusedOption)
+					this.renderMenu(options, valueArray, focusedOption)
 				)
 			) : null
 		);

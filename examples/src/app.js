@@ -6063,7 +6063,8 @@ var Container = React.createClass({
 	},
 	render () {
 		return React.createElement(Select, {
-			searchable: true,
+			multi: true,
+			searchable: false,
 			options: options,
 			onChange: this.updateValue,
 			value: this.state.value,

@@ -317,12 +317,14 @@ const Select = React.createClass({
 	},
 
 	handleInputBlur (event) {
-		if(!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
-			this.setValue(this.props.options[0]);
-			this.setState({
-				isOpen: false,
-				inputValue: ''
-			});
+		if(!this.props.multi) {
+			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
+				this.setValue(this.props.options[0]);
+				this.setState({
+					isOpen: false,
+					inputValue: ''
+				});
+			}
 		}
 
  		if (this.refs.menu && document.activeElement.isEqualNode(this.refs.menu)) {
@@ -459,12 +461,12 @@ const Select = React.createClass({
 	},
 
 	selectValue (value) {
-		this.hasScrolledToOption = false;
+		//this.hasScrolledToOption = false;
 		if (this.props.multi) {
-			this.addValue(value);
-			this.setState({
-				inputValue: value.label,
-			});
+			this.toggleValue(value);
+			//this.setState({
+			//	inputValue: value.label,
+			//});
 		} else {
 			this.setValue(value);
 			this.setState({
@@ -476,8 +478,17 @@ const Select = React.createClass({
 	},
 
 	addValue (value) {
+		console.log("adding", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.concat(value));
+	},
+
+	toggleValue (value) {
+		var valueArray = this.getValueArray();
+		var option = _.find(valueArray, (elem) => {
+			return elem.label == value.label && elem.value == value.value;
+		});
+		option == null ? this.addValue(value) : this.removeValue(value);
 	},
 
 	popValue () {
@@ -488,6 +499,7 @@ const Select = React.createClass({
 	},
 
 	removeValue (value) {
+		console.log("removing", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(i => i !== value));
 		this.focus();
@@ -574,27 +586,52 @@ const Select = React.createClass({
 		);
 	},
 
-	renderValue (valueArray, isOpen) {
+	renderValue (valueArray, isOpen, options) {
 		let renderLabel = this.props.valueRenderer || this.getOptionLabel;
 		let ValueComponent = this.props.valueComponent;
-		if (!valueArray.length) {
-			return !this.state.inputValue ? <div className="Select-placeholder">{this.props.placeholder}</div> : null;
-		}
+
+		//if (!valueArray.length) {
+		//	return !this.state.inputValue ? <div className="Select-placeholder">{this.props.placeholder}</div> : null;
+		//}
+
 		let onClick = this.props.onValueClick ? this.handleValueClick : null;
 		if (this.props.multi) {
-			return valueArray.map((value, i) => {
-				return (
-					<ValueComponent
-						disabled={this.props.disabled || value.clearableValue === false}
-						key={`value-${i}-${value[this.props.valueKey]}`}
-						onClick={onClick}
-						onRemove={this.removeValue}
-						value={value}
-						>
-						{renderLabel(value)}
-					</ValueComponent>
-				);
-			});
+			if (isOpen) onClick = null;
+			let label;
+			var valueArray = this.getValueArray();
+			if(valueArray.length === 0) {
+				label = "Wybierz"
+			} else if (valueArray.length === 1) {
+				label = valueArray[0].label;
+			} else if (valueArray.length === options.length) {
+				label = "Wybrano wszystkie (" + options.length + ")";
+			} else {
+				label = valueArray.length + " wybrane";
+			}
+			return (
+
+				<ValueComponent
+					disabled={this.props.disabled}
+					onClick={onClick}
+					value={{}}
+				>
+					{label}
+				</ValueComponent>
+			);
+
+			//return valueArray.map((value, i) => {
+			//	return (
+			//		<ValueComponent
+			//			disabled={this.props.disabled || value.clearableValue === false}
+			//			key={`value-${i}-${value[this.props.valueKey]}`}
+			//			onClick={onClick}
+			//			onRemove={this.removeValue}
+			//			value={value}
+			//			>
+			//			{renderLabel(value)}
+			//		</ValueComponent>
+			//	);
+			//});
 		}
 		else if (!this.props.searchable || !this.state.inputValue) {
 			if (isOpen) onClick = null;
@@ -834,10 +871,13 @@ const Select = React.createClass({
 		let focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
 		// zamiast tego porownujemy label i value
-		let index = _.findIndex(options, function (elem) {
-			return elem.value === focusedOption.value && elem.label === focusedOption.label
-		})
-		if (focusedOption && index > -1) return options[index];
+		if(focusedOption) {
+			let index = _.findIndex(options, function (elem) {
+				return elem.value === focusedOption.value && elem.label === focusedOption.label
+			});
+			if (index > -1) return options[index];
+		}
+
 		for (var i = 0; i < options.length; i++) {
 			if (!options[i].disabled) return options[i];
 		}
@@ -850,7 +890,7 @@ const Select = React.createClass({
 		if (this.props.multi && !options.length && valueArray.length && !this.state.inputValue) isOpen = false;
 		let focusedOption = this._focusedOption = this.getFocusableOption(valueArray[0]);
 		let className = classNames('Select', this.props.className, {
-			'Select--multi': this.props.multi,
+			//'Select--multi': this.props.multi,
 			'is-disabled': this.props.disabled,
 			'is-focused': this.state.isFocused,
 			'is-loading': this.props.isLoading,
@@ -874,7 +914,7 @@ const Select = React.createClass({
 						 onTouchEnd={this.handleTouchEnd}
 						 onTouchStart={this.handleTouchStart}
 						 onTouchMove={this.handleTouchMove}>
-					{this.renderValue(valueArray, isOpen)}
+					{this.renderValue(valueArray, isOpen, options)}
 					{this.renderInput(valueArray)}
 					{this.renderLoading()}
 					{this.renderClear()}
@@ -886,7 +926,7 @@ const Select = React.createClass({
 								 style={this.props.menuStyle}
 								 onScroll={this.handleMenuScroll}
 								 onMouseDown={this.handleMouseDownOnMenu}>
-							{this.renderMenu(options, !this.props.multi ? valueArray : null, focusedOption)}
+							{this.renderMenu(options, valueArray, focusedOption)}
 						</div>
 					</div>
 				) : null}
