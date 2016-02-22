@@ -834,9 +834,10 @@ const Select = React.createClass({
 		let focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
 		// zamiast tego porownujemy label i value
-		if (focusedOption && _.findIndex(options, function (elem) {
+		let index = _.findIndex(options, function (elem) {
 			return elem.value === focusedOption.value && elem.label === focusedOption.label
-		}) > -1) return focusedOption;
+		})
+		if (focusedOption && index > -1) return options[index];
 		for (var i = 0; i < options.length; i++) {
 			if (!options[i].disabled) return options[i];
 		}
