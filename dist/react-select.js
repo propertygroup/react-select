@@ -15655,9 +15655,14 @@ var Select = _react2['default'].createClass({
 		}
 	},
 
-	focus: function focus() {
+	focus: function focus(shouldOpen) {
 		if (!this.refs.input) return;
 		this.refs.input.focus();
+		if (shouldOpen) {
+			this.setState({
+				isOpen: true
+			});
+		}
 	},
 
 	blurInput: function blurInput() {

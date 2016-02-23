@@ -134,7 +134,6 @@ const Select = React.createClass({
 		if (this.props.autofocus) {
 			this.focus();
 		}
-
 	},
 
 	componentWillUpdate (nextProps, nextState) {
@@ -142,8 +141,6 @@ const Select = React.createClass({
 			const handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
 		}
-
-
 	},
 
 	componentDidUpdate (prevProps, prevState) {
@@ -195,9 +192,14 @@ const Select = React.createClass({
 
 	},
 
-	focus () {
+	focus (shouldOpen) {
 		if (!this.refs.input) return;
 		this.refs.input.focus();
+		if(shouldOpen) {
+			this.setState({
+				isOpen: true
+			});
+		}
 	},
 
 	blurInput() {
