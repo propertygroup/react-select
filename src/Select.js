@@ -624,7 +624,6 @@ const Select = React.createClass({
 				label = valueArray.length + " wybrane";
 			}
 			return (
-
 				<ValueComponent
 					disabled={this.props.disabled}
 					onClick={onClick}
@@ -660,6 +659,17 @@ const Select = React.createClass({
 				</ValueComponent>
 			);
 		}
+
+		return (
+			<ValueComponent
+				disabled={this.props.disabled}
+				onClick={onClick}
+				value={valueArray[0]}
+			>
+				{renderLabel(valueArray[0])}
+			</ValueComponent>
+		);
+
 	},
 
 	renderInput (valueArray) {

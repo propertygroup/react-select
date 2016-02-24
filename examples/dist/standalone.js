@@ -15905,6 +15905,16 @@ var Select = _react2['default'].createClass({
 					renderLabel(valueArray[0])
 				);
 			}
+
+		return _react2['default'].createElement(
+			ValueComponent,
+			{
+				disabled: this.props.disabled,
+				onClick: onClick,
+				value: valueArray[0]
+			},
+			renderLabel(valueArray[0])
+		);
 	},
 
 	renderInput: function renderInput(valueArray) {
