@@ -15480,9 +15480,11 @@ var Select = _react2['default'].createClass({
 	},
 
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-		this.setState({
-			inputValue: nextProps.value ? nextProps.value.label : ""
-		});
+		if (!this.props.searchable) {
+			this.setState({
+				inputValue: nextProps.value.label
+			});
+		}
 	},
 
 	componentDidUpdate: function componentDidUpdate(prevProps, prevState) {

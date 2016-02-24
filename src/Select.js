@@ -144,9 +144,11 @@ const Select = React.createClass({
 	},
 
 	componentWillReceiveProps (nextProps) {
-		this.setState({
-			inputValue: nextProps.value ? nextProps.value.label : ""
-		})
+		if (!this.props.searchable) {
+			this.setState({
+				inputValue: nextProps.value.label
+			})
+		}
 	},
 
 	componentDidUpdate (prevProps, prevState) {
