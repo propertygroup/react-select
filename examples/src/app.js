@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Select from 'react-select';
+import * as _ from "lodash";
 
 import Contributors from './components/Contributors';
 import CustomComponents from './components/CustomComponents';
@@ -6058,17 +6059,28 @@ var Container = React.createClass({
 	getInitialState () {
 		return options[0];
 	},
-	updateValue (value) {
-		this.setState({ value: value });
+	updateValue1 (value1) { this.setState({ value1 }); },
+	updateValue2 (value2) { this.setState({ value2 }); },
+	updateValue3 (value3) { this.setState({ value3 }); },
+
+	loadOptions (input, callback) {
+		console.log(input);
+		callback(null, {
+			options: options.sort(function () {
+				return 0.5 - Math.random()
+			}).slice(0, 10)
+		})
 	},
+
 	render () {
-		return React.createElement(Select, {
-			multi: true,
-			searchable: false,
-			options: options,
-			onChange: this.updateValue,
-			value: this.state.value,
-		});
+		return (
+		<div>
+			<Select.Async searchable={true} options={[]} onChange={this.updateValue1} value={this.state.value1} loadOptions={this.loadOptions.bind(this)} />
+			<Select required={false} searchable={true} options={options} onChange={this.updateValue2} value={this.state.value2} />
+			<Select searchable={false} options={options} onChange={this.updateValue3} value={this.state.value3} />
+		</div>
+		)
+
 	}
 });
 

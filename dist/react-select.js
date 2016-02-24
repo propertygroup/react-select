@@ -15150,11 +15150,17 @@ module.exports = {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _lodash = require("lodash");
+
+var _ = _interopRequireWildcard(_lodash);
 
 var _Select = require('./Select');
 
@@ -15237,7 +15243,7 @@ var Async = _react2['default'].createClass({
 		this._lastInput = '';
 	},
 	componentDidMount: function componentDidMount() {
-		this.loadOptions('');
+		//this.loadOptions('');
 	},
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 		if (nextProps.cache !== this.props.cache) {
@@ -15305,6 +15311,7 @@ var Async = _react2['default'].createClass({
 		return _react2['default'].createElement(_Select2['default'], _extends({}, this.props, {
 			ref: 'select',
 			isLoading: isLoading,
+			filterOptions: false,
 			noResultsText: noResultsText,
 			onInputChange: this.loadOptions,
 			options: options,
@@ -15316,7 +15323,7 @@ var Async = _react2['default'].createClass({
 module.exports = Async;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./Select":6,"./utils/stripDiacritics":8}],5:[function(require,module,exports){
+},{"./Select":6,"./utils/stripDiacritics":8,"lodash":1}],5:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -15784,7 +15791,7 @@ var Select = _react2['default'].createClass({
 	handleInputBlur: function handleInputBlur(event) {
 		if (!this.props.multi) {
 			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
-				this.setValue(this.props.options[0]);
+				this.setValue(this.props.required && this.props.options[0] || null);
 				this.setState({
 					isOpen: false,
 					inputValue: ''
@@ -15811,10 +15818,13 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputChange: function handleInputChange(event) {
+		var inputValue = event.target.value;
+		if (inputValue === "") {}
+		this.setValue(null);
 		this.setState({
 			isOpen: true,
 			isPseudoFocused: false,
-			inputValue: event.target.value
+			inputValue: inputValue
 		});
 	},
 
@@ -15823,10 +15833,10 @@ var Select = _react2['default'].createClass({
 		switch (event.keyCode) {
 			case 8:
 				// backspace
-				if (!this.state.inputValue && this.props.backspaceRemoves) {
-					event.preventDefault();
-					this.popValue();
-				}
+				//if (!this.state.inputValue && this.props.backspaceRemoves) {
+				//	event.preventDefault();
+				//	this.popValue();
+				//}
 				return;
 			case 9:
 				// tab
@@ -15926,6 +15936,9 @@ var Select = _react2['default'].createClass({
 	setValue: function setValue(value) {
 		var _this = this;
 
+		// na sytuacje gdy przychodzi []
+		if (_.isEmpty(value)) value = null;
+
 		if (this.props.autoBlur) {
 			this.blurInput();
 		}
@@ -15960,7 +15973,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	addValue: function addValue(value) {
-		console.log("adding", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.concat(value));
 	},
@@ -15981,7 +15993,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	removeValue: function removeValue(value) {
-		console.log("removing", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(function (i) {
 			return i !== value;
@@ -16076,9 +16087,13 @@ var Select = _react2['default'].createClass({
 		var renderLabel = this.props.valueRenderer || this.getOptionLabel;
 		var ValueComponent = this.props.valueComponent;
 
-		//if (!valueArray.length) {
-		//	return !this.state.inputValue ? <div className="Select-placeholder">{this.props.placeholder}</div> : null;
-		//}
+		if (!valueArray.length) {
+			return !this.state.inputValue ? _react2['default'].createElement(
+				'div',
+				{ className: 'Select-placeholder' },
+				this.props.placeholder
+			) : null;
+		}
 
 		var onClick = this.props.onValueClick ? this.handleValueClick : null;
 		if (this.props.multi) {
@@ -16117,7 +16132,7 @@ var Select = _react2['default'].createClass({
 			//		</ValueComponent>
 			//	);
 			//});
-		} else if (!this.props.searchable || !this.state.inputValue) {
+		} else if (!this.props.searchable || !this.state.inputValue && this.props.required) {
 				if (isOpen) onClick = null;
 				return _react2['default'].createElement(
 					ValueComponent,
@@ -16179,8 +16194,11 @@ var Select = _react2['default'].createClass({
 
 	filterOptions: function filterOptions(excludeOptions) {
 		var filterValue = this.state.inputValue;
-
 		var options = this.props.options || [];
+
+		if (this.props.filterOptions === false) {
+			return options;
+		}
 
 		if (!this.props.searchable || filterValue === "") {
 			return options.slice(0, 30);

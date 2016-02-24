@@ -1,5 +1,5 @@
 import React from 'react';
-
+import * as _ from "lodash";
 import Select from './Select';
 import stripDiacritics from './utils/stripDiacritics';
 
@@ -77,7 +77,7 @@ const Async = React.createClass({
 		this._lastInput = '';
 	},
 	componentDidMount () {
-		this.loadOptions('');
+		//this.loadOptions('');
 	},
 	componentWillReceiveProps (nextProps) {
 		if (nextProps.cache !== this.props.cache) {
@@ -142,6 +142,7 @@ const Async = React.createClass({
 				{...this.props}
 				ref="select"
 				isLoading={isLoading}
+				filterOptions={false}
 				noResultsText={noResultsText}
 				onInputChange={this.loadOptions}
 				options={options}

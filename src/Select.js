@@ -321,7 +321,7 @@ const Select = React.createClass({
 	handleInputBlur (event) {
 		if(!this.props.multi) {
 			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
-				this.setValue(this.props.options[0]);
+				this.setValue(this.props.required && this.props.options[0] || null);
 				this.setState({
 					isOpen: false,
 					inputValue: ''
@@ -348,10 +348,13 @@ const Select = React.createClass({
 	},
 
 	handleInputChange (event) {
+		let inputValue = event.target.value;
+		if(inputValue === "") {}
+		this.setValue(null);
 		this.setState({
 			isOpen: true,
 			isPseudoFocused: false,
-			inputValue: event.target.value,
+			inputValue: inputValue
 		});
 	},
 
@@ -359,10 +362,10 @@ const Select = React.createClass({
 		if (this.props.disabled) return;
 		switch (event.keyCode) {
 			case 8: // backspace
-				if (!this.state.inputValue && this.props.backspaceRemoves) {
-					event.preventDefault();
-					this.popValue();
-				}
+				//if (!this.state.inputValue && this.props.backspaceRemoves) {
+				//	event.preventDefault();
+				//	this.popValue();
+				//}
 			return;
 			case 9: // tab
 				if (event.shiftKey || !this.state.isOpen) {
@@ -448,6 +451,9 @@ const Select = React.createClass({
 	},
 
 	setValue (value) {
+		// na sytuacje gdy przychodzi []
+		if (_.isEmpty(value)) value = null;
+
 		if (this.props.autoBlur){
 			this.blurInput();
 		}
@@ -480,7 +486,6 @@ const Select = React.createClass({
 	},
 
 	addValue (value) {
-		console.log("adding", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.concat(value));
 	},
@@ -501,7 +506,6 @@ const Select = React.createClass({
 	},
 
 	removeValue (value) {
-		console.log("removing", value);
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(i => i !== value));
 		this.focus();
@@ -592,9 +596,9 @@ const Select = React.createClass({
 		let renderLabel = this.props.valueRenderer || this.getOptionLabel;
 		let ValueComponent = this.props.valueComponent;
 
-		//if (!valueArray.length) {
-		//	return !this.state.inputValue ? <div className="Select-placeholder">{this.props.placeholder}</div> : null;
-		//}
+		if (!valueArray.length) {
+			return !this.state.inputValue ? <div className="Select-placeholder">{this.props.placeholder}</div> : null;
+		}
 
 		let onClick = this.props.onValueClick ? this.handleValueClick : null;
 		if (this.props.multi) {
@@ -635,7 +639,7 @@ const Select = React.createClass({
 			//	);
 			//});
 		}
-		else if (!this.props.searchable || !this.state.inputValue) {
+		else if (!this.props.searchable || (!this.state.inputValue && this.props.required)) {
 			if (isOpen) onClick = null;
 			return (
 				<ValueComponent
@@ -703,8 +707,11 @@ const Select = React.createClass({
 
 	filterOptions (excludeOptions) {
 		var filterValue = this.state.inputValue;
-
 		var options = this.props.options || [];
+
+		if (this.props.filterOptions === false) {
+			return options;
+		}
 
 		if (!this.props.searchable || filterValue === "") {
 			return options.slice(0, 30);
