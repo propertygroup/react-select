@@ -15693,8 +15693,9 @@ var Select = _react2['default'].createClass({
 
 	handleInputChange: function handleInputChange(event) {
 		var inputValue = event.target.value;
-		if (inputValue === "") {}
-		this.setValue(null);
+		if (inputValue === "") {
+			this.setValue(null);
+		}
 		this.setState({
 			isOpen: true,
 			isPseudoFocused: false,

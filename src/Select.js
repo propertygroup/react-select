@@ -358,8 +358,9 @@ const Select = React.createClass({
 
 	handleInputChange (event) {
 		let inputValue = event.target.value;
-		if(inputValue === "") {}
-		this.setValue(null);
+		if(inputValue === "") {
+			this.setValue(null);
+		}
 		this.setState({
 			isOpen: true,
 			isPseudoFocused: false,
