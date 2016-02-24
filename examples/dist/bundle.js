@@ -15480,7 +15480,8 @@ var Select = _react2['default'].createClass({
 	},
 
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-		if (!this.props.searchable) {
+		// todo fixme
+		if (!this.props.searchable && nextProps.value) {
 			this.setState({
 				inputValue: nextProps.value.label
 			});

@@ -144,7 +144,8 @@ const Select = React.createClass({
 	},
 
 	componentWillReceiveProps (nextProps) {
-		if (!this.props.searchable) {
+		// todo fixme
+		if (!this.props.searchable && nextProps.value) {
 			this.setState({
 				inputValue: nextProps.value.label
 			})
