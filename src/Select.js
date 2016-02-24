@@ -145,7 +145,7 @@ const Select = React.createClass({
 
 	componentWillReceiveProps (nextProps) {
 		this.setState({
-			inputValue: nextProps.value.label
+			inputValue: nextProps.value ? nextProps.value.label : ""
 		})
 	},
 

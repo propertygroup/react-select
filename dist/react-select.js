@@ -15368,7 +15368,7 @@ var Select = _react2['default'].createClass({
 
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 		this.setState({
-			inputValue: nextProps.value.label
+			inputValue: nextProps.value ? nextProps.value.label : ""
 		});
 	},
 
