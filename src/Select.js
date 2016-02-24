@@ -145,7 +145,7 @@ const Select = React.createClass({
 
 	componentWillReceiveProps (nextProps) {
 		// todo fixme
-		if (!this.props.searchable && nextProps.value) {
+		if (nextProps.value) {
 			this.setState({
 				inputValue: nextProps.value.label
 			})
@@ -659,17 +659,6 @@ const Select = React.createClass({
 				</ValueComponent>
 			);
 		}
-
-		return (
-			<ValueComponent
-				disabled={this.props.disabled}
-				onClick={onClick}
-				value={valueArray[0]}
-			>
-				{renderLabel(valueArray[0])}
-			</ValueComponent>
-		);
-
 	},
 
 	renderInput (valueArray) {
