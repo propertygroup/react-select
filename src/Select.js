@@ -133,6 +133,7 @@ const Select = React.createClass({
 		if (this.props.autofocus) {
 			this.focus();
 		}
+
 	},
 
 	componentWillUpdate (nextProps, nextState) {
@@ -140,6 +141,12 @@ const Select = React.createClass({
 			const handler = nextState.isOpen ? nextProps.onOpen : nextProps.onClose;
 			handler && handler();
 		}
+	},
+
+	componentWillReceiveProps (nextProps) {
+		this.setState({
+			inputValue: nextProps.value.label
+		})
 	},
 
 	componentDidUpdate (prevProps, prevState) {
