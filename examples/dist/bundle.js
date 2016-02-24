@@ -14981,10 +14981,10 @@ var Async = _react2['default'].createClass({
 			cache: true,
 			ignoreAccents: true,
 			ignoreCase: true,
-			loadingPlaceholder: 'Loading...',
+			loadingPlaceholder: 'Ładowanie...',
 			minimumInput: 0,
-			searchingText: 'Searching...',
-			searchPromptText: 'Type to search'
+			searchingText: 'Szukanie...',
+			searchPromptText: 'Wpisz zby wyszukać'
 		};
 	},
 	getInitialState: function getInitialState() {
@@ -15427,7 +15427,7 @@ var Select = _react2['default'].createClass({
 			allowCreate: false,
 			backspaceRemoves: true,
 			clearable: true,
-			clearAllText: 'Wyczyść wszysttko',
+			clearAllText: 'Wyczyść wszystko',
 			clearValueText: 'Wyczyść wartość',
 			delimiter: ',',
 			disabled: false,
@@ -15445,7 +15445,7 @@ var Select = _react2['default'].createClass({
 			noResultsText: 'Brak wyników',
 			onBlurResetsInput: true,
 			optionComponent: _Option2['default'],
-			placeholder: 'Wybierz...',
+			placeholder: 'Wybierz',
 			required: false,
 			scrollMenuIntoView: true,
 			searchable: true,

@@ -60,10 +60,10 @@ const Async = React.createClass({
 			cache: true,
 			ignoreAccents: true,
 			ignoreCase: true,
-			loadingPlaceholder: 'Loading...',
+			loadingPlaceholder: 'Ładowanie...',
 			minimumInput: 0,
-			searchingText: 'Searching...',
-			searchPromptText: 'Type to search',
+			searchingText: 'Szukanie...',
+			searchPromptText: 'Wpisz zby wyszukać',
 		};
 	},
 	getInitialState () {
