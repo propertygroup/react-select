@@ -134,6 +134,11 @@ const Select = React.createClass({
 			this.focus();
 		}
 
+		if (this.props.value) {
+			this.setState({
+				inputValue: this.props.value.label
+			});
+		}
 	},
 
 	componentWillUpdate (nextProps, nextState) {
@@ -145,10 +150,10 @@ const Select = React.createClass({
 
 	componentWillReceiveProps (nextProps) {
 		// todo fixme
-		if (nextProps.value && !this.props.async) {
+		if (nextProps.value && !_.isEqual(this.props.value, nextProps.value)) {
 			this.setState({
 				inputValue: nextProps.value.label
-			})
+			});
 		}
 	},
 
@@ -656,11 +661,12 @@ const Select = React.createClass({
 				</ValueComponent>
 			);
 		} else if (this.props.async) {
-			return (
-				<ValueComponent disabled={this.props.disabled} onClick={onClick} value={valueArray[0]}>
-					{renderLabel(valueArray[0])}
-				</ValueComponent>
-			);
+			// wywala sie bo jest podwojnie
+			//return (
+			//	<ValueComponent disabled={this.props.disabled} onClick={onClick} value={valueArray[0]}>
+			//		{renderLabel(valueArray[0])}
+			//	</ValueComponent>
+			//);
 		}
 	},
 

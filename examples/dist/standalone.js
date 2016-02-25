@@ -15357,6 +15357,12 @@ var Select = _react2['default'].createClass({
 		if (this.props.autofocus) {
 			this.focus();
 		}
+
+		if (this.props.value) {
+			this.setState({
+				inputValue: this.props.value.label
+			});
+		}
 	},
 
 	componentWillUpdate: function componentWillUpdate(nextProps, nextState) {
@@ -15368,7 +15374,7 @@ var Select = _react2['default'].createClass({
 
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 		// todo fixme
-		if (nextProps.value && !this.props.async) {
+		if (nextProps.value && !_.isEqual(this.props.value, nextProps.value)) {
 			this.setState({
 				inputValue: nextProps.value.label
 			});
@@ -15902,11 +15908,12 @@ var Select = _react2['default'].createClass({
 					renderLabel(valueArray[0])
 				);
 			} else if (this.props.async) {
-				return _react2['default'].createElement(
-					ValueComponent,
-					{ disabled: this.props.disabled, onClick: onClick, value: valueArray[0] },
-					renderLabel(valueArray[0])
-				);
+				// wywala sie bo jest podwojnie
+				//return (
+				//	<ValueComponent disabled={this.props.disabled} onClick={onClick} value={valueArray[0]}>
+				//		{renderLabel(valueArray[0])}
+				//	</ValueComponent>
+				//);
 			}
 	},
 
