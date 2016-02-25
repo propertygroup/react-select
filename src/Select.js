@@ -651,11 +651,13 @@ const Select = React.createClass({
 		else if (!this.props.searchable || (!this.state.inputValue && this.props.required)) {
 			if (isOpen) onClick = null;
 			return (
-				<ValueComponent
-					disabled={this.props.disabled}
-					onClick={onClick}
-					value={valueArray[0]}
-					>
+				<ValueComponent disabled={this.props.disabled} onClick={onClick} value={valueArray[0]}>
+					{renderLabel(valueArray[0])}
+				</ValueComponent>
+			);
+		} else if (this.props.async) {
+			return (
+				<ValueComponent disabled={this.props.disabled} onClick={onClick} value={valueArray[0]}>
 					{renderLabel(valueArray[0])}
 				</ValueComponent>
 			);

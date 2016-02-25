@@ -15898,11 +15898,13 @@ var Select = _react2['default'].createClass({
 				if (isOpen) onClick = null;
 				return _react2['default'].createElement(
 					ValueComponent,
-					{
-						disabled: this.props.disabled,
-						onClick: onClick,
-						value: valueArray[0]
-					},
+					{ disabled: this.props.disabled, onClick: onClick, value: valueArray[0] },
+					renderLabel(valueArray[0])
+				);
+			} else if (this.props.async) {
+				return _react2['default'].createElement(
+					ValueComponent,
+					{ disabled: this.props.disabled, onClick: onClick, value: valueArray[0] },
 					renderLabel(valueArray[0])
 				);
 			}
