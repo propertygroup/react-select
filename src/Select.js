@@ -145,7 +145,7 @@ const Select = React.createClass({
 
 	componentWillReceiveProps (nextProps) {
 		// todo fixme
-		if (nextProps.value) {
+		if (nextProps.value && !this.props.async) {
 			this.setState({
 				inputValue: nextProps.value.label
 			})
