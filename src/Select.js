@@ -335,11 +335,15 @@ const Select = React.createClass({
 	handleInputBlur (event) {
 		if(!this.props.multi) {
 			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
-				this.setValue(this.props.required && this.props.options[0] || null);
-				this.setState({
-					isOpen: false,
-					inputValue: ''
-				});
+				if(!this.props.allowCreate) {
+					this.setValue(this.props.required && this.props.options[0] || null);
+					this.setState({
+						inputValue: ''
+					});
+				} else {
+					let option = {value: this.state.inputValue, label: this.state.inputValue}
+					this.setValue(option);
+				}
 			}
 		}
 
@@ -877,7 +881,7 @@ const Select = React.createClass({
 
 			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 
-		} else if (this.props.noResultsText) {
+		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			return (
 				<div className="Select-noresults">
 					{this.props.noResultsText}
