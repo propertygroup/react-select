@@ -15856,7 +15856,7 @@ var Select = _react2['default'].createClass({
 		var ValueComponent = this.props.valueComponent;
 
 		if (!valueArray.length) {
-			return !this.state.inputValue ? _react2['default'].createElement(
+			return !this.state.inputValue && !this.props.searchable ? _react2['default'].createElement(
 				'div',
 				{ className: 'Select-placeholder' },
 				this.props.placeholder
@@ -15956,6 +15956,8 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderArrow: function renderArrow() {
+		if (this.props.searchable) return;
+
 		return _react2['default'].createElement(
 			'span',
 			{ className: 'Select-arrow-zone', onMouseDown: this.handleMouseDownOnArrow },
