@@ -15374,10 +15374,17 @@ var Select = _react2['default'].createClass({
 
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 		// todo fixme
-		if (nextProps.value && !_.isEqual(this.props.value, nextProps.value)) {
-			this.setState({
-				inputValue: nextProps.value.label
-			});
+		if (nextProps.value) {
+			if (!_.isEqual(this.props.value, nextProps.value)) {
+				this.setState({
+					inputValue: nextProps.value.label
+				});
+			} else {
+				this.setValue(null);
+				this.setState({
+					inputValue: ""
+				});
+			}
 		}
 	},
 
