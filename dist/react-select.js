@@ -16117,7 +16117,7 @@ var Select = _react2['default'].createClass({
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
 		var _this2 = this;
 
-		if (this.props.searchable && this.state.inputValue != "") {
+		if (this.props.searchable && this.state.inputValue === "") {
 			return _react2['default'].createElement(
 				'div',
 				{ className: 'Select-noresults' },
