@@ -893,7 +893,7 @@ const Select = React.createClass({
 
 			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 
-		} else if (this.props.noResultsText && !this.props.allowCreate) {
+		} else if (this.props.noResultsText && !this.props.allowCreate && (this.props.searchable && this.state.inputValue != "")) {
 			return (
 				<div className="Select-noresults">
 					{this.props.noResultsText}

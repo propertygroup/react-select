@@ -16138,7 +16138,7 @@ var Select = _react2['default'].createClass({
 			return options.map(function (option, i) {
 				return _this2.renderOption(option, i, valueArray, focusedOption);
 			});
-		} else if (this.props.noResultsText && !this.props.allowCreate) {
+		} else if (this.props.noResultsText && !this.props.allowCreate && this.props.searchable && this.state.inputValue != "") {
 			return _react2['default'].createElement(
 				'div',
 				{ className: 'Select-noresults' },
