@@ -155,12 +155,12 @@ const Select = React.createClass({
 				this.setState({
 					inputValue: nextProps.value.label
 				});
-			} else {
-				this.setValue(null);
-				this.setState({
-					inputValue: ""
-				});
 			}
+		} else {
+			this.setValue(null);
+			this.setState({
+				inputValue: ""
+			});
 		}
 	},
 
