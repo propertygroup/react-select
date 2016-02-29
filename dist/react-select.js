@@ -15380,8 +15380,11 @@ var Select = _react2['default'].createClass({
 					inputValue: nextProps.value.label
 				});
 			}
-		} else if (!this.state.inputValue) {
+		} else if (!this.state.inputValue || !nextProps.value && this.props.value) {
 			this.setValue(null);
+			this.setState({
+				inputValue: ""
+			});
 		}
 	},
 
