@@ -876,7 +876,7 @@ const Select = React.createClass({
 	},
 
 	renderMenu (options, valueArray, focusedOption) {
-		if (this.props.searchable && this.state.inputValue === "") {
+		if (this.props.searchable && !this.props.allowCreate && this.state.inputValue === "") {
 			return (
 				<div className="Select-noresults">
 					Zacznij pisać aby zobaczyć wyniki
