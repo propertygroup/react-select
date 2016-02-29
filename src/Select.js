@@ -873,7 +873,13 @@ const Select = React.createClass({
 	},
 
 	renderMenu (options, valueArray, focusedOption) {
-		if (options && options.length) {
+		if (this.props.searchable && this.state.inputValue != "") {
+			return (
+				<div className="Select-noresults">
+					Zacznij pisać aby zobaczyć wyniki
+				</div>
+			);
+		} else if (options && options.length) {
 
 			let focusChanged = this.prevFocusedOption && this.prevFocusedOption.value != focusedOption.value;
 			this.prevFocusedOption = focusedOption;
@@ -893,7 +899,7 @@ const Select = React.createClass({
 
 			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 
-		} else if (this.props.noResultsText && !this.props.allowCreate && (this.props.searchable && this.state.inputValue != "")) {
+		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			return (
 				<div className="Select-noresults">
 					{this.props.noResultsText}

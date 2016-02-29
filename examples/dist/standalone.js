@@ -16117,7 +16117,13 @@ var Select = _react2['default'].createClass({
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
 		var _this2 = this;
 
-		if (options && options.length) {
+		if (this.props.searchable && this.state.inputValue != "") {
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'Select-noresults' },
+				'Zacznij pisać aby zobaczyć wyniki'
+			);
+		} else if (options && options.length) {
 
 			var focusChanged = this.prevFocusedOption && this.prevFocusedOption.value != focusedOption.value;
 			this.prevFocusedOption = focusedOption;
@@ -16138,7 +16144,7 @@ var Select = _react2['default'].createClass({
 			return options.map(function (option, i) {
 				return _this2.renderOption(option, i, valueArray, focusedOption);
 			});
-		} else if (this.props.noResultsText && !this.props.allowCreate && this.props.searchable && this.state.inputValue != "") {
+		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			return _react2['default'].createElement(
 				'div',
 				{ className: 'Select-noresults' },
