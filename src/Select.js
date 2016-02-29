@@ -473,6 +473,14 @@ const Select = React.createClass({
 		}
 	},
 
+	clear() {
+		this.setValue(null);
+		this.setState({
+			isOpen: false,
+			inputValue: ''
+		});
+	},
+
 	setValue (value) {
 		// na sytuacje gdy przychodzi []
 		if (_.isEmpty(value)) value = null;
