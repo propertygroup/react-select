@@ -848,7 +848,7 @@ const Select = React.createClass({
 		let Option = this.props.optionComponent;
 		let renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
-		let isSelected = valueArray && valueArray.indexOf(option) > -1;
+		let isSelected = valueArray && _.find(valueArray, elem => elem.value.toString() === option.value.toString());
 		let isFocused = option === focusedOption;
 		let optionRef = isFocused ? 'focused' : null;
 		let optionClass = classNames({
