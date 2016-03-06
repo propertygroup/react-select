@@ -13658,7 +13658,7 @@ var Select = _react2['default'].createClass({
 
 		var isSelected = valueArray && _.find(valueArray, function (elem) {
 			return elem.value.toString() === option.value.toString();
-		});
+		}) != null;
 		var isFocused = option === focusedOption;
 		var optionRef = isFocused ? 'focused' : null;
 		var optionClass = (0, _classnames2['default'])({
