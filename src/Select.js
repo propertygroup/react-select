@@ -541,7 +541,7 @@ const Select = React.createClass({
 
 	removeValue (value) {
 		var valueArray = this.getValueArray();
-		this.setValue(valueArray.filter(i => i !== value));
+		this.setValue(valueArray.filter(i => i.value.toString() !== value.value.toString()));
 		this.focus();
 	},
 

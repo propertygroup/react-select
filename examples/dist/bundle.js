@@ -13348,7 +13348,7 @@ var Select = _react2['default'].createClass({
 	removeValue: function removeValue(value) {
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(function (i) {
-			return i !== value;
+			return i.value.toString() !== value.value.toString();
 		}));
 		this.focus();
 	},
