@@ -543,7 +543,7 @@ const Select = React.createClass({
 
 	removeValue (value) {
 		var valueArray = this.getValueArray();
-		this.setValue(valueArray.filter(i => i !== value));
+		this.setValue(valueArray.filter(i => i.value.toString() !== value.value.toString()));
 		this.focus();
 	},
 
@@ -850,7 +850,8 @@ const Select = React.createClass({
 		let Option = this.props.optionComponent;
 		let renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
-		let isSelected = valueArray && valueArray.indexOf(option) > -1;
+		let isSelected = valueArray &&
+						_.find(valueArray, elem => elem.value.toString() === option.value.toString()) != null;
 		let isFocused = option === focusedOption;
 		let optionRef = isFocused ? 'focused' : null;
 		let optionClass = classNames({
