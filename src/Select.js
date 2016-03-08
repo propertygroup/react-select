@@ -642,7 +642,7 @@ const Select = React.createClass({
 			let label;
 			var valueArray = this.getValueArray();
 			if(valueArray.length === 0) {
-				label = "Wybierz"
+				label = this.props.placeholder;
 			} else if (valueArray.length === 1) {
 				label = valueArray[0].label;
 			} else if (valueArray.length === options.length) {
