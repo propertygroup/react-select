@@ -62,6 +62,7 @@ const Select = React.createClass({
 		onClose: React.PropTypes.func,              // fires when the menu is closed
 		onFocus: React.PropTypes.func,              // onFocus handler: function (event) {}
 		onInputChange: React.PropTypes.func,        // onInputChange handler: function (inputValue) {}
+		onInputBlur: React.PropTypes.func,
 		onMenuScrollToBottom: React.PropTypes.func, // fires when the menu is scrolled to the bottom; can be used to paginate options
 		onOpen: React.PropTypes.func,               // fires when the menu is opened
 		onValueClick: React.PropTypes.func,         // onClick handler for value labels: function (value, event) {}
@@ -699,18 +700,22 @@ const Select = React.createClass({
 					{...this.props.inputProps}
 					className={className}
 					tabIndex={this.props.tabIndex || 0}
-					onBlur={this.handleInputBlur}
-					onFocus={this.handleInputFocus}
 					ref="input"
 					style={{ border: 0, width: 1, display:'inline-block' }}/>
 			);
 		}
+
+		let onBlur = (event) => {
+			this.props.onInputBlur && this.props.onInputBlur(event);
+			this.handleInputBlur(event)
+		};
+
 		return (
 			<input
 				{...this.props.inputProps}
 				className={className}
 				tabIndex={this.props.tabIndex}
-				onBlur={this.handleInputBlur}
+				onBlur={onBlur}
 				onChange={this.handleInputChange}
 				onFocus={this.handleInputFocus}
 				minWidth="5"
@@ -846,12 +851,17 @@ const Select = React.createClass({
 		//}
 	},
 
+	areOptionsEqual(option1, option2) {
+		let value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
+		let value2 = !_.isUndefined(option2.value) ? option2.value.toString() : "";
+		return value1 === value2;
+	},
+
 	renderOption (option, index, valueArray, focusedOption) {
 		let Option = this.props.optionComponent;
 		let renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
-		let isSelected = valueArray &&
-						_.find(valueArray, elem => elem.value.toString() === option.value.toString()) != null;
+		let isSelected = valueArray && _.find(valueArray, this.areOptionsEqual) != null;
 		let isFocused = option === focusedOption;
 		let optionRef = isFocused ? 'focused' : null;
 		let optionClass = classNames({

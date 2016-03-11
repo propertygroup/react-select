@@ -15286,6 +15286,7 @@ var Select = _react2['default'].createClass({
 		onClose: _react2['default'].PropTypes.func, // fires when the menu is closed
 		onFocus: _react2['default'].PropTypes.func, // onFocus handler: function (event) {}
 		onInputChange: _react2['default'].PropTypes.func, // onInputChange handler: function (inputValue) {}
+		onInputBlur: _react2['default'].PropTypes.func,
 		onMenuScrollToBottom: _react2['default'].PropTypes.func, // fires when the menu is scrolled to the bottom; can be used to paginate options
 		onOpen: _react2['default'].PropTypes.func, // fires when the menu is opened
 		onValueClick: _react2['default'].PropTypes.func, // onClick handler for value labels: function (value, event) {}
@@ -15939,20 +15940,26 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderInput: function renderInput(valueArray) {
+		var _this2 = this;
+
 		var className = (0, _classnames2['default'])('Select-input', this.props.inputProps.className);
 		if (this.props.disabled || !this.props.searchable) {
 			return _react2['default'].createElement('div', _extends({}, this.props.inputProps, {
 				className: className,
 				tabIndex: this.props.tabIndex || 0,
-				onBlur: this.handleInputBlur,
-				onFocus: this.handleInputFocus,
 				ref: 'input',
 				style: { border: 0, width: 1, display: 'inline-block' } }));
 		}
+
+		var onBlur = function onBlur(event) {
+			_this2.props.onInputBlur && _this2.props.onInputBlur(event);
+			_this2.handleInputBlur(event);
+		};
+
 		return _react2['default'].createElement('input', _extends({}, this.props.inputProps, {
 			className: className,
 			tabIndex: this.props.tabIndex,
-			onBlur: this.handleInputBlur,
+			onBlur: onBlur,
 			onChange: this.handleInputChange,
 			onFocus: this.handleInputFocus,
 			minWidth: '5',
@@ -16088,13 +16095,17 @@ var Select = _react2['default'].createClass({
 		//}
 	},
 
+	areOptionsEqual: function areOptionsEqual(option1, option2) {
+		var value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
+		var value2 = !_.isUndefined(option2.value) ? option2.value.toString() : "";
+		return value1 === value2;
+	},
+
 	renderOption: function renderOption(option, index, valueArray, focusedOption) {
 		var Option = this.props.optionComponent;
 		var renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
-		var isSelected = valueArray && _.find(valueArray, function (elem) {
-			return elem.value.toString() === option.value.toString();
-		}) != null;
+		var isSelected = valueArray && _.find(valueArray, this.areOptionsEqual) != null;
 		var isFocused = option === focusedOption;
 		var optionRef = isFocused ? 'focused' : null;
 		var optionClass = (0, _classnames2['default'])({
@@ -16122,7 +16133,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
-		var _this2 = this;
+		var _this3 = this;
 
 		if (this.props.searchable && !this.props.allowCreate && this.state.inputValue === "") {
 			return _react2['default'].createElement(
@@ -16149,7 +16160,7 @@ var Select = _react2['default'].createClass({
 			//);
 
 			return options.map(function (option, i) {
-				return _this2.renderOption(option, i, valueArray, focusedOption);
+				return _this3.renderOption(option, i, valueArray, focusedOption);
 			});
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			return _react2['default'].createElement(
@@ -16163,11 +16174,11 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
-		var _this3 = this;
+		var _this4 = this;
 
 		if (!this.props.name) return;
 		var value = valueArray.map(function (i) {
-			return stringifyValue(i[_this3.props.valueKey]);
+			return stringifyValue(i[_this4.props.valueKey]);
 		}).join(this.props.delimiter);
 		return _react2['default'].createElement('input', { type: 'hidden', ref: 'value', name: this.props.name, value: value, disabled: this.props.disabled });
 	},
