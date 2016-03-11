@@ -405,7 +405,9 @@ const Select = React.createClass({
 			case 13: // enter
 				if (!this.state.isOpen) return;
 				event.stopPropagation();
-				this.selectFocusedOption();
+				if (this.state.inputValue) {
+					this.selectFocusedOption();
+				}
 			break;
 			case 27: // escape
 				if (this.state.isOpen) {
