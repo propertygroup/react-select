@@ -400,7 +400,9 @@ const Select = React.createClass({
 				if (event.shiftKey || !this.state.isOpen) {
 					return;
 				}
-				this.selectFocusedOption();
+				if (this.state.inputValue) {
+					this.selectFocusedOption();
+				}
 			return;
 			case 13: // enter
 				if (!this.state.isOpen) return;
