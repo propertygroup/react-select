@@ -16006,7 +16006,6 @@ var Select = _react2['default'].createClass({
 		if (this.props.multi) {
 			if (isOpen) onClick = null;
 			var label = undefined;
-			var valueArray = this.getValueArray();
 			if (valueArray.length === 0) {
 				label = this.props.placeholder;
 			} else if (valueArray.length === 1) {
@@ -16025,53 +16024,42 @@ var Select = _react2['default'].createClass({
 				},
 				label
 			);
-
-			//return valueArray.map((value, i) => {
-			//	return (
-			//		<ValueComponent
-			//			disabled={this.props.disabled || value.clearableValue === false}
-			//			key={`value-${i}-${value[this.props.valueKey]}`}
-			//			onClick={onClick}
-			//			onRemove={this.removeValue}
-			//			value={value}
-			//			>
-			//			{renderLabel(value)}
-			//		</ValueComponent>
-			//	);
-			//});
 		} else if (!this.props.searchable || !this.state.inputValue && this.props.required) {
-				if (isOpen) onClick = null;
-				return _react2['default'].createElement(
-					ValueComponent,
-					{ disabled: this.props.disabled, onClick: onClick, value: valueArray[0] },
-					renderLabel(valueArray[0])
-				);
-			} else if (this.props.async) {
-				// wywala sie bo jest podwojnie
-				//return (
-				//	<ValueComponent disabled={this.props.disabled} onClick={onClick} value={valueArray[0]}>
-				//		{renderLabel(valueArray[0])}
-				//	</ValueComponent>
-				//);
-			}
+			if (isOpen) onClick = null;
+			return _react2['default'].createElement(
+				ValueComponent,
+				{ disabled: this.props.disabled, onClick: onClick, value: valueArray[0] },
+				renderLabel(valueArray[0])
+			);
+		} else if (this.props.async) {
+			// wywala sie bo jest podwojnie
+			//return (
+			//	<ValueComponent disabled={this.props.disabled} onClick={onClick} value={valueArray[0]}>
+			//		{renderLabel(valueArray[0])}
+			//	</ValueComponent>
+			//);
+		}
 	},
 
 	renderInput: function renderInput(valueArray) {
 		var _this2 = this;
 
 		var className = (0, _classnames2['default'])('Select-input', this.props.inputProps.className);
-		if (this.props.disabled || !this.props.searchable) {
-			return _react2['default'].createElement('div', _extends({}, this.props.inputProps, {
-				className: className,
-				tabIndex: this.props.tabIndex || 0,
-				ref: 'input',
-				style: { border: 0, width: 1, display: 'inline-block' } }));
-		}
 
 		var onBlur = function onBlur(event) {
 			_this2.props.onInputBlur && _this2.props.onInputBlur(event);
 			_this2.handleInputBlur(event);
 		};
+
+		if (this.props.disabled || !this.props.searchable) {
+			return _react2['default'].createElement('div', _extends({}, this.props.inputProps, {
+				className: className,
+				tabIndex: this.props.tabIndex || 0,
+				onBlur: onBlur,
+				ref: 'input',
+				style: { border: 0, width: 1, display: 'inline-block' }
+			}));
+		}
 
 		return _react2['default'].createElement('input', _extends({}, this.props.inputProps, {
 			className: className,
@@ -16219,10 +16207,14 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderOption: function renderOption(option, index, valueArray, focusedOption) {
+		var _this3 = this;
+
 		var Option = this.props.optionComponent;
 		var renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
-		var isSelected = valueArray && _.find(valueArray, this.areOptionsEqual) != null;
+		var isSelected = valueArray && _.find(valueArray, function (value) {
+			return _this3.areOptionsEqual(value, option);
+		}) != null;
 		var isFocused = option === focusedOption;
 		var optionRef = isFocused ? 'focused' : null;
 		var optionClass = (0, _classnames2['default'])({
@@ -16250,7 +16242,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
-		var _this3 = this;
+		var _this4 = this;
 
 		if (this.props.searchable && !this.props.allowCreate && this.state.inputValue === "") {
 			return _react2['default'].createElement(
@@ -16259,25 +16251,9 @@ var Select = _react2['default'].createClass({
 				'Zacznij pisać aby zobaczyć wyniki'
 			);
 		} else if (options && options.length) {
-
-			var focusChanged = this.prevFocusedOption && this.prevFocusedOption.value != focusedOption.value;
 			this.prevFocusedOption = focusedOption;
-			var i = 0;
-			//return (
-			//	<VirtualList
-			//			ref="list"
-			//			items={options}
-			//			forceUpdate={this.state.forceRenderList || focusChanged}
-			//			preferredHeight={200}
-			//			container={this.refs.menu}
-			//			renderItem={(item) => this.renderOption(item, i++, valueArray, focusedOption)}
-			//			itemBuffer={2}
-			//			itemHeight={36}
-			//	/>
-			//);
-
 			return options.map(function (option, i) {
-				return _this3.renderOption(option, i, valueArray, focusedOption);
+				return _this4.renderOption(option, i, valueArray, focusedOption);
 			});
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			return _react2['default'].createElement(
@@ -16291,11 +16267,11 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
-		var _this4 = this;
+		var _this5 = this;
 
 		if (!this.props.name) return;
 		var value = valueArray.map(function (i) {
-			return stringifyValue(i[_this4.props.valueKey]);
+			return stringifyValue(i[_this5.props.valueKey]);
 		}).join(this.props.delimiter);
 		return _react2['default'].createElement('input', { type: 'hidden', ref: 'value', name: this.props.name, value: value, disabled: this.props.disabled });
 	},

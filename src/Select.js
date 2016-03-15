@@ -645,7 +645,6 @@ const Select = React.createClass({
 		if (this.props.multi) {
 			if (isOpen) onClick = null;
 			let label;
-			var valueArray = this.getValueArray();
 			if(valueArray.length === 0) {
 				label = this.props.placeholder;
 			} else if (valueArray.length === 1) {
@@ -664,20 +663,6 @@ const Select = React.createClass({
 					{label}
 				</ValueComponent>
 			);
-
-			//return valueArray.map((value, i) => {
-			//	return (
-			//		<ValueComponent
-			//			disabled={this.props.disabled || value.clearableValue === false}
-			//			key={`value-${i}-${value[this.props.valueKey]}`}
-			//			onClick={onClick}
-			//			onRemove={this.removeValue}
-			//			value={value}
-			//			>
-			//			{renderLabel(value)}
-			//		</ValueComponent>
-			//	);
-			//});
 		}
 		else if (!this.props.searchable || (!this.state.inputValue && this.props.required)) {
 			if (isOpen) onClick = null;
@@ -698,21 +683,25 @@ const Select = React.createClass({
 
 	renderInput (valueArray) {
 		var className = classNames('Select-input', this.props.inputProps.className);
+
+		let onBlur = (event) => {
+			this.props.onInputBlur && this.props.onInputBlur(event);
+			this.handleInputBlur(event)
+		};
+
 		if (this.props.disabled || !this.props.searchable) {
 			return (
 				<div
 					{...this.props.inputProps}
 					className={className}
 					tabIndex={this.props.tabIndex || 0}
+					onBlur={onBlur}
 					ref="input"
-					style={{ border: 0, width: 1, display:'inline-block' }}/>
+					style={{ border: 0, width: 1, display:'inline-block' }}
+				>
+				</div>
 			);
 		}
-
-		let onBlur = (event) => {
-			this.props.onInputBlur && this.props.onInputBlur(event);
-			this.handleInputBlur(event)
-		};
 
 		return (
 			<input
@@ -865,7 +854,7 @@ const Select = React.createClass({
 		let Option = this.props.optionComponent;
 		let renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
-		let isSelected = valueArray && _.find(valueArray, this.areOptionsEqual) != null;
+		let isSelected = valueArray && _.find(valueArray, value => this.areOptionsEqual(value, option)) != null;
 		let isFocused = option === focusedOption;
 		let optionRef = isFocused ? 'focused' : null;
 		let optionClass = classNames({
@@ -900,25 +889,8 @@ const Select = React.createClass({
 				</div>
 			);
 		} else if (options && options.length) {
-
-			let focusChanged = this.prevFocusedOption && this.prevFocusedOption.value != focusedOption.value;
 			this.prevFocusedOption = focusedOption;
-			let i=0;
-			//return (
-			//	<VirtualList
-			//			ref="list"
-			//			items={options}
-			//			forceUpdate={this.state.forceRenderList || focusChanged}
-			//			preferredHeight={200}
-			//			container={this.refs.menu}
-			//			renderItem={(item) => this.renderOption(item, i++, valueArray, focusedOption)}
-			//			itemBuffer={2}
-			//			itemHeight={36}
-			//	/>
-			//);
-
 			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
-
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			return (
 				<div className="Select-noresults">
