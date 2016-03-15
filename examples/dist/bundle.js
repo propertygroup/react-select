@@ -15924,7 +15924,7 @@ var Select = _react2['default'].createClass({
 
 	addValue: function addValue(value) {
 		var valueArray = this.getValueArray();
-		this.setValue(valueArray.concat(value));
+		this.setValue(valueArray.concat([value]));
 	},
 
 	toggleValue: function toggleValue(value) {
@@ -16220,13 +16220,9 @@ var Select = _react2['default'].createClass({
 					{ className: 'multiselect-selected-value' },
 					option.label
 				),
-				_react2['default'].createElement(
-					'span',
-					{ className: 'multiselect-selected-remove unselectable', onClick: function () {
-							return _this4.removeValue(option);
-						} },
-					'DELETE'
-				)
+				_react2['default'].createElement('span', { className: 'multiselect-selected-remove unselectable', onClick: function () {
+						return _this4.removeValue(option);
+					} })
 			);
 		});
 

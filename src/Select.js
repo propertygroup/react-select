@@ -575,7 +575,7 @@ const Select = React.createClass({
 
 	addValue (value) {
 		var valueArray = this.getValueArray();
-		this.setValue(valueArray.concat(value));
+		this.setValue(valueArray.concat([value]));
 	},
 
 	toggleValue (value) {
@@ -855,7 +855,7 @@ const Select = React.createClass({
 			return (
 				<li key={index} className="multiselect-selected-item">
 					<span className="multiselect-selected-value">{option.label}</span>
-					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option)}>DELETE</span>
+					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option)}></span>
 				</li>
 			)
 		});
