@@ -558,7 +558,7 @@ const Select = React.createClass({
 
 	selectValue (value) {
 		//this.hasScrolledToOption = false;
-		if (this.isAutocomplete()) {
+		if (this.isMultiselect()) {
 			this.toggleValue(value);
 			//this.setState({
 			//	inputValue: value.label,
@@ -861,7 +861,7 @@ const Select = React.createClass({
 		});
 
 		return (
-			<ul class="multiselect-selected-list">
+			<ul className="multiselect-selected-list">
 				{renderedOptions}
 			</ul>
 		)

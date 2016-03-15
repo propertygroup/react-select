@@ -15794,7 +15794,7 @@ var Select = _react2['default'].createClass({
 
 	selectValue: function selectValue(value) {
 		//this.hasScrolledToOption = false;
-		if (this.isAutocomplete()) {
+		if (this.isMultiselect()) {
 			this.toggleValue(value);
 			//this.setState({
 			//	inputValue: value.label,
@@ -16119,7 +16119,7 @@ var Select = _react2['default'].createClass({
 
 		return _react2['default'].createElement(
 			'ul',
-			{ 'class': 'multiselect-selected-list' },
+			{ className: 'multiselect-selected-list' },
 			renderedOptions
 		);
 	},
