@@ -16214,15 +16214,15 @@ var Select = _react2['default'].createClass({
 		var renderedOptions = _.map(selectedOptions, function (option, index) {
 			return _react2['default'].createElement(
 				'li',
-				{ key: index, 'class': 'multiselect-selected-item' },
+				{ key: index, className: 'multiselect-selected-item' },
 				_react2['default'].createElement(
 					'span',
-					{ 'class': 'multiselect-selected-value' },
+					{ className: 'multiselect-selected-value' },
 					option.label
 				),
 				_react2['default'].createElement(
 					'span',
-					{ 'class': 'multiselect-selected-remove unselectable', onClick: function () {
+					{ className: 'multiselect-selected-remove unselectable', onClick: function () {
 							return _this4.removeValue(option);
 						} },
 					'DELETE'

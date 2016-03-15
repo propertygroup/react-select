@@ -853,9 +853,9 @@ const Select = React.createClass({
 	renderAutocompleteSelectedOpions(selectedOptions) {
 		let renderedOptions = _.map(selectedOptions, (option, index) => {
 			return (
-				<li key={index} class="multiselect-selected-item">
-					<span class="multiselect-selected-value">{option.label}</span>
-					<span class="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option)}>DELETE</span>
+				<li key={index} className="multiselect-selected-item">
+					<span className="multiselect-selected-value">{option.label}</span>
+					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option)}>DELETE</span>
 				</li>
 			)
 		});
