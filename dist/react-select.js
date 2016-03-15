@@ -15398,7 +15398,10 @@ var Select = _react2['default'].createClass({
 			this.hasScrolledToOption = false;
 		}
 
-		if (prevState.inputValue !== this.state.inputValue && this.props.onInputChange) {
+		var prevInput = prevState.inputValue;
+		var input = this.state.inputValue;
+
+		if (input != null && prevInput !== input && this.props.onInputChange) {
 			this.props.onInputChange(this.state.inputValue);
 		}
 		if (this._scrollToFocusedOptionOnUpdate && this.refs.focused && this.refs.menu) {
@@ -15490,7 +15493,7 @@ var Select = _react2['default'].createClass({
 		var label = undefined;
 		if (valueArray.length === 0) {
 			label = this.props.placeholder;
-		} else if (valueArray.length === 1) {
+		} else if (valueArray.length === 1 && this.isMultiselectStandard()) {
 			label = valueArray[0].label;
 		} else if (valueArray.length === options.length) {
 			label = "Wybrano wszystkie (" + options.length + ")";
@@ -15738,31 +15741,36 @@ var Select = _react2['default'].createClass({
 
 	getValueArray: function getValueArray() {
 		var value = this.props.value;
-		if (this.isAutocomplete()) {
-			if (typeof value === 'string') value = value.split(this.props.delimiter);
-			if (!Array.isArray(value)) {
-				if (value === null || value === undefined) return [];
-				value = [value];
-			}
-			return value.map(this.expandValue).filter(function (i) {
-				return i;
-			});
+		if (value == null) {
+			return [];
+		} else if (!_.isArray(value)) {
+			return [value];
 		}
-		var expandedValue = this.expandValue(value);
-		return expandedValue ? [expandedValue] : [];
+		return value;
 	},
 
-	expandValue: function expandValue(value) {
-		if (typeof value !== 'string' && typeof value !== 'number') return value;
-		var _props = this.props;
-		var options = _props.options;
-		var valueKey = _props.valueKey;
+	//getValueArray () {
+	//	let value = this.props.value;
+	//	if (this.isAutocomplete()) {
+	//		if (typeof value === 'string') value = value.split(this.props.delimiter);
+	//		if (!Array.isArray(value)) {
+	//			if (value === null || value === undefined) return [];
+	//			value = [value];
+	//		}
+	//		return value.map(this.expandValue).filter(i => i);
+	//	}
+	//	var expandedValue = this.expandValue(value);
+	//	return expandedValue ? [expandedValue] : [];
+	//},
 
-		if (!options) return;
-		for (var i = 0; i < options.length; i++) {
-			if (options[i][valueKey] === value) return options[i];
-		}
-	},
+	//expandValue (value) {
+	//	if (typeof value !== 'string' && typeof value !== 'number') return value;
+	//	let { options, valueKey } = this.props;
+	//	if (!options) return;
+	//	for (var i = 0; i < options.length; i++) {
+	//		if (options[i][valueKey] === value) return options[i];
+	//	}
+	//},
 
 	clear: function clear() {
 		this.setValue(null);
@@ -16183,7 +16191,6 @@ var Select = _react2['default'].createClass({
 				}
 			}
 		} else if (options && options.length) {
-			this.prevFocusedOption = focusedOption;
 			return options.map(function (option, i) {
 				return _this6.renderOption(option, i, valueArray, focusedOption);
 			});
@@ -16202,8 +16209,9 @@ var Select = _react2['default'].createClass({
 		var _this7 = this;
 
 		if (!this.props.name) return;
-		var value = valueArray.map(function (i) {
-			return stringifyValue(i[_this7.props.valueKey]);
+		var value = _.map(valueArray, function (i) {
+			var x = valueArray.length;
+			stringifyValue(i[_this7.props.valueKey]);
 		}).join(this.props.delimiter);
 		return _react2['default'].createElement('input', { type: 'hidden', ref: 'value', name: this.props.name, value: value, disabled: this.isDiabled() });
 	},
@@ -16230,7 +16238,7 @@ var Select = _react2['default'].createClass({
 		var valueArray = this.getValueArray();
 		var options = this._visibleOptions = this.filterOptions(this.isMultiselectAutocomplete() ? valueArray : null);
 		var isOpen = this.isOpen();
-		if (this.props.multi && !options.length && valueArray.length && this.isInputEmpty()) isOpen = false;
+		//if (this.isMultiselect() && !options.length && valueArray.length && this.isInputEmpty()) isOpen = false;
 		var focusedOption = this._focusedOption = this.getFocusableOption(valueArray[0]);
 		var className = (0, _classnames2['default'])('Select', this.props.className, {
 			//'Select--multi': this.props.multi,
@@ -16247,17 +16255,11 @@ var Select = _react2['default'].createClass({
 		//let shouldRenderList = this.state.isOpen && this.refs.menu;
 		//console.log("should render list", shouldRenderList);
 
-		var x = this.isMultiselectAutocomplete() && _react2['default'].createElement(
-			'pre',
-			null,
-			JSON.stringify(this.state, null, 2),
-			JSON.stringify(this.props.value, null, 2)
-		);
+		//let x = this.isMultiselectAutocomplete() && <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
 
 		return _react2['default'].createElement(
 			'div',
 			{ ref: 'wrapper', className: className, style: this.props.wrapperStyle },
-			x,
 			this.renderHiddenField(valueArray),
 			_react2['default'].createElement(
 				'div',

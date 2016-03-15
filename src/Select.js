@@ -174,7 +174,10 @@ const Select = React.createClass({
 			this.hasScrolledToOption = false;
 		}
 
-		if (prevState.inputValue !== this.state.inputValue && this.props.onInputChange) {
+		let prevInput = prevState.inputValue;
+		let input = this.state.inputValue;
+
+		if (input != null && prevInput !== input && this.props.onInputChange) {
 			this.props.onInputChange(this.state.inputValue);
 		}
 		if (this._scrollToFocusedOptionOnUpdate && this.refs.focused && this.refs.menu) {
@@ -267,7 +270,7 @@ const Select = React.createClass({
 		let label;
 		if (valueArray.length === 0) {
 			label = this.props.placeholder;
-		} else if (valueArray.length === 1) {
+		} else if (valueArray.length === 1 && this.isMultiselectStandard()) {
 			label = valueArray[0].label;
 		} else if (valueArray.length === options.length) {
 			label = "Wybrano wszystkie (" + options.length + ")";
@@ -509,28 +512,38 @@ const Select = React.createClass({
 		return op[this.props.labelKey];
 	},
 
-	getValueArray () {
+	getValueArray() {
 		let value = this.props.value;
-		if (this.isAutocomplete()) {
-			if (typeof value === 'string') value = value.split(this.props.delimiter);
-			if (!Array.isArray(value)) {
-				if (value === null || value === undefined) return [];
-				value = [value];
-			}
-			return value.map(this.expandValue).filter(i => i);
+		if (value == null) {
+			return []
+		} else if (!_.isArray(value)) {
+			return [value];
 		}
-		var expandedValue = this.expandValue(value);
-		return expandedValue ? [expandedValue] : [];
+		return value;
 	},
 
-	expandValue (value) {
-		if (typeof value !== 'string' && typeof value !== 'number') return value;
-		let { options, valueKey } = this.props;
-		if (!options) return;
-		for (var i = 0; i < options.length; i++) {
-			if (options[i][valueKey] === value) return options[i];
-		}
-	},
+	//getValueArray () {
+	//	let value = this.props.value;
+	//	if (this.isAutocomplete()) {
+	//		if (typeof value === 'string') value = value.split(this.props.delimiter);
+	//		if (!Array.isArray(value)) {
+	//			if (value === null || value === undefined) return [];
+	//			value = [value];
+	//		}
+	//		return value.map(this.expandValue).filter(i => i);
+	//	}
+	//	var expandedValue = this.expandValue(value);
+	//	return expandedValue ? [expandedValue] : [];
+	//},
+
+	//expandValue (value) {
+	//	if (typeof value !== 'string' && typeof value !== 'number') return value;
+	//	let { options, valueKey } = this.props;
+	//	if (!options) return;
+	//	for (var i = 0; i < options.length; i++) {
+	//		if (options[i][valueKey] === value) return options[i];
+	//	}
+	//},
 
 	clear() {
 		this.setValue(null);
@@ -924,7 +937,6 @@ const Select = React.createClass({
 				}
 			}
 		} else if (options && options.length) {
-			this.prevFocusedOption = focusedOption;
 			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			return (
@@ -939,7 +951,10 @@ const Select = React.createClass({
 
 	renderHiddenField (valueArray) {
 		if (!this.props.name) return;
-		let value = valueArray.map(i => stringifyValue(i[this.props.valueKey])).join(this.props.delimiter);
+		let value = _.map(valueArray, i => {
+			let x = valueArray.length;
+			stringifyValue(i[this.props.valueKey]);
+		}).join(this.props.delimiter);
 		return <input type="hidden" ref="value" name={this.props.name} value={value} disabled={this.isDiabled()} />;
 	},
 
@@ -965,7 +980,7 @@ const Select = React.createClass({
 		let valueArray = this.getValueArray();
 		let options = this._visibleOptions = this.filterOptions(this.isMultiselectAutocomplete() ? valueArray : null);
 		let isOpen = this.isOpen();
-		if (this.props.multi && !options.length && valueArray.length && this.isInputEmpty()) isOpen = false;
+		//if (this.isMultiselect() && !options.length && valueArray.length && this.isInputEmpty()) isOpen = false;
 		let focusedOption = this._focusedOption = this.getFocusableOption(valueArray[0]);
 		let className = classNames('Select', this.props.className, {
 			//'Select--multi': this.props.multi,
@@ -982,11 +997,10 @@ const Select = React.createClass({
 		//let shouldRenderList = this.state.isOpen && this.refs.menu;
 		//console.log("should render list", shouldRenderList);
 
-		let x = this.isMultiselectAutocomplete() && <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
+		//let x = this.isMultiselectAutocomplete() && <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
 
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
-				{x}
 				{this.renderHiddenField(valueArray)}
 				<div ref="control"
 						 className="Select-control"
