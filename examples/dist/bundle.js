@@ -16091,6 +16091,7 @@ var Select = _react2['default'].createClass({
 				className: className,
 				tabIndex: this.props.tabIndex || 0,
 				onBlur: onBlur,
+				onFocus: this.handleInputFocus,
 				ref: 'input',
 				style: { border: 0, width: 1, display: 'inline-block' }
 			}));
@@ -16368,11 +16369,17 @@ var Select = _react2['default'].createClass({
 		//let shouldRenderList = this.state.isOpen && this.refs.menu;
 		//console.log("should render list", shouldRenderList);
 
-		//let x = this.isMultiselectAutocomplete() && <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
+		var x = _react2['default'].createElement(
+			'pre',
+			null,
+			JSON.stringify(this.state, null, 2),
+			JSON.stringify(this.props.value, null, 2)
+		);
 
 		return _react2['default'].createElement(
 			'div',
 			{ ref: 'wrapper', className: className, style: this.props.wrapperStyle },
+			x,
 			this.renderHiddenField(valueArray),
 			_react2['default'].createElement(
 				'div',
