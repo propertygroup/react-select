@@ -342,9 +342,7 @@ const Select = React.createClass({
 		if (!this.isAutocomplete()) {
 			this.focus();
 			this.toggleMenu(!this.isOpen());
-		}
-
-		if (this.isFocused()) {
+		} else if (this.isFocused()) {
 			// if the input is focused, ensure the menu is open
 			this.togglePseudoFocus(false);
 			this.toggleMenu(true);
@@ -391,8 +389,15 @@ const Select = React.createClass({
 		this.hasScrolledToOption = false;
 	},
 
+	handleNormalSelectFocus (event) {
+		if (this.props.onFocus) {
+			this.props.onFocus(event);
+		}
+		this.toggleFocus(true);
+	},
+
 	handleInputFocus (event) {
-		var isOpen = this.isOpen() || this._openAfterFocus;
+		var isOpen = this.isOpen() || this._openAfterFocus || this.isMultiselectAutocomplete();
 		if (this.props.onFocus) {
 			this.props.onFocus(event);
 		}
@@ -457,9 +462,12 @@ const Select = React.createClass({
 				}
 			return;
 			case 13: // enter
-				if (!this.isOpen()) return;
+				if (!this.isOpen()) {
+					this.toggleMenu(true);
+					return;
+				}
 				event.stopPropagation();
-				if (!this.isInputEmpty()) {
+				if (!this.isAutocomplete() || (this.isAutocomplete() && !this.isInputEmpty())) {
 					this.selectFocusedOption();
 				}
 			break;
@@ -742,7 +750,7 @@ const Select = React.createClass({
 					className={className}
 					tabIndex={this.props.tabIndex || 0}
 					onBlur={onBlur}
-					onFocus={this.handleInputFocus}
+					onFocus={this.handleNormalSelectFocus}
 					ref="input"
 					style={{ border: 0, width: 1, display:'inline-block' }}
 				>
@@ -998,11 +1006,10 @@ const Select = React.createClass({
 		//let shouldRenderList = this.state.isOpen && this.refs.menu;
 		//console.log("should render list", shouldRenderList);
 
-		let x = <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
+		//let x = <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
 
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
-				{x}
 				{this.renderHiddenField(valueArray)}
 				<div ref="control"
 						 className="Select-control"

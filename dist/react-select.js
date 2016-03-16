@@ -15561,9 +15561,7 @@ var Select = _react2['default'].createClass({
 		if (!this.isAutocomplete()) {
 			this.focus();
 			this.toggleMenu(!this.isOpen());
-		}
-
-		if (this.isFocused()) {
+		} else if (this.isFocused()) {
 			// if the input is focused, ensure the menu is open
 			this.togglePseudoFocus(false);
 			this.toggleMenu(true);
@@ -15610,8 +15608,15 @@ var Select = _react2['default'].createClass({
 		this.hasScrolledToOption = false;
 	},
 
+	handleNormalSelectFocus: function handleNormalSelectFocus(event) {
+		if (this.props.onFocus) {
+			this.props.onFocus(event);
+		}
+		this.toggleFocus(true);
+	},
+
 	handleInputFocus: function handleInputFocus(event) {
-		var isOpen = this.isOpen() || this._openAfterFocus;
+		var isOpen = this.isOpen() || this._openAfterFocus || this.isMultiselectAutocomplete();
 		if (this.props.onFocus) {
 			this.props.onFocus(event);
 		}
@@ -15679,9 +15684,12 @@ var Select = _react2['default'].createClass({
 				return;
 			case 13:
 				// enter
-				if (!this.isOpen()) return;
+				if (!this.isOpen()) {
+					this.toggleMenu(true);
+					return;
+				}
 				event.stopPropagation();
-				if (!this.isInputEmpty()) {
+				if (!this.isAutocomplete() || this.isAutocomplete() && !this.isInputEmpty()) {
 					this.selectFocusedOption();
 				}
 				break;
@@ -15978,7 +15986,7 @@ var Select = _react2['default'].createClass({
 				className: className,
 				tabIndex: this.props.tabIndex || 0,
 				onBlur: onBlur,
-				onFocus: this.handleInputFocus,
+				onFocus: this.handleNormalSelectFocus,
 				ref: 'input',
 				style: { border: 0, width: 1, display: 'inline-block' }
 			}));
@@ -16256,17 +16264,11 @@ var Select = _react2['default'].createClass({
 		//let shouldRenderList = this.state.isOpen && this.refs.menu;
 		//console.log("should render list", shouldRenderList);
 
-		var x = _react2['default'].createElement(
-			'pre',
-			null,
-			JSON.stringify(this.state, null, 2),
-			JSON.stringify(this.props.value, null, 2)
-		);
+		//let x = <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
 
 		return _react2['default'].createElement(
 			'div',
 			{ ref: 'wrapper', className: className, style: this.props.wrapperStyle },
-			x,
 			this.renderHiddenField(valueArray),
 			_react2['default'].createElement(
 				'div',
