@@ -16070,7 +16070,10 @@ var Select = _react2['default'].createClass({
 					var tokenValid = false;
 					for (var k = 0; k < tokens.length; k++) {
 						// "mazowieckie", "warszawa"
-						if (tokens[k].trim().toLowerCase().indexOf(queryTokens[j].trim()) == 0) {
+						var normalizedToken = tokens[k].trim().toLowerCase();
+						var normalizedQueryToken = queryTokens[j].trim();
+						var pos = normalizedToken.indexOf(normalizedQueryToken);
+						if (_this3.props.searchInside && pos != -1 || !_this3.props.searchInside && pos === 0) {
 							tokenValid = true;
 							break;
 						}

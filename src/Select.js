@@ -838,7 +838,10 @@ const Select = React.createClass({
 					let tokenValid = false;
 					for (let k = 0; k < tokens.length; k++) {
 						// "mazowieckie", "warszawa"
-						if (tokens[k].trim().toLowerCase().indexOf(queryTokens[j].trim()) == 0) {
+						let normalizedToken = tokens[k].trim().toLowerCase();
+						let normalizedQueryToken = queryTokens[j].trim();
+						let pos = normalizedToken.indexOf(normalizedQueryToken);
+						if (this.props.searchInside && pos != -1 || !this.props.searchInside && pos === 0) {
 							tokenValid = true;
 							break;
 						}
