@@ -15018,18 +15018,30 @@ var Async = _react2['default'].createClass({
 			options: []
 		});
 	},
-	getResponseHandler: function getResponseHandler(input) {
+	filterSelected: function filterSelected(options) {
 		var _this = this;
+
+		if (this.props.multi) {
+			return _.filter(options, function (option) {
+				return _.every(_this.props.value, function (selected) {
+					return selected.value.toString() != option.value.toString();
+				});
+			});
+		}
+		return options;
+	},
+	getResponseHandler: function getResponseHandler(input) {
+		var _this2 = this;
 
 		var _requestId = this._currentRequestId = requestId++;
 		return function (err, data) {
 			if (err) throw err;
-			if (!_this.isMounted()) return;
-			updateCache(_this.state.cache, input, data);
-			if (_requestId !== _this._currentRequestId) return;
-			_this.setState({
+			if (!_this2.isMounted()) return;
+			updateCache(_this2.state.cache, input, data);
+			if (_requestId !== _this2._currentRequestId) return;
+			_this2.setState({
 				isLoading: false,
-				options: data && data.options || []
+				options: data && _this2.filterSelected(data.options) || []
 			});
 		};
 	},
@@ -15043,7 +15055,7 @@ var Async = _react2['default'].createClass({
 		var cacheResult = getFromCache(this.state.cache, input);
 		if (cacheResult) {
 			return this.setState({
-				options: cacheResult.options
+				options: this.filterSelected(cacheResult.options)
 			});
 		}
 		this.setState({
@@ -15629,8 +15641,12 @@ var Select = _react2['default'].createClass({
 		if (!this.isMultiselect()) {
 			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
 				if (!this.props.allowCreate) {
-					this.setValue(this.props.required && this.props.options[0] || null);
-					this.clearInput();
+					if (!this.isInputEmpty() && this.props.selectFocusedOnBlur && this._focusedOption) {
+						this.selectFocusedOption();
+					} else {
+						this.setValue(this.props.required && this.props.options[0] || null);
+						this.clearInput();
+					}
 				} else {
 					var option = { value: this.state.inputValue, label: this.state.inputValue };
 					this.setValue(option);
@@ -16000,7 +16016,8 @@ var Select = _react2['default'].createClass({
 				minWidth: "5",
 				ref: "input",
 				required: this.state.required,
-				value: this.state.inputValue
+				value: this.state.inputValue,
+				placeholder: this.props.showInputPlaceholder && this.props.placeholder
 			});
 
 			if (this.isMultiselectAutocomplete()) {
@@ -16045,8 +16062,8 @@ var Select = _react2['default'].createClass({
 			return options;
 		}
 
-		if (!this.isAutocomplete() || filterValue === "") {
-			return options.slice(0, 30);
+		if (!this.props.noResultLimit && (!this.isAutocomplete() || filterValue === "")) {
+			return options.slice(0, this.props.resultLimit || 30);
 		}
 
 		var query = filterValue && filterValue.toLowerCase().trim() || "";
@@ -16093,7 +16110,11 @@ var Select = _react2['default'].createClass({
 				if (!_.some(excludeOptions, function (excluded) {
 					return _this3.areOptionsEqual(excluded, option);
 				})) {
-					matchResults[name.length].push(option);
+					if (_this3.props.noLengthSorting) {
+						result.push(option);
+					} else {
+						matchResults[name.length].push(option);
+					}
 				}
 			}
 		};
@@ -16102,17 +16123,22 @@ var Select = _react2['default'].createClass({
 			_loop(i);
 		}
 
-		var keys = _.keys(matchResults).sort(function (a, b) {
-			return a - b;
-		});
-
-		_.each(keys, function (key) {
-			_.each(matchResults[key], function (res) {
-				result.push(res);
+		if (!this.props.noLengthSorting) {
+			var keys = _.keys(matchResults).sort(function (a, b) {
+				return a - b;
 			});
-		});
+			_.each(keys, function (key) {
+				_.each(matchResults[key], function (res) {
+					result.push(res);
+				});
+			});
+		}
 
-		return result.slice(0, 30);
+		if (!this.props.noResultLimit) {
+			return result.slice(0, this.props.resultLimit || 30);
+		}
+
+		return result;
 	},
 
 	renderAutocompleteSelectedOpions: function renderAutocompleteSelectedOpions(selectedOptions) {
@@ -16184,7 +16210,7 @@ var Select = _react2['default'].createClass({
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
 		var _this6 = this;
 
-		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty()) {
+		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
 			if (!this.isMultiselect()) {
 				return _react2['default'].createElement(
 					'div',
@@ -16230,7 +16256,7 @@ var Select = _react2['default'].createClass({
 
 	getFocusableOption: function getFocusableOption(selectedOption) {
 		var options = this._visibleOptions;
-		if (!options.length) return;
+		if (!options || !options.length) return;
 		var focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
 		// zamiast tego porownujemy label i value

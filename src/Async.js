@@ -96,6 +96,16 @@ const Async = React.createClass({
 			options: [],
 		});
 	},
+	filterSelected(options) {
+		if (this.props.multi) {
+			return _.filter(options, option => {
+				return _.every(this.props.value, selected => {
+					return selected.value.toString() != option.value.toString();
+				});
+			});
+		}
+		return options;
+	},
 	getResponseHandler (input) {
 		let _requestId = this._currentRequestId = requestId++;
 		return (err, data) => {
@@ -105,7 +115,7 @@ const Async = React.createClass({
 			if (_requestId !== this._currentRequestId) return;
 			this.setState({
 				isLoading: false,
-				options: data && data.options || [],
+				options: data && this.filterSelected(data.options) || []
 			});
 		};
 	},
@@ -119,11 +129,11 @@ const Async = React.createClass({
 		let cacheResult = getFromCache(this.state.cache, input);
 		if (cacheResult) {
 			return this.setState({
-				options: cacheResult.options,
+				options: this.filterSelected(cacheResult.options)
 			});
 		}
 		this.setState({
-			isLoading: true,
+			isLoading: true
 		});
 		let responseHandler = this.getResponseHandler(input);
 		return thenPromise(this.props.loadOptions(input, responseHandler), responseHandler);

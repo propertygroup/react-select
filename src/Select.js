@@ -410,8 +410,12 @@ const Select = React.createClass({
 		if(!this.isMultiselect()) {
 			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
 				if(!this.props.allowCreate) {
-					this.setValue(this.props.required && this.props.options[0] || null);
-					this.clearInput();
+					if (!this.isInputEmpty() && this.props.selectFocusedOnBlur && this._focusedOption) {
+						this.selectFocusedOption();
+					} else {
+						this.setValue(this.props.required && this.props.options[0] || null);
+						this.clearInput();
+					}
 				} else {
 					let option = {value: this.state.inputValue, label: this.state.inputValue};
 					this.setValue(option);
@@ -741,8 +745,6 @@ const Select = React.createClass({
 			this.handleInputBlur(event)
 		};
 
-
-
 		if (this.isDiabled() || !this.isAutocomplete()) {
 			return (
 				<div
@@ -766,7 +768,8 @@ const Select = React.createClass({
 				minWidth: "5",
 				ref: "input",
 				required: this.state.required,
-				value: this.state.inputValue
+				value: this.state.inputValue,
+				placeholder: this.props.showInputPlaceholder && this.props.placeholder
 			});
 
 			if (this.isMultiselectAutocomplete()) {
@@ -814,8 +817,8 @@ const Select = React.createClass({
 			return options;
 		}
 
-		if (!this.isAutocomplete() || filterValue === "") {
-			return options.slice(0, 30);
+		if (!this.props.noResultLimit && (!this.isAutocomplete() || filterValue === "")) {
+			return options.slice(0, this.props.resultLimit || 30);
 		}
 
 		let query = filterValue && filterValue.toLowerCase().trim() || "";
@@ -854,25 +857,34 @@ const Select = React.createClass({
 			}
 
 			if (isValid) {
-				if(!matchResults[name.length]) {
+				if (!matchResults[name.length]) {
 					matchResults[name.length] = [];
 				}
 
 				if (!_.some(excludeOptions, (excluded) => this.areOptionsEqual(excluded, option))) {
-					matchResults[name.length].push(option);
+					if (this.props.noLengthSorting) {
+						result.push(option);
+					} else {
+						matchResults[name.length].push(option);
+					}
 				}
 			}
 		}
 
-		let keys = _.keys(matchResults).sort((a, b) => a-b);
-
-		_.each(keys, (key) => {
-			_.each(matchResults[key], (res) => {
-				result.push(res);
+		if (!this.props.noLengthSorting) {
+			let keys = _.keys(matchResults).sort((a, b) => a - b);
+			_.each(keys, (key) => {
+				_.each(matchResults[key], (res) => {
+					result.push(res);
+				});
 			});
-		});
+		}
 
-		return result.slice(0, 30);
+		if (!this.props.noResultLimit) {
+			return result.slice(0, this.props.resultLimit || 30);
+		}
+
+		return result;
  	},
 
 	renderAutocompleteSelectedOpions(selectedOptions) {
@@ -930,7 +942,7 @@ const Select = React.createClass({
 	},
 
 	renderMenu (options, valueArray, focusedOption) {
-		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty()) {
+		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
 			if (!this.isMultiselect()) {
 				return (
 					<div className="Select-noresults">
@@ -972,7 +984,7 @@ const Select = React.createClass({
 
 	getFocusableOption (selectedOption) {
 		var options = this._visibleOptions;
-		if (!options.length) return;
+		if (!options || !options.length) return;
 		let focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
 		// zamiast tego porownujemy label i value
