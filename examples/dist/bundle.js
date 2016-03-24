@@ -15818,9 +15818,9 @@ var Select = _react2['default'].createClass({
 					return;
 				}
 				event.stopPropagation();
-				if (!this.isAutocomplete() || this.isAutocomplete() && !this.isInputEmpty()) {
-					this.selectFocusedOption();
-				}
+				// if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || !this.props.async))) {
+				this.selectFocusedOption();
+				// }
 				break;
 			case 27:
 				// escape
@@ -16325,6 +16325,7 @@ var Select = _react2['default'].createClass({
 
 		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
 			if (!this.isMultiselect()) {
+				this._focusedOption = null;
 				return _react2['default'].createElement(
 					'div',
 					{ className: 'Select-noresults' },
@@ -16334,6 +16335,7 @@ var Select = _react2['default'].createClass({
 				if (valueArray.length) {
 					return this.renderAutocompleteSelectedOpions(valueArray);
 				} else {
+					this._focusedOption = null;
 					return _react2['default'].createElement(
 						'div',
 						{ className: 'Select-noresults' },
@@ -16346,6 +16348,7 @@ var Select = _react2['default'].createClass({
 				return _this6.renderOption(option, i, valueArray, focusedOption);
 			});
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
+			this._focusedOption = null;
 			return _react2['default'].createElement(
 				'div',
 				{ className: 'Select-noresults' },

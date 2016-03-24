@@ -471,9 +471,9 @@ const Select = React.createClass({
 					return;
 				}
 				event.stopPropagation();
-				if (!this.isAutocomplete() || (this.isAutocomplete() && !this.isInputEmpty())) {
+				// if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || !this.props.async))) {
 					this.selectFocusedOption();
-				}
+				// }
 			break;
 			case 27: // escape
 				if (this.isOpen()) {
@@ -944,6 +944,7 @@ const Select = React.createClass({
 	renderMenu (options, valueArray, focusedOption) {
 		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
 			if (!this.isMultiselect()) {
+				this._focusedOption = null;
 				return (
 					<div className="Select-noresults">
 						Zacznij pisać aby zobaczyć wyniki
@@ -953,6 +954,7 @@ const Select = React.createClass({
 				if (valueArray.length) {
 					return this.renderAutocompleteSelectedOpions(valueArray);
 				} else {
+					this._focusedOption = null;
 					return (
 						<div className="Select-noresults">
 							Brak wybranych elementów
@@ -963,6 +965,7 @@ const Select = React.createClass({
 		} else if (options && options.length) {
 			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
+			this._focusedOption = null;
 			return (
 				<div className="Select-noresults">
 					{this.props.noResultsText}
