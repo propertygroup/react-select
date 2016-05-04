@@ -119,6 +119,23 @@ const Async = React.createClass({
 			});
 		};
 	},
+	loadTimeout: null,
+	loadWaiting: false,
+	loadOptionsWithDebounce: function (input) {
+		if (this.loadWaiting === false) {
+			this.loadWaiting = true;
+			this.loadTimeout = setTimeout(function () {
+				this.loadWaiting = false;
+				this.loadOptions(input);
+			}.bind(this), 300);
+		} else {
+			clearTimeout(this.loadTimeout);
+			this.loadTimeout = setTimeout(function () {
+				this.loadWaiting = false;
+				this.loadOptions(input);
+			}.bind(this), 300)
+		}
+	},
 	loadOptions (input) {
 		if (this.props.ignoreAccents) input = stripDiacritics(input);
 		if (this.props.ignoreCase) input = input.toLowerCase();
@@ -154,7 +171,7 @@ const Async = React.createClass({
 				isLoading={isLoading}
 				filterOptions={false}
 				noResultsText={noResultsText}
-				onInputChange={this.loadOptions}
+				onInputChange={this.loadOptionsWithDebounce}
 				options={options}
 				placeholder={placeholder}
 				/>
