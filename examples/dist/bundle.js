@@ -15785,7 +15785,7 @@ var Select = _react2['default'].createClass({
 		if (inputValue === "" && !this.isMultiselectAutocomplete()) {
 			this.setValue(null);
 		}
-		this.toggleMenu(true);
+		//this.toggleMenu(true);
 		this.togglePseudoFocus(false);
 		this.setState({
 			inputValue: inputValue
