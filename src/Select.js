@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Input from 'react-input-autosize';
 import classNames from 'classnames';
 import * as _ from "lodash";
+import TetherComponent from 'react-tether';
 
 import stripDiacritics from './utils/stripDiacritics';
 
@@ -140,6 +141,10 @@ const Select = React.createClass({
 				inputValue: this.props.value.label
 			});
 		}
+
+		this.setState({
+			width: 0
+		});
 	},
 
 	componentWillUpdate (nextProps, nextState) {
@@ -198,6 +203,11 @@ const Select = React.createClass({
 		}
 		if (prevProps.disabled !== this.isDiabled()) {
 			this.toggleFocus(false);
+		}
+
+		let width = ReactDOM.findDOMNode(this.refs["control"]).offsetWidth;
+		if (width != this.state.width) {
+			this.setState({width});
 		}
 	},
 
@@ -1021,38 +1031,48 @@ const Select = React.createClass({
 			'has-value': valueArray.length,
 		});
 
-		//let shouldRenderList = this.state.isOpen && this.refs.menu;
-		//console.log("should render list", shouldRenderList);
-
-		//let x = <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
+		let style = _.assign({}, this.props.menuContainerStyle, {
+			width: this.state.width
+		});
 
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
 				{this.renderHiddenField(valueArray)}
-				<div ref="control"
-						 className="Select-control"
-						 style={this.props.style}
-						 onKeyDown={this.handleKeyDown}
-						 onMouseDown={this.handleMouseDown}
-						 onTouchEnd={this.handleTouchEnd}
-						 onTouchStart={this.handleTouchStart}
-						 onTouchMove={this.handleTouchMove}>
-					{this.renderValue(valueArray, isOpen, options)}
-					{this.renderInput(valueArray, isOpen, options)}
-					{this.renderLoading()}
-					{this.renderClear()}
-					{this.renderArrow()}
-				</div>
-				{isOpen ? (
-					<div ref="menuContainer" className="Select-menu-outer" style={this.props.menuContainerStyle}>
-						<div ref="menu" className="Select-menu"
-								 style={this.props.menuStyle}
-								 onScroll={this.handleMenuScroll}
-								 onMouseDown={this.handleMouseDownOnMenu}>
-							{this.renderMenu(options, valueArray, focusedOption)}
-						</div>
+				<TetherComponent
+					attachment="top left"
+					targetAttachment="bottom left"
+					constraints={[
+						{
+							to: "scrollParent",
+							attachment: "together"
+						}
+					]}
+				>
+					<div ref="control"
+							 className="Select-control"
+							 style={this.props.style}
+							 onKeyDown={this.handleKeyDown}
+							 onMouseDown={this.handleMouseDown}
+							 onTouchEnd={this.handleTouchEnd}
+							 onTouchStart={this.handleTouchStart}
+							 onTouchMove={this.handleTouchMove}>
+						{this.renderValue(valueArray, isOpen, options)}
+						{this.renderInput(valueArray, isOpen, options)}
+						{this.renderLoading()}
+						{this.renderClear()}
+						{this.renderArrow()}
 					</div>
-				) : null}
+					{isOpen ? (
+						<div ref="menuContainer" className="Select-menu-outer" style={style}>
+							<div ref="menu" className="Select-menu"
+									 style={this.props.menuStyle}
+									 onScroll={this.handleMenuScroll}
+									 onMouseDown={this.handleMouseDownOnMenu}>
+								{this.renderMenu(options, valueArray, focusedOption)}
+							</div>
+						</div>
+					) : null}
+				</TetherComponent>
 			</div>
 		);
 	}

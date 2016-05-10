@@ -6075,9 +6075,7 @@ var Container = React.createClass({
 	render () {
 		return (
 		<div>
-			<Select.Async searchable={true} options={[]} onChange={this.updateValue1} value={this.state.value1} loadOptions={this.loadOptions.bind(this)} />
-			<Select required={false} searchable={true} options={options} onChange={this.updateValue2} value={this.state.value2} />
-			<Select searchable={false} options={options} onChange={this.updateValue3} value={this.state.value3} />
+			<Select required={false} searchable={true} options={options}  />
 		</div>
 		)
 
