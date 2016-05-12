@@ -17553,15 +17553,24 @@ var Select = _react2['default'].createClass({
 
 	generateMultiselectLabel: function generateMultiselectLabel(options, valueArray) {
 		var label = undefined;
+		// if (valueArray.length === 0) {
+		// 	label = this.props.placeholder;
+		// } else if (valueArray.length === 1 && this.isMultiselectStandard()) {
+		// 	label = valueArray[0].label;
+		// } else if (valueArray.length === options.length) {
+		// 	label = "Wybrano wszystkie (" + options.length + ")";
+		// } else {
+		// 	label = valueArray.length + " wybrane";
+		// }
+
 		if (valueArray.length === 0) {
 			label = this.props.placeholder;
-		} else if (valueArray.length === 1 && this.isMultiselectStandard()) {
+		} else if (valueArray.length === 1) {
 			label = valueArray[0].label;
-		} else if (valueArray.length === options.length) {
-			label = "Wybrano wszystkie (" + options.length + ")";
 		} else {
-			label = valueArray.length + " wybrane";
+			label = valueArray[0].label + " + " + (valueArray.length - 1);
 		}
+
 		return label;
 	},
 
@@ -18347,65 +18356,38 @@ var Select = _react2['default'].createClass({
 			width: this.state.width
 		});
 
-		// if (isOpen) {
-		// 	setTimeout(() => {
-		// 		debugger;
-		// 	}, 500);
-		// }
-
-		//let shouldRenderList = this.state.isOpen && this.refs.menu;
-		//console.log("should render list", shouldRenderList);
-
-		//let x = <pre>{JSON.stringify(this.state, null, 2)}{JSON.stringify(this.props.value, null, 2)}</pre>;
-
-		// style = {
-		// 	width: 200
-		// };
-
 		return _react2['default'].createElement(
 			'div',
 			{ ref: 'wrapper', className: className, style: this.props.wrapperStyle },
 			this.renderHiddenField(valueArray),
 			_react2['default'].createElement(
-				_reactTether2['default'],
-				{
-					attachment: 'top left',
-					targetAttachment: 'bottom left',
-					targetOffset: '0 0',
-					constraints: [{
-						to: 'scrollParent',
-						attachment: 'together'
-					}]
-				},
+				'div',
+				{ ref: 'control',
+					className: 'Select-control',
+					style: this.props.style,
+					onKeyDown: this.handleKeyDown,
+					onMouseDown: this.handleMouseDown,
+					onTouchEnd: this.handleTouchEnd,
+					onTouchStart: this.handleTouchStart,
+					onTouchMove: this.handleTouchMove },
+				this.renderValue(valueArray, isOpen, options),
+				this.renderInput(valueArray, isOpen, options),
+				this.renderLoading(),
+				this.renderClear(),
+				this.renderArrow()
+			),
+			isOpen ? _react2['default'].createElement(
+				'div',
+				{ ref: 'menuContainer', className: 'Select-menu-outer', style: style },
 				_react2['default'].createElement(
 					'div',
-					{ ref: 'control',
-						className: 'Select-control',
-						style: this.props.style,
-						onKeyDown: this.handleKeyDown,
-						onMouseDown: this.handleMouseDown,
-						onTouchEnd: this.handleTouchEnd,
-						onTouchStart: this.handleTouchStart,
-						onTouchMove: this.handleTouchMove },
-					this.renderValue(valueArray, isOpen, options),
-					this.renderInput(valueArray, isOpen, options),
-					this.renderLoading(),
-					this.renderClear(),
-					this.renderArrow()
-				),
-				isOpen ? _react2['default'].createElement(
-					'div',
-					{ ref: 'menuContainer', className: 'Select-menu-outer', style: style },
-					_react2['default'].createElement(
-						'div',
-						{ ref: 'menu', className: 'Select-menu',
-							style: this.props.menuStyle,
-							onScroll: this.handleMenuScroll,
-							onMouseDown: this.handleMouseDownOnMenu },
-						this.renderMenu(options, valueArray, focusedOption)
-					)
-				) : null
-			)
+					{ ref: 'menu', className: 'Select-menu',
+						style: this.props.menuStyle,
+						onScroll: this.handleMenuScroll,
+						onMouseDown: this.handleMouseDownOnMenu },
+					this.renderMenu(options, valueArray, focusedOption)
+				)
+			) : null
 		);
 	}
 
@@ -18413,6 +18395,16 @@ var Select = _react2['default'].createClass({
 
 exports['default'] = Select;
 module.exports = exports['default'];
+/*<TetherComponent
+attachment="top left"
+targetAttachment="bottom left"
+constraints={[
+	{
+		to: "scrollParent",
+		attachment: "together"
+	}
+]}
+>*/ /*</TetherComponent>*/
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./Async":5,"./Option":6,"./Value":8,"./utils/stripDiacritics":9,"lodash":1,"react-tether":3}],8:[function(require,module,exports){

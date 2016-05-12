@@ -1081,7 +1081,7 @@ const Select = React.createClass({
 							</div>
 						</div>
 					) : null}
-				{/*</TetherComponent>/*}
+				{/*</TetherComponent>*/}
 			</div>
 		);
 	}
