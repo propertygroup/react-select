@@ -278,15 +278,24 @@ const Select = React.createClass({
 
 	generateMultiselectLabel(options, valueArray) {
 		let label;
+		// if (valueArray.length === 0) {
+		// 	label = this.props.placeholder;
+		// } else if (valueArray.length === 1 && this.isMultiselectStandard()) {
+		// 	label = valueArray[0].label;
+		// } else if (valueArray.length === options.length) {
+		// 	label = "Wybrano wszystkie (" + options.length + ")";
+		// } else {
+		// 	label = valueArray.length + " wybrane";
+		// }
+
 		if (valueArray.length === 0) {
 			label = this.props.placeholder;
-		} else if (valueArray.length === 1 && this.isMultiselectStandard()) {
+		} else if (valueArray.length === 1) {
 			label = valueArray[0].label;
-		} else if (valueArray.length === options.length) {
-			label = "Wybrano wszystkie (" + options.length + ")";
 		} else {
-			label = valueArray.length + " wybrane";
+			label = valueArray[0].label + " + " + (valueArray.length - 1);
 		}
+
 		return label;
 	},
 
@@ -1038,7 +1047,7 @@ const Select = React.createClass({
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
 				{this.renderHiddenField(valueArray)}
-				<TetherComponent
+				{/*<TetherComponent
 					attachment="top left"
 					targetAttachment="bottom left"
 					constraints={[
@@ -1047,7 +1056,7 @@ const Select = React.createClass({
 							attachment: "together"
 						}
 					]}
-				>
+				>*/}
 					<div ref="control"
 							 className="Select-control"
 							 style={this.props.style}
@@ -1072,7 +1081,7 @@ const Select = React.createClass({
 							</div>
 						</div>
 					) : null}
-				</TetherComponent>
+				{/*</TetherComponent>/*}
 			</div>
 		);
 	}
