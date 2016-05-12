@@ -293,7 +293,7 @@ const Select = React.createClass({
 		} else if (valueArray.length === 1) {
 			label = valueArray[0].label;
 		} else {
-			label = valueArray[0].label + " + " + (valueArray.length - 1);
+			label = valueArray[0].label + " i " + (valueArray.length - 1) + " więcej";
 		}
 
 		return label;
