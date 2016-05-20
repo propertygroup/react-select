@@ -18056,8 +18056,7 @@ var Select = _react2['default'].createClass({
 		this.clearInput();
 		this.toggleMenu(false);
 		//this.setState({
-		//	isOpen: false,
-		//}, this.focus);
+		//	isOpen: false,//}, this.focus);
 	},
 
 	focusOption: function focusOption(option) {
@@ -18475,11 +18474,6 @@ var Select = _react2['default'].createClass({
 		return _react2['default'].createElement(
 			'div',
 			{ ref: 'wrapper', className: className, style: this.props.wrapperStyle },
-			_react2['default'].createElement(
-				'pre',
-				null,
-				JSON.stringify(this.state, null, 2)
-			),
 			this.renderHiddenField(valueArray),
 			_react2['default'].createElement(
 				'div',
