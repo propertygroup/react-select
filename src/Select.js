@@ -658,8 +658,7 @@ const Select = React.createClass({
 		this.clearInput();
 		this.toggleMenu(false);
 		//this.setState({
-		//	isOpen: false,
-		//}, this.focus);
+		//	isOpen: false,//}, this.focus);
 	},
 
 	focusOption (option) {
@@ -1049,7 +1048,6 @@ const Select = React.createClass({
 
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
-				<pre>{JSON.stringify(this.state, null, 2)}</pre>
 				{this.renderHiddenField(valueArray)}
 				{/*<TetherComponent
 					attachment="top left"
