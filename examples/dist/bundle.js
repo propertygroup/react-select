@@ -17853,6 +17853,9 @@ var Select = _react2['default'].createClass({
 
 	handleKeyDown: function handleKeyDown(event) {
 		if (this.isDiabled()) return;
+		if (this.isFocused() && !this.isOpen()) {
+			this.toggleMenu(true);
+		}
 		switch (event.keyCode) {
 			case 8:
 				// backspace
@@ -18472,6 +18475,11 @@ var Select = _react2['default'].createClass({
 		return _react2['default'].createElement(
 			'div',
 			{ ref: 'wrapper', className: className, style: this.props.wrapperStyle },
+			_react2['default'].createElement(
+				'pre',
+				null,
+				JSON.stringify(this.state, null, 2)
+			),
 			this.renderHiddenField(valueArray),
 			_react2['default'].createElement(
 				'div',

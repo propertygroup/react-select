@@ -469,6 +469,9 @@ const Select = React.createClass({
 
 	handleKeyDown (event) {
 		if (this.isDiabled()) return;
+		if (this.isFocused() && !this.isOpen()) {
+			this.toggleMenu(true);
+		}
 		switch (event.keyCode) {
 			case 8: // backspace
 				//if (!this.state.inputValue && this.props.backspaceRemoves) {
@@ -1046,6 +1049,7 @@ const Select = React.createClass({
 
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
+				<pre>{JSON.stringify(this.state, null, 2)}</pre>
 				{this.renderHiddenField(valueArray)}
 				{/*<TetherComponent
 					attachment="top left"
