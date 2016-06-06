@@ -1,4 +1,4 @@
-# TODO test
+# TODO
 
 * options creation (was part of buildMenu and selectFocusedOption)
 * handle comma keypress for tags mode (handleKeyDown keyCode 188)
