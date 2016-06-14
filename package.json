@@ -27,10 +27,10 @@
     "istanbul": "^0.4.2",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
-    "react": "^0.14.0",
-    "react-addons-test-utils": "^0.14.0",
+    "react": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
     "react-component-gulp-tasks": "^0.7.7",
-    "react-dom": "^0.14.0",
+    "react-dom": "^15.1.0",
     "react-gravatar": "^2.3.0",
     "sinon": "^1.17.2",
     "unexpected": "^10.7.0",
@@ -39,8 +39,8 @@
     "unexpected-sinon": "^9.0.4"
   },
   "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^0.14 || ^15",
+    "react-dom": "^0.14 || ^15"
   },
   "browserify-shim": {
     "classnames": "global:classNames",
