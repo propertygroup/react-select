@@ -766,7 +766,7 @@ const Select = React.createClass({
 			this.handleInputBlur(event)
 		};
 
-		if (this.isDiabled() || !this.isAutocomplete()) {
+		if (!this.isAutocomplete()) {
 			return (
 				<div
 					{...this.props.inputProps}
@@ -782,6 +782,7 @@ const Select = React.createClass({
 		} else {
 			let props = _.assign({}, this.props.inputProps, {
 				className,
+				disabled: this.isDiabled(),
 				tabIndex: this.props.tabIndex,
 				onBlur,
 				onChange: this.handleInputChange,

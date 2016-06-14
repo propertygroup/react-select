@@ -18058,7 +18058,7 @@ var Select = _react2['default'].createClass({
 			_this2.handleInputBlur(event);
 		};
 
-		if (this.isDiabled() || !this.isAutocomplete()) {
+		if (!this.isAutocomplete()) {
 			return _react2['default'].createElement('div', _extends({}, this.props.inputProps, {
 				className: className,
 				tabIndex: this.props.tabIndex || 0,
@@ -18070,6 +18070,7 @@ var Select = _react2['default'].createClass({
 		} else {
 			var props = _.assign({}, this.props.inputProps, {
 				className: className,
+				disabled: this.isDiabled(),
 				tabIndex: this.props.tabIndex,
 				onBlur: onBlur,
 				onChange: this.handleInputChange,
