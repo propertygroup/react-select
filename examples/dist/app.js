@@ -1,7 +1,7 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /* eslint react/prop-types: 0 */'use strict';function _interopRequireWildcard(obj){if(obj && obj.__esModule){return obj;}else {var newObj={};if(obj != null){for(var key in obj) {if(Object.prototype.hasOwnProperty.call(obj,key))newObj[key] = obj[key];}}newObj['default'] = obj;return newObj;}}function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _react=require('react');var _react2=_interopRequireDefault(_react);var _reactDom=require('react-dom');var _reactDom2=_interopRequireDefault(_reactDom);var _reactSelect=require('react-select');var _reactSelect2=_interopRequireDefault(_reactSelect);var _lodash=require("lodash");var _=_interopRequireWildcard(_lodash);var _componentsContributors=require('./components/Contributors');var _componentsContributors2=_interopRequireDefault(_componentsContributors);var _componentsCustomComponents=require('./components/CustomComponents');var _componentsCustomComponents2=_interopRequireDefault(_componentsCustomComponents);var _componentsCustomRender=require('./components/CustomRender');var _componentsCustomRender2=_interopRequireDefault(_componentsCustomRender);var _componentsMultiselect=require('./components/Multiselect');var _componentsMultiselect2=_interopRequireDefault(_componentsMultiselect);var _componentsNumericSelect=require('./components/NumericSelect');var _componentsNumericSelect2=_interopRequireDefault(_componentsNumericSelect);var _componentsStates=require('./components/States');var _componentsStates2=_interopRequireDefault(_componentsStates);var options=[{"value":1,"label":'Dolnośląskie'},{"value":31,"label":"Kujawsko-pomorskie"},{"value":95,"label":'Łódzkie'},{"value":55,"label":"Lubelskie"},{"value":80,"label":"Lubuskie"},{"value":120,"label":'Małopolskie'},{"value":143,"label":"Mazowieckie"},{"value":186,"label":"Opolskie"},{"value":199,"label":"Podkarpackie"},{"value":225,"label":"Podlaskie"},{"value":243,"label":"Pomorskie"},{"value":264,"label":'Śląskie'},{"value":301,"label":'Świętokrzyskie'},{"value":316,"label":'Warmińsko-mazurskie'},{"value":338,"label":"Wielkopolskie"},{"value":374,"label":"Zachodniopomorskie"},{"value":52362,"label":"Kujawsko-Pomorskie, Bydgoszcz i okolice"},{"value":52261,"label":'Śląskie, Katowice i okolice'},{"value":52258,"label":'Małopolskie, Kraków i okolice'},{"value":52259,"label":'Łódzkie, Łódź i okolice'},{"value":52366,"label":"Lubelskie, Lublin i okolice"},{"value":52363,"label":"Kujawsko-Pomorskie, okolice Bydgoszczy"},{"value":52269,"label":'Śląskie, okolice Katowic'},{"value":52265,"label":'Małopolskie, okolice Krakowa'},{"value":52267,"label":'Łódzkie, okolice Łodzi'},{"value":52367,"label":"Lubelskie, okolice Lublina"},{"value":52365,"label":'Warmińsko-Mazurskie, okolice Olsztyna'},{"value":52263,"label":"Wielkopolskie, okolice Poznania"},{"value":52268,"label":"Zachodniopomorskie, okolice Szczecina"},{"value":52264,"label":'Pomorskie, okolice Trójmiasta'},{"value":52262,"label":"Mazowieckie, okolice Warszawy"},{"value":52266,"label":'Dolnośląskie, okolice Wrocławia'},{"value":52364,"label":'Warmińsko-Mazurskie, Olsztyn i okolice'},{"value":52254,"label":'Wielkopolskie, Poznań i okolice'},{"value":52260,"label":"Zachodniopomorskie, Szczecin i okolice"},{"value":52255,"label":'Pomorskie, Trójmiasto'},{"value":52256,"label":'Pomorskie, Trójmiasto i okolice'},{"value":52253,"label":"Mazowieckie, Warszawa i okolice"},{"value":52257,"label":'Dolnośląskie, Wrocław i okolice'},{"value":52380,"label":"Kujawsko-Pomorskie, Aleksandrowski"},{"value":52412,"label":"Podlaskie, Augustowski"},{"value":265,"label":'Śląskie, Będziński'},{"value":96,"label":'Łódzkie, Bełchatowski'},{"value":144,"label":'Mazowieckie, Białobrzeski'},{"value":227,"label":'Podlaskie, Białostocki'},{"value":266,"label":'Śląskie, Bielski'},{"value":228,"label":"Podlaskie, Bielski"},{"value":57,"label":'Lubelskie, Biłgorajski'},{"value":121,"label":'Małopolskie, Bocheński'},{"value":52423,"label":'Dolnośląskie, Bolesławiecki'},{"value":33,"label":"Kujawsko-Pomorskie, Brodnicki"},{"value":187,"label":"Opolskie, Brzeski"},{"value":122,"label":'Małopolskie, Brzeski'},{"value":116,"label":'Łódzkie, Brzeziński'},{"value":52589,"label":'Świętokrzyskie, Buski'},{"value":34,"label":"Kujawsko-Pomorskie, Bydgoski"},{"value":244,"label":"Pomorskie, Bytowski"},{"value":52332,"label":'Kujawsko-Pomorskie, Chełmiński'},{"value":52292,"label":'Lubelskie, Chełmski'},{"value":245,"label":"Pomorskie, Chojnicki"},{"value":123,"label":'Małopolskie, Chrzanowski'},{"value":145,"label":"Mazowieckie, Ciechanowski"},{"value":267,"label":'Śląskie, Cieszyński'},{"value":340,"label":"Wielkopolskie, Czarnkowsko-Trzcianecki"},{"value":52535,"label":'Śląskie, Częstochowski'},{"value":319,"label":'Warmińsko-Mazurskie, Działdowski'},{"value":52278,"label":'Dolnośląskie, Dzierżoniowski'},{"value":321,"label":'Warmińsko-Mazurskie, Ełcki'},{"value":146,"label":'Mazowieckie, Garwoliński'},{"value":247,"label":'Pomorskie, Gdański'},{"value":322,"label":'Warmińsko-Mazurskie, Giżycki'},{"value":269,"label":'Śląskie, Gliwicki'},{"value":4,"label":'Dolnośląskie, Głogowski'},{"value":341,"label":'Wielkopolskie, Gnieźnieński'},{"value":334,"label":'Warmińsko-Mazurskie, Gołdapski'},{"value":378,"label":"Zachodniopomorskie, Goleniowski"},{"value":36,"label":'Kujawsko-Pomorskie, Golubsko-Dobrzyński'},{"value":52471,"label":"Lubuskie, Gorzowski"},{"value":52386,"label":'Mazowieckie, Gostyniński'},{"value":342,"label":'Wielkopolskie, Gostyński'},{"value":148,"label":"Mazowieckie, Grodziski"},{"value":343,"label":"Wielkopolskie, Grodziski"},{"value":149,"label":'Mazowieckie, Grójecki'},{"value":379,"label":"Zachodniopomorskie, Gryficki"},{"value":380,"label":'Zachodniopomorskie, Gryfiński'},{"value":230,"label":"Podlaskie, Hajnowski"},{"value":323,"label":'Warmińsko-Mazurskie, Iławski'},{"value":38,"label":'Kujawsko-Pomorskie, Inowrocławski'},{"value":52403,"label":"Lubelskie, Janowski"},{"value":344,"label":'Wielkopolskie, Jarociński'},{"value":203,"label":'Podkarpackie, Jarosławski'},{"value":52283,"label":"Podkarpackie, Jasielski"},{"value":6,"label":'Dolnośląskie, Jaworski'},{"value":7,"label":'Dolnośląskie, Jeleniogórski'},{"value":345,"label":"Wielkopolskie, Kaliski"},{"value":381,"label":'Zachodniopomorskie, Kamieński'},{"value":248,"label":"Pomorskie, Kartuski"},{"value":52519,"label":'Warmińsko-Mazurskie, Kętrzyński'},{"value":305,"label":'Świętokrzyskie, Kielecki'},{"value":52541,"label":'Śląskie, Kłobucki'},{"value":9,"label":'Dolnośląskie, Kłodzki'},{"value":382,"label":'Zachodniopomorskie, Kołobrzeski'},{"value":349,"label":'Wielkopolskie, Kościański'},{"value":249,"label":'Pomorskie, Kościerski'},{"value":383,"label":'Zachodniopomorskie, Koszaliński'},{"value":150,"label":"Mazowieckie, Kozienicki"},{"value":126,"label":'Małopolskie, Krakowski'},{"value":191,"label":"Opolskie, Krapkowicki"},{"value":52333,"label":'Lubelskie, Kraśnicki'},{"value":52473,"label":'Wielkopolskie, Krotoszyński'},{"value":97,"label":'Łódzkie, Kutnowski'},{"value":98,"label":'Łódzkie, Łaski'},{"value":251,"label":'Pomorskie, Lęborski'},{"value":52458,"label":'Lubelskie, Łęczyński'},{"value":151,"label":"Mazowieckie, Legionowski"},{"value":52276,"label":'Dolnośląskie, Legnicki'},{"value":220,"label":"Podkarpackie, Leski"},{"value":351,"label":'Wielkopolskie, Leszczyński'},{"value":52309,"label":'Warmińsko-Mazurskie, Lidzbarski'},{"value":392,"label":'Zachodniopomorskie, Łobeski'},{"value":101,"label":'Łódzkie, Łódzki Wschodni'},{"value":11,"label":'Dolnośląskie, Lubański'},{"value":52469,"label":"Lubelskie, Lubartowski"},{"value":64,"label":"Lubelskie, Lubelski"},{"value":12,"label":'Dolnośląskie, Lubiński'},{"value":66,"label":'Lubelskie, Łukowski'},{"value":13,"label":'Dolnośląskie, Lwówecki'},{"value":52539,"label":"Mazowieckie, Makowski"},{"value":252,"label":"Pomorskie, Malborski"},{"value":128,"label":'Małopolskie, Miechowski'},{"value":352,"label":'Wielkopolskie, Międzychodzki'},{"value":210,"label":"Podkarpackie, Mielecki"},{"value":272,"label":'Śląskie, Mikołowski'},{"value":155,"label":'Mazowieckie, Miński'},{"value":156,"label":'Mazowieckie, Mławski'},{"value":326,"label":'Warmińsko-Mazurskie, Mrągowski'},{"value":129,"label":'Małopolskie, Myślenicki'},{"value":384,"label":'Zachodniopomorskie, Myśliborski'},{"value":52550,"label":'Śląskie, Myszkowski'},{"value":41,"label":"Kujawsko-Pomorskie, Nakielski"},{"value":192,"label":'Opolskie, Namysłowski'},{"value":52406,"label":'Warmińsko-Mazurskie, Nidzicki'},{"value":157,"label":"Mazowieckie, Nowodworski"},{"value":253,"label":"Pomorskie, Nowodworski"},{"value":130,"label":'Małopolskie, Nowosądecki'},{"value":84,"label":"Lubuskie, Nowosolski"},{"value":131,"label":'Małopolskie, Nowotarski'},{"value":353,"label":"Wielkopolskie, Nowotomyski"},{"value":52454,"label":"Opolskie, Nyski"},{"value":354,"label":"Wielkopolskie, Obornicki"},{"value":16,"label":'Dolnośląskie, Oławski'},{"value":329,"label":'Warmińsko-Mazurskie, Olecki'},{"value":15,"label":'Dolnośląskie, Oleśnicki'},{"value":132,"label":'Małopolskie, Olkuski'},{"value":330,"label":'Warmińsko-Mazurskie, Olsztyński'},{"value":307,"label":'Świętokrzyskie, Opatowski'},{"value":67,"label":"Lubelskie, Opolski"},{"value":195,"label":"Opolskie, Opolski"},{"value":331,"label":'Warmińsko-Mazurskie, Ostródzki'},{"value":52529,"label":'Mazowieckie, Ostrołęcki'},{"value":308,"label":'Świętokrzyskie, Ostrowiecki'},{"value":355,"label":"Wielkopolskie, Ostrowski"},{"value":52306,"label":"Wielkopolskie, Ostrzeszowski"},{"value":133,"label":'Małopolskie, Oświęcimski'},{"value":160,"label":"Mazowieckie, Otwocki"},{"value":103,"label":'Łódzkie, Pabianicki'},{"value":161,"label":'Mazowieckie, Piaseczyński'},{"value":357,"label":"Wielkopolskie, Pilski"},{"value":332,"label":'Warmińsko-Mazurskie, Piski'},{"value":358,"label":"Wielkopolskie, Pleszewski"},{"value":162,"label":'Mazowieckie, Płocki'},{"value":163,"label":'Mazowieckie, Płoński'},{"value":385,"label":"Zachodniopomorskie, Policki"},{"value":17,"label":'Dolnośląskie, Polkowicki'},{"value":359,"label":'Wielkopolskie, Poznański'},{"value":134,"label":'Małopolskie, Proszowicki'},{"value":164,"label":"Mazowieckie, Pruszkowski"},{"value":165,"label":"Mazowieckie, Przasnyski"},{"value":213,"label":"Podkarpackie, Przeworski"},{"value":274,"label":'Śląskie, Pszczyński'},{"value":254,"label":"Pomorskie, Pucki"},{"value":69,"label":'Lubelskie, Puławski'},{"value":167,"label":'Mazowieckie, Pułtuski'},{"value":386,"label":"Zachodniopomorskie, Pyrzycki"},{"value":275,"label":'Śląskie, Raciborski'},{"value":168,"label":"Mazowieckie, Radomski"},{"value":107,"label":'Łódzkie, Radomszczański'},{"value":52515,"label":'Lubelskie, Radzyński'},{"value":360,"label":"Wielkopolskie, Rawicki"},{"value":108,"label":'Łódzkie, Rawski'},{"value":215,"label":"Podkarpackie, Rzeszowski"},{"value":216,"label":"Podkarpackie, Sanocki"},{"value":44,"label":'Kujawsko-Pomorskie, Sępoleński'},{"value":52248,"label":"Mazowieckie, Siedlecki"},{"value":52521,"label":'Łódzkie, Sieradzki'},{"value":311,"label":'Świętokrzyskie, Skarżyski'},{"value":110,"label":'Łódzkie, Skierniewicki'},{"value":387,"label":'Zachodniopomorskie, Sławieński'},{"value":52215,"label":'Lubuskie, Słubicki'},{"value":361,"label":'Wielkopolskie, Słupecki'},{"value":255,"label":'Pomorskie, Słupski'},{"value":171,"label":"Mazowieckie, Sochaczewski"},{"value":52527,"label":'Mazowieckie, Sokołowski'},{"value":363,"label":'Wielkopolskie, Średzki'},{"value":19,"label":'Dolnośląskie, Średzki'},{"value":364,"label":'Wielkopolskie, Śremski'},{"value":217,"label":"Podkarpackie, Stalowowolski"},{"value":312,"label":'Świętokrzyskie, Starachowicki'},{"value":388,"label":"Zachodniopomorskie, Stargardzki"},{"value":256,"label":"Pomorskie, Starogardzki"},{"value":197,"label":"Opolskie, Strzelecki"},{"value":52523,"label":"Lubuskie, Strzelecko-Drezdenecki"},{"value":18,"label":'Dolnośląskie, Strzeliński'},{"value":218,"label":'Podkarpackie, Strzyżowski'},{"value":52446,"label":'Lubuskie, Sulęciński'},{"value":135,"label":'Małopolskie, Suski'},{"value":72,"label":'Lubelskie, Świdnicki'},{"value":20,"label":'Dolnośląskie, Świdnicki'},{"value":52285,"label":'Zachodniopomorskie, Świdwiński'},{"value":362,"label":"Wielkopolskie, Szamotulski"},{"value":389,"label":"Zachodniopomorskie, Szczecinecki"},{"value":333,"label":'Warmińsko-Mazurskie, Szczycieński'},{"value":52505,"label":'Mazowieckie, Szydłowiecki'},{"value":277,"label":'Śląskie, Tarnogórski'},{"value":136,"label":'Małopolskie, Tarnowski'},{"value":137,"label":'Małopolskie, Tatrzański'},{"value":257,"label":"Pomorskie, Tczewski"},{"value":111,"label":'Łódzkie, Tomaszowski'},{"value":73,"label":"Lubelskie, Tomaszowski"},{"value":46,"label":'Kujawsko-Pomorskie, Toruński'},{"value":21,"label":'Dolnośląskie, Trzebnicki'},{"value":52343,"label":'Małopolskie, Wadowicki'},{"value":52370,"label":'Wielkopolskie, Wągrowiecki'},{"value":22,"label":'Dolnośląskie, Wałbrzyski'},{"value":174,"label":"Mazowieckie, Warszawski Zachodni"},{"value":335,"label":'Warmińsko-Mazurskie, Węgorzewski'},{"value":175,"label":'Mazowieckie, Węgrowski'},{"value":258,"label":"Pomorskie, Wejherowski"},{"value":139,"label":'Małopolskie, Wielicki'},{"value":52320,"label":'Łódzkie, Wieruszowski'},{"value":49,"label":'Kujawsko-Pomorskie, Włocławski'},{"value":74,"label":'Lubelskie, Włodawski'},{"value":176,"label":'Mazowieckie, Wołomiński'},{"value":23,"label":'Dolnośląskie, Wołowski'},{"value":367,"label":'Wielkopolskie, Wolsztyński'},{"value":24,"label":'Dolnośląskie, Wrocławski'},{"value":368,"label":'Wielkopolskie, Wrzesiński'},{"value":52436,"label":"Lubuskie, Wschowski"},{"value":177,"label":"Mazowieckie, Wyszkowski"},{"value":52450,"label":'Dolnośląskie, Ząbkowicki'},{"value":52334,"label":'Lubuskie, Żagański'},{"value":75,"label":"Lubelskie, Zamojski"},{"value":91,"label":'Lubuskie, Żarski'},{"value":280,"label":'Śląskie, Zawierciański'},{"value":115,"label":'Łódzkie, Zgierski'},{"value":26,"label":'Dolnośląskie, Zgorzelecki'},{"value":89,"label":'Lubuskie, Zielonogórski'},{"value":369,"label":'Wielkopolskie, Złotowski'},{"value":178,"label":'Mazowieckie, Zwoleński'},{"value":180,"label":'Mazowieckie, Żyrardowski'},{"value":52511,"label":'Kujawsko-Pomorskie, Aleksandrowski, Aleksandrów Kujawski'},{"value":14762,"label":'Łódzkie, Zgierski, Aleksandrów Łódzki'},{"value":52461,"label":'Małopolskie, Chrzanowski, Alwernia'},{"value":52344,"label":'Małopolskie, Wadowicki, Andrychów'},{"value":52413,"label":'Podlaskie, Augustowski, Augustów'},{"value":52756,"label":"Kujawsko-pomorskie, Barcin"},{"value":52272,"label":'Warmińsko-Mazurskie, Olsztyński, Barczewo'},{"value":13435,"label":'Zachodniopomorskie, Myśliborski, Barlinek'},{"value":15056,"label":'Śląskie, Będziński, Będzin'},{"value":8510,"label":'Łódzkie, Bełchatowski, Bełchatów'},{"value":24220,"label":'Lubelskie, Biała Podlaska'},{"value":26641,"label":'Mazowieckie, Białobrzeski, Białobrzegi'},{"value":9692,"label":'Podlaskie, Białystok'},{"value":52279,"label":'Dolnośląskie, Dzierżoniowski, Bielawa'},{"value":13414,"label":'Śląskie, Bielsko-Biała'},{"value":3739,"label":"Podlaskie, Bielski, Bielsk Podlaski"},{"value":33494,"label":'Dolnośląskie, Oleśnicki, Bierutów'},{"value":52545,"label":'Warmińsko-Mazurskie, Olsztyński, Biskupiec'},{"value":2396,"label":'Mazowieckie, Warszawski Zachodni, Błonie'},{"value":36034,"label":'Małopolskie, Bocheński, Bochnia'},{"value":52424,"label":'Dolnośląskie, Bolesławiecki, Bolesławiec'},{"value":22811,"label":'Dolnośląskie, Jaworski, Bolków'},{"value":34065,"label":"Zachodniopomorskie, Szczecinecki, Borne Sulinowo"},{"value":21231,"label":"Kujawsko-Pomorskie, Brodnicki, Brodnica"},{"value":37359,"label":'Mazowieckie, Pruszkowski, Brwinów'},{"value":10425,"label":"Opolskie, Brzeski, Brzeg"},{"value":35561,"label":'Dolnośląskie, Wołowski, Brzeg Dolny'},{"value":39392,"label":'Małopolskie, Brzeski, Brzesko'},{"value":32853,"label":'Łódzkie, Brzeziński, Brzeziny'},{"value":52590,"label":'Świętokrzyskie, Buski, Busko-Zdrój'},{"value":22550,"label":"Kujawsko-Pomorskie, Bydgoszcz"},{"value":34871,"label":'Śląskie, Bytom'},{"value":12539,"label":'Pomorskie, Bytowski, Bytów'},{"value":52293,"label":'Lubelskie, Chełmski, Chełm'},{"value":52219,"label":'Małopolskie, Oświęcimski, Chełmek'},{"value":52238,"label":'Kujawsko-Pomorskie, Chełmiński, Chełmno'},{"value":46761,"label":"Pomorskie, Chojnicki, Chojnice"},{"value":19219,"label":'Śląskie, Chorzów'},{"value":52251,"label":'Małopolskie, Chrzanowski, Chrzanów'},{"value":6296,"label":'Mazowieckie, Ciechanowski, Ciechanów'},{"value":52381,"label":"Kujawsko-Pomorskie, Aleksandrowski, Ciechocinek"},{"value":16000,"label":'Śląskie, Cieszyński, Cieszyn'},{"value":52441,"label":'Podlaskie, Białostocki, Czarna Białostocka'},{"value":52410,"label":'Wielkopolskie, Czarnkowsko-Trzcianecki, Czarnków'},{"value":52513,"label":'Śląskie, Bielski, Czechowice-Dziedzice'},{"value":30668,"label":'Śląskie, Częstochowa'},{"value":16293,"label":'Śląskie, Dąbrowa Górnicza'},{"value":35342,"label":'Zachodniopomorskie, Sławieński, Darłowo'},{"value":52524,"label":"Lubuskie, Strzelecko-Drezdenecki, Drezdenko"},{"value":24294,"label":'Warmińsko-Mazurskie, Działdowski, Działdowo'},{"value":22546,"label":'Zachodniopomorskie, Kamieński, Dziwnów'},{"value":25289,"label":'Warmińsko-mazurskie, Elbląg'},{"value":51050,"label":'Warmińsko-mazurskie, Ełcki, Ełk'},{"value":50491,"label":'Mazowieckie, Garwoliński, Garwolin'},{"value":46083,"label":'Pomorskie, Gdańsk'},{"value":6196,"label":"Pomorskie, Gdynia"},{"value":11016,"label":'Warmińsko-mazurskie, Giżycki, Giżycko'},{"value":31825,"label":'Śląskie, Gliwice'},{"value":11592,"label":'Dolnośląskie, Głogowski, Głogów'},{"value":20423,"label":'Podkarpackie, Rzeszowski, Głogów Małopolski'},{"value":28203,"label":'Wielkopolskie, Gnieźnieński, Gniezno'},{"value":4455,"label":"Opolskie, Krapkowicki, Gogolin"},{"value":31788,"label":'Warmińsko-Mazurskie, Gołdapski, Gołdap'},{"value":28905,"label":'Zachodniopomorskie, Goleniowski, Goleniów'},{"value":21549,"label":'Mazowieckie, Piaseczyński, Góra Kalwaria'},{"value":37058,"label":'Lubuskie, Gorzów Wielkopolski'},{"value":52822,"label":'Zachodniopomorskie, Kołobrzeski, Gościno'},{"value":52287,"label":'Wielkopolskie, Gostyński, Gostyń'},{"value":52387,"label":'Mazowieckie, Gostyniński, Gostynin'},{"value":36132,"label":"Mazowieckie, Grodziski, Grodzisk Mazowiecki"},{"value":45812,"label":"Wielkopolskie, Grodziski, Grodzisk Wielkopolski"},{"value":1642,"label":'Mazowieckie, Grójecki, Grójec'},{"value":13077,"label":'Kujawsko-Pomorskie, Grudziądz'},{"value":52322,"label":"Zachodniopomorskie, Gryficki, Gryfice"},{"value":47110,"label":'Zachodniopomorskie, Gryfiński, Gryfino'},{"value":20511,"label":'Podlaskie, Hajnowski, Hajnówka'},{"value":52499,"label":'Mazowieckie, Miński, Halinów'},{"value":45344,"label":"Pomorskie, Pucki, Hel"},{"value":9385,"label":'Warmińsko-Mazurskie, Iławski, Iława'},{"value":35739,"label":'Kujawsko-Pomorskie, Inowrocławski, Inowrocław'},{"value":52445,"label":'Zachodniopomorskie, Stargardzki, Ińsko'},{"value":52404,"label":'Lubelskie, Janowski, Janów Lubelski'},{"value":47119,"label":'Wielkopolskie, Jarociński, Jarocin'},{"value":52284,"label":'Podkarpackie, Jasielski, Jasło'},{"value":13032,"label":"Pomorskie, Pucki, Jastarnia"},{"value":52433,"label":'Wielkopolskie, Złotowski, Jastrowie'},{"value":23134,"label":'Śląskie, Jastrzębie-Zdrój'},{"value":52457,"label":'Śląskie, Jaworzno'},{"value":52314,"label":'Dolnośląskie, Świdnicki, Jaworzyna Śląska'},{"value":4661,"label":'Dolnośląskie, Oławski, Jelcz-Laskowice'},{"value":51619,"label":'Dolnośląskie, Jelenia Góra'},{"value":7727,"label":'Mazowieckie, Otwocki, Józefów'},{"value":18767,"label":"Wielkopolskie, Kalisz"},{"value":52546,"label":'Mazowieckie, Miński, Kałuszyn'},{"value":37976,"label":'Dolnośląskie, Jeleniogórski, Karpacz'},{"value":1737,"label":"Pomorskie, Kartuski, Kartuzy"},{"value":31600,"label":'Śląskie, Katowice'},{"value":39252,"label":'Dolnośląskie, Wrocławski, Kąty Wrocławskie'},{"value":52520,"label":'Warmińsko-Mazurskie, Kętrzyński, Kętrzyn'},{"value":36190,"label":'Świętokrzyskie, Kielce'},{"value":52542,"label":'Śląskie, Kłobucki, Kłobuck'},{"value":18264,"label":'Dolnośląskie, Kłodzki, Kłodzko'},{"value":27502,"label":'Śląskie, Gliwicki, Knurów'},{"value":9913,"label":'Mazowieckie, Wołomiński, Kobyłka'},{"value":14102,"label":'Zachodniopomorskie, Kołobrzeski, Kołobrzeg'},{"value":39772,"label":'Łódzkie, Łódzki Wschodni, Koluszki'},{"value":2067,"label":"Wielkopolskie, Konin"},{"value":8437,"label":'Mazowieckie, Piaseczyński, Konstancin-Jeziorna'},{"value":12010,"label":'Łódzkie, Pabianicki, Konstantynów Łódzki'},{"value":2436,"label":'Wielkopolskie, Poznański, Kórnik'},{"value":871,"label":'Wielkopolskie, Kościański, Kościan'},{"value":4395,"label":'Pomorskie, Kościerski, Kościerzyna'},{"value":38447,"label":'Wielkopolskie, Poznański, Kostrzyn'},{"value":52472,"label":'Lubuskie, Gorzowski, Kostrzyn nad Odrą'},{"value":48606,"label":"Zachodniopomorskie, Koszalin"},{"value":44124,"label":'Kujawsko-Pomorskie, Golubsko-Dobrzyński, Kowalewo Pomorskie'},{"value":41196,"label":"Mazowieckie, Kozienicki, Kozienice"},{"value":11158,"label":'Małopolskie, Kraków'},{"value":22482,"label":"Opolskie, Krapkowicki, Krapkowice"},{"value":52237,"label":'Lubelskie, Kraśnicki, Kraśnik'},{"value":36014,"label":"Podkarpackie, Krosno"},{"value":52474,"label":'Wielkopolskie, Krotoszyński, Krotoszyn'},{"value":35022,"label":"Pomorskie, Nowodworski, Krynica Morska"},{"value":11328,"label":'Małopolskie, Nowosądecki, Krynica-Zdrój'},{"value":30868,"label":'Małopolskie, Krakowski, Krzeszowice'},{"value":52534,"label":'Wielkopolskie, Kościański, Krzywiń'},{"value":52525,"label":'Wielkopolskie, Czarnkowsko-Trzcianecki, Krzyż Wielkopolski'},{"value":49787,"label":'Łódzkie, Kutnowski, Kutno'},{"value":52388,"label":'Podkarpackie, Łańcut'},{"value":52382,"label":'Podlaskie, Białostocki, Łapy'},{"value":8769,"label":'Śląskie, Mikołowski, Łaziska Górne'},{"value":41675,"label":'Pomorskie, Lęborski, Łeba'},{"value":52805,"label":'Pomorskie, Lębork'},{"value":52459,"label":'Lubelskie, łęczyński, Łęczna'},{"value":52418,"label":'Śląskie, Lędziny'},{"value":47675,"label":"Mazowieckie, Legionowski, Legionowo"},{"value":40444,"label":'Dolnośląskie, Legnica'},{"value":32749,"label":'Opolskie, Strzelecki, Leśnica'},{"value":12259,"label":"Wielkopolskie, Leszno"},{"value":11303,"label":'Małopolskie, Chrzanowski, Libiąż'},{"value":16187,"label":'Łódzkie, Łódź'},{"value":51541,"label":'Mazowieckie, Warszawski Zachodni, Łomianki'},{"value":23038,"label":'Podlaskie, Łomża'},{"value":30988,"label":'Dolnośląskie, Lubiński, Lubin'},{"value":13220,"label":"Lubelskie, Lublin"},{"value":20203,"label":'Wielkopolskie, Poznański, Luboń'},{"value":19526,"label":'Lubelskie, Łukowski, Łuków'},{"value":52540,"label":'Mazowieckie, Makowski, Maków Mazowiecki'},{"value":44923,"label":"Pomorskie, Malborski, Malbork"},{"value":41324,"label":'Mazowieckie, Wołomiński, Marki'},{"value":28812,"label":'Dolnośląskie, Kłodzki, Międzylesie'},{"value":52760,"label":'Lubuskie, Międzyrzecz'},{"value":33992,"label":'Zachodniopomorskie, Kamieński, Międzyzdroje'},{"value":32591,"label":"Podkarpackie, Mielecki, Mielec"},{"value":16048,"label":'Warmińsko-Mazurskie, Mrągowski, Mikołajki'},{"value":13580,"label":'Śląskie, Mikołowski, Mikołów'},{"value":44298,"label":'Mazowieckie, Grodziski, Milanówek'},{"value":52420,"label":'Dolnośląskie, Milicz'},{"value":43897,"label":'Mazowieckie, Miński, Mińsk Mazowiecki'},{"value":37733,"label":'Mazowieckie, Mławski, Mława'},{"value":49117,"label":'Wielkopolskie, Poznański, Mosina'},{"value":48654,"label":'Warmińsko-Mazurskie, Mrągowski, Mrągowo'},{"value":52323,"label":'Mazowieckie, Żyrardowski, Mszczonów'},{"value":29754,"label":'Wielkopolskie, Poznański, Murowana Goślina'},{"value":47901,"label":'Małopolskie, Myślenicki, Myślenice'},{"value":8955,"label":'Śląskie, Mysłowice'},{"value":25809,"label":'Lubelskie, Puławski, Nałęczów'},{"value":29372,"label":'Opolskie, Namysłowski, Namysłów'},{"value":14321,"label":"Mazowieckie, Nowodworski, Nasielsk"},{"value":36712,"label":'Wielkopolskie, Wrzesiński, Nekla'},{"value":52548,"label":'Warmińsko-Mazurskie, Nidzicki, Nidzica'},{"value":36397,"label":'Małopolskie, Wielicki, Niepołomice'},{"value":10117,"label":'Lubuskie, Nowosolski, Nowa Sól'},{"value":52543,"label":"Zachodniopomorskie, Goleniowski, Nowogard"},{"value":7572,"label":'Mazowieckie, Nowodworski, Nowy Dwór Mazowiecki'},{"value":52247,"label":'Małopolskie, Nowy Sącz'},{"value":1899,"label":'Małopolskie, Nowotarski, Nowy Targ'},{"value":52533,"label":'Wielkopolskie, Nowotomyski, Nowy Tomyśl'},{"value":52455,"label":"Opolskie, Nyski, Nysa"},{"value":21343,"label":"Wielkopolskie, Obornicki, Oborniki"},{"value":32620,"label":'Dolnośląskie, Trzebnicki, Oborniki Śląskie'},{"value":14663,"label":'Dolnośląskie, Oławski, Oława'},{"value":51671,"label":'Warmińsko-Mazurskie, Olecki, Olecko'},{"value":34312,"label":'Dolnośląskie, Oleśnicki, Oleśnica'},{"value":31391,"label":'Małopolskie, Olkuski, Olkusz'},{"value":26804,"label":'Warmińsko-Mazurskie, Olsztyn'},{"value":20064,"label":'Warmińsko-Mazurskie, Olsztyński, Olsztynek'},{"value":52233,"label":"Wielkopolskie, Nowotomyski, Opalenica"},{"value":12168,"label":"Opolskie, Opole"},{"value":19975,"label":"Lubelskie, Opolski, Opole Lubelskie"},{"value":52494,"label":'Warmińsko-Mazurskie, Piski, Orzysz'},{"value":30635,"label":'Warmińsko-Mazurskie, Ostródzki, Ostróda'},{"value":19025,"label":'Mazowieckie, Ostrołęka'},{"value":28917,"label":'Świętokrzyskie, Ostrowiecki, Ostrowiec Świętokrzyski'},{"value":34136,"label":'Wielkopolskie, Ostrowski, Ostrów Wielkopolski'},{"value":52307,"label":'Wielkopolskie, Ostrzeszowski, Ostrzeszów'},{"value":52252,"label":'Małopolskie, Oświęcimski, Oświęcim'},{"value":12955,"label":"Mazowieckie, Otwocki, Otwock"},{"value":24508,"label":'Świętokrzyskie, Opatowski, Ożarów'},{"value":37871,"label":'Mazowieckie, Warszawski Zachodni, Ożarów Mazowiecki'},{"value":19008,"label":'Łódzkie, Zgierski, Ozorków'},{"value":9195,"label":'Łódzkie, Pabianicki, Pabianice'},{"value":28307,"label":'Mazowieckie, Piaseczyński, Piaseczno'},{"value":5414,"label":'Mazowieckie, Pruszkowski, Piastów'},{"value":9467,"label":'Śląskie, Piekary Śląskie'},{"value":36816,"label":'Wielkopolskie, Pilski, Piła'},{"value":52326,"label":'Łódzkie, Piotrków Trybunalski'},{"value":50016,"label":'Warmińsko-Mazurskie, Piski, Pisz'},{"value":52532,"label":'Małopolskie, Nowosądecki, Piwniczna-Zdrój'},{"value":30792,"label":'Mazowieckie, Płocki, Płock'},{"value":42177,"label":'Mazowieckie, Płoński, Płońsk'},{"value":52396,"label":"Wielkopolskie, Szamotulski, Pniewy"},{"value":52510,"label":'Wielkopolskie, Poznański, Pobiedziska'},{"value":2375,"label":'Dolnośląskie, Kłodzki, Polanica-Zdrój'},{"value":52286,"label":'Zachodniopomorskie, Świdwiński, Połczyn-Zdrój'},{"value":28779,"label":"Zachodniopomorskie, Policki, Police"},{"value":16956,"label":'Dolnośląskie, Polkowicki, Polkowice'},{"value":9905,"label":"Lubelskie, Opolski, Poniatowa"},{"value":30892,"label":'Wielkopolskie, Poznań'},{"value":49550,"label":'Pomorskie, Gdański, Pruszcz Gdański'},{"value":10399,"label":'Mazowieckie, Pruszkowski, Pruszków'},{"value":1236,"label":"Mazowieckie, Przasnyski, Przasnysz"},{"value":52374,"label":'Podkarpackie, Przemyśl'},{"value":39791,"label":"Podkarpackie, Przeworski, Przeworsk"},{"value":49952,"label":'Śląskie, Pszczyński, Pszczyna'},{"value":36584,"label":"Pomorskie, Pucki, Puck"},{"value":51827,"label":'Lubelskie, Puławski, Puławy'},{"value":25679,"label":'Mazowieckie, Pułtuski, Pułtusk'},{"value":51217,"label":'Wielkopolskie, Poznański, Puszczykowo'},{"value":52414,"label":'Śląskie, Gliwicki, Pyskowice'},{"value":52392,"label":'Małopolskie, Nowotarski, Rabka-Zdrój'},{"value":14537,"label":'Śląskie, Raciborski, Racibórz'},{"value":21988,"label":'Małopolskie, Tarnowski, Radłów'},{"value":33423,"label":"Mazowieckie, Radom"},{"value":35114,"label":'Łódzkie, Radomszczański, Radomsko'},{"value":2829,"label":'Mazowieckie, Wołomiński, Radzymin'},{"value":52516,"label":'Lubelskie, Radzyński, Radzyń Podlaski'},{"value":15600,"label":'Łódzkie, Rawski, Rawa Mazowiecka'},{"value":25977,"label":"Wielkopolskie, Rawicki, Rawicz"},{"value":23029,"label":"Pomorskie, Wejherowski, Reda"},{"value":52712,"label":"Podkarpackie, Ropczyce"},{"value":8857,"label":'Śląskie, Ruda Śląska'},{"value":18709,"label":"Pomorskie, Wejherowski, Rumia"},{"value":19648,"label":'Śląskie, Rybnik'},{"value":33659,"label":'Podkarpackie, Rzeszów'},{"value":51977,"label":'Łódzkie, Łódzki Wschodni, Rzgów'},{"value":25168,"label":"Podkarpackie, Sanocki, Sanok"},{"value":21267,"label":'Kujawsko-Pomorskie, Sępoleński, Sępólno Krajeńskie'},{"value":52241,"label":"Mazowieckie, Legionowski, Serock"},{"value":3910,"label":'Dolnośląskie, Wrocławski, Siechnice'},{"value":49690,"label":"Mazowieckie, Siedlce"},{"value":49528,"label":'Śląskie, Siemianowice Śląskie'},{"value":52341,"label":"Podlaskie, Siemiatycze"},{"value":52522,"label":'Łódzkie, Sieradzki, Sieradz'},{"value":52339,"label":'Śląskie, Będziński, Siewierz'},{"value":29950,"label":'Świętokrzyskie, Skarżyski, Skarżysko-Kamienna'},{"value":42472,"label":'Łódzkie, Skierniewice'},{"value":29464,"label":'Zachodniopomorskie, Sławieński, Sławno'},{"value":52217,"label":'Lubuskie, Słubicki, Słubice'},{"value":2435,"label":'Wielkopolskie, Słupecki, Słupca'},{"value":15753,"label":'Pomorskie, Słupsk'},{"value":15168,"label":'Dolnośląskie, Wrocławski, Sobótka'},{"value":42582,"label":"Mazowieckie, Sochaczewski, Sochaczew"},{"value":52528,"label":'Mazowieckie, Sokołowski, Sokołów Podlaski'},{"value":52352,"label":"Kujawsko-Pomorskie, Bydgoski, Solec Kujawski"},{"value":10847,"label":"Pomorskie, Sopot"},{"value":43947,"label":'Śląskie, Sosnowiec'},{"value":23503,"label":'Wielkopolskie, Śremski, Śrem'},{"value":17556,"label":'Dolnośląskie, Średzki, Środa Śląska'},{"value":10183,"label":'Wielkopolskie, Średzki, Środa Wielkopolska'},{"value":46169,"label":'Świętokrzyskie, Starachowicki, Starachowice'},{"value":38840,"label":'Zachodniopomorskie, Stargardzki, Stargard Szczeciński'},{"value":32224,"label":'Pomorskie, Starogardzki, Starogard Gdański'},{"value":17501,"label":'Wielkopolskie, Poznański, Stęszew'},{"value":33825,"label":'Śląskie, Cieszyński, Strumień'},{"value":12292,"label":'Łódzkie, Zgierski, Stryków'},{"value":18777,"label":'Dolnośląskie, Strzeliński, Strzelin'},{"value":29050,"label":'Podkarpackie, Strzyżowski, Strzyżów'},{"value":51813,"label":'Małopolskie, Suski, Sucha Beskidzka'},{"value":52447,"label":'Lubuskie, Sulęciński, Sulęcin'},{"value":26213,"label":'Mazowieckie, Miński, Sulejówek'},{"value":42309,"label":'Podlaskie, Suwałki'},{"value":46908,"label":'Wielkopolskie, Poznański, Swarzędz'},{"value":47866,"label":'Dolnośląskie, Świdnicki, Świdnica'},{"value":19804,"label":'Lubelskie, Świdnicki, Świdnik'},{"value":22934,"label":'Dolnośląskie, Świdnicki, Świebodzice'},{"value":52759,"label":'Kujawsko-pomorskie, Świecie'},{"value":52232,"label":'Dolnośląskie, Lubański, Świeradów Zdrój'},{"value":5229,"label":'Śląskie, Świętochłowice'},{"value":28754,"label":'Zachodniopomorskie, Świnoujście'},{"value":52758,"label":'Dolnośląskie, Syców'},{"value":625,"label":'Wielkopolskie, Szamotulski, Szamotuły'},{"value":2151,"label":'Dolnośląskie, Wałbrzyski, Szczawno-Zdrój'},{"value":32657,"label":"Zachodniopomorskie, Szczecin"},{"value":4435,"label":"Zachodniopomorskie, Szczecinecki, Szczecinek"},{"value":52555,"label":'Śląskie, Bielski, Szczyrk'},{"value":36606,"label":'Warmińsko-Mazurskie, Szczycieński, Szczytno'},{"value":49967,"label":'Dolnośląskie, Jeleniogórski, Szklarska Poręba'},{"value":20836,"label":"Kujawsko-Pomorskie, Nakielski, Szubin"},{"value":52506,"label":'Mazowieckie, Szydłowiecki, Szydłowiec'},{"value":52228,"label":'Małopolskie, Tarnów'},{"value":41348,"label":'Śląskie, Tarnogórski, Tarnowskie Góry'},{"value":52273,"label":'Śląskie, Tarnowskie Góry'},{"value":29078,"label":"Pomorskie, Tczewski, Tczew"},{"value":52647,"label":'Mazowieckie, Wołomiński, Tłuszcz'},{"value":52517,"label":'Lubelskie, Tomaszowski, Tomaszów Lubelski'},{"value":42140,"label":'Łódzkie, Tomaszowski, Tomaszów Mazowiecki'},{"value":19894,"label":'Kujawsko-Pomorskie, Toruń'},{"value":8588,"label":"Wielkopolskie, Czarnkowsko-Trzcianecki, Trzcianka"},{"value":32972,"label":'Dolnośląskie, Trzebnicki, Trzebnica'},{"value":12932,"label":'Wielkopolskie, Gnieźnieński, Trzemeszno'},{"value":52707,"label":"Wielkopolskie, Turek"},{"value":39949,"label":'Śląskie, Tychy'},{"value":17318,"label":'Wielkopolskie, Pilski, Ujście'},{"value":20905,"label":'Pomorskie, Słupski, Ustka'},{"value":42904,"label":'Śląskie, Cieszyński, Ustroń'},{"value":52304,"label":'Małopolskie, Wadowice'},{"value":52236,"label":'Dolnośląskie, Wałbrzych'},{"value":52214,"label":'Mazowieckie, Grójecki, Warka'},{"value":8647,"label":"Mazowieckie, Warszawa"},{"value":1786,"label":'Podlaskie, Białostocki, Wasilków'},{"value":35729,"label":'Warmińsko-mazurskie, Węgorzewski, Węgorzewo'},{"value":19240,"label":"Pomorskie, Wejherowski, Wejherowo"},{"value":49238,"label":'Małopolskie, Wielicki, Wieliczka'},{"value":52321,"label":'Łódzkie, Wieruszowski, Wieruszów'},{"value":52294,"label":'Śląskie, Cieszyński, Wisła'},{"value":49596,"label":'Pomorskie, Pucki, Władysławowo'},{"value":44391,"label":'Kujawsko-Pomorskie, Włocławek'},{"value":29786,"label":'Lubelskie, Włodawski, Włodawa'},{"value":16576,"label":'Zachodniopomorskie, Kamieński, Wolin'},{"value":34586,"label":'Mazowieckie, Wołomiński, Wołomin'},{"value":4237,"label":'Dolnośląskie, Wołowski, Wołów'},{"value":50574,"label":'Wielkopolskie, Wolsztyński, Wolsztyn'},{"value":26955,"label":'Dolnośląskie, Wrocław'},{"value":49639,"label":'Wielkopolskie, Wrzesiński, Września'},{"value":52437,"label":"Lubuskie, Wschowski, Wschowa"},{"value":33411,"label":"Wielkopolskie, Pilski, Wyrzysk"},{"value":37260,"label":'Mazowieckie, Wyszkowski, Wyszków'},{"value":23007,"label":'Mazowieckie, Wołomiński, Ząbki'},{"value":52711,"label":'Dolnośląskie, Ząbkowicki, Ząbkowice Śląskie'},{"value":1945,"label":'Śląskie, Zabrze'},{"value":52246,"label":'Lubuskie, Żagański, Żagań'},{"value":24848,"label":'Małopolskie, Tatrzański, Zakopane'},{"value":52401,"label":'Lubelskie, Zamość'},{"value":52468,"label":'Dolnośląskie, Świdnicki, Żarów'},{"value":8848,"label":'Lubuskie, Żarski, Żary'},{"value":40517,"label":'Śląskie, Zawierciański, Zawiercie'},{"value":1136,"label":'Łódzkie, Zgierski, Zgierz'},{"value":49163,"label":'Dolnośląskie, Zgorzelecki, Zgorzelec'},{"value":52451,"label":'Dolnośląskie, Ząbkowicki, Ziębice'},{"value":48806,"label":'Lubuskie, Zielona Góra'},{"value":43707,"label":'Mazowieckie, Wołomiński, Zielonka'},{"value":24706,"label":'Wielkopolskie, Złotowski, Złotów'},{"value":52462,"label":'Dolnośląskie, Trzebnicki, Żmigród'},{"value":52297,"label":'Śląskie, Żory'},{"value":39454,"label":'Pomorskie, Kartuski, Żukowo'},{"value":11917,"label":"Lubelskie, Zamojski, Zwierzyniec"},{"value":19760,"label":'Mazowieckie, Żyrardowski, Żyrardów'},{"value":47604,"label":'Dolnośląskie, Wołowski, Aleksandrowice'},{"value":27903,"label":'Małopolskie, Chrzanowski, Babice'},{"value":22914,"label":"Pomorskie, Kartuski, Banino"},{"value":6771,"label":'Wielkopolskie, Poznański, Baranowo'},{"value":52407,"label":'Warmińsko-Mazurskie, Nidzicki, Bartoszki'},{"value":6766,"label":'Mazowieckie, Piaseczyński, Baszkówka'},{"value":2598,"label":"Zachodniopomorskie, Policki, Bezrzecze"},{"value":52378,"label":'Łódzkie, Zgierski, Biała'},{"value":52349,"label":'Mazowieckie, Legionowski, Białobrzegi'},{"value":8419,"label":'Dolnośląskie, Głogowski, Białołęka'},{"value":27497,"label":'Małopolskie, Krakowski, Bibice'},{"value":38313,"label":'Wielkopolskie, Poznański, Biedrusko'},{"value":17812,"label":'Dolnośląskie, Wrocławski, Bielany Wrocławskie'},{"value":23356,"label":"Mazowieckie, Warszawski Zachodni, Bieniewice"},{"value":52372,"label":'Lubelskie, Biłgorajski, Biłgoraj'},{"value":31477,"label":'Mazowieckie, Nowodworski, Błędowo'},{"value":52470,"label":'Dolnośląskie, Wrocławski, Blizanowice'},{"value":52500,"label":'Mazowieckie, Warszawski Zachodni, Blizne Jasińskiego'},{"value":52203,"label":'Wielkopolskie, Poznański, Bnin'},{"value":48318,"label":'Mazowieckie, Piaseczyński, Bobrowiec'},{"value":52329,"label":'Świętokrzyskie, Ostrowiecki, Bodzechów'},{"value":8304,"label":"Wielkopolskie, Obornicki, Bogdanowo"},{"value":52311,"label":'Dolnośląskie, Oleśnicki, Boguszyce'},{"value":27562,"label":"Pomorskie, Wejherowski, Bojano"},{"value":39699,"label":'Małopolskie, Krakowski, Bolechowice'},{"value":52289,"label":'Mazowieckie, Otwocki, Bolesławów'},{"value":17403,"label":'Łódzkie, Skierniewicki, Bolimów'},{"value":9336,"label":"Pomorskie, Wejherowski, Bolszewo"},{"value":26167,"label":"Pomorskie, Kartuski, Borcz"},{"value":2230,"label":'Pomorskie, Gdański, Borkowo'},{"value":27495,"label":'Wielkopolskie, Poznański, Borówiec'},{"value":52302,"label":'Łódzkie, Zgierski, Bratoszewice'},{"value":3578,"label":'Wielkopolskie, Średzki, Brodowo'},{"value":52526,"label":'Dolnośląskie, Wrocławski, Brzezia Łąka'},{"value":38115,"label":"Opolskie, Opolski, Brzezie"},{"value":6684,"label":'Małopolskie, Krakowski, Brzezie'},{"value":25972,"label":'Dolnośląskie, Średzki, Brzezina'},{"value":52710,"label":'Małopolskie, Krakowski, Brzozówka'},{"value":48736,"label":'Wielkopolskie, Poznański, Bugaj'},{"value":7431,"label":'Łódzkie, Pabianicki, Bychlew'},{"value":52301,"label":'Pomorskie, Słupski, Bydlino'},{"value":52229,"label":'Zachodniopomorskie, Kołobrzeski, Byszewo'},{"value":27525,"label":'Mazowieckie, Legionowski, Chotomów'},{"value":17941,"label":'Dolnośląskie, Wrocławski, Chrząstawa Wielka'},{"value":49279,"label":"Pomorskie, Kartuski, Chwaszczyno"},{"value":6338,"label":'Mazowieckie, Piaseczyński, Chylice'},{"value":31995,"label":'Mazowieckie, Piaseczyński, Chyliczki'},{"value":52299,"label":'Kujawsko-Pomorskie, Toruński, Cierpice'},{"value":52757,"label":'Mazowieckie, Nowodworski, Cybulice Małe'},{"value":32830,"label":"Pomorskie, Kartuski, Czaple"},{"value":16583,"label":'Wielkopolskie, Poznański, Czapury'},{"value":31177,"label":'Małopolskie, Tatrzański, Czarna Góra'},{"value":34679,"label":'Małopolskie, Wielicki, Czarnochowice'},{"value":52312,"label":'Kujawsko-Pomorskie, Toruński, Czernikowo'},{"value":19840,"label":'Wielkopolskie, Poznański, Czmoń'},{"value":52400,"label":'Wielkopolskie, Poznański, Dąbrowa'},{"value":52708,"label":'Świętokrzyskie, Kielecki, Dąbrowa'},{"value":52508,"label":'Mazowieckie, Legionowski, Dąbrowa Chotomowska'},{"value":39467,"label":'Wielkopolskie, Nowotomyski, Dąbrowa Nowa'},{"value":38130,"label":'Wielkopolskie, Poznański, Dąbrówka'},{"value":52467,"label":'Podlaskie, Białostocki, Dąbrówki'},{"value":52226,"label":'Wielkopolskie, Poznański, Dachowa'},{"value":30437,"label":'Wielkopolskie, Poznański, Daszewice'},{"value":11799,"label":"Mazowieckie, Pruszkowski, Dawidy Bankowe"},{"value":52355,"label":'Mazowieckie, Miński, Długa Kościelna'},{"value":30054,"label":'Dolnośląskie, Wrocławski, Długołęka'},{"value":14376,"label":'Dolnośląskie, Wrocławski, Dobrzykowice'},{"value":33284,"label":'Dolnośląskie, Wrocławski, Domasław'},{"value":52348,"label":'Dolnośląskie, Wrocławski, Domaszczyn'},{"value":24393,"label":'Wielkopolskie, Poznański, Dopiewiec'},{"value":52296,"label":"Mazowieckie, Legionowski, Dosin"},{"value":40774,"label":'Wielkopolskie, Leszczyński, Drobnin'},{"value":29280,"label":"Mazowieckie, Warszawski Zachodni, Duchnice"},{"value":36176,"label":'Mazowieckie, Otwocki, Duchnów'},{"value":50552,"label":'Warmińsko-Mazurskie, Olsztyński, Dywity'},{"value":42908,"label":'Mazowieckie, Warszawski Zachodni, Dziekanów Leśny'},{"value":52346,"label":'Mazowieckie, Warszawski Zachodni, Dziekanów Polski'},{"value":25530,"label":'Pomorskie, Kartuski, Dzierżążno'},{"value":13379,"label":'Zachodniopomorskie, Kamieński, Dziwnówek'},{"value":52245,"label":"Pomorskie, Kartuski, Egiertowo"},{"value":32944,"label":'Mazowieckie, Pruszkowski, Falenty Duże'},{"value":32142,"label":"Mazowieckie, Pruszkowski, Falenty Nowe"},{"value":51660,"label":'Małopolskie, Nowosądecki, Florynka'},{"value":9080,"label":'Dolnośląskie, Wrocławski, Gądów'},{"value":52460,"label":'Małopolskie, Krakowski, Gaj'},{"value":9971,"label":'Łódzkie, Łódzki Wschodni, Gałków Duży'},{"value":28489,"label":'Mazowieckie, Radomski, Gębarzów'},{"value":52223,"label":'Małopolskie, Krakowski, Giebułtów'},{"value":22752,"label":'Śląskie, Gliwicki, Gierałtowice'},{"value":52244,"label":"Pomorskie, Kartuski, Glincz"},{"value":49033,"label":'Małopolskie, Myślenicki, Głogoczów'},{"value":31390,"label":'Wielkopolskie, Poznański, Głuchowo'},{"value":46998,"label":"Pomorskie, Wejherowski, Gniewino"},{"value":52240,"label":'Śląskie, Pszczyński, Goczałkowice-Zdrój'},{"value":52224,"label":'Wielkopolskie, Poznański, Gołuski'},{"value":52313,"label":'Mazowieckie, Otwocki, Góraszka'},{"value":12944,"label":'Pomorskie, Wejherowski, Gościcino'},{"value":52335,"label":'Śląskie, Mikołowski, Gostyń'},{"value":6220,"label":'Wielkopolskie, Poznański, Gowarzewo'},{"value":52549,"label":'Mazowieckie, Garwoliński, Goździk'},{"value":52409,"label":'Podlaskie, Białostocki, Grabówka'},{"value":31418,"label":'Dolnośląskie, Wrocławski, Groblice'},{"value":843,"label":"Mazowieckie, Nowodworski, Grochale"},{"value":32038,"label":'Małopolskie, Nowosądecki, Gródek Nad Dunajcem'},{"value":8498,"label":'Śląskie, Bielski, Grodziec'},{"value":52342,"label":'Łódzkie, Zgierski, Grotniki'},{"value":9565,"label":"Mazowieckie, Ciechanowski, Grudusk"},{"value":15024,"label":'Wielkopolskie, Poznański, Gruszczyn'},{"value":52337,"label":'Mazowieckie, Miński, Grzebowilk'},{"value":52308,"label":"Zachodniopomorskie, Policki, Grzepnica"},{"value":29781,"label":'Pomorskie, Kościerski, Grzybowo'},{"value":40396,"label":'Zachodniopomorskie, Kołobrzeski, Grzybowo'},{"value":4332,"label":'Warmińsko-Mazurskie, Olsztyński, Gutkowo'},{"value":7218,"label":'Mazowieckie, Wołomiński, Helenów'},{"value":19320,"label":'Małopolskie, Nowotarski, Huba'},{"value":29941,"label":'Podlaskie, Białostocki, Ignatki-Osiedle'},{"value":52379,"label":'Małopolskie, Krakowski, Iwanowice'},{"value":42100,"label":'Dolnośląskie, Wrocławski, Iwiny'},{"value":38339,"label":'Mazowieckie, Nowodworski, Izabelin-Dziekanówek'},{"value":28697,"label":'Mazowieckie, Legionowski, Jabłonna'},{"value":38176,"label":"Mazowieckie, Legionowski, Jadwisin"},{"value":52497,"label":'Dolnośląskie, Wrocławski, Jaksonów'},{"value":43812,"label":'Mazowieckie, Grodziski, Jaktorów-Kolonia'},{"value":52509,"label":"Lubuskie, Gorzowski, Janczewo"},{"value":52538,"label":"Mazowieckie, Pruszkowski, Janki"},{"value":39660,"label":'Pomorskie, Gdański, Jankowo Gdańskie'},{"value":52495,"label":"Pomorskie, Nowodworski, Jantar"},{"value":52443,"label":"Podkarpackie, Rzeszowski, Jasionka"},{"value":52415,"label":'Śląskie, Tarnogórski, Jaśkowice'},{"value":33634,"label":'Mazowieckie, Grodziski, Jastrzębnik'},{"value":52191,"label":'Dolnośląskie, Wrocławski, Jaszkotle'},{"value":36249,"label":'Małopolskie, Oświęcimski, Jawiszowice'},{"value":10222,"label":'Wielkopolskie, Poznański, Jelonek'},{"value":10760,"label":'Małopolskie, Krakowski, Jerzmanowice'},{"value":52425,"label":'Dolnośląskie, Wrocławski, Jeszkowice'},{"value":52397,"label":'Warmińsko-Mazurskie, Mrągowski, Jora Wielka'},{"value":32821,"label":'Mazowieckie, Piaseczyński, Józefosław'},{"value":18983,"label":'Mazowieckie, Żyrardowski, Józefów'},{"value":38694,"label":'Łódzkie, Łódzki Wschodni, Justynów'},{"value":52288,"label":'Pomorskie, Gdański, Juszkowo'},{"value":50415,"label":'Podlaskie, Białostocki, Juszkowy Gród'},{"value":52556,"label":"Mazowieckie, Pruszkowski, Kajetany"},{"value":35457,"label":'Wielkopolskie, Leszczyński, Kąkolewo'},{"value":52222,"label":'Lubelskie, Lubelski, Kalinówka'},{"value":52464,"label":'Wielkopolskie, Poznański, Kalwy'},{"value":41366,"label":'Dolnośląskie, Wrocławski, Kamień'},{"value":52235,"label":'Dolnośląskie, Wrocławski, Kamieniec Wrocławski'},{"value":52368,"label":'Dolnośląskie, Ząbkowicki, Kamieniec Ząbkowicki'},{"value":52820,"label":'Warmińsko-mazurskie, Szczycieński, Kamionek'},{"value":22002,"label":'Mazowieckie, Żyrardowski, Kamionka'},{"value":2934,"label":'Wielkopolskie, Poznański, Kamionki'},{"value":52428,"label":'Kujawsko-Pomorskie, Toruński, Kamionki Małe'},{"value":52416,"label":'Śląskie, Bielski, Kaniów'},{"value":7633,"label":'Pomorskie, Wejherowski, Kąpino'},{"value":39771,"label":"Mazowieckie, Warszawski Zachodni, Kaputy"},{"value":52317,"label":'Dolnośląskie, Wrocławski, Karwiany'},{"value":8542,"label":'Pomorskie, Nowodworski, Kąty Rybackie'},{"value":37644,"label":'Mazowieckie, Legionowski, Kąty Węgierskie'},{"value":10619,"label":'Wielkopolskie, Szamotulski, Kaźmierz'},{"value":52310,"label":'Pomorskie, Wejherowski, Kębłowo'},{"value":43000,"label":'Mazowieckie, Piaseczyński, Kędzierówka'},{"value":42497,"label":'Wielkopolskie, Poznański, Kiekrz'},{"value":50896,"label":'Dolnośląskie, Wrocławski, Kiełczów'},{"value":52354,"label":'Mazowieckie, Warszawski Zachodni, Kiełpin'},{"value":37907,"label":'Pomorskie, Kartuski, Kiełpino'},{"value":26602,"label":'Warmińsko-Mazurskie, Olsztyński, Kieźliny'},{"value":52452,"label":'Warmińsko-Mazurskie, Olsztyński, Klebark Wielki'},{"value":52498,"label":'Mazowieckie, Wołomiński, Klembów'},{"value":52417,"label":'Pomorskie, Gdański, Kleszczewko'},{"value":22651,"label":'Wielkopolskie, Poznański, Kliny'},{"value":40294,"label":'Dolnośląskie, Wrocławski, Kobierzyce'},{"value":36581,"label":'Wielkopolskie, Poznański, Kobylnica'},{"value":3964,"label":'Wielkopolskie, Poznański, Kobylniki'},{"value":12360,"label":"Mazowieckie, Warszawski Zachodni, Koczargi Stare"},{"value":37334,"label":'Pomorskie, Gdański, Kolbudy'},{"value":52829,"label":"Lubelskie, Lubelski, Kolonia Pliszczyn"},{"value":52503,"label":"Wielkopolskie, Kaliski, Kolonia Skarszewek"},{"value":9076,"label":'Wielkopolskie, Poznański, Komorniki'},{"value":26898,"label":'Warmińsko-Mazurskie, Działdowski, Komorniki'},{"value":39514,"label":'Mazowieckie, Pruszkowski, Komorów'},{"value":52316,"label":'Dolnośląskie, Świdnicki, Komorów'},{"value":35695,"label":'Dolnośląskie, Wrocławski, Komorowice'},{"value":52453,"label":'Wielkopolskie, Poznański, Konarskie'},{"value":46080,"label":'Wielkopolskie, Poznański, Koninko'},{"value":9532,"label":'Mazowieckie, Węgrowski, Korytnica'},{"value":22513,"label":'Mazowieckie, Piaseczyński, Korzeniówka'},{"value":52242,"label":'Małopolskie, Nowosądecki, Korzenna'},{"value":39282,"label":"Pomorskie, Pucki, Kosakowo"},{"value":7421,"label":'Małopolskie, Tatrzański, Kościelisko'},{"value":52227,"label":'Małopolskie, Tarnowski, Koszyce Wielkie'},{"value":52502,"label":'Opolskie, Opolski, Kotórz Wielki'},{"value":52501,"label":'Pomorskie, Gdański, Kowale'},{"value":12905,"label":'Wielkopolskie, Poznański, Koziegłowy'},{"value":11058,"label":'Wielkopolskie, Poznański, Krąplewo'},{"value":40626,"label":"Podkarpackie, Rzeszowski, Krasne"},{"value":9494,"label":'Mazowieckie, Warszawski Zachodni, Kręczki'},{"value":52828,"label":'Kujawsko-pomorskie, Toruński, Krobia'},{"value":44106,"label":'Małopolskie, Krakowski, Kryspinów'},{"value":44037,"label":'Mazowieckie, Żyrardowski, Krze Duże'},{"value":48950,"label":'Dolnośląskie, Wrocławski, Krzeptów'},{"value":36620,"label":'Wielkopolskie, Leszczyński, Krzycko Wielkie'},{"value":51455,"label":'Łódzkie, Zgierski, Krzywiec'},{"value":4996,"label":'Dolnośląskie, Trzebnicki, Krzyżanowice'},{"value":31125,"label":'Łódzkie, Pabianicki, Ksawerów'},{"value":35086,"label":'Mazowieckie, Grodziski, Książenice'},{"value":52389,"label":'Dolnośląskie, Legnicki, Kunice'},{"value":52422,"label":'Małopolskie, Wielicki, Kunice'},{"value":37952,"label":'Wielkopolskie, Międzychodzki, Kwilcz'},{"value":48860,"label":'Mazowieckie, Warszawski Zachodni, Kwirynów'},{"value":52275,"label":'Mazowieckie, Legionowski, Łajski'},{"value":52432,"label":'Śląskie, Pszczyński, Łąka'},{"value":34146,"label":'Mazowieckie, Piaseczyński, Łazy'},{"value":37135,"label":'Pomorskie, Pucki, Łebcz'},{"value":718,"label":'Małopolskie, Wielicki, Lednica Górna'},{"value":52277,"label":'Dolnośląskie, Legnicki, Legnickie Pole'},{"value":3947,"label":'Mazowieckie, Piaseczyński, Lesznowola'},{"value":36767,"label":'Mazowieckie, Grójecki, Lesznowola'},{"value":22066,"label":'Pomorskie, Kartuski, Leźno'},{"value":34647,"label":'Małopolskie, Krakowski, Libertów'},{"value":44885,"label":'Dolnośląskie, Trzebnicki, Ligota Piękna'},{"value":52821,"label":'Mazowieckie, Wołomiński, Lipinki'},{"value":12693,"label":'Mazowieckie, Warszawski Zachodni, Lipków'},{"value":6704,"label":"Mazowieckie, Otwocki, Lipowo"},{"value":52399,"label":'Małopolskie, Krakowski, Liszki'},{"value":52353,"label":'Mazowieckie, Węgrowski, Łochów'},{"value":52430,"label":'Kujawsko-Pomorskie, Bydgoski, Łochowo'},{"value":6883,"label":'Mazowieckie, Warszawski Zachodni, Łomianki Dolne'},{"value":8055,"label":'Wielkopolskie, Poznański, Łopuchowo'},{"value":52250,"label":'Małopolskie, Tarnowski, Łowczówek'},{"value":52806,"label":'Wielkopolskie, Poznański, Łowęcin'},{"value":38755,"label":'Dolnośląskie, Wrocławski, Łozina'},{"value":52375,"label":'Lubelskie, Lubartowski, Lubartów'},{"value":52514,"label":'Lubuskie, Nowosolski, Lubięcin'},{"value":52421,"label":"Pomorskie, Tczewski, Lubiszewo Tczewskie"},{"value":48993,"label":'Zachodniopomorskie, Kamieński, Łukęcin'},{"value":8482,"label":'Wielkopolskie, Poznański, Lusówko'},{"value":42643,"label":'Dolnośląskie, Średzki, Lutynia'},{"value":5710,"label":"Pomorskie, Wejherowski, Luzino"},{"value":4025,"label":'Mazowieckie, Piaseczyński, Magdalenka'},{"value":28635,"label":'Mazowieckie, Wołomiński, Majdan'},{"value":52395,"label":"Kujawsko-Pomorskie, Bydgoski, Maksymilianowo"},{"value":6439,"label":'Mazowieckie, Otwocki, Malcanów'},{"value":52544,"label":'Warmińsko-Mazurskie, Ostródzki, Małdyty'},{"value":29615,"label":'Mazowieckie, Nowodworski, Małocice'},{"value":52282,"label":'Opolskie, Opolski, Marszałki'},{"value":37810,"label":'Świętokrzyskie, Kielecki, Masłów Pierwszy'},{"value":52324,"label":"Pomorskie, Pucki, Mechelinki"},{"value":10668,"label":'Dolnośląskie, Wrocławski, Mędłów'},{"value":10332,"label":'Mazowieckie, Otwocki, Michałówek'},{"value":52376,"label":'Mazowieckie, Legionowski, Michałów-Grabina'},{"value":52225,"label":'Małopolskie, Krakowski, Michałowice'},{"value":6354,"label":'Mazowieckie, Pruszkowski, Michałowice-Wieś'},{"value":38052,"label":'Mazowieckie, Legionowski, Michałów-Reginów'},{"value":40170,"label":"Pomorskie, Kartuski, Miechucino"},{"value":34893,"label":'Zachodniopomorskie, Kamieński, Międzywodzie'},{"value":16057,"label":'Pomorskie, Słupski, Mielno'},{"value":24820,"label":'Zachodniopomorskie, Koszaliński, Mielno'},{"value":13611,"label":"Zachodniopomorskie, Policki, Mierzyn"},{"value":27600,"label":'Dolnośląskie, Wrocławski, Mirków'},{"value":15044,"label":'Mazowieckie, Pruszkowski, Młochów'},{"value":48601,"label":'Dolnośląskie, Wrocławski, Mnichowice'},{"value":23982,"label":'Małopolskie, Krakowski, Mników'},{"value":52003,"label":'Małopolskie, Krakowski, Modlnica'},{"value":31171,"label":'Małopolskie, Krakowski, Modlniczka'},{"value":30274,"label":'Małopolskie, Krakowski, Mogilany'},{"value":32614,"label":"Zachodniopomorskie, Stargardzki, Morzyczyn"},{"value":19040,"label":"Pomorskie, Pucki, Mosty"},{"value":30217,"label":"Lubelskie, Lubelski, Motycz"},{"value":3992,"label":'Wielkopolskie, Poznański, Mrowino'},{"value":40413,"label":'Mazowieckie, Miński, Mrozy'},{"value":19023,"label":'Zachodniopomorskie, Gryficki, Mrzeżyno'},{"value":52427,"label":'Podkarpackie, Jarosławski, Munina'},{"value":764,"label":'Mazowieckie, Piaseczyński, Mysiadło'},{"value":52554,"label":'Dolnośląskie, Jeleniogórski, Mysłakowice'},{"value":15839,"label":'Kujawsko-Pomorskie, Bydgoski, Myślęcinek'},{"value":19543,"label":"Mazowieckie, Pruszkowski, Nadarzyn"},{"value":4865,"label":'Mazowieckie, Wołomiński, Nadma'},{"value":6002,"label":'Dolnośląskie, Wrocławski, Nadolice Wielkie'},{"value":11650,"label":'Małopolskie, Krakowski, Narama'},{"value":52434,"label":'Warmińsko-Mazurskie, Olsztyński, Naterki'},{"value":52439,"label":'Śląskie, Gliwicki, Nieborowice'},{"value":22442,"label":"Zachodniopomorskie, Gryficki, Niechorze"},{"value":12266,"label":'Małopolskie, Tarnowski, Niedomice'},{"value":52230,"label":'Zachodniopomorskie, Kołobrzeski, Niekanin'},{"value":51206,"label":"Kujawsko-Pomorskie, Bydgoski, Niemcz"},{"value":25245,"label":'Mazowieckie, Legionowski, Nieporęt'},{"value":52291,"label":'Podlaskie, Białostocki, Niewodnica Korycka'},{"value":52405,"label":'Wielkopolskie, Śremski, Nochowo'},{"value":43998,"label":'Mazowieckie, Piaseczyński, Nowa Iwiczna'},{"value":37600,"label":'Mazowieckie, Piaseczyński, Nowa Wola'},{"value":52243,"label":"Pomorskie, Kartuski, Nowe Czaple"},{"value":52249,"label":"Mazowieckie, Siedlecki, Nowe Iganie"},{"value":27468,"label":'Mazowieckie, Wołomiński, Nowe Lipiny'},{"value":52553,"label":'Świętokrzyskie, Kielecki, Nowiny'},{"value":29580,"label":'Zachodniopomorskie, Myśliborski, Nowogródek Pomorski'},{"value":10959,"label":'Mazowieckie, Warszawski Zachodni, Nowy Dziekanów'},{"value":52531,"label":'Dolnośląskie, Lubiński, Obora'},{"value":52390,"label":'Kujawsko-Pomorskie, Toruński, Obrowo'},{"value":37970,"label":'Lubuskie, Zielonogórski, Ochla'},{"value":34992,"label":'Małopolskie, Wielicki, Ochmanów'},{"value":52507,"label":"Mazowieckie, Legionowski, Olszewnica Nowa"},{"value":52690,"label":"Mazowieckie, Legionowski, Olszewnica Stara"},{"value":13084,"label":"Mazowieckie, Pruszkowski, Opacz-Kolonia"},{"value":51821,"label":'Małopolskie, Proszowicki, Opatkowice'},{"value":20837,"label":"Pomorskie, Wejherowski, Orle"},{"value":52701,"label":'Śląskie, Mikołowski, Ornontowice'},{"value":42560,"label":"Kujawsko-Pomorskie, Bydgoski, Osielsko"},{"value":52373,"label":'Podlaskie, Białostocki, Osowicze'},{"value":34318,"label":'Mazowieckie, Pruszkowski, Otrębusy'},{"value":27677,"label":'Mazowieckie, Otwocki, Otwock Mały'},{"value":52298,"label":'Dolnośląskie, Wrocławski, Ozorzyce'},{"value":47059,"label":'Wielkopolskie, Poznański, Paczkowo'},{"value":44016,"label":'Wielkopolskie, Poznański, Palędzie'},{"value":46626,"label":"Mazowieckie, Pruszkowski, Parzniew"},{"value":25480,"label":'Śląskie, Pszczyński, Pawłowice'},{"value":13037,"label":'Mazowieckie, Pruszkowski, Pęcice Małe'},{"value":52290,"label":'Wielkopolskie, Poznański, Pecna'},{"value":45216,"label":'Wielkopolskie, Gostyński, Pępowo'},{"value":45599,"label":'Pomorskie, Kartuski, Pępowo'},{"value":4744,"label":'Małopolskie, Krakowski, Piekary'},{"value":20312,"label":'Dolnośląskie, Wrocławski, Pietrzykowice'},{"value":35553,"label":'Małopolskie, Chrzanowski, Piła Kościelecka'},{"value":52438,"label":'Śląskie, Gliwicki, Pilchowice'},{"value":11639,"label":"Pomorskie, Starogardzki, Pinczyn"},{"value":50508,"label":'Śląskie, Bielski, Pisarzowice'},{"value":52271,"label":'Dolnośląskie, Oleśnicki, Piszkawa'},{"value":30423,"label":'Wielkopolskie, Poznański, Plewiska'},{"value":52347,"label":'Mazowieckie, Pułtuski, Pobyłkowo Małe'},{"value":39906,"label":'Pomorskie, Słupski, Poddąbie'},{"value":43126,"label":'Pomorskie, Pucki, Pogórze'},{"value":25293,"label":'Zachodniopomorskie, Łobeski, Pogorzelica'},{"value":28369,"label":"Zachodniopomorskie, Gryficki, Pogorzelica"},{"value":52198,"label":'Kujawsko-Pomorskie, Brodnicki, Półko'},{"value":24694,"label":'Lubuskie, Zielonogórski, Pomorsko'},{"value":4863,"label":'Dolnośląskie, Oleśnicki, Poniatowice'},{"value":52551,"label":'Śląskie, Myszkowski, Poraj'},{"value":9000,"label":'Małopolskie, Tatrzański, Poronin'},{"value":2986,"label":'Mazowieckie, Piaseczyński, Prażmów'},{"value":52330,"label":'Dolnośląskie, Wrocławski, Pruszowice'},{"value":49540,"label":'Wielkopolskie, Poznański, Przeźmierowo'},{"value":52408,"label":'Mazowieckie, Piaseczyński, Przypki'},{"value":52435,"label":'Wielkopolskie, Śremski, Psarskie'},{"value":9616,"label":'Dolnośląskie, Trzebnicki, Psary'},{"value":42431,"label":'Dolnośląskie, Świdnicki, Pszenno'},{"value":37911,"label":"Zachodniopomorskie, Goleniowski, Pucice"},{"value":2797,"label":"Podkarpackie, Stalowowolski, Pysznica"},{"value":52394,"label":'Wielkopolskie, Poznański, Rabowice'},{"value":42060,"label":'Małopolskie, Krakowski, Raciborowice'},{"value":3291,"label":'Małopolskie, Miechowski, Racławice'},{"value":26411,"label":'Dolnośląskie, Wrocławski, Racławice Wielkie'},{"value":8184,"label":'Dolnośląskie, Wrocławski, Radomierzyce'},{"value":14233,"label":'Pomorskie, Gdański, Radunica'},{"value":37461,"label":'Dolnośląskie, Wrocławski, Radwanice'},{"value":5264,"label":'Mazowieckie, Żyrardowski, Radziejowice'},{"value":52319,"label":"Wielkopolskie, Szamotulski, Radzyny"},{"value":3525,"label":"Mazowieckie, Pruszkowski, Raszyn"},{"value":9898,"label":'Warmińsko-Mazurskie, Olsztyński, Redykajny'},{"value":29189,"label":'Mazowieckie, Pruszkowski, Reguły'},{"value":52338,"label":"Mazowieckie, Legionowski, Rembelszczyzna"},{"value":3482,"label":"Zachodniopomorskie, Gryficki, Rewal"},{"value":1209,"label":'Wielkopolskie, Pleszewski, Robaków'},{"value":22215,"label":'Wielkopolskie, Poznański, Robakowo'},{"value":17972,"label":'Wielkopolskie, Poznański, Rogalin'},{"value":42767,"label":"Zachodniopomorskie, Gryficki, Rogowo"},{"value":16717,"label":"Zachodniopomorskie, Stargardzki, Rogowo"},{"value":52512,"label":'Mazowieckie, Płocki, Rogozino'},{"value":48500,"label":'Wielkopolskie, Poznański, Rokietnica'},{"value":52384,"label":"Pomorskie, Tczewski, Rokitki"},{"value":23959,"label":'Pomorskie, Gdański, Rokitnica'},{"value":52704,"label":'Zachodniopomorskie, Koszaliński, Rosnowo'},{"value":52705,"label":'Wielkopolskie, Poznański, Rosnowo'},{"value":589,"label":'Pomorskie, Gdański, Rotmanka'},{"value":936,"label":'Pomorskie, Słupski, Rowy'},{"value":52429,"label":"Mazowieckie, Pruszkowski, Rozalin"},{"value":52295,"label":'Kujawsko-Pomorskie, Toruński, Rozgarty'},{"value":16881,"label":'Pomorskie, Gdański, Różyny'},{"value":21300,"label":'Małopolskie, Krakowski, Rudawa'},{"value":52465,"label":'Wielkopolskie, Poznański, Rumianek'},{"value":52300,"label":'Warmińsko-Mazurskie, Olsztyński, Ruś'},{"value":17967,"label":"Mazowieckie, Pruszkowski, Rusiec"},{"value":52496,"label":'Małopolskie, Krakowski, Rybna'},{"value":52393,"label":'Małopolskie, Wadowicki, Ryczów'},{"value":19992,"label":'Małopolskie, Krakowski, Rząska'},{"value":52789,"label":'Mazowieckie, Wyszkowski, Rząśnik'},{"value":52530,"label":'Mazowieckie, Ostrołęcki, Rzekuń'},{"value":34342,"label":"Mazowieckie, Grodziski, Sade Budy"},{"value":38585,"label":'Dolnośląskie, Wrocławski, Sadków'},{"value":27725,"label":"Mazowieckie, Warszawski Zachodni, Sadowa"},{"value":43506,"label":'Wielkopolskie, Poznański, Sady'},{"value":11359,"label":'Zachodniopomorskie, Koszaliński, Sarbinowo'},{"value":38155,"label":'Łódzkie, Łaski, Sędziejowice'},{"value":18184,"label":'Mazowieckie, Pruszkowski, Sękocin Nowy'},{"value":52431,"label":"Mazowieckie, Sochaczewski, Seroki-Parcela"},{"value":52221,"label":'Zachodniopomorskie, Policki, Siadło Dolne'},{"value":52402,"label":'Mazowieckie, Płoński, Siedlin'},{"value":51550,"label":'Pomorskie, Słupski, Siemianice'},{"value":10970,"label":'Dolnośląskie, Kłodzki, Sienna'},{"value":46611,"label":"Pomorskie, Kartuski, Sierakowice"},{"value":52463,"label":'Wielkopolskie, Poznański, Sierosław'},{"value":52411,"label":'Mazowieckie, Grodziski, Siestrzeń'},{"value":52213,"label":"Zachodniopomorskie, Szczecinecki, Silnowo"},{"value":24542,"label":"Opolskie, Brzeski, Skarbimierz"},{"value":52444,"label":"Zachodniopomorskie, Policki, Skarbimierzyce"},{"value":52356,"label":'Małopolskie, Krakowski, Skawina'},{"value":11676,"label":"Mazowieckie, Legionowski, Skierdy"},{"value":4215,"label":'Kujawsko-Pomorskie, Nakielski, Skórzewo'},{"value":2450,"label":'Wielkopolskie, Poznański, Skórzewo'},{"value":34270,"label":'Pomorskie, Gdański, Skowarcz'},{"value":32338,"label":"Mazowieckie, Legionowski, Skrzeszew"},{"value":13636,"label":'Mazowieckie, Grodziski, Skuły'},{"value":52305,"label":'Zachodniopomorskie, Koszaliński, Skwierzynka'},{"value":46478,"label":'Małopolskie, Wielicki, Śledziejowice'},{"value":4654,"label":'Dolnośląskie, Wrocławski, Ślęza'},{"value":11377,"label":'Mazowieckie, Pruszkowski, Słomin'},{"value":42993,"label":'Mazowieckie, Płocki, Słupno'},{"value":41596,"label":'Mazowieckie, Wołomiński, Słupno'},{"value":52357,"label":'Dolnośląskie, Wrocławski, Smolec'},{"value":28882,"label":"Mazowieckie, Otwocki, Sobienie Szlacheckie"},{"value":26262,"label":'Dolnośląskie, Lwówecki, Sobota'},{"value":49453,"label":'Mazowieckie, Piaseczyński, Solec'},{"value":52547,"label":'Wielkopolskie, Ostrowski, Sośnie'},{"value":52504,"label":'Dolnośląskie, Oleśnicki, Spalice'},{"value":52360,"label":'Mazowieckie, Legionowski, Stanisławów Drugi'},{"value":52350,"label":'Mazowieckie, Legionowski, Stanisławów Pierwszy'},{"value":52218,"label":'Dolnośląskie, Jeleniogórski, Staniszów'},{"value":37859,"label":'Mazowieckie, Piaseczyński, Stara Iwiczna'},{"value":52398,"label":'Mazowieckie, Pruszkowski, Stara Wieś'},{"value":21611,"label":"Mazowieckie, Warszawski Zachodni, Stare Babice"},{"value":52552,"label":"Mazowieckie, Nowodworski, Stare Grochale"},{"value":15424,"label":'Łódzkie, Łódzki Wschodni, Starowa Góra'},{"value":22561,"label":"Pomorskie, Nowodworski, Stegna"},{"value":49040,"label":'Mazowieckie, Miński, Stojadła'},{"value":39808,"label":'Pomorskie, Gdański, Straszyn'},{"value":52593,"label":'Mazowieckie, Płocki, Stróżewko'},{"value":20144,"label":'Małopolskie, Wielicki, Strumiany'},{"value":52345,"label":"Mazowieckie, Warszawski Zachodni, Strzykuly"},{"value":21888,"label":'Pomorskie, Pucki, Suchy Dwór'},{"value":16085,"label":'Wielkopolskie, Poznański, Suchy Las'},{"value":52351,"label":'Małopolskie, Wielicki, Sułków'},{"value":16272,"label":"Pomorskie, Pucki, Swarzewo"},{"value":52419,"label":'Śląskie, Tarnogórski, Świerklaniec'},{"value":6424,"label":'Dolnośląskie, Wrocławski, Święta Katarzyna'},{"value":35566,"label":'Podkarpackie, Rzeszowski, Świlcza'},{"value":52383,"label":'Mazowieckie, Grodziski, Szczęsne'},{"value":859,"label":"Wielkopolskie, Szamotulski, Szczuczyn"},{"value":52336,"label":'Wielkopolskie, Poznański, Szczytniki'},{"value":39179,"label":"Mazowieckie, Warszawski Zachodni, Szeligi"},{"value":32934,"label":"Pomorskie, Wejherowski, Szemud"},{"value":52340,"label":'Dolnośląskie, Lubiński, Szklary Górne'},{"value":52518,"label":"Pomorskie, Kartuski, Sznurki"},{"value":15233,"label":'Wielkopolskie, Poznański, Szreniawa'},{"value":46812,"label":"Pomorskie, Nowodworski, Sztutowo"},{"value":52426,"label":'Wielkopolskie, Pilski, Szydłowo'},{"value":52234,"label":"Pomorskie, Kartuski, Szymbark"},{"value":52823,"label":'Dolnośląskie, Trzebnicki, Taczów Wielki'},{"value":20502,"label":'Wielkopolskie, Poznański, Tarnowo Podgórne'},{"value":39907,"label":"Pomorskie, Kartuski, Tokary"},{"value":50027,"label":'Warmińsko-Mazurskie, Olsztyński, Tomaszkowo'},{"value":26253,"label":"Podkarpackie, Rzeszowski, Trzebownisko"},{"value":15812,"label":"Pomorskie, Kartuski, Tuchom"},{"value":32745,"label":'Wielkopolskie, Poznański, Tulce'},{"value":52231,"label":"Lubelskie, Lubelski, Turka"},{"value":29424,"label":'Dolnośląskie, Wrocławski, Tyniec Mały'},{"value":41680,"label":'Zachodniopomorskie, Koszaliński, Unieście'},{"value":13355,"label":'Mazowieckie, Piaseczyński, Ustanów'},{"value":34561,"label":'Zachodniopomorskie, Kołobrzeski, Ustronie Morskie'},{"value":52371,"label":'Wielkopolskie, Wągrowiecki, Wągrowiec'},{"value":50953,"label":'Mazowieckie, Pruszkowski, Walendów'},{"value":46852,"label":"Mazowieckie, Otwocki, Warszawice"},{"value":37521,"label":'Śląskie, Pszczyński, Warszowice'},{"value":44745,"label":"Zachodniopomorskie, Policki, Warzymice"},{"value":27803,"label":'Małopolskie, Krakowski, Węgrzce'},{"value":7529,"label":"Podkarpackie, Leski, Wetlina"},{"value":2743,"label":'Mazowieckie, Otwocki, Wiązowna'},{"value":47618,"label":'Małopolskie, Krakowski, Więckowice'},{"value":52359,"label":"Mazowieckie, Legionowski, Wieliszew"},{"value":52377,"label":'Małopolskie, Krakowski, Wielka Wieś'},{"value":52536,"label":'Śląskie, Częstochowski, Wierzchowisko'},{"value":52200,"label":"Kujawsko-Pomorskie, Bydgoski, Wilcze"},{"value":29203,"label":'Dolnośląskie, Wrocławski, Wilczyce'},{"value":52239,"label":'Dolnośląskie, Średzki, Wilkszyn'},{"value":29287,"label":'Wielkopolskie, Poznański, Wiry'},{"value":52315,"label":'Łódzkie, Łódzki Wschodni, Wiśniowa Góra'},{"value":13603,"label":'Dolnośląskie, Trzebnicki, Wisznia Mała'},{"value":46502,"label":'Mazowieckie, Piaseczyński, Władysławów'},{"value":6035,"label":'Małopolskie, Krakowski, Włosań'},{"value":52385,"label":'Dolnośląskie, Wrocławski, Wojkowice'},{"value":52220,"label":'Dolnośląskie, Wrocławski, Wojnowice'},{"value":14748,"label":'Mazowieckie, Piaseczyński, Wola Mrokowska'},{"value":6924,"label":'Zachodniopomorskie, Policki, Wołczkowo'},{"value":23803,"label":"Mazowieckie, Warszawski Zachodni, Wolica"},{"value":51237,"label":"Mazowieckie, Pruszkowski, Wolica"},{"value":44464,"label":'Mazowieckie, Piaseczyński, Wólka Kosowska'},{"value":47782,"label":'Mazowieckie, Miński, Wólka Mińska'},{"value":52442,"label":'Podkarpackie, Rzeszowski, Wólka Podleśna'},{"value":52537,"label":'Zachodniopomorskie, Kamieński, Wrzosowo'},{"value":15665,"label":'Wielkopolskie, Poznański, Wysogotowo'},{"value":14088,"label":'Dolnośląskie, Wrocławski, Wysoka'},{"value":52664,"label":'Podkarpackie, Wyżne'},{"value":52331,"label":'Małopolskie, Wielicki, Zabawa'},{"value":29492,"label":'Mazowieckie, Grodziski, Żabia Wola'},{"value":31832,"label":'Małopolskie, Krakowski, Zabierzów'},{"value":13351,"label":'Lubuskie, Zielonogórski, Zabór'},{"value":33346,"label":'Mazowieckie, Warszawski Zachodni, Zaborówek'},{"value":52280,"label":'Małopolskie, Wielicki, Zakrzowiec'},{"value":27018,"label":'Wielkopolskie, Poznański, Zalasewo'},{"value":17216,"label":'Mazowieckie, Piaseczyński, Zalesie Górne'},{"value":17703,"label":'Mazowieckie, Piaseczyński, Zamienie'},{"value":20796,"label":'Mazowieckie, Miński, Zamienie'},{"value":25518,"label":'Mazowieckie, Otwocki, Żanęcin'},{"value":26661,"label":'Wielkopolskie, Średzki, Zaniemyśl'},{"value":46889,"label":'Podlaskie, Białostocki, Zaścianki'},{"value":52685,"label":'Wielkopolskie, Śremski, Zbrudzewo'},{"value":16196,"label":'Zachodniopomorskie, Gryfiński, Żelewo'},{"value":52281,"label":'Małopolskie, Krakowski, Żerkowice'},{"value":11887,"label":'Dolnośląskie, Wrocławski, Żerniki Małe'},{"value":52369,"label":'Mazowieckie, Piaseczyński, Zgorzała'},{"value":52327,"label":"Kujawsko-Pomorskie, Bydgoski, Zielonka"},{"value":2350,"label":'Mazowieckie, Zwoleński, Zielonka Nowa'},{"value":876,"label":'Małopolskie, Krakowski, Zielonki'},{"value":42318,"label":'Wielkopolskie, Kaliski, Złotniki'},{"value":52325,"label":'Podkarpackie, Mielecki, Złotniki'},{"value":22698,"label":'Wielkopolskie, Poznański, Złotniki'},{"value":40262,"label":'Podlaskie, Białostocki, Złotniki'},{"value":34935,"label":'Dolnośląskie, Lubański, Złotniki Lubańskie'},{"value":45748,"label":'Mazowieckie, Pruszkowski, Żółwin'},{"value":52186,"label":'Pomorskie, Gdańsk, Aniołki'},{"value":52488,"label":'Pomorskie, Gdynia, Babie Doły'},{"value":52133,"label":'Łódzkie, Łódź, Bałuty'},{"value":38720,"label":"Mazowieckie, Warszawa, Bemowo"},{"value":42663,"label":'Mazowieckie, Warszawa, Białołęka'},{"value":28904,"label":"Mazowieckie, Warszawa, Bielany"},{"value":52201,"label":'Małopolskie, Kraków, Bieńczyce'},{"value":52137,"label":'Małopolskie, Kraków, Bieżanów-Prokocim'},{"value":52188,"label":'Pomorskie, Gdańsk, Brętowo'},{"value":52127,"label":'Małopolskie, Kraków, Bronowice'},{"value":52202,"label":'Pomorskie, Gdańsk, Brzeźno'},{"value":52114,"label":'Pomorskie, Gdańsk, Chełm I Gdańsk Południe'},{"value":52169,"label":"Pomorskie, Gdynia, Chwarzno-Wiczlino"},{"value":52184,"label":"Pomorskie, Gdynia, Chylonia"},{"value":52187,"label":"Pomorskie, Gdynia, Cisowa"},{"value":52138,"label":'Małopolskie, Kraków, Czyżyny'},{"value":52162,"label":'Pomorskie, Gdynia, Dąbrowa'},{"value":52124,"label":'Małopolskie, Kraków, Dębniki'},{"value":52179,"label":"Pomorskie, Sopot, Dolny Sopot"},{"value":52489,"label":'Pomorskie, Gdynia, Działki Leśne'},{"value":52122,"label":'Dolnośląskie, Wrocław, Fabryczna'},{"value":52167,"label":'Łódzkie, Łódź, Górna'},{"value":52183,"label":'Pomorskie, Sopot, Górny Sopot'},{"value":52180,"label":'Pomorskie, Gdynia, Grabówek'},{"value":52118,"label":'Wielkopolskie, Poznań, Grunwald'},{"value":52175,"label":'Małopolskie, Kraków, Grzegórzki'},{"value":52205,"label":'Pomorskie, Gdańsk, Jasień'},{"value":52119,"label":'Wielkopolskie, Poznań, Jeżyce'},{"value":52490,"label":'Pomorskie, Gdynia, Kamienna Góra'},{"value":52190,"label":"Pomorskie, Sopot, Karlikowo"},{"value":52328,"label":"Pomorskie, Gdynia, Karwiny"},{"value":52148,"label":'Pomorskie, Gdańsk, Kokoszki'},{"value":52476,"label":'Pomorskie, Gdańsk, Krakowiec-Górki Zachodnie'},{"value":52123,"label":'Małopolskie, Kraków, Krowodrza'},{"value":52121,"label":'Dolnośląskie, Wrocław, Krzyki'},{"value":52150,"label":'Małopolskie, Kraków, Łagiewniki'},{"value":52491,"label":"Pomorskie, Gdynia, Leszczynki"},{"value":52477,"label":'Pomorskie, Gdańsk, Letnica'},{"value":52134,"label":'Pomorskie, Gdynia, Mały Kack'},{"value":52173,"label":'Pomorskie, Gdańsk, Matarnia'},{"value":52141,"label":'Małopolskie, Kraków, Mistrzejowice'},{"value":52478,"label":'Pomorskie, Gdańsk, Młyniska'},{"value":20284,"label":'Mazowieckie, Warszawa, Mokotów'},{"value":52126,"label":'Małopolskie, Kraków, Nowa Huta'},{"value":52128,"label":'Wielkopolskie, Poznań, Nowe Miasto'},{"value":52479,"label":'Pomorskie, Gdańsk, Nowy Port'},{"value":52163,"label":'Pomorskie, Gdynia, Obłuże'},{"value":38687,"label":"Mazowieckie, Warszawa, Ochota"},{"value":52135,"label":"Pomorskie, Gdynia, Oksywie"},{"value":52181,"label":'Pomorskie, Gdańsk, Oliwa'},{"value":52480,"label":'Pomorskie, Gdańsk, Olszynka'},{"value":52182,"label":'Pomorskie, Gdynia, Orłowo'},{"value":52155,"label":'Pomorskie, Gdańsk, Orunia-Św. Wojciech-Lipce'},{"value":52115,"label":'Pomorskie, Gdańsk, Osowa'},{"value":52131,"label":'Pomorskie, Gdańsk, Piecki-Migowo'},{"value":52142,"label":'Małopolskie, Kraków, Podgórze'},{"value":52139,"label":'Małopolskie, Kraków, Podgórze Duchackie'},{"value":52160,"label":'Pomorskie, Gdynia, Pogórze'},{"value":52164,"label":'Łódzkie, Łódź, Polesie'},{"value":52147,"label":'Zachodniopomorskie, Szczecin, Północ'},{"value":52112,"label":'Małopolskie, Kraków, Prądnik Biały'},{"value":52130,"label":'Małopolskie, Kraków, Prądnik Czerwony'},{"value":36957,"label":'Mazowieckie, Warszawa, Praga-Północ'},{"value":51145,"label":'Mazowieckie, Warszawa, Praga-Południe'},{"value":52140,"label":'Zachodniopomorskie, Szczecin, Prawobrzeże'},{"value":52481,"label":'Pomorskie, Gdańsk, Przeróbka'},{"value":52185,"label":'Pomorskie, Gdańsk, Przymorze Małe'},{"value":52177,"label":'Pomorskie, Gdańsk, Przymorze Wielkie'},{"value":52156,"label":'Dolnośląskie, Wrocław, Psie Pole'},{"value":52270,"label":"Pomorskie, Gdynia, Pustki Cisowskie-Demptowo"},{"value":52178,"label":'Pomorskie, Gdynia, Redłowo'},{"value":22883,"label":'Mazowieckie, Warszawa, Rembertów'},{"value":52482,"label":'Pomorskie, Gdańsk, Rudniki'},{"value":52192,"label":'Pomorskie, Gdańsk, Siedlce'},{"value":50052,"label":'Mazowieckie, Warszawa, Śródmieście'},{"value":52158,"label":'Zachodniopomorskie, Szczecin, Śródmieście'},{"value":52157,"label":'Pomorskie, Gdynia, Śródmieście'},{"value":52174,"label":'Łódzkie, Łódź, Śródmieście'},{"value":52113,"label":'Dolnośląskie, Wrocław, Śródmieście'},{"value":52166,"label":'Pomorskie, Gdańsk, Śródmieście'},{"value":52116,"label":'Wielkopolskie, Poznań, Stare Miasto'},{"value":52111,"label":'Małopolskie, Kraków, Stare Miasto'},{"value":52129,"label":'Dolnośląskie, Wrocław, Stare Miasto'},{"value":52303,"label":'Pomorskie, Gdańsk, Stogi'},{"value":52483,"label":'Pomorskie, Gdańsk, Strzyża'},{"value":52189,"label":'Pomorskie, Gdańsk, Suchanino'},{"value":52171,"label":'Małopolskie, Kraków, Swoszowice'},{"value":32953,"label":'Mazowieckie, Warszawa, Targówek'},{"value":52484,"label":'Pomorskie, Gdańsk, Ujeścisko-Łostowice'},{"value":24305,"label":"Mazowieckie, Warszawa, Ursus"},{"value":3766,"label":'Mazowieckie, Warszawa, Ursynów'},{"value":52485,"label":'Pomorskie, Gdańsk, VII Dwór'},{"value":30707,"label":"Mazowieckie, Warszawa, Wawer"},{"value":37544,"label":'Mazowieckie, Warszawa, Wesoła'},{"value":52149,"label":'Łódzkie, Łódź, Widzew'},{"value":52132,"label":"Pomorskie, Gdynia, Wielki Kack"},{"value":1320,"label":'Mazowieckie, Warszawa, Wilanów'},{"value":52159,"label":'Wielkopolskie, Poznań, Wilda'},{"value":52492,"label":'Pomorskie, Gdynia, Witomino Leśniczówka'},{"value":52151,"label":"Pomorskie, Gdynia, Witomino-Radiostacja"},{"value":3645,"label":'Mazowieckie, Warszawa, Włochy'},{"value":32638,"label":"Mazowieckie, Warszawa, Wola"},{"value":52170,"label":'Pomorskie, Gdańsk, Wrzeszcz'},{"value":52486,"label":'Pomorskie, Gdańsk, Wyspa Sobieszewska'},{"value":52120,"label":'Małopolskie, Kraków, Wzgórza Krzesławickie'},{"value":52487,"label":'Pomorskie, Gdańsk, Wzgórze Mickiewicza'},{"value":52493,"label":'Pomorskie, Gdynia, Wzgórze Św. Maksymiliana'},{"value":52168,"label":'Pomorskie, Gdańsk, Żabianka-Wejhera-Jelitkowo-Tysiąclecia'},{"value":52136,"label":'Zachodniopomorskie, Szczecin, Zachód'},{"value":52165,"label":'Pomorskie, Gdańsk, Zaspa-Młyniec'},{"value":52154,"label":'Pomorskie, Gdańsk, Zaspa-Rozstaje'},{"value":52143,"label":'Śląskie, Katowice, Zespół Dzielnic Północnych'},{"value":52144,"label":'Śląskie, Katowice, Zespół Dzielnic Południowych'},{"value":52161,"label":'Śląskie, Katowice, Zespół Dzielnic Śródmiejskich'},{"value":52475,"label":'Śląskie, Katowice, Zespół Dzielnic Wschodnich'},{"value":52152,"label":'Śląskie, Katowice, Zespół Dzielnic Zachodnich'},{"value":36021,"label":'Mazowieckie, Warszawa, Żoliborz'},{"value":52117,"label":'Małopolskie, Kraków, Zwierzyniec'},{"value":52737,"label":'Mazowieckie, Warszawa, Aleksandrów'},{"value":52733,"label":"Mazowieckie, Warszawa, Anin"},{"value":52703,"label":'Wielkopolskie, Poznań, Antoninek-Zieliniec-Kobylepole'},{"value":52568,"label":'Mazowieckie, Warszawa, Augustówka'},{"value":52762,"label":'Dolnośląskie, Wrocław, Bartoszowice'},{"value":52663,"label":"Mazowieckie, Warszawa, Bemowo Lotnisko"},{"value":52691,"label":'Mazowieckie, Warszawa, Białołęka Dworska'},{"value":52763,"label":'Dolnośląskie, Wrocław, Bieńkowice'},{"value":52764,"label":'Dolnośląskie, Wrocław, Bierdzany'},{"value":52765,"label":'Dolnośląskie, Wrocław, Biskupin'},{"value":52727,"label":'Mazowieckie, Warszawa, Błonia Wilanowskie'},{"value":52660,"label":"Mazowieckie, Warszawa, Boernerowo"},{"value":52766,"label":'Dolnośląskie, Wrocław, Borek'},{"value":52767,"label":'Dolnośląskie, Wrocław, Brochów'},{"value":52597,"label":'Mazowieckie, Warszawa, Bródno'},{"value":52598,"label":'Mazowieckie, Warszawa, Bródno Podgrodzie'},{"value":52683,"label":"Mazowieckie, Warszawa, Brzeziny"},{"value":52630,"label":'Wielkopolskie, Poznań, Chartowo'},{"value":52613,"label":'Mazowieckie, Warszawa, Chomiczówka'},{"value":52676,"label":'Mazowieckie, Warszawa, Choszczówka'},{"value":52669,"label":'Mazowieckie, Warszawa, Chrzanów'},{"value":52696,"label":"Mazowieckie, Warszawa, Czechowice"},{"value":52565,"label":'Mazowieckie, Warszawa, Czerniaków'},{"value":52653,"label":"Mazowieckie, Warszawa, Czyste"},{"value":52768,"label":'Dolnośląskie, Wrocław, Dąbie'},{"value":52586,"label":'Mazowieckie, Warszawa, Dąbrówka'},{"value":52675,"label":'Mazowieckie, Warszawa, Dąbrówka Szlachecka'},{"value":52601,"label":'Mazowieckie, Warszawa, Elsnerów'},{"value":52619,"label":'Wielkopolskie, Poznań, Fabianowo-Kotowo'},{"value":52736,"label":"Mazowieckie, Warszawa, Falenica"},{"value":52572,"label":"Mazowieckie, Warszawa, Filtry"},{"value":52665,"label":"Mazowieckie, Warszawa, Fort Bema"},{"value":52661,"label":"Mazowieckie, Warszawa, Fort Radiowo"},{"value":52771,"label":'Dolnośląskie, Wrocław, Gądów Mały'},{"value":52769,"label":'Dolnośląskie, Wrocław, Gaj'},{"value":52770,"label":'Dolnośląskie, Wrocław, Gajowice'},{"value":52622,"label":'Wielkopolskie, Poznań, Główna'},{"value":52686,"label":'Wielkopolskie, Poznań, Głuszyna'},{"value":52714,"label":'Mazowieckie, Warszawa, Gocław'},{"value":52746,"label":'Mazowieckie, Warszawa, Gocławek'},{"value":52693,"label":'Mazowieckie, Warszawa, Gołąbki'},{"value":52666,"label":'Mazowieckie, Warszawa, Górce'},{"value":52631,"label":'Wielkopolskie, Poznań, Górczyn'},{"value":52583,"label":'Mazowieckie, Warszawa, Grabów'},{"value":52745,"label":'Mazowieckie, Warszawa, Grochów'},{"value":52692,"label":"Mazowieckie, Warszawa, Grodzisk"},{"value":52750,"label":'Mazowieckie, Warszawa, Groszówka'},{"value":52662,"label":"Mazowieckie, Warszawa, Groty"},{"value":52637,"label":'Wielkopolskie, Poznań, Grunwald Północ'},{"value":52639,"label":'Wielkopolskie, Poznań, Grunwald Południe'},{"value":52678,"label":'Mazowieckie, Warszawa, Henryków'},{"value":52772,"label":'Dolnośląskie, Wrocław, Huby'},{"value":52609,"label":"Mazowieckie, Warszawa, Huta"},{"value":52773,"label":'Dolnośląskie, Wrocław, Jagodno'},{"value":52706,"label":'Wielkopolskie, Poznań, Jana III Sobieskiego i Marysieńki'},{"value":52774,"label":'Dolnośląskie, Wrocław, Jarnołtów'},{"value":52667,"label":'Mazowieckie, Warszawa, Jelonki Północne'},{"value":52668,"label":'Mazowieckie, Warszawa, Jelonki Południowe'},{"value":52775,"label":'Dolnośląskie, Wrocław, Jerzmanowo'},{"value":52584,"label":'Mazowieckie, Warszawa, Jeziorki Północne'},{"value":52585,"label":'Mazowieckie, Warszawa, Jeziorki Południowe'},{"value":52629,"label":'Wielkopolskie, Poznań, Junikowo'},{"value":52594,"label":"Mazowieckie, Warszawa, Kabaty"},{"value":52713,"label":"Mazowieckie, Warszawa, Kamionek"},{"value":52776,"label":'Dolnośląskie, Wrocław, Karłowice'},{"value":52577,"label":'Mazowieckie, Warszawa, Kawęczyn-Wygoda'},{"value":52730,"label":'Mazowieckie, Warszawa, Kępa Zawadowska'},{"value":52604,"label":'Wielkopolskie, Poznań, Kiekrz'},{"value":52777,"label":'Dolnośląskie, Wrocław, Klecina'},{"value":52778,"label":'Dolnośląskie, Wrocław, Kleczków'},{"value":52779,"label":'Dolnośląskie, Wrocław, Kłokoczyce'},{"value":52684,"label":'Mazowieckie, Warszawa, Kobiałka'},{"value":52650,"label":'Mazowieckie, Warszawa, Koło'},{"value":52780,"label":'Dolnośląskie, Wrocław, Kowale'},{"value":52781,"label":'Dolnośląskie, Wrocław, Kozanów'},{"value":52709,"label":'Wielkopolskie, Poznań, Krzesiny-Pokrzywno-Garaszewo'},{"value":52610,"label":'Wielkopolskie, Poznań, Krzyżowniki-Smochowice'},{"value":52560,"label":'Mazowieckie, Warszawa, Ksawerów'},{"value":52783,"label":'Dolnośląskie, Wrocław, Księże Małe'},{"value":52784,"label":'Dolnośląskie, Wrocław, Księże Wielkie'},{"value":52785,"label":'Dolnośląskie, Wrocław, Kuźniki'},{"value":52623,"label":'Wielkopolskie, Poznań, Kwiatowe'},{"value":52786,"label":'Dolnośląskie, Wrocław, Lamowice Stare'},{"value":52740,"label":"Mazowieckie, Warszawa, Las"},{"value":52614,"label":'Mazowieckie, Warszawa, Las Bielański'},{"value":52595,"label":"Mazowieckie, Warszawa, Las Kabacki"},{"value":52615,"label":'Wielkopolskie, Poznań, Ławica'},{"value":52640,"label":'Wielkopolskie, Poznań, Łazarz'},{"value":52787,"label":'Dolnośląskie, Wrocław, Lesica'},{"value":52788,"label":'Dolnośląskie, Wrocław, Leśnica'},{"value":52790,"label":'Dolnośląskie, Wrocław, Lipa Piotrowska'},{"value":52658,"label":"Mazowieckie, Warszawa, Lotnisko"},{"value":52791,"label":'Dolnośląskie, Wrocław, Marszowice'},{"value":52634,"label":"Mazowieckie, Warszawa, Marymont Kaskada"},{"value":52700,"label":"Mazowieckie, Warszawa, Marymont-Potok"},{"value":52635,"label":"Mazowieckie, Warszawa, Marymont Ruda"},{"value":52743,"label":"Mazowieckie, Warszawa, Marysin Wawerski"},{"value":52792,"label":'Dolnośląskie, Wrocław, Maślice'},{"value":52732,"label":"Mazowieckie, Warszawa, Miedzeszyn"},{"value":52734,"label":'Mazowieckie, Warszawa, Międzylesie'},{"value":52657,"label":'Mazowieckie, Warszawa, Mirów'},{"value":52605,"label":'Mazowieckie, Warszawa, Młociny'},{"value":52654,"label":'Mazowieckie, Warszawa, Młynów'},{"value":52793,"label":'Dolnośląskie, Wrocław, Mokra'},{"value":52702,"label":'Wielkopolskie, Poznań, Morasko-Radojewo'},{"value":52794,"label":'Dolnośląskie, Wrocław, Muchobór Mały'},{"value":52642,"label":'Mazowieckie, Warszawa, Muranów'},{"value":52795,"label":'Dolnośląskie, Wrocław, Nadodrze'},{"value":52739,"label":'Mazowieckie, Warszawa, Nadwiśle'},{"value":52632,"label":'Wielkopolskie, Poznań, Naramowice'},{"value":52592,"label":"Mazowieckie, Warszawa, Natolin"},{"value":52695,"label":'Mazowieckie, Warszawa, Niedźwiadek'},{"value":52574,"label":"Mazowieckie, Warszawa, Nowa Praga"},{"value":52644,"label":"Mazowieckie, Warszawa, Nowe Miasto"},{"value":52688,"label":'Wielkopolskie, Poznań, Nowe Winogrady Północ'},{"value":52687,"label":'Wielkopolskie, Poznań, Nowe Winogrady Południe'},{"value":52689,"label":'Wielkopolskie, Poznań, Nowe Winogrady Wschód'},{"value":52716,"label":'Mazowieckie, Warszawa, Nowe Włochy'},{"value":52670,"label":"Mazowieckie, Warszawa, Nowodwory"},{"value":52656,"label":"Mazowieckie, Warszawa, Nowolipki"},{"value":52796,"label":'Dolnośląskie, Wrocław, Nowy Dwór'},{"value":52578,"label":'Mazowieckie, Warszawa, Nowy Rembertów'},{"value":52742,"label":"Mazowieckie, Warszawa, Nowy Wawer"},{"value":52652,"label":"Mazowieckie, Warszawa, Odolany"},{"value":52626,"label":'Wielkopolskie, Poznań, Ogrody'},{"value":52722,"label":'Mazowieckie, Warszawa, Okęcie'},{"value":52797,"label":'Dolnośląskie, Wrocław, Ołbin'},{"value":52744,"label":"Mazowieckie, Warszawa, Olszynka Grochowska"},{"value":52798,"label":'Dolnośląskie, Wrocław, Ołtaszyn'},{"value":52720,"label":"Mazowieckie, Warszawa, Opacz Wielka"},{"value":52799,"label":'Dolnośląskie, Wrocław, Opatowice'},{"value":52800,"label":'Dolnośląskie, Wrocław, Oporów'},{"value":52672,"label":'Wielkopolskie, Poznań, Osiedle Jeżyce'},{"value":52782,"label":'Dolnośląskie, Wrocław, Osiedle Krzyki'},{"value":52815,"label":'Dolnośląskie, Wrocław, Osiedle Psie Pole'},{"value":52671,"label":'Wielkopolskie, Poznań, Osiedle Stare Miasto'},{"value":52674,"label":'Wielkopolskie, Poznań, Osiedle Wilda'},{"value":52801,"label":'Dolnośląskie, Wrocław, Osobowice'},{"value":52753,"label":'Wielkopolskie, Poznań, Ostrów Tumski-Śródka-Zawady-Komandoria'},{"value":52723,"label":"Mazowieckie, Warszawa, Paluch"},{"value":52802,"label":'Dolnośląskie, Wrocław, Partynice'},{"value":52803,"label":'Dolnośląskie, Wrocław, Pawłowice'},{"value":52573,"label":"Mazowieckie, Warszawa, Pelcowizna"},{"value":52628,"label":"Mazowieckie, Warszawa, Piaski"},{"value":52618,"label":'Wielkopolskie, Poznań, Piątkowo'},{"value":52804,"label":'Dolnośląskie, Wrocław, Pilczyce'},{"value":52807,"label":'Dolnośląskie, Wrocław, Plac Grunwaldzki'},{"value":52607,"label":'Mazowieckie, Warszawa, Placówka'},{"value":52752,"label":"Mazowieckie, Warszawa, Plac Wojska Polskiego"},{"value":52616,"label":'Wielkopolskie, Poznań, Podolany'},{"value":52808,"label":'Dolnośląskie, Wrocław, Polanka'},{"value":52809,"label":'Dolnośląskie, Wrocław, Polanowice'},{"value":52810,"label":'Dolnośląskie, Wrocław, Południe'},{"value":52811,"label":'Dolnośląskie, Wrocław, Popowice'},{"value":52812,"label":'Dolnośląskie, Wrocław, Poświętne'},{"value":52655,"label":'Mazowieckie, Warszawa, Powązki'},{"value":52645,"label":'Mazowieckie, Warszawa, Powiśle'},{"value":52731,"label":"Mazowieckie, Warszawa, Powsin"},{"value":52728,"label":"Mazowieckie, Warszawa, Powsinek"},{"value":52813,"label":'Dolnośląskie, Wrocław, Pracze Odrzańskie'},{"value":52814,"label":'Dolnośląskie, Wrocław, Przedmieście Oławskie'},{"value":52587,"label":"Mazowieckie, Warszawa, Pyry"},{"value":52608,"label":"Mazowieckie, Warszawa, Radiowo"},{"value":52735,"label":'Mazowieckie, Warszawa, Radość'},{"value":52719,"label":'Mazowieckie, Warszawa, Raków'},{"value":52569,"label":"Mazowieckie, Warszawa, Rakowiec"},{"value":52816,"label":'Dolnośląskie, Wrocław, Rakowiec'},{"value":52620,"label":'Wielkopolskie, Poznań, Rataje'},{"value":52817,"label":'Dolnośląskie, Wrocław, Ratyń'},{"value":52824,"label":'Dolnośląskie, Wrocław, Rędzin'},{"value":52818,"label":'Dolnośląskie, Wrocław, Różanka'},{"value":52741,"label":"Mazowieckie, Warszawa, Sadul"},{"value":52566,"label":"Mazowieckie, Warszawa, Sadyba"},{"value":52698,"label":'Mazowieckie, Warszawa, Sady Żoliborskie'},{"value":52718,"label":"Mazowieckie, Warszawa, Salomea"},{"value":52715,"label":'Mazowieckie, Warszawa, Saska Kępa'},{"value":52819,"label":'Dolnośląskie, Wrocław, Sępolno'},{"value":52567,"label":"Mazowieckie, Warszawa, Siekierki"},{"value":52563,"label":"Mazowieckie, Warszawa, Sielce"},{"value":52596,"label":'Mazowieckie, Warszawa, Skarpa Powsińska'},{"value":52697,"label":"Mazowieckie, Warszawa, Skorosze"},{"value":52633,"label":'Mazowieckie, Warszawa, Słodowiec'},{"value":52559,"label":'Mazowieckie, Warszawa, Służew'},{"value":52558,"label":'Mazowieckie, Warszawa, Służewiec'},{"value":52624,"label":'Wielkopolskie, Poznań, Sołacz'},{"value":52641,"label":"Mazowieckie, Warszawa, Solec"},{"value":52825,"label":'Dolnośląskie, Wrocław, Sołtysowice'},{"value":52648,"label":'Mazowieckie, Warszawa, Śródmieście Północne'},{"value":52649,"label":'Mazowieckie, Warszawa, Śródmieście Południowe'},{"value":52826,"label":'Dolnośląskie, Wrocław, Stabłowice'},{"value":52751,"label":'Mazowieckie, Warszawa, Stara Miłosna'},{"value":52571,"label":"Mazowieckie, Warszawa, Stara Ochota"},{"value":52575,"label":"Mazowieckie, Warszawa, Stara Praga"},{"value":52627,"label":"Mazowieckie, Warszawa, Stare Bielany"},{"value":52643,"label":"Mazowieckie, Warszawa, Stare Miasto"},{"value":52673,"label":'Wielkopolskie, Poznań, Stare Winogrady'},{"value":52717,"label":'Mazowieckie, Warszawa, Stare Włochy'},{"value":52754,"label":'Wielkopolskie, Poznań, Starołęka-Minikowo-Marlewo'},{"value":52638,"label":'Wielkopolskie, Poznań, Stary Grunwald'},{"value":52580,"label":"Mazowieckie, Warszawa, Stary Imielin"},{"value":52562,"label":'Mazowieckie, Warszawa, Stary Mokotów'},{"value":52579,"label":'Mazowieckie, Warszawa, Stary Rembertów'},{"value":52588,"label":'Mazowieckie, Warszawa, Stary Służew'},{"value":52699,"label":'Mazowieckie, Warszawa, Stary Żoliborz'},{"value":52564,"label":"Mazowieckie, Warszawa, Stegny"},{"value":52827,"label":'Dolnośląskie, Wrocław, Strachocin'},{"value":52617,"label":'Wielkopolskie, Poznań, Strzeszyn'},{"value":52646,"label":'Wielkopolskie, Poznań, Świerczewo'},{"value":52831,"label":'Dolnośląskie, Wrocław, Świniary'},{"value":52679,"label":"Mazowieckie, Warszawa, Szamocin"},{"value":52694,"label":"Mazowieckie, Warszawa, Szamoty"},{"value":52755,"label":'Wielkopolskie, Poznań, Szczepankowo-Spławie-Krzesinki'},{"value":52830,"label":'Dolnośląskie, Wrocław, Szczepin'},{"value":52570,"label":'Mazowieckie, Warszawa, Szczęśliwice'},{"value":52576,"label":"Mazowieckie, Warszawa, Szmulowizna"},{"value":52677,"label":"Mazowieckie, Warszawa, Tarchomin"},{"value":52602,"label":'Mazowieckie, Warszawa, Targówek Fabryczny'},{"value":52600,"label":'Mazowieckie, Warszawa, Targówek Mieszkaniowy'},{"value":52832,"label":'Dolnośląskie, Wrocław, Tarnogaj'},{"value":52636,"label":'Mazowieckie, Warszawa, Ujazdów'},{"value":52651,"label":'Mazowieckie, Warszawa, Ulrychów'},{"value":52621,"label":'Wielkopolskie, Poznań, Umultowo'},{"value":52591,"label":'Mazowieckie, Warszawa, Ursynów Centrum'},{"value":52581,"label":'Mazowieckie, Warszawa, Ursynów Północny'},{"value":52603,"label":"Mazowieckie, Warszawa, Utrata"},{"value":52761,"label":'Wielkopolskie, Poznań, Warszawskie-Pomet-Maltańskie'},{"value":52612,"label":"Mazowieckie, Warszawa, Wawrzyszew"},{"value":52749,"label":'Mazowieckie, Warszawa, Wesoła-Centrum'},{"value":52833,"label":'Dolnośląskie, Wrocław, Widawa'},{"value":52561,"label":"Mazowieckie, Warszawa, Wierzbno"},{"value":52726,"label":'Mazowieckie, Warszawa, Wilanów Królewski'},{"value":52725,"label":'Mazowieckie, Warszawa, Wilanów Niski'},{"value":52724,"label":'Mazowieckie, Warszawa, Wilanów Wysoki'},{"value":52680,"label":'Wielkopolskie, Poznań, Winiary'},{"value":52625,"label":'Wielkopolskie, Poznań, Wola'},{"value":52748,"label":"Mazowieckie, Warszawa, Wola Grzybowska"},{"value":52606,"label":'Mazowieckie, Warszawa, Wólka Węglowa'},{"value":52611,"label":"Mazowieckie, Warszawa, Wrzeciono"},{"value":52582,"label":'Mazowieckie, Warszawa, Wyczółki'},{"value":52557,"label":'Mazowieckie, Warszawa, Wyględów'},{"value":52599,"label":"Mazowieckie, Warszawa, Zacisze"},{"value":52721,"label":'Mazowieckie, Warszawa, Załuski'},{"value":52729,"label":"Mazowieckie, Warszawa, Zawady"},{"value":52659,"label":'Wielkopolskie, Poznań, Żegrze'},{"value":52682,"label":'Mazowieckie, Warszawa, Żerań'},{"value":52738,"label":'Mazowieckie, Warszawa, Zerzeń'},{"value":52747,"label":"Mazowieckie, Warszawa, Zielona-Grzybowa"},{"value":52681,"label":'Wielkopolskie, Poznań, Zielony Dębiec'}];var Container=_react2['default'].createClass({displayName:'Container',getInitialState:function getInitialState(){return options[0];},updateValue1:function updateValue1(value1){this.setState({value1:value1});},updateValue2:function updateValue2(value2){this.setState({value2:value2});},updateValue3:function updateValue3(value3){this.setState({value3:value3});},loadOptions:function loadOptions(input,callback){console.log(input);callback(null,{options:options.sort(function(){return 0.5 - Math.random();}).slice(0,10)});},render:function render(){return _react2['default'].createElement('div',null,_react2['default'].createElement(_reactSelect2['default'],{required:false,searchable:true,options:options}));}});_reactDom2['default'].render(_react2['default'].createElement(Container,null),document.getElementById('example'));
 
-},{"./components/Contributors":2,"./components/CustomComponents":3,"./components/CustomRender":4,"./components/Multiselect":5,"./components/NumericSelect":6,"./components/States":7,"lodash":15,"react":undefined,"react-dom":undefined,"react-select":undefined}],2:[function(require,module,exports){
+},{"./components/Contributors":2,"./components/CustomComponents":3,"./components/CustomRender":4,"./components/Multiselect":5,"./components/NumericSelect":6,"./components/States":7,"lodash":14,"react":undefined,"react-dom":undefined,"react-select":undefined}],2:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -837,25 +837,6 @@ module.exports = charenc;
 })();
 
 },{}],13:[function(require,module,exports){
-/**
- * Determine if an object is Buffer
- *
- * Author:   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
- * License:  MIT
- *
- * `npm install is-buffer`
- */
-
-module.exports = function (obj) {
-  return !!(obj != null &&
-    (obj._isBuffer || // For Safari 5-7 (missing Object.prototype.constructor)
-      (obj.constructor &&
-      typeof obj.constructor.isBuffer === 'function' &&
-      obj.constructor.isBuffer(obj))
-    ))
-}
-
-},{}],14:[function(require,module,exports){
 module.exports = function() {
   var mediaQuery;
   if (typeof window !== "undefined" && window !== null) {
@@ -870,15 +851,16 @@ module.exports = function() {
   return false;
 };
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 (function (global){
 /**
  * @license
- * lodash <https://lodash.com/>
- * Copyright jQuery Foundation and other contributors <https://jquery.org/>
- * Released under MIT license <https://lodash.com/license>
+ * lodash 4.5.0 (Custom Build) <https://lodash.com/>
+ * Build: `lodash -d -o ./foo/lodash.js`
+ * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
  */
 ;(function() {
 
@@ -886,19 +868,7 @@ module.exports = function() {
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.13.1';
-
-  /** Used as the size to enable large array optimizations. */
-  var LARGE_ARRAY_SIZE = 200;
-
-  /** Used as the `TypeError` message for "Functions" methods. */
-  var FUNC_ERROR_TEXT = 'Expected a function';
-
-  /** Used to stand-in for `undefined` hash values. */
-  var HASH_UNDEFINED = '__lodash_hash_undefined__';
-
-  /** Used as the internal argument placeholder. */
-  var PLACEHOLDER = '__lodash_placeholder__';
+  var VERSION = '4.5.0';
 
   /** Used to compose bitmasks for wrapper metadata. */
   var BIND_FLAG = 1,
@@ -924,10 +894,19 @@ module.exports = function() {
   var HOT_COUNT = 150,
       HOT_SPAN = 16;
 
+  /** Used as the size to enable large array optimizations. */
+  var LARGE_ARRAY_SIZE = 200;
+
   /** Used to indicate the type of lazy iteratees. */
   var LAZY_FILTER_FLAG = 1,
       LAZY_MAP_FLAG = 2,
       LAZY_WHILE_FLAG = 3;
+
+  /** Used as the `TypeError` message for "Functions" methods. */
+  var FUNC_ERROR_TEXT = 'Expected a function';
+
+  /** Used to stand-in for `undefined` hash values. */
+  var HASH_UNDEFINED = '__lodash_hash_undefined__';
 
   /** Used as references for various `Number` constants. */
   var INFINITY = 1 / 0,
@@ -940,6 +919,9 @@ module.exports = function() {
       MAX_ARRAY_INDEX = MAX_ARRAY_LENGTH - 1,
       HALF_MAX_ARRAY_LENGTH = MAX_ARRAY_LENGTH >>> 1;
 
+  /** Used as the internal argument placeholder. */
+  var PLACEHOLDER = '__lodash_placeholder__';
+
   /** `Object#toString` result references. */
   var argsTag = '[object Arguments]',
       arrayTag = '[object Array]',
@@ -951,7 +933,6 @@ module.exports = function() {
       mapTag = '[object Map]',
       numberTag = '[object Number]',
       objectTag = '[object Object]',
-      promiseTag = '[object Promise]',
       regexpTag = '[object RegExp]',
       setTag = '[object Set]',
       stringTag = '[object String]',
@@ -960,7 +941,6 @@ module.exports = function() {
       weakSetTag = '[object WeakSet]';
 
   var arrayBufferTag = '[object ArrayBuffer]',
-      dataViewTag = '[object DataView]',
       float32Tag = '[object Float32Array]',
       float64Tag = '[object Float64Array]',
       int8Tag = '[object Int8Array]',
@@ -990,12 +970,9 @@ module.exports = function() {
   /** Used to match property names within property paths. */
   var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
       reIsPlainProp = /^\w*$/,
-      rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(\.|\[\])(?:\4|$))/g;
+      rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]/g;
 
-  /**
-   * Used to match `RegExp`
-   * [syntax characters](http://ecma-international.org/ecma-262/6.0/#sec-patterns).
-   */
+  /** Used to match `RegExp` [syntax characters](http://ecma-international.org/ecma-262/6.0/#sec-patterns). */
   var reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
       reHasRegExpChar = RegExp(reRegExpChar.source);
 
@@ -1004,16 +981,10 @@ module.exports = function() {
       reTrimStart = /^\s+/,
       reTrimEnd = /\s+$/;
 
-  /** Used to match non-compound words composed of alphanumeric characters. */
-  var reBasicWord = /[a-zA-Z0-9]+/g;
-
   /** Used to match backslashes in property paths. */
   var reEscapeChar = /\\(\\)?/g;
 
-  /**
-   * Used to match
-   * [ES template delimiters](http://ecma-international.org/ecma-262/6.0/#sec-template-literal-lexical-components).
-   */
+  /** Used to match [ES template delimiters](http://ecma-international.org/ecma-262/6.0/#sec-template-literal-lexical-components). */
   var reEsTemplate = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g;
 
   /** Used to match `RegExp` flags from their coerced string values. */
@@ -1028,7 +999,7 @@ module.exports = function() {
   /** Used to detect binary string values. */
   var reIsBinary = /^0b[01]+$/i;
 
-  /** Used to detect host constructors (Safari). */
+  /** Used to detect host constructors (Safari > 5). */
   var reIsHostCtor = /^\[object .+?Constructor\]$/;
 
   /** Used to detect octal string values. */
@@ -1054,15 +1025,14 @@ module.exports = function() {
       rsLowerRange = 'a-z\\xdf-\\xf6\\xf8-\\xff',
       rsMathOpRange = '\\xac\\xb1\\xd7\\xf7',
       rsNonCharRange = '\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xbf',
-      rsPunctuationRange = '\\u2000-\\u206f',
+      rsQuoteRange = '\\u2018\\u2019\\u201c\\u201d',
       rsSpaceRange = ' \\t\\x0b\\f\\xa0\\ufeff\\n\\r\\u2028\\u2029\\u1680\\u180e\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200a\\u202f\\u205f\\u3000',
       rsUpperRange = 'A-Z\\xc0-\\xd6\\xd8-\\xde',
       rsVarRange = '\\ufe0e\\ufe0f',
-      rsBreakRange = rsMathOpRange + rsNonCharRange + rsPunctuationRange + rsSpaceRange;
+      rsBreakRange = rsMathOpRange + rsNonCharRange + rsQuoteRange + rsSpaceRange;
 
   /** Used to compose unicode capture groups. */
-  var rsApos = "['\u2019]",
-      rsAstral = '[' + rsAstralRange + ']',
+  var rsAstral = '[' + rsAstralRange + ']',
       rsBreak = '[' + rsBreakRange + ']',
       rsCombo = '[' + rsComboMarksRange + rsComboSymbolsRange + ']',
       rsDigits = '\\d+',
@@ -1080,17 +1050,12 @@ module.exports = function() {
   /** Used to compose unicode regexes. */
   var rsLowerMisc = '(?:' + rsLower + '|' + rsMisc + ')',
       rsUpperMisc = '(?:' + rsUpper + '|' + rsMisc + ')',
-      rsOptLowerContr = '(?:' + rsApos + '(?:d|ll|m|re|s|t|ve))?',
-      rsOptUpperContr = '(?:' + rsApos + '(?:D|LL|M|RE|S|T|VE))?',
       reOptMod = rsModifier + '?',
       rsOptVar = '[' + rsVarRange + ']?',
       rsOptJoin = '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
       rsSeq = rsOptVar + reOptMod + rsOptJoin,
       rsEmoji = '(?:' + [rsDingbat, rsRegional, rsSurrPair].join('|') + ')' + rsSeq,
       rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
-
-  /** Used to match apostrophes. */
-  var reApos = RegExp(rsApos, 'g');
 
   /**
    * Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks) and
@@ -1101,29 +1066,32 @@ module.exports = function() {
   /** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
   var reComplexSymbol = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
 
+  /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
+  var reHasComplexSymbol = RegExp('[' + rsZWJ + rsAstralRange  + rsComboMarksRange + rsComboSymbolsRange + rsVarRange + ']');
+
+  /** Used to match non-compound words composed of alphanumeric characters. */
+  var reBasicWord = /[a-zA-Z0-9]+/g;
+
   /** Used to match complex or compound words. */
   var reComplexWord = RegExp([
-    rsUpper + '?' + rsLower + '+' + rsOptLowerContr + '(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',
-    rsUpperMisc + '+' + rsOptUpperContr + '(?=' + [rsBreak, rsUpper + rsLowerMisc, '$'].join('|') + ')',
-    rsUpper + '?' + rsLowerMisc + '+' + rsOptLowerContr,
-    rsUpper + '+' + rsOptUpperContr,
+    rsUpper + '?' + rsLower + '+(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',
+    rsUpperMisc + '+(?=' + [rsBreak, rsUpper + rsLowerMisc, '$'].join('|') + ')',
+    rsUpper + '?' + rsLowerMisc + '+',
+    rsUpper + '+',
     rsDigits,
     rsEmoji
   ].join('|'), 'g');
 
-  /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
-  var reHasComplexSymbol = RegExp('[' + rsZWJ + rsAstralRange  + rsComboMarksRange + rsComboSymbolsRange + rsVarRange + ']');
-
   /** Used to detect strings that need a more robust regexp to match words. */
-  var reHasComplexWord = /[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+  var reHasComplexWord = /[a-z][A-Z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
 
   /** Used to assign default `context` object properties. */
   var contextProps = [
-    'Array', 'Buffer', 'DataView', 'Date', 'Error', 'Float32Array', 'Float64Array',
+    'Array', 'Buffer', 'Date', 'Error', 'Float32Array', 'Float64Array',
     'Function', 'Int8Array', 'Int16Array', 'Int32Array', 'Map', 'Math', 'Object',
-    'Promise', 'Reflect', 'RegExp', 'Set', 'String', 'Symbol', 'TypeError',
-    'Uint8Array', 'Uint8ClampedArray', 'Uint16Array', 'Uint32Array', 'WeakMap',
-    '_', 'isFinite', 'parseInt', 'setTimeout'
+    'Reflect', 'RegExp', 'Set', 'String', 'Symbol', 'TypeError', 'Uint8Array',
+    'Uint8ClampedArray', 'Uint16Array', 'Uint32Array', 'WeakMap', '_',
+    'clearTimeout', 'isFinite', 'parseInt', 'setTimeout'
   ];
 
   /** Used to make template sourceURLs easier to identify. */
@@ -1138,26 +1106,25 @@ module.exports = function() {
   typedArrayTags[uint32Tag] = true;
   typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
   typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-  typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
-  typedArrayTags[errorTag] = typedArrayTags[funcTag] =
-  typedArrayTags[mapTag] = typedArrayTags[numberTag] =
-  typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
-  typedArrayTags[setTag] = typedArrayTags[stringTag] =
-  typedArrayTags[weakMapTag] = false;
+  typedArrayTags[dateTag] = typedArrayTags[errorTag] =
+  typedArrayTags[funcTag] = typedArrayTags[mapTag] =
+  typedArrayTags[numberTag] = typedArrayTags[objectTag] =
+  typedArrayTags[regexpTag] = typedArrayTags[setTag] =
+  typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
 
   /** Used to identify `toStringTag` values supported by `_.clone`. */
   var cloneableTags = {};
   cloneableTags[argsTag] = cloneableTags[arrayTag] =
-  cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] =
-  cloneableTags[boolTag] = cloneableTags[dateTag] =
-  cloneableTags[float32Tag] = cloneableTags[float64Tag] =
-  cloneableTags[int8Tag] = cloneableTags[int16Tag] =
-  cloneableTags[int32Tag] = cloneableTags[mapTag] =
-  cloneableTags[numberTag] = cloneableTags[objectTag] =
-  cloneableTags[regexpTag] = cloneableTags[setTag] =
-  cloneableTags[stringTag] = cloneableTags[symbolTag] =
-  cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] =
-  cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
+  cloneableTags[arrayBufferTag] = cloneableTags[boolTag] =
+  cloneableTags[dateTag] = cloneableTags[float32Tag] =
+  cloneableTags[float64Tag] = cloneableTags[int8Tag] =
+  cloneableTags[int16Tag] = cloneableTags[int32Tag] =
+  cloneableTags[mapTag] = cloneableTags[numberTag] =
+  cloneableTags[objectTag] = cloneableTags[regexpTag] =
+  cloneableTags[setTag] = cloneableTags[stringTag] =
+  cloneableTags[symbolTag] = cloneableTags[uint8Tag] =
+  cloneableTags[uint8ClampedTag] = cloneableTags[uint16Tag] =
+  cloneableTags[uint32Tag] = true;
   cloneableTags[errorTag] = cloneableTags[funcTag] =
   cloneableTags[weakMapTag] = false;
 
@@ -1202,6 +1169,12 @@ module.exports = function() {
     '&#96;': '`'
   };
 
+  /** Used to determine if values are of the language type `Object`. */
+  var objectTypes = {
+    'function': true,
+    'object': true
+  };
+
   /** Used to escape characters for inclusion in compiled string literals. */
   var stringEscapes = {
     '\\': '\\',
@@ -1217,25 +1190,41 @@ module.exports = function() {
       freeParseInt = parseInt;
 
   /** Detect free variable `exports`. */
-  var freeExports = typeof exports == 'object' && exports;
+  var freeExports = (objectTypes[typeof exports] && exports && !exports.nodeType)
+    ? exports
+    : undefined;
 
   /** Detect free variable `module`. */
-  var freeModule = freeExports && typeof module == 'object' && module;
+  var freeModule = (objectTypes[typeof module] && module && !module.nodeType)
+    ? module
+    : undefined;
 
   /** Detect the popular CommonJS extension `module.exports`. */
-  var moduleExports = freeModule && freeModule.exports === freeExports;
+  var moduleExports = (freeModule && freeModule.exports === freeExports)
+    ? freeExports
+    : undefined;
 
   /** Detect free variable `global` from Node.js. */
-  var freeGlobal = checkGlobal(typeof global == 'object' && global);
+  var freeGlobal = checkGlobal(freeExports && freeModule && typeof global == 'object' && global);
 
   /** Detect free variable `self`. */
-  var freeSelf = checkGlobal(typeof self == 'object' && self);
+  var freeSelf = checkGlobal(objectTypes[typeof self] && self);
+
+  /** Detect free variable `window`. */
+  var freeWindow = checkGlobal(objectTypes[typeof window] && window);
 
   /** Detect `this` as the global object. */
-  var thisGlobal = checkGlobal(typeof this == 'object' && this);
+  var thisGlobal = checkGlobal(objectTypes[typeof this] && this);
 
-  /** Used as a reference to the global object. */
-  var root = freeGlobal || freeSelf || thisGlobal || Function('return this')();
+  /**
+   * Used as a reference to the global object.
+   *
+   * The `this` value is used if it's the global object to avoid Greasemonkey's
+   * restricted `window` object, otherwise the `window` object is used.
+   */
+  var root = freeGlobal ||
+    ((freeWindow !== (thisGlobal && thisGlobal.window)) && freeWindow) ||
+      freeSelf || thisGlobal || Function('return this')();
 
   /*--------------------------------------------------------------------------*/
 
@@ -1248,7 +1237,6 @@ module.exports = function() {
    * @returns {Object} Returns `map`.
    */
   function addMapEntry(map, pair) {
-    // Don't return `Map#set` because it doesn't return the map instance in IE 11.
     map.set(pair[0], pair[1]);
     return map;
   }
@@ -1273,7 +1261,7 @@ module.exports = function() {
    * @private
    * @param {Function} func The function to invoke.
    * @param {*} thisArg The `this` binding of `func`.
-   * @param {Array} args The arguments to invoke `func` with.
+   * @param {...*} args The arguments to invoke `func` with.
    * @returns {*} Returns the result of `func`.
    */
   function apply(func, thisArg, args) {
@@ -1291,7 +1279,7 @@ module.exports = function() {
    * A specialized version of `baseAggregator` for arrays.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} setter The function to set `accumulator` values.
    * @param {Function} iteratee The iteratee to transform keys.
    * @param {Object} accumulator The initial aggregated object.
@@ -1299,7 +1287,7 @@ module.exports = function() {
    */
   function arrayAggregator(array, setter, iteratee, accumulator) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array.length;
 
     while (++index < length) {
       var value = array[index];
@@ -1309,17 +1297,41 @@ module.exports = function() {
   }
 
   /**
+   * Creates a new array concatenating `array` with `other`.
+   *
+   * @private
+   * @param {Array} array The first array to concatenate.
+   * @param {Array} other The second array to concatenate.
+   * @returns {Array} Returns the new concatenated array.
+   */
+  function arrayConcat(array, other) {
+    var index = -1,
+        length = array.length,
+        othIndex = -1,
+        othLength = other.length,
+        result = Array(length + othLength);
+
+    while (++index < length) {
+      result[index] = array[index];
+    }
+    while (++othIndex < othLength) {
+      result[index++] = other[othIndex];
+    }
+    return result;
+  }
+
+  /**
    * A specialized version of `_.forEach` for arrays without support for
    * iteratee shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} iteratee The function invoked per iteration.
    * @returns {Array} Returns `array`.
    */
   function arrayEach(array, iteratee) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array.length;
 
     while (++index < length) {
       if (iteratee(array[index], index, array) === false) {
@@ -1334,12 +1346,12 @@ module.exports = function() {
    * iteratee shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} iteratee The function invoked per iteration.
    * @returns {Array} Returns `array`.
    */
   function arrayEachRight(array, iteratee) {
-    var length = array ? array.length : 0;
+    var length = array.length;
 
     while (length--) {
       if (iteratee(array[length], length, array) === false) {
@@ -1354,14 +1366,13 @@ module.exports = function() {
    * iteratee shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} predicate The function invoked per iteration.
-   * @returns {boolean} Returns `true` if all elements pass the predicate check,
-   *  else `false`.
+   * @returns {boolean} Returns `true` if all elements pass the predicate check, else `false`.
    */
   function arrayEvery(array, predicate) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array.length;
 
     while (++index < length) {
       if (!predicate(array[index], index, array)) {
@@ -1376,20 +1387,20 @@ module.exports = function() {
    * iteratee shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} predicate The function invoked per iteration.
    * @returns {Array} Returns the new filtered array.
    */
   function arrayFilter(array, predicate) {
     var index = -1,
-        length = array ? array.length : 0,
-        resIndex = 0,
+        length = array.length,
+        resIndex = -1,
         result = [];
 
     while (++index < length) {
       var value = array[index];
       if (predicate(value, index, array)) {
-        result[resIndex++] = value;
+        result[++resIndex] = value;
       }
     }
     return result;
@@ -1400,27 +1411,27 @@ module.exports = function() {
    * specifying an index to search from.
    *
    * @private
-   * @param {Array} [array] The array to search.
+   * @param {Array} array The array to search.
    * @param {*} target The value to search for.
    * @returns {boolean} Returns `true` if `target` is found, else `false`.
    */
   function arrayIncludes(array, value) {
-    var length = array ? array.length : 0;
-    return !!length && baseIndexOf(array, value, 0) > -1;
+    return !!array.length && baseIndexOf(array, value, 0) > -1;
   }
 
   /**
-   * This function is like `arrayIncludes` except that it accepts a comparator.
+   * A specialized version of `_.includesWith` for arrays without support for
+   * specifying an index to search from.
    *
    * @private
-   * @param {Array} [array] The array to search.
+   * @param {Array} array The array to search.
    * @param {*} target The value to search for.
    * @param {Function} comparator The comparator invoked per element.
    * @returns {boolean} Returns `true` if `target` is found, else `false`.
    */
   function arrayIncludesWith(array, value, comparator) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array.length;
 
     while (++index < length) {
       if (comparator(value, array[index])) {
@@ -1435,13 +1446,13 @@ module.exports = function() {
    * shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} iteratee The function invoked per iteration.
    * @returns {Array} Returns the new mapped array.
    */
   function arrayMap(array, iteratee) {
     var index = -1,
-        length = array ? array.length : 0,
+        length = array.length,
         result = Array(length);
 
     while (++index < length) {
@@ -1474,16 +1485,15 @@ module.exports = function() {
    * iteratee shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} iteratee The function invoked per iteration.
    * @param {*} [accumulator] The initial value.
-   * @param {boolean} [initAccum] Specify using the first element of `array` as
-   *  the initial value.
+   * @param {boolean} [initAccum] Specify using the first element of `array` as the initial value.
    * @returns {*} Returns the accumulated value.
    */
   function arrayReduce(array, iteratee, accumulator, initAccum) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array.length;
 
     if (initAccum && length) {
       accumulator = array[++index];
@@ -1499,15 +1509,14 @@ module.exports = function() {
    * iteratee shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} iteratee The function invoked per iteration.
    * @param {*} [accumulator] The initial value.
-   * @param {boolean} [initAccum] Specify using the last element of `array` as
-   *  the initial value.
+   * @param {boolean} [initAccum] Specify using the last element of `array` as the initial value.
    * @returns {*} Returns the accumulated value.
    */
   function arrayReduceRight(array, iteratee, accumulator, initAccum) {
-    var length = array ? array.length : 0;
+    var length = array.length;
     if (initAccum && length) {
       accumulator = array[--length];
     }
@@ -1522,14 +1531,13 @@ module.exports = function() {
    * shorthands.
    *
    * @private
-   * @param {Array} [array] The array to iterate over.
+   * @param {Array} array The array to iterate over.
    * @param {Function} predicate The function invoked per iteration.
-   * @returns {boolean} Returns `true` if any element passes the predicate check,
-   *  else `false`.
+   * @returns {boolean} Returns `true` if any element passes the predicate check, else `false`.
    */
   function arraySome(array, predicate) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array.length;
 
     while (++index < length) {
       if (predicate(array[index], index, array)) {
@@ -1540,21 +1548,51 @@ module.exports = function() {
   }
 
   /**
-   * The base implementation of methods like `_.findKey` and `_.findLastKey`,
-   * without support for iteratee shorthands, which iterates over `collection`
-   * using `eachFunc`.
+   * The base implementation of methods like `_.max` and `_.min` which accepts a
+   * `comparator` to determine the extremum value.
+   *
+   * @private
+   * @param {Array} array The array to iterate over.
+   * @param {Function} iteratee The iteratee invoked per iteration.
+   * @param {Function} comparator The comparator used to compare values.
+   * @returns {*} Returns the extremum value.
+   */
+  function baseExtremum(array, iteratee, comparator) {
+    var index = -1,
+        length = array.length;
+
+    while (++index < length) {
+      var value = array[index],
+          current = iteratee(value);
+
+      if (current != null && (computed === undefined
+            ? current === current
+            : comparator(current, computed)
+          )) {
+        var computed = current,
+            result = value;
+      }
+    }
+    return result;
+  }
+
+  /**
+   * The base implementation of methods like `_.find` and `_.findKey`, without
+   * support for iteratee shorthands, which iterates over `collection` using
+   * `eachFunc`.
    *
    * @private
    * @param {Array|Object} collection The collection to search.
    * @param {Function} predicate The function invoked per iteration.
    * @param {Function} eachFunc The function to iterate over `collection`.
+   * @param {boolean} [retKey] Specify returning the key of the found element instead of the element itself.
    * @returns {*} Returns the found element or its key, else `undefined`.
    */
-  function baseFindKey(collection, predicate, eachFunc) {
+  function baseFind(collection, predicate, eachFunc, retKey) {
     var result;
     eachFunc(collection, function(value, key, collection) {
       if (predicate(value, key, collection)) {
-        result = key;
+        result = retKey ? key : value;
         return false;
       }
     });
@@ -1568,13 +1606,12 @@ module.exports = function() {
    * @private
    * @param {Array} array The array to search.
    * @param {Function} predicate The function invoked per iteration.
-   * @param {number} fromIndex The index to search from.
    * @param {boolean} [fromRight] Specify iterating from right to left.
    * @returns {number} Returns the index of the matched value, else `-1`.
    */
-  function baseFindIndex(array, predicate, fromIndex, fromRight) {
+  function baseFindIndex(array, predicate, fromRight) {
     var length = array.length,
-        index = fromIndex + (fromRight ? 1 : -1);
+        index = fromRight ? length : -1;
 
     while ((fromRight ? index-- : ++index < length)) {
       if (predicate(array[index], index, array)) {
@@ -1609,42 +1646,6 @@ module.exports = function() {
   }
 
   /**
-   * This function is like `baseIndexOf` except that it accepts a comparator.
-   *
-   * @private
-   * @param {Array} array The array to search.
-   * @param {*} value The value to search for.
-   * @param {number} fromIndex The index to search from.
-   * @param {Function} comparator The comparator invoked per element.
-   * @returns {number} Returns the index of the matched value, else `-1`.
-   */
-  function baseIndexOfWith(array, value, fromIndex, comparator) {
-    var index = fromIndex - 1,
-        length = array.length;
-
-    while (++index < length) {
-      if (comparator(array[index], value)) {
-        return index;
-      }
-    }
-    return -1;
-  }
-
-  /**
-   * The base implementation of `_.mean` and `_.meanBy` without support for
-   * iteratee shorthands.
-   *
-   * @private
-   * @param {Array} array The array to iterate over.
-   * @param {Function} iteratee The function invoked per iteration.
-   * @returns {number} Returns the mean.
-   */
-  function baseMean(array, iteratee) {
-    var length = array ? array.length : 0;
-    return length ? (baseSum(array, iteratee) / length) : NAN;
-  }
-
-  /**
    * The base implementation of `_.reduce` and `_.reduceRight`, without support
    * for iteratee shorthands, which iterates over `collection` using `eachFunc`.
    *
@@ -1652,8 +1653,7 @@ module.exports = function() {
    * @param {Array|Object} collection The collection to iterate over.
    * @param {Function} iteratee The function invoked per iteration.
    * @param {*} accumulator The initial value.
-   * @param {boolean} initAccum Specify using the first or last element of
-   *  `collection` as the initial value.
+   * @param {boolean} initAccum Specify using the first or last element of `collection` as the initial value.
    * @param {Function} eachFunc The function to iterate over `collection`.
    * @returns {*} Returns the accumulated value.
    */
@@ -1667,9 +1667,9 @@ module.exports = function() {
   }
 
   /**
-   * The base implementation of `_.sortBy` which uses `comparer` to define the
-   * sort order of `array` and replaces criteria objects with their corresponding
-   * values.
+   * The base implementation of `_.sortBy` which uses `comparer` to define
+   * the sort order of `array` and replaces criteria objects with their
+   * corresponding values.
    *
    * @private
    * @param {Array} array The array to sort.
@@ -1687,8 +1687,7 @@ module.exports = function() {
   }
 
   /**
-   * The base implementation of `_.sum` and `_.sumBy` without support for
-   * iteratee shorthands.
+   * The base implementation of `_.sum` without support for iteratee shorthands.
    *
    * @private
    * @param {Array} array The array to iterate over.
@@ -1735,7 +1734,7 @@ module.exports = function() {
    * @private
    * @param {Object} object The object to query.
    * @param {Array} props The property names to get values for.
-   * @returns {Object} Returns the key-value pairs.
+   * @returns {Object} Returns the new array of key-value pairs.
    */
   function baseToPairs(object, props) {
     return arrayMap(props, function(key) {
@@ -1748,7 +1747,7 @@ module.exports = function() {
    *
    * @private
    * @param {Function} func The function to cap arguments for.
-   * @returns {Function} Returns the new capped function.
+   * @returns {Function} Returns the new function.
    */
   function baseUnary(func) {
     return function(value) {
@@ -1770,18 +1769,6 @@ module.exports = function() {
     return arrayMap(props, function(key) {
       return object[key];
     });
-  }
-
-  /**
-   * Checks if a cache value for `key` exists.
-   *
-   * @private
-   * @param {Object} cache The cache to query.
-   * @param {string} key The key of the entry to check.
-   * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
-   */
-  function cacheHas(cache, key) {
-    return cache.has(key);
   }
 
   /**
@@ -1829,23 +1816,76 @@ module.exports = function() {
   }
 
   /**
-   * Gets the number of `placeholder` occurrences in `array`.
+   * Compares values to sort them in ascending order.
    *
    * @private
-   * @param {Array} array The array to inspect.
-   * @param {*} placeholder The placeholder to search for.
-   * @returns {number} Returns the placeholder count.
+   * @param {*} value The value to compare.
+   * @param {*} other The other value to compare.
+   * @returns {number} Returns the sort order indicator for `value`.
    */
-  function countHolders(array, placeholder) {
-    var length = array.length,
-        result = 0;
+  function compareAscending(value, other) {
+    if (value !== other) {
+      var valIsNull = value === null,
+          valIsUndef = value === undefined,
+          valIsReflexive = value === value;
 
-    while (length--) {
-      if (array[length] === placeholder) {
-        result++;
+      var othIsNull = other === null,
+          othIsUndef = other === undefined,
+          othIsReflexive = other === other;
+
+      if ((value > other && !othIsNull) || !valIsReflexive ||
+          (valIsNull && !othIsUndef && othIsReflexive) ||
+          (valIsUndef && othIsReflexive)) {
+        return 1;
+      }
+      if ((value < other && !valIsNull) || !othIsReflexive ||
+          (othIsNull && !valIsUndef && valIsReflexive) ||
+          (othIsUndef && valIsReflexive)) {
+        return -1;
       }
     }
-    return result;
+    return 0;
+  }
+
+  /**
+   * Used by `_.orderBy` to compare multiple properties of a value to another
+   * and stable sort them.
+   *
+   * If `orders` is unspecified, all values are sorted in ascending order. Otherwise,
+   * specify an order of "desc" for descending or "asc" for ascending sort order
+   * of corresponding values.
+   *
+   * @private
+   * @param {Object} object The object to compare.
+   * @param {Object} other The other object to compare.
+   * @param {boolean[]|string[]} orders The order to sort by for each property.
+   * @returns {number} Returns the sort order indicator for `object`.
+   */
+  function compareMultiple(object, other, orders) {
+    var index = -1,
+        objCriteria = object.criteria,
+        othCriteria = other.criteria,
+        length = objCriteria.length,
+        ordersLength = orders.length;
+
+    while (++index < length) {
+      var result = compareAscending(objCriteria[index], othCriteria[index]);
+      if (result) {
+        if (index >= ordersLength) {
+          return result;
+        }
+        var order = orders[index];
+        return result * (order == 'desc' ? -1 : 1);
+      }
+    }
+    // Fixes an `Array#sort` bug in the JS engine embedded in Adobe applications
+    // that causes it, under certain circumstances, to provide the same value for
+    // `object` and `other`. See https://github.com/jashkenas/underscore/pull/1247
+    // for more details.
+    //
+    // This also ensures a stable sort in V8 and other engines.
+    // See https://code.google.com/p/v8/issues/detail?id=90 for more details.
+    return object.index - other.index;
   }
 
   /**
@@ -1882,18 +1922,6 @@ module.exports = function() {
   }
 
   /**
-   * Gets the value at `key` of `object`.
-   *
-   * @private
-   * @param {Object} [object] The object to query.
-   * @param {string} key The key of the property to get.
-   * @returns {*} Returns the property value.
-   */
-  function getValue(object, key) {
-    return object == null ? undefined : object[key];
-  }
-
-  /**
    * Gets the index at which the first occurrence of `NaN` is found in `array`.
    *
    * @private
@@ -1904,7 +1932,7 @@ module.exports = function() {
    */
   function indexOfNaN(array, fromIndex, fromRight) {
     var length = array.length,
-        index = fromIndex + (fromRight ? 1 : -1);
+        index = fromIndex + (fromRight ? 0 : -1);
 
     while ((fromRight ? index-- : ++index < length)) {
       var other = array[index];
@@ -1935,6 +1963,20 @@ module.exports = function() {
   }
 
   /**
+   * Checks if `value` is a valid array-like index.
+   *
+   * @private
+   * @param {*} value The value to check.
+   * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+   * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+   */
+  function isIndex(value, length) {
+    value = (typeof value == 'number' || reIsUint.test(value)) ? +value : -1;
+    length = length == null ? MAX_SAFE_INTEGER : length;
+    return value > -1 && value % 1 == 0 && value < length;
+  }
+
+  /**
    * Converts `iterator` to an array.
    *
    * @private
@@ -1952,11 +1994,11 @@ module.exports = function() {
   }
 
   /**
-   * Converts `map` to its key-value pairs.
+   * Converts `map` to an array.
    *
    * @private
    * @param {Object} map The map to convert.
-   * @returns {Array} Returns the key-value pairs.
+   * @returns {Array} Returns the converted array.
    */
   function mapToArray(map) {
     var index = -1,
@@ -1980,25 +2022,24 @@ module.exports = function() {
   function replaceHolders(array, placeholder) {
     var index = -1,
         length = array.length,
-        resIndex = 0,
+        resIndex = -1,
         result = [];
 
     while (++index < length) {
-      var value = array[index];
-      if (value === placeholder || value === PLACEHOLDER) {
+      if (array[index] === placeholder) {
         array[index] = PLACEHOLDER;
-        result[resIndex++] = index;
+        result[++resIndex] = index;
       }
     }
     return result;
   }
 
   /**
-   * Converts `set` to an array of its values.
+   * Converts `set` to an array.
    *
    * @private
    * @param {Object} set The set to convert.
-   * @returns {Array} Returns the values.
+   * @returns {Array} Returns the converted array.
    */
   function setToArray(set) {
     var index = -1,
@@ -2006,23 +2047,6 @@ module.exports = function() {
 
     set.forEach(function(value) {
       result[++index] = value;
-    });
-    return result;
-  }
-
-  /**
-   * Converts `set` to its value-value pairs.
-   *
-   * @private
-   * @param {Object} set The set to convert.
-   * @returns {Array} Returns the value-value pairs.
-   */
-  function setToPairs(set) {
-    var index = -1,
-        result = Array(set.size);
-
-    set.forEach(function(value) {
-      result[++index] = [value, value];
     });
     return result;
   }
@@ -2074,7 +2098,6 @@ module.exports = function() {
    *
    * @static
    * @memberOf _
-   * @since 1.1.0
    * @category Util
    * @param {Object} [context=root] The context object.
    * @returns {Function} Returns a new `lodash` function.
@@ -2095,10 +2118,10 @@ module.exports = function() {
    * lodash.isFunction(lodash.bar);
    * // => true
    *
-   * // Use `context` to stub `Date#getTime` use in `_.now`.
-   * var stubbed = _.runInContext({
+   * // Use `context` to mock `Date#getTime` use in `_.now`.
+   * var mock = _.runInContext({
    *   'Date': function() {
-   *     return { 'getTime': stubGetTime };
+   *     return { 'getTime': getTimeMock };
    *   }
    * });
    *
@@ -2117,17 +2140,7 @@ module.exports = function() {
 
     /** Used for built-in method references. */
     var arrayProto = context.Array.prototype,
-        objectProto = context.Object.prototype,
-        stringProto = context.String.prototype;
-
-    /** Used to detect overreaching core-js shims. */
-    var coreJsData = context['__core-js_shared__'];
-
-    /** Used to detect methods masquerading as native. */
-    var maskSrcKey = (function() {
-      var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
-      return uid ? ('Symbol(src)_1.' + uid) : '';
-    }());
+        objectProto = context.Object.prototype;
 
     /** Used to resolve the decompiled source of functions. */
     var funcToString = context.Function.prototype.toString;
@@ -2142,8 +2155,7 @@ module.exports = function() {
     var objectCtorString = funcToString.call(Object);
 
     /**
-     * Used to resolve the
-     * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
+     * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
      * of values.
      */
     var objectToString = objectProto.toString;
@@ -2162,20 +2174,19 @@ module.exports = function() {
         Reflect = context.Reflect,
         Symbol = context.Symbol,
         Uint8Array = context.Uint8Array,
+        clearTimeout = context.clearTimeout,
         enumerate = Reflect ? Reflect.enumerate : undefined,
+        getPrototypeOf = Object.getPrototypeOf,
         getOwnPropertySymbols = Object.getOwnPropertySymbols,
         iteratorSymbol = typeof (iteratorSymbol = Symbol && Symbol.iterator) == 'symbol' ? iteratorSymbol : undefined,
         objectCreate = Object.create,
         propertyIsEnumerable = objectProto.propertyIsEnumerable,
+        setTimeout = context.setTimeout,
         splice = arrayProto.splice;
-
-    /** Built-in method references that are mockable. */
-    var setTimeout = function(func, wait) { return context.setTimeout.call(root, func, wait); };
 
     /* Built-in method references for those with the same name as other `lodash` methods. */
     var nativeCeil = Math.ceil,
         nativeFloor = Math.floor,
-        nativeGetPrototype = Object.getPrototypeOf,
         nativeIsFinite = context.isFinite,
         nativeJoin = arrayProto.join,
         nativeKeys = Object.keys,
@@ -2183,14 +2194,10 @@ module.exports = function() {
         nativeMin = Math.min,
         nativeParseInt = context.parseInt,
         nativeRandom = Math.random,
-        nativeReplace = stringProto.replace,
-        nativeReverse = arrayProto.reverse,
-        nativeSplit = stringProto.split;
+        nativeReverse = arrayProto.reverse;
 
     /* Built-in method references that are verified to be native. */
-    var DataView = getNative(context, 'DataView'),
-        Map = getNative(context, 'Map'),
-        Promise = getNative(context, 'Promise'),
+    var Map = getNative(context, 'Map'),
         Set = getNative(context, 'Set'),
         WeakMap = getNative(context, 'WeakMap'),
         nativeCreate = getNative(Object, 'create');
@@ -2198,47 +2205,42 @@ module.exports = function() {
     /** Used to store function metadata. */
     var metaMap = WeakMap && new WeakMap;
 
-    /** Detect if properties shadowing those on `Object.prototype` are non-enumerable. */
-    var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
-
-    /** Used to lookup unminified function names. */
-    var realNames = {};
-
     /** Used to detect maps, sets, and weakmaps. */
-    var dataViewCtorString = toSource(DataView),
-        mapCtorString = toSource(Map),
-        promiseCtorString = toSource(Promise),
-        setCtorString = toSource(Set),
-        weakMapCtorString = toSource(WeakMap);
+    var mapCtorString = Map ? funcToString.call(Map) : '',
+        setCtorString = Set ? funcToString.call(Set) : '',
+        weakMapCtorString = WeakMap ? funcToString.call(WeakMap) : '';
 
     /** Used to convert symbols to primitives and strings. */
     var symbolProto = Symbol ? Symbol.prototype : undefined,
-        symbolValueOf = symbolProto ? symbolProto.valueOf : undefined,
-        symbolToString = symbolProto ? symbolProto.toString : undefined;
+        symbolValueOf = Symbol ? symbolProto.valueOf : undefined,
+        symbolToString = Symbol ? symbolProto.toString : undefined;
+
+    /** Used to lookup unminified function names. */
+    var realNames = {};
 
     /*------------------------------------------------------------------------*/
 
     /**
      * Creates a `lodash` object which wraps `value` to enable implicit method
-     * chain sequences. Methods that operate on and return arrays, collections,
-     * and functions can be chained together. Methods that retrieve a single value
-     * or may return a primitive value will automatically end the chain sequence
-     * and return the unwrapped value. Otherwise, the value must be unwrapped
-     * with `_#value`.
+     * chaining. Methods that operate on and return arrays, collections, and
+     * functions can be chained together. Methods that retrieve a single value or
+     * may return a primitive value will automatically end the chain sequence and
+     * return the unwrapped value. Otherwise, the value must be unwrapped with
+     * `_#value`.
      *
-     * Explicit chain sequences, which must be unwrapped with `_#value`, may be
-     * enabled using `_.chain`.
+     * Explicit chaining, which must be unwrapped with `_#value` in all cases,
+     * may be enabled using `_.chain`.
      *
      * The execution of chained methods is lazy, that is, it's deferred until
      * `_#value` is implicitly or explicitly called.
      *
-     * Lazy evaluation allows several methods to support shortcut fusion.
-     * Shortcut fusion is an optimization to merge iteratee calls; this avoids
-     * the creation of intermediate arrays and can greatly reduce the number of
-     * iteratee executions. Sections of a chain sequence qualify for shortcut
-     * fusion if the section is applied to an array of at least `200` elements
-     * and any iteratees accept only one argument. The heuristic for whether a
-     * section qualifies for shortcut fusion is subject to change.
+     * Lazy evaluation allows several methods to support shortcut fusion. Shortcut
+     * fusion is an optimization to merge iteratee calls; this avoids the creation
+     * of intermediate arrays and can greatly reduce the number of iteratee executions.
+     * Sections of a chain sequence qualify for shortcut fusion if the section is
+     * applied to an array of at least two hundred elements and any iteratees
+     * accept only one argument. The heuristic for whether a section qualifies
+     * for shortcut fusion is subject to change.
      *
      * Chaining is supported in custom builds as long as the `_#value` method is
      * directly or indirectly included in the build.
@@ -2260,54 +2262,49 @@ module.exports = function() {
      * `after`, `ary`, `assign`, `assignIn`, `assignInWith`, `assignWith`, `at`,
      * `before`, `bind`, `bindAll`, `bindKey`, `castArray`, `chain`, `chunk`,
      * `commit`, `compact`, `concat`, `conforms`, `constant`, `countBy`, `create`,
-     * `curry`, `debounce`, `defaults`, `defaultsDeep`, `defer`, `delay`,
-     * `difference`, `differenceBy`, `differenceWith`, `drop`, `dropRight`,
-     * `dropRightWhile`, `dropWhile`, `extend`, `extendWith`, `fill`, `filter`,
-     * `flatMap`, `flatMapDeep`, `flatMapDepth`, `flatten`, `flattenDeep`,
-     * `flattenDepth`, `flip`, `flow`, `flowRight`, `fromPairs`, `functions`,
-     * `functionsIn`, `groupBy`, `initial`, `intersection`, `intersectionBy`,
-     * `intersectionWith`, `invert`, `invertBy`, `invokeMap`, `iteratee`, `keyBy`,
-     * `keys`, `keysIn`, `map`, `mapKeys`, `mapValues`, `matches`, `matchesProperty`,
-     * `memoize`, `merge`, `mergeWith`, `method`, `methodOf`, `mixin`, `negate`,
-     * `nthArg`, `omit`, `omitBy`, `once`, `orderBy`, `over`, `overArgs`,
-     * `overEvery`, `overSome`, `partial`, `partialRight`, `partition`, `pick`,
-     * `pickBy`, `plant`, `property`, `propertyOf`, `pull`, `pullAll`, `pullAllBy`,
-     * `pullAllWith`, `pullAt`, `push`, `range`, `rangeRight`, `rearg`, `reject`,
-     * `remove`, `rest`, `reverse`, `sampleSize`, `set`, `setWith`, `shuffle`,
-     * `slice`, `sort`, `sortBy`, `splice`, `spread`, `tail`, `take`, `takeRight`,
-     * `takeRightWhile`, `takeWhile`, `tap`, `throttle`, `thru`, `toArray`,
-     * `toPairs`, `toPairsIn`, `toPath`, `toPlainObject`, `transform`, `unary`,
-     * `union`, `unionBy`, `unionWith`, `uniq`, `uniqBy`, `uniqWith`, `unset`,
-     * `unshift`, `unzip`, `unzipWith`, `update`, `updateWith`, `values`,
-     * `valuesIn`, `without`, `wrap`, `xor`, `xorBy`, `xorWith`, `zip`,
-     * `zipObject`, `zipObjectDeep`, and `zipWith`
+     * `curry`, `debounce`, `defaults`, `defaultsDeep`, `defer`, `delay`, `difference`,
+     * `differenceBy`, `differenceWith`, `drop`, `dropRight`, `dropRightWhile`,
+     * `dropWhile`, `fill`, `filter`, `flatten`, `flattenDeep`, `flattenDepth`,
+     * `flip`, `flow`, `flowRight`, `fromPairs`, `functions`, `functionsIn`,
+     * `groupBy`, `initial`, `intersection`, `intersectionBy`, `intersectionWith`,
+     * `invert`, `invertBy`, `invokeMap`, `iteratee`, `keyBy`, `keys`, `keysIn`,
+     * `map`, `mapKeys`, `mapValues`, `matches`, `matchesProperty`, `memoize`,
+     * `merge`, `mergeWith`, `method`, `methodOf`, `mixin`, `negate`, `nthArg`,
+     * `omit`, `omitBy`, `once`, `orderBy`, `over`, `overArgs`, `overEvery`,
+     * `overSome`, `partial`, `partialRight`, `partition`, `pick`, `pickBy`, `plant`,
+     * `property`, `propertyOf`, `pull`, `pullAll`, `pullAllBy`, `pullAt`, `push`,
+     * `range`, `rangeRight`, `rearg`, `reject`, `remove`, `rest`, `reverse`,
+     * `sampleSize`, `set`, `setWith`, `shuffle`, `slice`, `sort`, `sortBy`,
+     * `splice`, `spread`, `tail`, `take`, `takeRight`, `takeRightWhile`,
+     * `takeWhile`, `tap`, `throttle`, `thru`, `toArray`, `toPairs`, `toPairsIn`,
+     * `toPath`, `toPlainObject`, `transform`, `unary`, `union`, `unionBy`,
+     * `unionWith`, `uniq`, `uniqBy`, `uniqWith`, `unset`, `unshift`, `unzip`,
+     * `unzipWith`, `values`, `valuesIn`, `without`, `wrap`, `xor`, `xorBy`,
+     * `xorWith`, `zip`, `zipObject`, `zipObjectDeep`, and `zipWith`
      *
      * The wrapper methods that are **not** chainable by default are:
      * `add`, `attempt`, `camelCase`, `capitalize`, `ceil`, `clamp`, `clone`,
-     * `cloneDeep`, `cloneDeepWith`, `cloneWith`, `deburr`, `divide`, `each`,
-     * `eachRight`, `endsWith`, `eq`, `escape`, `escapeRegExp`, `every`, `find`,
-     * `findIndex`, `findKey`, `findLast`, `findLastIndex`, `findLastKey`, `first`,
-     * `floor`, `forEach`, `forEachRight`, `forIn`, `forInRight`, `forOwn`,
-     * `forOwnRight`, `get`, `gt`, `gte`, `has`, `hasIn`, `head`, `identity`,
-     * `includes`, `indexOf`, `inRange`, `invoke`, `isArguments`, `isArray`,
-     * `isArrayBuffer`, `isArrayLike`, `isArrayLikeObject`, `isBoolean`,
+     * `cloneDeep`, `cloneDeepWith`, `cloneWith`, `deburr`, `endsWith`, `eq`,
+     * `escape`, `escapeRegExp`, `every`, `find`, `findIndex`, `findKey`, `findLast`,
+     * `findLastIndex`, `findLastKey`, `floor`, `forEach`, `forEachRight`, `forIn`,
+     * `forInRight`, `forOwn`, `forOwnRight`, `get`, `gt`, `gte`, `has`, `hasIn`,
+     * `head`, `identity`, `includes`, `indexOf`, `inRange`, `invoke`, `isArguments`,
+     * `isArray`, `isArrayBuffer`, `isArrayLike`, `isArrayLikeObject`, `isBoolean`,
      * `isBuffer`, `isDate`, `isElement`, `isEmpty`, `isEqual`, `isEqualWith`,
      * `isError`, `isFinite`, `isFunction`, `isInteger`, `isLength`, `isMap`,
-     * `isMatch`, `isMatchWith`, `isNaN`, `isNative`, `isNil`, `isNull`,
-     * `isNumber`, `isObject`, `isObjectLike`, `isPlainObject`, `isRegExp`,
-     * `isSafeInteger`, `isSet`, `isString`, `isUndefined`, `isTypedArray`,
-     * `isWeakMap`, `isWeakSet`, `join`, `kebabCase`, `last`, `lastIndexOf`,
-     * `lowerCase`, `lowerFirst`, `lt`, `lte`, `max`, `maxBy`, `mean`, `meanBy`,
-     * `min`, `minBy`, `multiply`, `noConflict`, `noop`, `now`, `nth`, `pad`,
-     * `padEnd`, `padStart`, `parseInt`, `pop`, `random`, `reduce`, `reduceRight`,
-     * `repeat`, `result`, `round`, `runInContext`, `sample`, `shift`, `size`,
-     * `snakeCase`, `some`, `sortedIndex`, `sortedIndexBy`, `sortedLastIndex`,
-     * `sortedLastIndexBy`, `startCase`, `startsWith`, `stubArray`, `stubFalse`,
-     * `stubObject`, `stubString`, `stubTrue`, `subtract`, `sum`, `sumBy`,
-     * `template`, `times`, `toFinite`, `toInteger`, `toJSON`, `toLength`,
-     * `toLower`, `toNumber`, `toSafeInteger`, `toString`, `toUpper`, `trim`,
-     * `trimEnd`, `trimStart`, `truncate`, `unescape`, `uniqueId`, `upperCase`,
-     * `upperFirst`, `value`, and `words`
+     * `isMatch`, `isMatchWith`, `isNaN`, `isNative`, `isNil`, `isNull`, `isNumber`,
+     * `isObject`, `isObjectLike`, `isPlainObject`, `isRegExp`, `isSafeInteger`,
+     * `isSet`, `isString`, `isUndefined`, `isTypedArray`, `isWeakMap`, `isWeakSet`,
+     * `join`, `kebabCase`, `last`, `lastIndexOf`, `lowerCase`, `lowerFirst`,
+     * `lt`, `lte`, `max`, `maxBy`, `mean`, `min`, `minBy`, `noConflict`, `noop`,
+     * `now`, `pad`, `padEnd`, `padStart`, `parseInt`, `pop`, `random`, `reduce`,
+     * `reduceRight`, `repeat`, `result`, `round`, `runInContext`, `sample`,
+     * `shift`, `size`, `snakeCase`, `some`, `sortedIndex`, `sortedIndexBy`,
+     * `sortedLastIndex`, `sortedLastIndexBy`, `startCase`, `startsWith`, `subtract`,
+     * `sum`, `sumBy`, `template`, `times`, `toLower`, `toInteger`, `toLength`,
+     * `toNumber`, `toSafeInteger`, `toString`, `toUpper`, `trim`, `trimEnd`,
+     * `trimStart`, `truncate`, `unescape`, `uniqueId`, `upperCase`, `upperFirst`,
+     * `value`, and `words`
      *
      * @name _
      * @constructor
@@ -2348,7 +2345,7 @@ module.exports = function() {
     }
 
     /**
-     * The function whose prototype chain sequence wrappers inherit from.
+     * The function whose prototype all chaining wrappers inherit from.
      *
      * @private
      */
@@ -2361,7 +2358,7 @@ module.exports = function() {
      *
      * @private
      * @param {*} value The value to wrap.
-     * @param {boolean} [chainAll] Enable explicit method chain sequences.
+     * @param {boolean} [chainAll] Enable chaining for all wrapper methods.
      */
     function LodashWrapper(value, chainAll) {
       this.__wrapped__ = value;
@@ -2431,13 +2428,6 @@ module.exports = function() {
         '_': lodash
       }
     };
-
-    // Ensure wrappers are instances of `baseLodash`.
-    lodash.prototype = baseLodash.prototype;
-    lodash.prototype.constructor = lodash;
-
-    LodashWrapper.prototype = baseCreate(baseLodash.prototype);
-    LodashWrapper.prototype.constructor = LodashWrapper;
 
     /*------------------------------------------------------------------------*/
 
@@ -2555,223 +2545,68 @@ module.exports = function() {
       return result;
     }
 
-    // Ensure `LazyWrapper` is an instance of `baseLodash`.
-    LazyWrapper.prototype = baseCreate(baseLodash.prototype);
-    LazyWrapper.prototype.constructor = LazyWrapper;
-
     /*------------------------------------------------------------------------*/
 
     /**
-     * Creates a hash object.
+     * Creates an hash object.
      *
      * @private
      * @constructor
-     * @param {Array} [entries] The key-value pairs to cache.
+     * @returns {Object} Returns the new hash object.
      */
-    function Hash(entries) {
-      var index = -1,
-          length = entries ? entries.length : 0;
-
-      this.clear();
-      while (++index < length) {
-        var entry = entries[index];
-        this.set(entry[0], entry[1]);
-      }
-    }
-
-    /**
-     * Removes all key-value entries from the hash.
-     *
-     * @private
-     * @name clear
-     * @memberOf Hash
-     */
-    function hashClear() {
-      this.__data__ = nativeCreate ? nativeCreate(null) : {};
-    }
+    function Hash() {}
 
     /**
      * Removes `key` and its value from the hash.
      *
      * @private
-     * @name delete
-     * @memberOf Hash
      * @param {Object} hash The hash to modify.
      * @param {string} key The key of the value to remove.
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
-    function hashDelete(key) {
-      return this.has(key) && delete this.__data__[key];
+    function hashDelete(hash, key) {
+      return hashHas(hash, key) && delete hash[key];
     }
 
     /**
      * Gets the hash value for `key`.
      *
      * @private
-     * @name get
-     * @memberOf Hash
+     * @param {Object} hash The hash to query.
      * @param {string} key The key of the value to get.
      * @returns {*} Returns the entry value.
      */
-    function hashGet(key) {
-      var data = this.__data__;
+    function hashGet(hash, key) {
       if (nativeCreate) {
-        var result = data[key];
+        var result = hash[key];
         return result === HASH_UNDEFINED ? undefined : result;
       }
-      return hasOwnProperty.call(data, key) ? data[key] : undefined;
+      return hasOwnProperty.call(hash, key) ? hash[key] : undefined;
     }
 
     /**
      * Checks if a hash value for `key` exists.
      *
      * @private
-     * @name has
-     * @memberOf Hash
+     * @param {Object} hash The hash to query.
      * @param {string} key The key of the entry to check.
      * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
      */
-    function hashHas(key) {
-      var data = this.__data__;
-      return nativeCreate ? data[key] !== undefined : hasOwnProperty.call(data, key);
+    function hashHas(hash, key) {
+      return nativeCreate ? hash[key] !== undefined : hasOwnProperty.call(hash, key);
     }
 
     /**
      * Sets the hash `key` to `value`.
      *
      * @private
-     * @name set
-     * @memberOf Hash
+     * @param {Object} hash The hash to modify.
      * @param {string} key The key of the value to set.
      * @param {*} value The value to set.
-     * @returns {Object} Returns the hash instance.
      */
-    function hashSet(key, value) {
-      var data = this.__data__;
-      data[key] = (nativeCreate && value === undefined) ? HASH_UNDEFINED : value;
-      return this;
+    function hashSet(hash, key, value) {
+      hash[key] = (nativeCreate && value === undefined) ? HASH_UNDEFINED : value;
     }
-
-    // Add methods to `Hash`.
-    Hash.prototype.clear = hashClear;
-    Hash.prototype['delete'] = hashDelete;
-    Hash.prototype.get = hashGet;
-    Hash.prototype.has = hashHas;
-    Hash.prototype.set = hashSet;
-
-    /*------------------------------------------------------------------------*/
-
-    /**
-     * Creates an list cache object.
-     *
-     * @private
-     * @constructor
-     * @param {Array} [entries] The key-value pairs to cache.
-     */
-    function ListCache(entries) {
-      var index = -1,
-          length = entries ? entries.length : 0;
-
-      this.clear();
-      while (++index < length) {
-        var entry = entries[index];
-        this.set(entry[0], entry[1]);
-      }
-    }
-
-    /**
-     * Removes all key-value entries from the list cache.
-     *
-     * @private
-     * @name clear
-     * @memberOf ListCache
-     */
-    function listCacheClear() {
-      this.__data__ = [];
-    }
-
-    /**
-     * Removes `key` and its value from the list cache.
-     *
-     * @private
-     * @name delete
-     * @memberOf ListCache
-     * @param {string} key The key of the value to remove.
-     * @returns {boolean} Returns `true` if the entry was removed, else `false`.
-     */
-    function listCacheDelete(key) {
-      var data = this.__data__,
-          index = assocIndexOf(data, key);
-
-      if (index < 0) {
-        return false;
-      }
-      var lastIndex = data.length - 1;
-      if (index == lastIndex) {
-        data.pop();
-      } else {
-        splice.call(data, index, 1);
-      }
-      return true;
-    }
-
-    /**
-     * Gets the list cache value for `key`.
-     *
-     * @private
-     * @name get
-     * @memberOf ListCache
-     * @param {string} key The key of the value to get.
-     * @returns {*} Returns the entry value.
-     */
-    function listCacheGet(key) {
-      var data = this.__data__,
-          index = assocIndexOf(data, key);
-
-      return index < 0 ? undefined : data[index][1];
-    }
-
-    /**
-     * Checks if a list cache value for `key` exists.
-     *
-     * @private
-     * @name has
-     * @memberOf ListCache
-     * @param {string} key The key of the entry to check.
-     * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
-     */
-    function listCacheHas(key) {
-      return assocIndexOf(this.__data__, key) > -1;
-    }
-
-    /**
-     * Sets the list cache `key` to `value`.
-     *
-     * @private
-     * @name set
-     * @memberOf ListCache
-     * @param {string} key The key of the value to set.
-     * @param {*} value The value to set.
-     * @returns {Object} Returns the list cache instance.
-     */
-    function listCacheSet(key, value) {
-      var data = this.__data__,
-          index = assocIndexOf(data, key);
-
-      if (index < 0) {
-        data.push([key, value]);
-      } else {
-        data[index][1] = value;
-      }
-      return this;
-    }
-
-    // Add methods to `ListCache`.
-    ListCache.prototype.clear = listCacheClear;
-    ListCache.prototype['delete'] = listCacheDelete;
-    ListCache.prototype.get = listCacheGet;
-    ListCache.prototype.has = listCacheHas;
-    ListCache.prototype.set = listCacheSet;
 
     /*------------------------------------------------------------------------*/
 
@@ -2780,15 +2615,15 @@ module.exports = function() {
      *
      * @private
      * @constructor
-     * @param {Array} [entries] The key-value pairs to cache.
+     * @param {Array} [values] The values to cache.
      */
-    function MapCache(entries) {
+    function MapCache(values) {
       var index = -1,
-          length = entries ? entries.length : 0;
+          length = values ? values.length : 0;
 
       this.clear();
       while (++index < length) {
-        var entry = entries[index];
+        var entry = values[index];
         this.set(entry[0], entry[1]);
       }
     }
@@ -2800,10 +2635,10 @@ module.exports = function() {
      * @name clear
      * @memberOf MapCache
      */
-    function mapCacheClear() {
+    function mapClear() {
       this.__data__ = {
         'hash': new Hash,
-        'map': new (Map || ListCache),
+        'map': Map ? new Map : [],
         'string': new Hash
       };
     }
@@ -2817,8 +2652,12 @@ module.exports = function() {
      * @param {string} key The key of the value to remove.
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
-    function mapCacheDelete(key) {
-      return getMapData(this, key)['delete'](key);
+    function mapDelete(key) {
+      var data = this.__data__;
+      if (isKeyable(key)) {
+        return hashDelete(typeof key == 'string' ? data.string : data.hash, key);
+      }
+      return Map ? data.map['delete'](key) : assocDelete(data.map, key);
     }
 
     /**
@@ -2830,8 +2669,12 @@ module.exports = function() {
      * @param {string} key The key of the value to get.
      * @returns {*} Returns the entry value.
      */
-    function mapCacheGet(key) {
-      return getMapData(this, key).get(key);
+    function mapGet(key) {
+      var data = this.__data__;
+      if (isKeyable(key)) {
+        return hashGet(typeof key == 'string' ? data.string : data.hash, key);
+      }
+      return Map ? data.map.get(key) : assocGet(data.map, key);
     }
 
     /**
@@ -2843,8 +2686,12 @@ module.exports = function() {
      * @param {string} key The key of the entry to check.
      * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
      */
-    function mapCacheHas(key) {
-      return getMapData(this, key).has(key);
+    function mapHas(key) {
+      var data = this.__data__;
+      if (isKeyable(key)) {
+        return hashHas(typeof key == 'string' ? data.string : data.hash, key);
+      }
+      return Map ? data.map.has(key) : assocHas(data.map, key);
     }
 
     /**
@@ -2855,25 +2702,25 @@ module.exports = function() {
      * @memberOf MapCache
      * @param {string} key The key of the value to set.
      * @param {*} value The value to set.
-     * @returns {Object} Returns the map cache instance.
+     * @returns {Object} Returns the map cache object.
      */
-    function mapCacheSet(key, value) {
-      getMapData(this, key).set(key, value);
+    function mapSet(key, value) {
+      var data = this.__data__;
+      if (isKeyable(key)) {
+        hashSet(typeof key == 'string' ? data.string : data.hash, key, value);
+      } else if (Map) {
+        data.map.set(key, value);
+      } else {
+        assocSet(data.map, key, value);
+      }
       return this;
     }
-
-    // Add methods to `MapCache`.
-    MapCache.prototype.clear = mapCacheClear;
-    MapCache.prototype['delete'] = mapCacheDelete;
-    MapCache.prototype.get = mapCacheGet;
-    MapCache.prototype.has = mapCacheHas;
-    MapCache.prototype.set = mapCacheSet;
 
     /*------------------------------------------------------------------------*/
 
     /**
      *
-     * Creates an array cache object to store unique values.
+     * Creates a set cache object to store unique values.
      *
      * @private
      * @constructor
@@ -2885,41 +2732,49 @@ module.exports = function() {
 
       this.__data__ = new MapCache;
       while (++index < length) {
-        this.add(values[index]);
+        this.push(values[index]);
       }
     }
 
     /**
-     * Adds `value` to the array cache.
+     * Checks if `value` is in `cache`.
      *
      * @private
-     * @name add
-     * @memberOf SetCache
-     * @alias push
-     * @param {*} value The value to cache.
-     * @returns {Object} Returns the cache instance.
-     */
-    function setCacheAdd(value) {
-      this.__data__.set(value, HASH_UNDEFINED);
-      return this;
-    }
-
-    /**
-     * Checks if `value` is in the array cache.
-     *
-     * @private
-     * @name has
-     * @memberOf SetCache
+     * @param {Object} cache The set cache to search.
      * @param {*} value The value to search for.
      * @returns {number} Returns `true` if `value` is found, else `false`.
      */
-    function setCacheHas(value) {
-      return this.__data__.has(value);
+    function cacheHas(cache, value) {
+      var map = cache.__data__;
+      if (isKeyable(value)) {
+        var data = map.__data__,
+            hash = typeof value == 'string' ? data.string : data.hash;
+
+        return hash[value] === HASH_UNDEFINED;
+      }
+      return map.has(value);
     }
 
-    // Add methods to `SetCache`.
-    SetCache.prototype.add = SetCache.prototype.push = setCacheAdd;
-    SetCache.prototype.has = setCacheHas;
+    /**
+     * Adds `value` to the set cache.
+     *
+     * @private
+     * @name push
+     * @memberOf SetCache
+     * @param {*} value The value to cache.
+     */
+    function cachePush(value) {
+      var map = this.__data__;
+      if (isKeyable(value)) {
+        var data = map.__data__,
+            hash = typeof value == 'string' ? data.string : data.hash;
+
+        hash[value] = HASH_UNDEFINED;
+      }
+      else {
+        map.set(value, HASH_UNDEFINED);
+      }
+    }
 
     /*------------------------------------------------------------------------*/
 
@@ -2928,10 +2783,17 @@ module.exports = function() {
      *
      * @private
      * @constructor
-     * @param {Array} [entries] The key-value pairs to cache.
+     * @param {Array} [values] The values to cache.
      */
-    function Stack(entries) {
-      this.__data__ = new ListCache(entries);
+    function Stack(values) {
+      var index = -1,
+          length = values ? values.length : 0;
+
+      this.clear();
+      while (++index < length) {
+        var entry = values[index];
+        this.set(entry[0], entry[1]);
+      }
     }
 
     /**
@@ -2942,7 +2804,7 @@ module.exports = function() {
      * @memberOf Stack
      */
     function stackClear() {
-      this.__data__ = new ListCache;
+      this.__data__ = { 'array': [], 'map': null };
     }
 
     /**
@@ -2955,7 +2817,10 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
     function stackDelete(key) {
-      return this.__data__['delete'](key);
+      var data = this.__data__,
+          array = data.array;
+
+      return array ? assocDelete(array, key) : data.map['delete'](key);
     }
 
     /**
@@ -2968,7 +2833,10 @@ module.exports = function() {
      * @returns {*} Returns the entry value.
      */
     function stackGet(key) {
-      return this.__data__.get(key);
+      var data = this.__data__,
+          array = data.array;
+
+      return array ? assocGet(array, key) : data.map.get(key);
     }
 
     /**
@@ -2981,7 +2849,10 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
      */
     function stackHas(key) {
-      return this.__data__.has(key);
+      var data = this.__data__,
+          array = data.array;
+
+      return array ? assocHas(array, key) : data.map.has(key);
     }
 
     /**
@@ -2992,23 +2863,111 @@ module.exports = function() {
      * @memberOf Stack
      * @param {string} key The key of the value to set.
      * @param {*} value The value to set.
-     * @returns {Object} Returns the stack cache instance.
+     * @returns {Object} Returns the stack cache object.
      */
     function stackSet(key, value) {
-      var cache = this.__data__;
-      if (cache instanceof ListCache && cache.__data__.length == LARGE_ARRAY_SIZE) {
-        cache = this.__data__ = new MapCache(cache.__data__);
+      var data = this.__data__,
+          array = data.array;
+
+      if (array) {
+        if (array.length < (LARGE_ARRAY_SIZE - 1)) {
+          assocSet(array, key, value);
+        } else {
+          data.array = null;
+          data.map = new MapCache(array);
+        }
       }
-      cache.set(key, value);
+      var map = data.map;
+      if (map) {
+        map.set(key, value);
+      }
       return this;
     }
 
-    // Add methods to `Stack`.
-    Stack.prototype.clear = stackClear;
-    Stack.prototype['delete'] = stackDelete;
-    Stack.prototype.get = stackGet;
-    Stack.prototype.has = stackHas;
-    Stack.prototype.set = stackSet;
+    /*------------------------------------------------------------------------*/
+
+    /**
+     * Removes `key` and its value from the associative array.
+     *
+     * @private
+     * @param {Array} array The array to query.
+     * @param {string} key The key of the value to remove.
+     * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+     */
+    function assocDelete(array, key) {
+      var index = assocIndexOf(array, key);
+      if (index < 0) {
+        return false;
+      }
+      var lastIndex = array.length - 1;
+      if (index == lastIndex) {
+        array.pop();
+      } else {
+        splice.call(array, index, 1);
+      }
+      return true;
+    }
+
+    /**
+     * Gets the associative array value for `key`.
+     *
+     * @private
+     * @param {Array} array The array to query.
+     * @param {string} key The key of the value to get.
+     * @returns {*} Returns the entry value.
+     */
+    function assocGet(array, key) {
+      var index = assocIndexOf(array, key);
+      return index < 0 ? undefined : array[index][1];
+    }
+
+    /**
+     * Checks if an associative array value for `key` exists.
+     *
+     * @private
+     * @param {Array} array The array to query.
+     * @param {string} key The key of the entry to check.
+     * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+     */
+    function assocHas(array, key) {
+      return assocIndexOf(array, key) > -1;
+    }
+
+    /**
+     * Gets the index at which the first occurrence of `key` is found in `array`
+     * of key-value pairs.
+     *
+     * @private
+     * @param {Array} array The array to search.
+     * @param {*} key The key to search for.
+     * @returns {number} Returns the index of the matched value, else `-1`.
+     */
+    function assocIndexOf(array, key) {
+      var length = array.length;
+      while (length--) {
+        if (eq(array[length][0], key)) {
+          return length;
+        }
+      }
+      return -1;
+    }
+
+    /**
+     * Sets the associative array `key` to `value`.
+     *
+     * @private
+     * @param {Array} array The array to modify.
+     * @param {string} key The key of the value to set.
+     * @param {*} value The value to set.
+     */
+    function assocSet(array, key, value) {
+      var index = assocIndexOf(array, key);
+      if (index < 0) {
+        array.push([key, value]);
+      } else {
+        array[index][1] = value;
+      }
+    }
 
     /*------------------------------------------------------------------------*/
 
@@ -3031,8 +2990,7 @@ module.exports = function() {
     }
 
     /**
-     * This function is like `assignValue` except that it doesn't assign
-     * `undefined` values.
+     * This function is like `assignValue` except that it doesn't assign `undefined` values.
      *
      * @private
      * @param {Object} object The object to modify.
@@ -3058,28 +3016,11 @@ module.exports = function() {
      */
     function assignValue(object, key, value) {
       var objValue = object[key];
-      if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
+      if ((!eq(objValue, value) ||
+            (eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key))) ||
           (value === undefined && !(key in object))) {
         object[key] = value;
       }
-    }
-
-    /**
-     * Gets the index at which the `key` is found in `array` of key-value pairs.
-     *
-     * @private
-     * @param {Array} array The array to search.
-     * @param {*} key The key to search for.
-     * @returns {number} Returns the index of the matched value, else `-1`.
-     */
-    function assocIndexOf(array, key) {
-      var length = array.length;
-      while (length--) {
-        if (eq(array[length][0], key)) {
-          return length;
-        }
-      }
-      return -1;
     }
 
     /**
@@ -3119,7 +3060,7 @@ module.exports = function() {
      * @private
      * @param {Object} object The object to iterate over.
      * @param {string[]} paths The property paths of elements to pick.
-     * @returns {Array} Returns the picked elements.
+     * @returns {Array} Returns the new array of picked elements.
      */
     function baseAt(object, paths) {
       var index = -1,
@@ -3131,6 +3072,39 @@ module.exports = function() {
         result[index] = isNil ? undefined : get(object, paths[index]);
       }
       return result;
+    }
+
+    /**
+     * Casts `value` to an empty array if it's not an array like object.
+     *
+     * @private
+     * @param {*} value The value to inspect.
+     * @returns {Array} Returns the array-like object.
+     */
+    function baseCastArrayLikeObject(value) {
+      return isArrayLikeObject(value) ? value : [];
+    }
+
+    /**
+     * Casts `value` to `identity` if it's not a function.
+     *
+     * @private
+     * @param {*} value The value to inspect.
+     * @returns {Array} Returns the array-like object.
+     */
+    function baseCastFunction(value) {
+      return typeof value == 'function' ? value : identity;
+    }
+
+    /**
+     * Casts `value` to a path array if it's not one.
+     *
+     * @private
+     * @param {*} value The value to inspect.
+     * @returns {Array} Returns the cast property path array.
+     */
+    function baseCastPath(value) {
+      return isArray(value) ? value : stringToPath(value);
     }
 
     /**
@@ -3161,14 +3135,13 @@ module.exports = function() {
      * @private
      * @param {*} value The value to clone.
      * @param {boolean} [isDeep] Specify a deep clone.
-     * @param {boolean} [isFull] Specify a clone including symbols.
      * @param {Function} [customizer] The function to customize cloning.
      * @param {string} [key] The key of `value`.
      * @param {Object} [object] The parent object of `value`.
      * @param {Object} [stack] Tracks traversed objects and their clone counterparts.
      * @returns {*} Returns the cloned value.
      */
-    function baseClone(value, isDeep, isFull, customizer, key, object, stack) {
+    function baseClone(value, isDeep, customizer, key, object, stack) {
       var result;
       if (customizer) {
         result = object ? customizer(value, key, object, stack) : customizer(value);
@@ -3204,7 +3177,7 @@ module.exports = function() {
           if (!cloneableTags[tag]) {
             return object ? value : {};
           }
-          result = initCloneByTag(value, tag, baseClone, isDeep);
+          result = initCloneByTag(value, tag, isDeep);
         }
       }
       // Check for circular references and return its corresponding clone.
@@ -3215,18 +3188,11 @@ module.exports = function() {
       }
       stack.set(value, result);
 
-      if (!isArr) {
-        var props = isFull ? getAllKeys(value) : keys(value);
-      }
       // Recursively populate clone (susceptible to call stack limits).
-      arrayEach(props || value, function(subValue, key) {
-        if (props) {
-          key = subValue;
-          subValue = value[key];
-        }
-        assignValue(result, key, baseClone(subValue, isDeep, isFull, customizer, key, value, stack));
+      (isArr ? arrayEach : baseForOwn)(value, function(subValue, key) {
+        assignValue(result, key, baseClone(subValue, isDeep, customizer, key, value, stack));
       });
-      return result;
+      return isArr ? result : copySymbols(value, result);
     }
 
     /**
@@ -3234,7 +3200,7 @@ module.exports = function() {
      *
      * @private
      * @param {Object} source The object of property predicates to conform to.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the new function.
      */
     function baseConforms(source) {
       var props = keys(source),
@@ -3250,8 +3216,7 @@ module.exports = function() {
               predicate = source[key],
               value = object[key];
 
-          if ((value === undefined &&
-              !(key in Object(object))) || !predicate(value)) {
+          if ((value === undefined && !(key in Object(object))) || !predicate(value)) {
             return false;
           }
         }
@@ -3289,8 +3254,8 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of methods like `_.difference` without support
-     * for excluding multiple arrays or iteratee shorthands.
+     * The base implementation of methods like `_.difference` without support for
+     * excluding multiple arrays or iteratee shorthands.
      *
      * @private
      * @param {Array} array The array to inspect.
@@ -3327,7 +3292,6 @@ module.exports = function() {
         var value = array[index],
             computed = iteratee ? iteratee(value) : value;
 
-        value = (comparator || value !== 0) ? value : 0;
         if (isCommon && computed === computed) {
           var valuesIndex = valuesLength;
           while (valuesIndex--) {
@@ -3370,8 +3334,7 @@ module.exports = function() {
      * @private
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} predicate The function invoked per iteration.
-     * @returns {boolean} Returns `true` if all elements pass the predicate check,
-     *  else `false`
+     * @returns {boolean} Returns `true` if all elements pass the predicate check, else `false`
      */
     function baseEvery(collection, predicate) {
       var result = true;
@@ -3379,35 +3342,6 @@ module.exports = function() {
         result = !!predicate(value, index, collection);
         return result;
       });
-      return result;
-    }
-
-    /**
-     * The base implementation of methods like `_.max` and `_.min` which accepts a
-     * `comparator` to determine the extremum value.
-     *
-     * @private
-     * @param {Array} array The array to iterate over.
-     * @param {Function} iteratee The iteratee invoked per iteration.
-     * @param {Function} comparator The comparator used to compare values.
-     * @returns {*} Returns the extremum value.
-     */
-    function baseExtremum(array, iteratee, comparator) {
-      var index = -1,
-          length = array.length;
-
-      while (++index < length) {
-        var value = array[index],
-            current = iteratee(value);
-
-        if (current != null && (computed === undefined
-              ? (current === current && !isSymbol(current))
-              : comparator(current, computed)
-            )) {
-          var computed = current,
-              result = value;
-        }
-      }
       return result;
     }
 
@@ -3463,24 +3397,23 @@ module.exports = function() {
      * @private
      * @param {Array} array The array to flatten.
      * @param {number} depth The maximum recursion depth.
-     * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
-     * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
+     * @param {boolean} [isStrict] Restrict flattening to arrays-like objects.
      * @param {Array} [result=[]] The initial result value.
      * @returns {Array} Returns the new flattened array.
      */
-    function baseFlatten(array, depth, predicate, isStrict, result) {
+    function baseFlatten(array, depth, isStrict, result) {
+      result || (result = []);
+
       var index = -1,
           length = array.length;
 
-      predicate || (predicate = isFlattenable);
-      result || (result = []);
-
       while (++index < length) {
         var value = array[index];
-        if (depth > 0 && predicate(value)) {
+        if (depth > 0 && isArrayLikeObject(value) &&
+            (isStrict || isArray(value) || isArguments(value))) {
           if (depth > 1) {
             // Recursively flatten arrays (susceptible to call stack limits).
-            baseFlatten(value, depth - 1, predicate, isStrict, result);
+            baseFlatten(value, depth - 1, isStrict, result);
           } else {
             arrayPush(result, value);
           }
@@ -3492,9 +3425,10 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of `baseForOwn` which iterates over `object`
-     * properties returned by `keysFunc` and invokes `iteratee` for each property.
-     * Iteratee functions may exit iteration early by explicitly returning `false`.
+     * The base implementation of `baseForIn` and `baseForOwn` which iterates
+     * over `object` properties returned by `keysFunc` invoking `iteratee` for
+     * each property. Iteratee functions may exit iteration early by explicitly
+     * returning `false`.
      *
      * @private
      * @param {Object} object The object to iterate over.
@@ -3515,6 +3449,18 @@ module.exports = function() {
      * @returns {Object} Returns `object`.
      */
     var baseForRight = createBaseFor(true);
+
+    /**
+     * The base implementation of `_.forIn` without support for iteratee shorthands.
+     *
+     * @private
+     * @param {Object} object The object to iterate over.
+     * @param {Function} iteratee The function invoked per iteration.
+     * @returns {Object} Returns `object`.
+     */
+    function baseForIn(object, iteratee) {
+      return object == null ? object : baseFor(object, iteratee, keysIn);
+    }
 
     /**
      * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -3547,7 +3493,7 @@ module.exports = function() {
      * @private
      * @param {Object} object The object to inspect.
      * @param {Array} props The property names to filter.
-     * @returns {Array} Returns the function names.
+     * @returns {Array} Returns the new array of filtered property names.
      */
     function baseFunctions(object, props) {
       return arrayFilter(props, function(key) {
@@ -3564,51 +3510,22 @@ module.exports = function() {
      * @returns {*} Returns the resolved value.
      */
     function baseGet(object, path) {
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = isKey(path, object) ? [path + ''] : baseCastPath(path);
 
       var index = 0,
           length = path.length;
 
       while (object != null && index < length) {
-        object = object[toKey(path[index++])];
+        object = object[path[index++]];
       }
       return (index && index == length) ? object : undefined;
-    }
-
-    /**
-     * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
-     * `keysFunc` and `symbolsFunc` to get the enumerable property names and
-     * symbols of `object`.
-     *
-     * @private
-     * @param {Object} object The object to query.
-     * @param {Function} keysFunc The function to get the keys of `object`.
-     * @param {Function} symbolsFunc The function to get the symbols of `object`.
-     * @returns {Array} Returns the array of property names and symbols.
-     */
-    function baseGetAllKeys(object, keysFunc, symbolsFunc) {
-      var result = keysFunc(object);
-      return isArray(object) ? result : arrayPush(result, symbolsFunc(object));
-    }
-
-    /**
-     * The base implementation of `_.gt` which doesn't coerce arguments to numbers.
-     *
-     * @private
-     * @param {*} value The value to compare.
-     * @param {*} other The other value to compare.
-     * @returns {boolean} Returns `true` if `value` is greater than `other`,
-     *  else `false`.
-     */
-    function baseGt(value, other) {
-      return value > other;
     }
 
     /**
      * The base implementation of `_.has` without support for deep paths.
      *
      * @private
-     * @param {Object} [object] The object to query.
+     * @param {Object} object The object to query.
      * @param {Array|string} key The key to check.
      * @returns {boolean} Returns `true` if `key` exists, else `false`.
      */
@@ -3616,21 +3533,20 @@ module.exports = function() {
       // Avoid a bug in IE 10-11 where objects with a [[Prototype]] of `null`,
       // that are composed entirely of index properties, return `false` for
       // `hasOwnProperty` checks of them.
-      return object != null &&
-        (hasOwnProperty.call(object, key) ||
-          (typeof object == 'object' && key in object && getPrototype(object) === null));
+      return hasOwnProperty.call(object, key) ||
+        (typeof object == 'object' && key in object && getPrototypeOf(object) === null);
     }
 
     /**
      * The base implementation of `_.hasIn` without support for deep paths.
      *
      * @private
-     * @param {Object} [object] The object to query.
+     * @param {Object} object The object to query.
      * @param {Array|string} key The key to check.
      * @returns {boolean} Returns `true` if `key` exists, else `false`.
      */
     function baseHasIn(object, key) {
-      return object != null && key in Object(object);
+      return key in Object(object);
     }
 
     /**
@@ -3658,11 +3574,9 @@ module.exports = function() {
      */
     function baseIntersection(arrays, iteratee, comparator) {
       var includes = comparator ? arrayIncludesWith : arrayIncludes,
-          length = arrays[0].length,
           othLength = arrays.length,
           othIndex = othLength,
           caches = Array(othLength),
-          maxLength = Infinity,
           result = [];
 
       while (othIndex--) {
@@ -3670,27 +3584,26 @@ module.exports = function() {
         if (othIndex && iteratee) {
           array = arrayMap(array, baseUnary(iteratee));
         }
-        maxLength = nativeMin(array.length, maxLength);
-        caches[othIndex] = !comparator && (iteratee || (length >= 120 && array.length >= 120))
+        caches[othIndex] = !comparator && (iteratee || array.length >= 120)
           ? new SetCache(othIndex && array)
           : undefined;
       }
       array = arrays[0];
 
       var index = -1,
+          length = array.length,
           seen = caches[0];
 
       outer:
-      while (++index < length && result.length < maxLength) {
+      while (++index < length) {
         var value = array[index],
             computed = iteratee ? iteratee(value) : value;
 
-        value = (comparator || value !== 0) ? value : 0;
         if (!(seen
               ? cacheHas(seen, computed)
               : includes(result, computed, comparator)
             )) {
-          othIndex = othLength;
+          var othIndex = othLength;
           while (--othIndex) {
             var cache = caches[othIndex];
             if (!(cache
@@ -3739,11 +3652,11 @@ module.exports = function() {
      */
     function baseInvoke(object, path, args) {
       if (!isKey(path, object)) {
-        path = castPath(path);
+        path = baseCastPath(path);
         object = parent(object, path);
         path = last(path);
       }
-      var func = object == null ? object : object[toKey(path)];
+      var func = object == null ? object : object[path];
       return func == null ? undefined : apply(func, object, args);
     }
 
@@ -3782,8 +3695,7 @@ module.exports = function() {
      * @param {Object} other The other object to compare.
      * @param {Function} equalFunc The function to determine equivalents of values.
      * @param {Function} [customizer] The function to customize comparisons.
-     * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
+     * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual` for more details.
      * @param {Object} [stack] Tracks traversed `object` and `other` objects.
      * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
      */
@@ -3795,39 +3707,41 @@ module.exports = function() {
 
       if (!objIsArr) {
         objTag = getTag(object);
-        objTag = objTag == argsTag ? objectTag : objTag;
+        if (objTag == argsTag) {
+          objTag = objectTag;
+        } else if (objTag != objectTag) {
+          objIsArr = isTypedArray(object);
+        }
       }
       if (!othIsArr) {
         othTag = getTag(other);
-        othTag = othTag == argsTag ? objectTag : othTag;
+        if (othTag == argsTag) {
+          othTag = objectTag;
+        } else if (othTag != objectTag) {
+          othIsArr = isTypedArray(other);
+        }
       }
       var objIsObj = objTag == objectTag && !isHostObject(object),
           othIsObj = othTag == objectTag && !isHostObject(other),
           isSameTag = objTag == othTag;
 
-      if (isSameTag && !objIsObj) {
-        stack || (stack = new Stack);
-        return (objIsArr || isTypedArray(object))
-          ? equalArrays(object, other, equalFunc, customizer, bitmask, stack)
-          : equalByTag(object, other, objTag, equalFunc, customizer, bitmask, stack);
+      if (isSameTag && !(objIsArr || objIsObj)) {
+        return equalByTag(object, other, objTag, equalFunc, customizer, bitmask);
       }
-      if (!(bitmask & PARTIAL_COMPARE_FLAG)) {
+      var isPartial = bitmask & PARTIAL_COMPARE_FLAG;
+      if (!isPartial) {
         var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
             othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
 
         if (objIsWrapped || othIsWrapped) {
-          var objUnwrapped = objIsWrapped ? object.value() : object,
-              othUnwrapped = othIsWrapped ? other.value() : other;
-
-          stack || (stack = new Stack);
-          return equalFunc(objUnwrapped, othUnwrapped, customizer, bitmask, stack);
+          return equalFunc(objIsWrapped ? object.value() : object, othIsWrapped ? other.value() : other, customizer, bitmask, stack);
         }
       }
       if (!isSameTag) {
         return false;
       }
       stack || (stack = new Stack);
-      return equalObjects(object, other, equalFunc, customizer, bitmask, stack);
+      return (objIsArr ? equalArrays : equalObjects)(object, other, equalFunc, customizer, bitmask, stack);
     }
 
     /**
@@ -3869,10 +3783,9 @@ module.exports = function() {
             return false;
           }
         } else {
-          var stack = new Stack;
-          if (customizer) {
-            var result = customizer(objValue, srcValue, key, object, source, stack);
-          }
+          var stack = new Stack,
+              result = customizer ? customizer(objValue, srcValue, key, object, source, stack) : undefined;
+
           if (!(result === undefined
                 ? baseIsEqual(srcValue, objValue, customizer, UNORDERED_COMPARE_FLAG | PARTIAL_COMPARE_FLAG, stack)
                 : result
@@ -3885,22 +3798,6 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of `_.isNative` without bad shim checks.
-     *
-     * @private
-     * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a native function,
-     *  else `false`.
-     */
-    function baseIsNative(value) {
-      if (!isObject(value) || isMasked(value)) {
-        return false;
-      }
-      var pattern = (isFunction(value) || isHostObject(value)) ? reIsNative : reIsHostCtor;
-      return pattern.test(toSource(value));
-    }
-
-    /**
      * The base implementation of `_.iteratee`.
      *
      * @private
@@ -3908,15 +3805,14 @@ module.exports = function() {
      * @returns {Function} Returns the iteratee.
      */
     function baseIteratee(value) {
-      // Don't store the `typeof` result in a variable to avoid a JIT bug in Safari 9.
-      // See https://bugs.webkit.org/show_bug.cgi?id=156034 for more details.
-      if (typeof value == 'function') {
+      var type = typeof value;
+      if (type == 'function') {
         return value;
       }
       if (value == null) {
         return identity;
       }
-      if (typeof value == 'object') {
+      if (type == 'object') {
         return isArray(value)
           ? baseMatchesProperty(value[0], value[1])
           : baseMatches(value);
@@ -3962,19 +3858,6 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of `_.lt` which doesn't coerce arguments to numbers.
-     *
-     * @private
-     * @param {*} value The value to compare.
-     * @param {*} other The other value to compare.
-     * @returns {boolean} Returns `true` if `value` is less than `other`,
-     *  else `false`.
-     */
-    function baseLt(value, other) {
-      return value < other;
-    }
-
-    /**
      * The base implementation of `_.map` without support for iteratee shorthands.
      *
      * @private
@@ -3997,12 +3880,21 @@ module.exports = function() {
      *
      * @private
      * @param {Object} source The object of property values to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the new function.
      */
     function baseMatches(source) {
       var matchData = getMatchData(source);
       if (matchData.length == 1 && matchData[0][2]) {
-        return matchesStrictComparable(matchData[0][0], matchData[0][1]);
+        var key = matchData[0][0],
+            value = matchData[0][1];
+
+        return function(object) {
+          if (object == null) {
+            return false;
+          }
+          return object[key] === value &&
+            (value !== undefined || (key in Object(object)));
+        };
       }
       return function(object) {
         return object === source || baseIsMatch(object, source, matchData);
@@ -4015,12 +3907,9 @@ module.exports = function() {
      * @private
      * @param {string} path The path of the property to get.
      * @param {*} srcValue The value to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the new function.
      */
     function baseMatchesProperty(path, srcValue) {
-      if (isKey(path) && isStrictComparable(srcValue)) {
-        return matchesStrictComparable(toKey(path), srcValue);
-      }
       return function(object) {
         var objValue = get(object, path);
         return (objValue === undefined && objValue === srcValue)
@@ -4037,16 +3926,16 @@ module.exports = function() {
      * @param {Object} source The source object.
      * @param {number} srcIndex The index of `source`.
      * @param {Function} [customizer] The function to customize merged values.
-     * @param {Object} [stack] Tracks traversed source values and their merged
-     *  counterparts.
+     * @param {Object} [stack] Tracks traversed source values and their merged counterparts.
      */
     function baseMerge(object, source, srcIndex, customizer, stack) {
       if (object === source) {
         return;
       }
-      if (!(isArray(source) || isTypedArray(source))) {
-        var props = keysIn(source);
-      }
+      var props = (isArray(source) || isTypedArray(source))
+        ? undefined
+        : keysIn(source);
+
       arrayEach(props || source, function(srcValue, key) {
         if (props) {
           key = srcValue;
@@ -4081,8 +3970,7 @@ module.exports = function() {
      * @param {number} srcIndex The index of `source`.
      * @param {Function} mergeFunc The function to merge values.
      * @param {Function} [customizer] The function to customize assigned values.
-     * @param {Object} [stack] Tracks traversed source values and their merged
-     *  counterparts.
+     * @param {Object} [stack] Tracks traversed source values and their merged counterparts.
      */
     function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, stack) {
       var objValue = object[key],
@@ -4135,25 +4023,7 @@ module.exports = function() {
         // Recursively merge objects and arrays (susceptible to call stack limits).
         mergeFunc(newValue, srcValue, srcIndex, customizer, stack);
       }
-      stack['delete'](srcValue);
       assignMergeValue(object, key, newValue);
-    }
-
-    /**
-     * The base implementation of `_.nth` which doesn't coerce `n` to an integer.
-     *
-     * @private
-     * @param {Array} array The array to query.
-     * @param {number} n The index of the element to return.
-     * @returns {*} Returns the nth element of `array`.
-     */
-    function baseNth(array, n) {
-      var length = array.length;
-      if (!length) {
-        return;
-      }
-      n += n < 0 ? length : 0;
-      return isIndex(n, length) ? array[n] : undefined;
     }
 
     /**
@@ -4166,8 +4036,12 @@ module.exports = function() {
      * @returns {Array} Returns the new sorted array.
      */
     function baseOrderBy(collection, iteratees, orders) {
-      var index = -1;
-      iteratees = arrayMap(iteratees.length ? iteratees : [identity], baseUnary(getIteratee()));
+      var index = -1,
+          toIteratee = getIteratee();
+
+      iteratees = arrayMap(iteratees.length ? iteratees : Array(1), function(iteratee) {
+        return toIteratee(iteratee);
+      });
 
       var result = baseMap(collection, function(value, key, collection) {
         var criteria = arrayMap(iteratees, function(iteratee) {
@@ -4183,11 +4057,11 @@ module.exports = function() {
 
     /**
      * The base implementation of `_.pick` without support for individual
-     * property identifiers.
+     * property names.
      *
      * @private
      * @param {Object} object The source object.
-     * @param {string[]} props The property identifiers to pick.
+     * @param {string[]} props The property names to pick.
      * @returns {Object} Returns the new object.
      */
     function basePick(object, props) {
@@ -4209,19 +4083,12 @@ module.exports = function() {
      * @returns {Object} Returns the new object.
      */
     function basePickBy(object, predicate) {
-      var index = -1,
-          props = getAllKeysIn(object),
-          length = props.length,
-          result = {};
-
-      while (++index < length) {
-        var key = props[index],
-            value = object[key];
-
+      var result = {};
+      baseForIn(object, function(value, key) {
         if (predicate(value, key)) {
           result[key] = value;
         }
-      }
+      });
       return result;
     }
 
@@ -4230,7 +4097,7 @@ module.exports = function() {
      *
      * @private
      * @param {string} key The key of the property to get.
-     * @returns {Function} Returns the new accessor function.
+     * @returns {Function} Returns the new function.
      */
     function baseProperty(key) {
       return function(object) {
@@ -4243,12 +4110,24 @@ module.exports = function() {
      *
      * @private
      * @param {Array|string} path The path of the property to get.
-     * @returns {Function} Returns the new accessor function.
+     * @returns {Function} Returns the new function.
      */
     function basePropertyDeep(path) {
       return function(object) {
         return baseGet(object, path);
       };
+    }
+
+    /**
+     * The base implementation of `_.pullAll`.
+     *
+     * @private
+     * @param {Array} array The array to modify.
+     * @param {Array} values The values to remove.
+     * @returns {Array} Returns `array`.
+     */
+    function basePullAll(array, values) {
+      return basePullAllBy(array, values);
     }
 
     /**
@@ -4259,27 +4138,22 @@ module.exports = function() {
      * @param {Array} array The array to modify.
      * @param {Array} values The values to remove.
      * @param {Function} [iteratee] The iteratee invoked per element.
-     * @param {Function} [comparator] The comparator invoked per element.
      * @returns {Array} Returns `array`.
      */
-    function basePullAll(array, values, iteratee, comparator) {
-      var indexOf = comparator ? baseIndexOfWith : baseIndexOf,
-          index = -1,
+    function basePullAllBy(array, values, iteratee) {
+      var index = -1,
           length = values.length,
           seen = array;
 
-      if (array === values) {
-        values = copyArray(values);
-      }
       if (iteratee) {
-        seen = arrayMap(array, baseUnary(iteratee));
+        seen = arrayMap(array, function(value) { return iteratee(value); });
       }
       while (++index < length) {
         var fromIndex = 0,
             value = values[index],
             computed = iteratee ? iteratee(value) : value;
 
-        while ((fromIndex = indexOf(seen, computed, fromIndex, comparator)) > -1) {
+        while ((fromIndex = baseIndexOf(seen, computed, fromIndex)) > -1) {
           if (seen !== array) {
             splice.call(seen, fromIndex, 1);
           }
@@ -4304,21 +4178,21 @@ module.exports = function() {
 
       while (length--) {
         var index = indexes[length];
-        if (length == lastIndex || index !== previous) {
+        if (lastIndex == length || index != previous) {
           var previous = index;
           if (isIndex(index)) {
             splice.call(array, index, 1);
           }
           else if (!isKey(index, array)) {
-            var path = castPath(index),
+            var path = baseCastPath(index),
                 object = parent(array, path);
 
             if (object != null) {
-              delete object[toKey(last(path))];
+              delete object[last(path)];
             }
           }
           else {
-            delete array[toKey(index)];
+            delete array[index];
           }
         }
       }
@@ -4347,7 +4221,7 @@ module.exports = function() {
      * @param {number} end The end of the range.
      * @param {number} step The value to increment or decrement by.
      * @param {boolean} [fromRight] Specify iterating from right to left.
-     * @returns {Array} Returns the range of numbers.
+     * @returns {Array} Returns the new array of numbers.
      */
     function baseRange(start, end, step, fromRight) {
       var index = -1,
@@ -4362,34 +4236,6 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of `_.repeat` which doesn't coerce arguments.
-     *
-     * @private
-     * @param {string} string The string to repeat.
-     * @param {number} n The number of times to repeat the string.
-     * @returns {string} Returns the repeated string.
-     */
-    function baseRepeat(string, n) {
-      var result = '';
-      if (!string || n < 1 || n > MAX_SAFE_INTEGER) {
-        return result;
-      }
-      // Leverage the exponentiation by squaring algorithm for a faster repeat.
-      // See https://en.wikipedia.org/wiki/Exponentiation_by_squaring for more details.
-      do {
-        if (n % 2) {
-          result += string;
-        }
-        n = nativeFloor(n / 2);
-        if (n) {
-          string += string;
-        }
-      } while (n);
-
-      return result;
-    }
-
-    /**
      * The base implementation of `_.set`.
      *
      * @private
@@ -4400,7 +4246,7 @@ module.exports = function() {
      * @returns {Object} Returns `object`.
      */
     function baseSet(object, path, value, customizer) {
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = isKey(path, object) ? [path + ''] : baseCastPath(path);
 
       var index = -1,
           length = path.length,
@@ -4408,7 +4254,7 @@ module.exports = function() {
           nested = object;
 
       while (nested != null && ++index < length) {
-        var key = toKey(path[index]);
+        var key = path[index];
         if (isObject(nested)) {
           var newValue = value;
           if (index != lastIndex) {
@@ -4476,8 +4322,7 @@ module.exports = function() {
      * @private
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} predicate The function invoked per iteration.
-     * @returns {boolean} Returns `true` if any element passes the predicate check,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if any element passes the predicate check, else `false`.
      */
     function baseSome(collection, predicate) {
       var result;
@@ -4510,8 +4355,7 @@ module.exports = function() {
           var mid = (low + high) >>> 1,
               computed = array[mid];
 
-          if (computed !== null && !isSymbol(computed) &&
-              (retHighest ? (computed <= value) : (computed < value))) {
+          if ((retHighest ? (computed <= value) : (computed < value)) && computed !== null) {
             low = mid + 1;
           } else {
             high = mid;
@@ -4532,8 +4376,7 @@ module.exports = function() {
      * @param {*} value The value to evaluate.
      * @param {Function} iteratee The iteratee invoked per element.
      * @param {boolean} [retHighest] Specify returning the highest qualified index.
-     * @returns {number} Returns the index at which `value` should be inserted
-     *  into `array`.
+     * @returns {number} Returns the index at which `value` should be inserted into `array`.
      */
     function baseSortedIndexBy(array, value, iteratee, retHighest) {
       value = iteratee(value);
@@ -4542,26 +4385,21 @@ module.exports = function() {
           high = array ? array.length : 0,
           valIsNaN = value !== value,
           valIsNull = value === null,
-          valIsSymbol = isSymbol(value),
-          valIsUndefined = value === undefined;
+          valIsUndef = value === undefined;
 
       while (low < high) {
         var mid = nativeFloor((low + high) / 2),
             computed = iteratee(array[mid]),
-            othIsDefined = computed !== undefined,
-            othIsNull = computed === null,
-            othIsReflexive = computed === computed,
-            othIsSymbol = isSymbol(computed);
+            isDef = computed !== undefined,
+            isReflexive = computed === computed;
 
         if (valIsNaN) {
-          var setLow = retHighest || othIsReflexive;
-        } else if (valIsUndefined) {
-          setLow = othIsReflexive && (retHighest || othIsDefined);
+          var setLow = isReflexive || retHighest;
         } else if (valIsNull) {
-          setLow = othIsReflexive && othIsDefined && (retHighest || !othIsNull);
-        } else if (valIsSymbol) {
-          setLow = othIsReflexive && othIsDefined && !othIsNull && (retHighest || !othIsSymbol);
-        } else if (othIsNull || othIsSymbol) {
+          setLow = isReflexive && isDef && (retHighest || computed != null);
+        } else if (valIsUndef) {
+          setLow = isReflexive && (retHighest || isDef);
+        } else if (computed == null) {
           setLow = false;
         } else {
           setLow = retHighest ? (computed <= value) : (computed < value);
@@ -4576,68 +4414,44 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of `_.sortedUniq` and `_.sortedUniqBy` without
-     * support for iteratee shorthands.
+     * The base implementation of `_.sortedUniq`.
+     *
+     * @private
+     * @param {Array} array The array to inspect.
+     * @returns {Array} Returns the new duplicate free array.
+     */
+    function baseSortedUniq(array) {
+      return baseSortedUniqBy(array);
+    }
+
+    /**
+     * The base implementation of `_.sortedUniqBy` without support for iteratee
+     * shorthands.
      *
      * @private
      * @param {Array} array The array to inspect.
      * @param {Function} [iteratee] The iteratee invoked per element.
      * @returns {Array} Returns the new duplicate free array.
      */
-    function baseSortedUniq(array, iteratee) {
-      var index = -1,
+    function baseSortedUniqBy(array, iteratee) {
+      var index = 0,
           length = array.length,
+          value = array[0],
+          computed = iteratee ? iteratee(value) : value,
+          seen = computed,
           resIndex = 0,
-          result = [];
+          result = [value];
 
       while (++index < length) {
-        var value = array[index],
-            computed = iteratee ? iteratee(value) : value;
+        value = array[index],
+        computed = iteratee ? iteratee(value) : value;
 
-        if (!index || !eq(computed, seen)) {
-          var seen = computed;
-          result[resIndex++] = value === 0 ? 0 : value;
+        if (!eq(computed, seen)) {
+          seen = computed;
+          result[++resIndex] = value;
         }
       }
       return result;
-    }
-
-    /**
-     * The base implementation of `_.toNumber` which doesn't ensure correct
-     * conversions of binary, hexadecimal, or octal string values.
-     *
-     * @private
-     * @param {*} value The value to process.
-     * @returns {number} Returns the number.
-     */
-    function baseToNumber(value) {
-      if (typeof value == 'number') {
-        return value;
-      }
-      if (isSymbol(value)) {
-        return NAN;
-      }
-      return +value;
-    }
-
-    /**
-     * The base implementation of `_.toString` which doesn't convert nullish
-     * values to empty strings.
-     *
-     * @private
-     * @param {*} value The value to process.
-     * @returns {string} Returns the string.
-     */
-    function baseToString(value) {
-      // Exit early for strings to avoid a performance hit in some environments.
-      if (typeof value == 'string') {
-        return value;
-      }
-      if (isSymbol(value)) {
-        return symbolToString ? symbolToString.call(value) : '';
-      }
-      var result = (value + '');
-      return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
     }
 
     /**
@@ -4678,7 +4492,6 @@ module.exports = function() {
         var value = array[index],
             computed = iteratee ? iteratee(value) : value;
 
-        value = (comparator || value !== 0) ? value : 0;
         if (isCommon && computed === computed) {
           var seenIndex = seen.length;
           while (seenIndex--) {
@@ -4710,25 +4523,10 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if the property is deleted, else `false`.
      */
     function baseUnset(object, path) {
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = isKey(path, object) ? [path + ''] : baseCastPath(path);
       object = parent(object, path);
-
-      var key = toKey(last(path));
-      return !(object != null && baseHas(object, key)) || delete object[key];
-    }
-
-    /**
-     * The base implementation of `_.update`.
-     *
-     * @private
-     * @param {Object} object The object to query.
-     * @param {Array|string} path The path of the property to update.
-     * @param {Function} updater The function to produce the updated value.
-     * @param {Function} [customizer] The function to customize path creation.
-     * @returns {Object} Returns `object`.
-     */
-    function baseUpdate(object, path, updater, customizer) {
-      return baseSet(object, path, updater(baseGet(object, path)), customizer);
+      var key = last(path);
+      return (object != null && has(object, key)) ? delete object[key] : true;
     }
 
     /**
@@ -4803,7 +4601,7 @@ module.exports = function() {
      * This base implementation of `_.zipObject` which assigns values using `assignFunc`.
      *
      * @private
-     * @param {Array} props The property identifiers.
+     * @param {Array} props The property names.
      * @param {Array} values The property values.
      * @param {Function} assignFunc The function to assign values.
      * @returns {Object} Returns the new object.
@@ -4815,58 +4613,9 @@ module.exports = function() {
           result = {};
 
       while (++index < length) {
-        var value = index < valsLength ? values[index] : undefined;
-        assignFunc(result, props[index], value);
+        assignFunc(result, props[index], index < valsLength ? values[index] : undefined);
       }
       return result;
-    }
-
-    /**
-     * Casts `value` to an empty array if it's not an array like object.
-     *
-     * @private
-     * @param {*} value The value to inspect.
-     * @returns {Array|Object} Returns the cast array-like object.
-     */
-    function castArrayLikeObject(value) {
-      return isArrayLikeObject(value) ? value : [];
-    }
-
-    /**
-     * Casts `value` to `identity` if it's not a function.
-     *
-     * @private
-     * @param {*} value The value to inspect.
-     * @returns {Function} Returns cast function.
-     */
-    function castFunction(value) {
-      return typeof value == 'function' ? value : identity;
-    }
-
-    /**
-     * Casts `value` to a path array if it's not one.
-     *
-     * @private
-     * @param {*} value The value to inspect.
-     * @returns {Array} Returns the cast property path array.
-     */
-    function castPath(value) {
-      return isArray(value) ? value : stringToPath(value);
-    }
-
-    /**
-     * Casts `array` to a slice if it's needed.
-     *
-     * @private
-     * @param {Array} array The array to inspect.
-     * @param {number} start The start position.
-     * @param {number} [end=array.length] The end position.
-     * @returns {Array} Returns the cast slice.
-     */
-    function castSlice(array, start, end) {
-      var length = array.length;
-      end = end === undefined ? length : end;
-      return (!start && end >= length) ? array : baseSlice(array, start, end);
     }
 
     /**
@@ -4881,7 +4630,9 @@ module.exports = function() {
       if (isDeep) {
         return buffer.slice();
       }
-      var result = new buffer.constructor(buffer.length);
+      var Ctor = buffer.constructor,
+          result = new Ctor(buffer.length);
+
       buffer.copy(result);
       return result;
     }
@@ -4894,22 +4645,12 @@ module.exports = function() {
      * @returns {ArrayBuffer} Returns the cloned array buffer.
      */
     function cloneArrayBuffer(arrayBuffer) {
-      var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
-      new Uint8Array(result).set(new Uint8Array(arrayBuffer));
-      return result;
-    }
+      var Ctor = arrayBuffer.constructor,
+          result = new Ctor(arrayBuffer.byteLength),
+          view = new Uint8Array(result);
 
-    /**
-     * Creates a clone of `dataView`.
-     *
-     * @private
-     * @param {Object} dataView The data view to clone.
-     * @param {boolean} [isDeep] Specify a deep clone.
-     * @returns {Object} Returns the cloned data view.
-     */
-    function cloneDataView(dataView, isDeep) {
-      var buffer = isDeep ? cloneArrayBuffer(dataView.buffer) : dataView.buffer;
-      return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
+      view.set(new Uint8Array(arrayBuffer));
+      return result;
     }
 
     /**
@@ -4917,13 +4658,11 @@ module.exports = function() {
      *
      * @private
      * @param {Object} map The map to clone.
-     * @param {Function} cloneFunc The function to clone values.
-     * @param {boolean} [isDeep] Specify a deep clone.
      * @returns {Object} Returns the cloned map.
      */
-    function cloneMap(map, isDeep, cloneFunc) {
-      var array = isDeep ? cloneFunc(mapToArray(map), true) : mapToArray(map);
-      return arrayReduce(array, addMapEntry, new map.constructor);
+    function cloneMap(map) {
+      var Ctor = map.constructor;
+      return arrayReduce(mapToArray(map), addMapEntry, new Ctor);
     }
 
     /**
@@ -4934,7 +4673,9 @@ module.exports = function() {
      * @returns {Object} Returns the cloned regexp.
      */
     function cloneRegExp(regexp) {
-      var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
+      var Ctor = regexp.constructor,
+          result = new Ctor(regexp.source, reFlags.exec(regexp));
+
       result.lastIndex = regexp.lastIndex;
       return result;
     }
@@ -4944,13 +4685,11 @@ module.exports = function() {
      *
      * @private
      * @param {Object} set The set to clone.
-     * @param {Function} cloneFunc The function to clone values.
-     * @param {boolean} [isDeep] Specify a deep clone.
      * @returns {Object} Returns the cloned set.
      */
-    function cloneSet(set, isDeep, cloneFunc) {
-      var array = isDeep ? cloneFunc(setToArray(set), true) : setToArray(set);
-      return arrayReduce(array, addSetEntry, new set.constructor);
+    function cloneSet(set) {
+      var Ctor = set.constructor;
+      return arrayReduce(setToArray(set), addSetEntry, new Ctor);
     }
 
     /**
@@ -4961,7 +4700,7 @@ module.exports = function() {
      * @returns {Object} Returns the cloned symbol object.
      */
     function cloneSymbol(symbol) {
-      return symbolValueOf ? Object(symbolValueOf.call(symbol)) : {};
+      return Symbol ? Object(symbolValueOf.call(symbol)) : {};
     }
 
     /**
@@ -4973,87 +4712,11 @@ module.exports = function() {
      * @returns {Object} Returns the cloned typed array.
      */
     function cloneTypedArray(typedArray, isDeep) {
-      var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
-      return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
-    }
+      var arrayBuffer = typedArray.buffer,
+          buffer = isDeep ? cloneArrayBuffer(arrayBuffer) : arrayBuffer,
+          Ctor = typedArray.constructor;
 
-    /**
-     * Compares values to sort them in ascending order.
-     *
-     * @private
-     * @param {*} value The value to compare.
-     * @param {*} other The other value to compare.
-     * @returns {number} Returns the sort order indicator for `value`.
-     */
-    function compareAscending(value, other) {
-      if (value !== other) {
-        var valIsDefined = value !== undefined,
-            valIsNull = value === null,
-            valIsReflexive = value === value,
-            valIsSymbol = isSymbol(value);
-
-        var othIsDefined = other !== undefined,
-            othIsNull = other === null,
-            othIsReflexive = other === other,
-            othIsSymbol = isSymbol(other);
-
-        if ((!othIsNull && !othIsSymbol && !valIsSymbol && value > other) ||
-            (valIsSymbol && othIsDefined && othIsReflexive && !othIsNull && !othIsSymbol) ||
-            (valIsNull && othIsDefined && othIsReflexive) ||
-            (!valIsDefined && othIsReflexive) ||
-            !valIsReflexive) {
-          return 1;
-        }
-        if ((!valIsNull && !valIsSymbol && !othIsSymbol && value < other) ||
-            (othIsSymbol && valIsDefined && valIsReflexive && !valIsNull && !valIsSymbol) ||
-            (othIsNull && valIsDefined && valIsReflexive) ||
-            (!othIsDefined && valIsReflexive) ||
-            !othIsReflexive) {
-          return -1;
-        }
-      }
-      return 0;
-    }
-
-    /**
-     * Used by `_.orderBy` to compare multiple properties of a value to another
-     * and stable sort them.
-     *
-     * If `orders` is unspecified, all values are sorted in ascending order. Otherwise,
-     * specify an order of "desc" for descending or "asc" for ascending sort order
-     * of corresponding values.
-     *
-     * @private
-     * @param {Object} object The object to compare.
-     * @param {Object} other The other object to compare.
-     * @param {boolean[]|string[]} orders The order to sort by for each property.
-     * @returns {number} Returns the sort order indicator for `object`.
-     */
-    function compareMultiple(object, other, orders) {
-      var index = -1,
-          objCriteria = object.criteria,
-          othCriteria = other.criteria,
-          length = objCriteria.length,
-          ordersLength = orders.length;
-
-      while (++index < length) {
-        var result = compareAscending(objCriteria[index], othCriteria[index]);
-        if (result) {
-          if (index >= ordersLength) {
-            return result;
-          }
-          var order = orders[index];
-          return result * (order == 'desc' ? -1 : 1);
-        }
-      }
-      // Fixes an `Array#sort` bug in the JS engine embedded in Adobe applications
-      // that causes it, under certain circumstances, to provide the same value for
-      // `object` and `other`. See https://github.com/jashkenas/underscore/pull/1247
-      // for more details.
-      //
-      // This also ensures a stable sort in V8 and other engines.
-      // See https://bugs.chromium.org/p/v8/issues/detail?id=90 for more details.
-      return object.index - other.index;
+      return new Ctor(buffer, typedArray.byteOffset, typedArray.length);
     }
 
     /**
@@ -5061,31 +4724,26 @@ module.exports = function() {
      * placeholders, and provided arguments into a single array of arguments.
      *
      * @private
-     * @param {Array} args The provided arguments.
+     * @param {Array|Object} args The provided arguments.
      * @param {Array} partials The arguments to prepend to those provided.
      * @param {Array} holders The `partials` placeholder indexes.
-     * @params {boolean} [isCurried] Specify composing for a curried function.
      * @returns {Array} Returns the new array of composed arguments.
      */
-    function composeArgs(args, partials, holders, isCurried) {
-      var argsIndex = -1,
-          argsLength = args.length,
-          holdersLength = holders.length,
+    function composeArgs(args, partials, holders) {
+      var holdersLength = holders.length,
+          argsIndex = -1,
+          argsLength = nativeMax(args.length - holdersLength, 0),
           leftIndex = -1,
           leftLength = partials.length,
-          rangeLength = nativeMax(argsLength - holdersLength, 0),
-          result = Array(leftLength + rangeLength),
-          isUncurried = !isCurried;
+          result = Array(leftLength + argsLength);
 
       while (++leftIndex < leftLength) {
         result[leftIndex] = partials[leftIndex];
       }
       while (++argsIndex < holdersLength) {
-        if (isUncurried || argsIndex < argsLength) {
-          result[holders[argsIndex]] = args[argsIndex];
-        }
+        result[holders[argsIndex]] = args[argsIndex];
       }
-      while (rangeLength--) {
+      while (argsLength--) {
         result[leftIndex++] = args[argsIndex++];
       }
       return result;
@@ -5096,24 +4754,21 @@ module.exports = function() {
      * is tailored for `_.partialRight`.
      *
      * @private
-     * @param {Array} args The provided arguments.
+     * @param {Array|Object} args The provided arguments.
      * @param {Array} partials The arguments to append to those provided.
      * @param {Array} holders The `partials` placeholder indexes.
-     * @params {boolean} [isCurried] Specify composing for a curried function.
      * @returns {Array} Returns the new array of composed arguments.
      */
-    function composeArgsRight(args, partials, holders, isCurried) {
-      var argsIndex = -1,
-          argsLength = args.length,
-          holdersIndex = -1,
+    function composeArgsRight(args, partials, holders) {
+      var holdersIndex = -1,
           holdersLength = holders.length,
+          argsIndex = -1,
+          argsLength = nativeMax(args.length - holdersLength, 0),
           rightIndex = -1,
           rightLength = partials.length,
-          rangeLength = nativeMax(argsLength - holdersLength, 0),
-          result = Array(rangeLength + rightLength),
-          isUncurried = !isCurried;
+          result = Array(argsLength + rightLength);
 
-      while (++argsIndex < rangeLength) {
+      while (++argsIndex < argsLength) {
         result[argsIndex] = args[argsIndex];
       }
       var offset = argsIndex;
@@ -5121,9 +4776,7 @@ module.exports = function() {
         result[offset + rightIndex] = partials[rightIndex];
       }
       while (++holdersIndex < holdersLength) {
-        if (isUncurried || argsIndex < argsLength) {
-          result[offset + holders[holdersIndex]] = args[argsIndex++];
-        }
+        result[offset + holders[holdersIndex]] = args[argsIndex++];
       }
       return result;
     }
@@ -5152,12 +4805,26 @@ module.exports = function() {
      *
      * @private
      * @param {Object} source The object to copy properties from.
-     * @param {Array} props The property identifiers to copy.
+     * @param {Array} props The property names to copy.
+     * @param {Object} [object={}] The object to copy properties to.
+     * @returns {Object} Returns `object`.
+     */
+    function copyObject(source, props, object) {
+      return copyObjectWith(source, props, object);
+    }
+
+    /**
+     * This function is like `copyObject` except that it accepts a function to
+     * customize copied values.
+     *
+     * @private
+     * @param {Object} source The object to copy properties from.
+     * @param {Array} props The property names to copy.
      * @param {Object} [object={}] The object to copy properties to.
      * @param {Function} [customizer] The function to customize copied values.
      * @returns {Object} Returns `object`.
      */
-    function copyObject(source, props, object, customizer) {
+    function copyObjectWith(source, props, object, customizer) {
       object || (object = {});
 
       var index = -1,
@@ -5218,7 +4885,7 @@ module.exports = function() {
             customizer = length > 1 ? sources[length - 1] : undefined,
             guard = length > 2 ? sources[2] : undefined;
 
-        customizer = (assigner.length > 3 && typeof customizer == 'function')
+        customizer = typeof customizer == 'function'
           ? (length--, customizer)
           : undefined;
 
@@ -5267,7 +4934,7 @@ module.exports = function() {
     }
 
     /**
-     * Creates a base function for methods like `_.forIn` and `_.forOwn`.
+     * Creates a base function for methods like `_.forIn`.
      *
      * @private
      * @param {boolean} [fromRight] Specify iterating from right to left.
@@ -5296,8 +4963,7 @@ module.exports = function() {
      *
      * @private
      * @param {Function} func The function to wrap.
-     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper`
-     *  for more details.
+     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper` for more details.
      * @param {*} [thisArg] The `this` binding of `func`.
      * @returns {Function} Returns the new wrapped function.
      */
@@ -5317,7 +4983,7 @@ module.exports = function() {
      *
      * @private
      * @param {string} methodName The name of the `String` case method to use.
-     * @returns {Function} Returns the new case function.
+     * @returns {Function} Returns the new function.
      */
     function createCaseFirst(methodName) {
       return function(string) {
@@ -5327,13 +4993,8 @@ module.exports = function() {
           ? stringToArray(string)
           : undefined;
 
-        var chr = strSymbols
-          ? strSymbols[0]
-          : string.charAt(0);
-
-        var trailing = strSymbols
-          ? castSlice(strSymbols, 1).join('')
-          : string.slice(1);
+        var chr = strSymbols ? strSymbols[0] : string.charAt(0),
+            trailing = strSymbols ? strSymbols.slice(1).join('') : string.slice(1);
 
         return chr[methodName]() + trailing;
       };
@@ -5348,7 +5009,7 @@ module.exports = function() {
      */
     function createCompounder(callback) {
       return function(string) {
-        return arrayReduce(words(deburr(string).replace(reApos, '')), callback, '');
+        return arrayReduce(words(deburr(string)), callback, '');
       };
     }
 
@@ -5362,8 +5023,8 @@ module.exports = function() {
      */
     function createCtorWrapper(Ctor) {
       return function() {
-        // Use a `switch` statement to work with class constructors. See
-        // http://ecma-international.org/ecma-262/6.0/#sec-ecmascript-function-objects-call-thisargument-argumentslist
+        // Use a `switch` statement to work with class constructors.
+        // See http://ecma-international.org/ecma-262/6.0/#sec-ecmascript-function-objects-call-thisargument-argumentslist
         // for more details.
         var args = arguments;
         switch (args.length) {
@@ -5390,8 +5051,7 @@ module.exports = function() {
      *
      * @private
      * @param {Function} func The function to wrap.
-     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper`
-     *  for more details.
+     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper` for more details.
      * @param {number} arity The arity of `func`.
      * @returns {Function} Returns the new wrapped function.
      */
@@ -5400,9 +5060,10 @@ module.exports = function() {
 
       function wrapper() {
         var length = arguments.length,
-            args = Array(length),
             index = length,
-            placeholder = getHolder(wrapper);
+            args = Array(length),
+            fn = (this && this !== root && this instanceof wrapper) ? Ctor : func,
+            placeholder = lodash.placeholder || wrapper.placeholder;
 
         while (index--) {
           args[index] = arguments[index];
@@ -5412,40 +5073,11 @@ module.exports = function() {
           : replaceHolders(args, placeholder);
 
         length -= holders.length;
-        if (length < arity) {
-          return createRecurryWrapper(
-            func, bitmask, createHybridWrapper, wrapper.placeholder, undefined,
-            args, holders, undefined, undefined, arity - length);
-        }
-        var fn = (this && this !== root && this instanceof wrapper) ? Ctor : func;
-        return apply(fn, this, args);
+        return length < arity
+          ? createRecurryWrapper(func, bitmask, createHybridWrapper, placeholder, undefined, args, holders, undefined, undefined, arity - length)
+          : apply(fn, this, args);
       }
       return wrapper;
-    }
-
-    /**
-     * Creates a `_.find` or `_.findLast` function.
-     *
-     * @private
-     * @param {Function} findIndexFunc The function to find the collection index.
-     * @returns {Function} Returns the new find function.
-     */
-    function createFind(findIndexFunc) {
-      return function(collection, predicate, fromIndex) {
-        var iterable = Object(collection);
-        predicate = getIteratee(predicate, 3);
-        if (!isArrayLike(collection)) {
-          var props = keys(collection);
-        }
-        var index = findIndexFunc(props || collection, function(value, key) {
-          if (props) {
-            key = value;
-            value = iterable[key];
-          }
-          return predicate(value, key, iterable);
-        }, fromIndex);
-        return index > -1 ? collection[props ? props[index] : index] : undefined;
-      };
     }
 
     /**
@@ -5488,9 +5120,7 @@ module.exports = function() {
               ) {
             wrapper = wrapper[getFuncName(data[0])].apply(wrapper, data[3]);
           } else {
-            wrapper = (func.length == 1 && isLaziable(func))
-              ? wrapper[funcName]()
-              : wrapper.thru(func);
+            wrapper = (func.length == 1 && isLaziable(func)) ? wrapper[funcName]() : wrapper.thru(func);
           }
         }
         return function() {
@@ -5518,14 +5148,11 @@ module.exports = function() {
      *
      * @private
      * @param {Function|string} func The function or method name to wrap.
-     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper`
-     *  for more details.
+     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper` for more details.
      * @param {*} [thisArg] The `this` binding of `func`.
-     * @param {Array} [partials] The arguments to prepend to those provided to
-     *  the new function.
+     * @param {Array} [partials] The arguments to prepend to those provided to the new function.
      * @param {Array} [holders] The `partials` placeholder indexes.
-     * @param {Array} [partialsRight] The arguments to append to those provided
-     *  to the new function.
+     * @param {Array} [partialsRight] The arguments to append to those provided to the new function.
      * @param {Array} [holdersRight] The `partialsRight` placeholder indexes.
      * @param {Array} [argPos] The argument positions of the new function.
      * @param {number} [ary] The arity cap of `func`.
@@ -5536,46 +5163,46 @@ module.exports = function() {
       var isAry = bitmask & ARY_FLAG,
           isBind = bitmask & BIND_FLAG,
           isBindKey = bitmask & BIND_KEY_FLAG,
-          isCurried = bitmask & (CURRY_FLAG | CURRY_RIGHT_FLAG),
+          isCurry = bitmask & CURRY_FLAG,
+          isCurryRight = bitmask & CURRY_RIGHT_FLAG,
           isFlip = bitmask & FLIP_FLAG,
           Ctor = isBindKey ? undefined : createCtorWrapper(func);
 
       function wrapper() {
         var length = arguments.length,
-            args = Array(length),
-            index = length;
+            index = length,
+            args = Array(length);
 
         while (index--) {
           args[index] = arguments[index];
         }
-        if (isCurried) {
-          var placeholder = getHolder(wrapper),
-              holdersCount = countHolders(args, placeholder);
-        }
         if (partials) {
-          args = composeArgs(args, partials, holders, isCurried);
+          args = composeArgs(args, partials, holders);
         }
         if (partialsRight) {
-          args = composeArgsRight(args, partialsRight, holdersRight, isCurried);
+          args = composeArgsRight(args, partialsRight, holdersRight);
         }
-        length -= holdersCount;
-        if (isCurried && length < arity) {
-          var newHolders = replaceHolders(args, placeholder);
-          return createRecurryWrapper(
-            func, bitmask, createHybridWrapper, wrapper.placeholder, thisArg,
-            args, newHolders, argPos, ary, arity - length
-          );
+        if (isCurry || isCurryRight) {
+          var placeholder = lodash.placeholder || wrapper.placeholder,
+              argsHolders = replaceHolders(args, placeholder);
+
+          length -= argsHolders.length;
+          if (length < arity) {
+            return createRecurryWrapper(
+              func, bitmask, createHybridWrapper, placeholder, thisArg, args,
+              argsHolders, argPos, ary, arity - length
+            );
+          }
         }
         var thisBinding = isBind ? thisArg : this,
             fn = isBindKey ? thisBinding[func] : func;
 
-        length = args.length;
         if (argPos) {
           args = reorder(args, argPos);
-        } else if (isFlip && length > 1) {
+        } else if (isFlip && args.length > 1) {
           args.reverse();
         }
-        if (isAry && ary < length) {
+        if (isAry && ary < args.length) {
           args.length = ary;
         }
         if (this && this !== root && this instanceof wrapper) {
@@ -5601,51 +5228,15 @@ module.exports = function() {
     }
 
     /**
-     * Creates a function that performs a mathematical operation on two values.
-     *
-     * @private
-     * @param {Function} operator The function to perform the operation.
-     * @returns {Function} Returns the new mathematical operation function.
-     */
-    function createMathOperation(operator) {
-      return function(value, other) {
-        var result;
-        if (value === undefined && other === undefined) {
-          return 0;
-        }
-        if (value !== undefined) {
-          result = value;
-        }
-        if (other !== undefined) {
-          if (result === undefined) {
-            return other;
-          }
-          if (typeof value == 'string' || typeof other == 'string') {
-            value = baseToString(value);
-            other = baseToString(other);
-          } else {
-            value = baseToNumber(value);
-            other = baseToNumber(other);
-          }
-          result = operator(value, other);
-        }
-        return result;
-      };
-    }
-
-    /**
      * Creates a function like `_.over`.
      *
      * @private
      * @param {Function} arrayFunc The function to iterate over iteratees.
-     * @returns {Function} Returns the new over function.
+     * @returns {Function} Returns the new invoker function.
      */
     function createOver(arrayFunc) {
       return rest(function(iteratees) {
-        iteratees = (iteratees.length == 1 && isArray(iteratees[0]))
-          ? arrayMap(iteratees[0], baseUnary(getIteratee()))
-          : arrayMap(baseFlatten(iteratees, 1, isFlattenableIteratee), baseUnary(getIteratee()));
-
+        iteratees = arrayMap(baseFlatten(iteratees, 1), getIteratee());
         return rest(function(args) {
           var thisArg = this;
           return arrayFunc(iteratees, function(iteratee) {
@@ -5660,34 +5251,37 @@ module.exports = function() {
      * is truncated if the number of characters exceeds `length`.
      *
      * @private
-     * @param {number} length The padding length.
+     * @param {string} string The string to create padding for.
+     * @param {number} [length=0] The padding length.
      * @param {string} [chars=' '] The string used as padding.
      * @returns {string} Returns the padding for `string`.
      */
-    function createPadding(length, chars) {
-      chars = chars === undefined ? ' ' : baseToString(chars);
+    function createPadding(string, length, chars) {
+      length = toInteger(length);
 
-      var charsLength = chars.length;
-      if (charsLength < 2) {
-        return charsLength ? baseRepeat(chars, length) : chars;
+      var strLength = stringSize(string);
+      if (!length || strLength >= length) {
+        return '';
       }
-      var result = baseRepeat(chars, nativeCeil(length / stringSize(chars)));
+      var padLength = length - strLength;
+      chars = chars === undefined ? ' ' : (chars + '');
+
+      var result = repeat(chars, nativeCeil(padLength / stringSize(chars)));
       return reHasComplexSymbol.test(chars)
-        ? castSlice(stringToArray(result), 0, length).join('')
-        : result.slice(0, length);
+        ? stringToArray(result).slice(0, padLength).join('')
+        : result.slice(0, padLength);
     }
 
     /**
-     * Creates a function that wraps `func` to invoke it with the `this` binding
-     * of `thisArg` and `partials` prepended to the arguments it receives.
+     * Creates a function that wraps `func` to invoke it with the optional `this`
+     * binding of `thisArg` and the `partials` prepended to those provided to
+     * the wrapper.
      *
      * @private
      * @param {Function} func The function to wrap.
-     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper`
-     *  for more details.
+     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper` for more details.
      * @param {*} thisArg The `this` binding of `func`.
-     * @param {Array} partials The arguments to prepend to those provided to
-     *  the new function.
+     * @param {Array} partials The arguments to prepend to those provided to the new function.
      * @returns {Function} Returns the new wrapped function.
      */
     function createPartialWrapper(func, bitmask, thisArg, partials) {
@@ -5740,34 +5334,15 @@ module.exports = function() {
     }
 
     /**
-     * Creates a function that performs a relational operation on two values.
-     *
-     * @private
-     * @param {Function} operator The function to perform the operation.
-     * @returns {Function} Returns the new relational operation function.
-     */
-    function createRelationalOperation(operator) {
-      return function(value, other) {
-        if (!(typeof value == 'string' && typeof other == 'string')) {
-          value = toNumber(value);
-          other = toNumber(other);
-        }
-        return operator(value, other);
-      };
-    }
-
-    /**
      * Creates a function that wraps `func` to continue currying.
      *
      * @private
      * @param {Function} func The function to wrap.
-     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper`
-     *  for more details.
+     * @param {number} bitmask The bitmask of wrapper flags. See `createWrapper` for more details.
      * @param {Function} wrapFunc The function to create the `func` wrapper.
-     * @param {*} placeholder The placeholder value.
+     * @param {*} placeholder The placeholder to replace.
      * @param {*} [thisArg] The `this` binding of `func`.
-     * @param {Array} [partials] The arguments to prepend to those provided to
-     *  the new function.
+     * @param {Array} [partials] The arguments to prepend to those provided to the new function.
      * @param {Array} [holders] The `partials` placeholder indexes.
      * @param {Array} [argPos] The argument positions of the new function.
      * @param {number} [ary] The arity cap of `func`.
@@ -5776,7 +5351,8 @@ module.exports = function() {
      */
     function createRecurryWrapper(func, bitmask, wrapFunc, placeholder, thisArg, partials, holders, argPos, ary, arity) {
       var isCurry = bitmask & CURRY_FLAG,
-          newHolders = isCurry ? holders : undefined,
+          newArgPos = argPos ? copyArray(argPos) : undefined,
+          newsHolders = isCurry ? holders : undefined,
           newHoldersRight = isCurry ? undefined : holders,
           newPartials = isCurry ? partials : undefined,
           newPartialsRight = isCurry ? undefined : partials;
@@ -5788,8 +5364,8 @@ module.exports = function() {
         bitmask &= ~(BIND_FLAG | BIND_KEY_FLAG);
       }
       var newData = [
-        func, bitmask, thisArg, newPartials, newHolders, newPartialsRight,
-        newHoldersRight, argPos, ary, arity
+        func, bitmask, thisArg, newPartials, newsHolders, newPartialsRight,
+        newHoldersRight, newArgPos, ary, arity
       ];
 
       var result = wrapFunc.apply(undefined, newData);
@@ -5811,7 +5387,7 @@ module.exports = function() {
       var func = Math[methodName];
       return function(number, precision) {
         number = toNumber(number);
-        precision = nativeMin(toInteger(precision), 292);
+        precision = toInteger(precision);
         if (precision) {
           // Shift with exponential notation to avoid floating-point issues.
           // See [MDN](https://mdn.io/round#Examples) for more details.
@@ -5832,29 +5408,9 @@ module.exports = function() {
      * @param {Array} values The values to add to the set.
      * @returns {Object} Returns the new set.
      */
-    var createSet = !(Set && (1 / setToArray(new Set([,-0]))[1]) == INFINITY) ? noop : function(values) {
+    var createSet = !(Set && new Set([1, 2]).size === 2) ? noop : function(values) {
       return new Set(values);
     };
-
-    /**
-     * Creates a `_.toPairs` or `_.toPairsIn` function.
-     *
-     * @private
-     * @param {Function} keysFunc The function to get the keys of a given object.
-     * @returns {Function} Returns the new pairs function.
-     */
-    function createToPairs(keysFunc) {
-      return function(object) {
-        var tag = getTag(object);
-        if (tag == mapTag) {
-          return mapToArray(object);
-        }
-        if (tag == setTag) {
-          return setToPairs(object);
-        }
-        return baseToPairs(object, keysFunc(object));
-      };
-    }
 
     /**
      * Creates a function that either curries or invokes `func` with optional
@@ -5873,7 +5429,6 @@ module.exports = function() {
      *    64 - `_.partialRight`
      *   128 - `_.rearg`
      *   256 - `_.ary`
-     *   512 - `_.flip`
      * @param {*} [thisArg] The `this` binding of `func`.
      * @param {Array} [partials] The arguments to be partially applied.
      * @param {Array} [holders] The `partials` placeholder indexes.
@@ -5945,14 +5500,15 @@ module.exports = function() {
      * @param {Array} array The array to compare.
      * @param {Array} other The other array to compare.
      * @param {Function} equalFunc The function to determine equivalents of values.
-     * @param {Function} customizer The function to customize comparisons.
-     * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
-     * @param {Object} stack Tracks traversed `array` and `other` objects.
+     * @param {Function} [customizer] The function to customize comparisons.
+     * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual` for more details.
+     * @param {Object} [stack] Tracks traversed `array` and `other` objects.
      * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
      */
     function equalArrays(array, other, equalFunc, customizer, bitmask, stack) {
-      var isPartial = bitmask & PARTIAL_COMPARE_FLAG,
+      var index = -1,
+          isPartial = bitmask & PARTIAL_COMPARE_FLAG,
+          isUnordered = bitmask & UNORDERED_COMPARE_FLAG,
           arrLength = array.length,
           othLength = other.length;
 
@@ -5964,10 +5520,7 @@ module.exports = function() {
       if (stacked) {
         return stacked == other;
       }
-      var index = -1,
-          result = true,
-          seen = (bitmask & UNORDERED_COMPARE_FLAG) ? new SetCache : undefined;
-
+      var result = true;
       stack.set(array, other);
 
       // Ignore non-index properties.
@@ -5988,20 +5541,14 @@ module.exports = function() {
           break;
         }
         // Recursively compare arrays (susceptible to call stack limits).
-        if (seen) {
-          if (!arraySome(other, function(othValue, othIndex) {
-                if (!seen.has(othIndex) &&
-                    (arrValue === othValue || equalFunc(arrValue, othValue, customizer, bitmask, stack))) {
-                  return seen.add(othIndex);
-                }
+        if (isUnordered) {
+          if (!arraySome(other, function(othValue) {
+                return arrValue === othValue || equalFunc(arrValue, othValue, customizer, bitmask, stack);
               })) {
             result = false;
             break;
           }
-        } else if (!(
-              arrValue === othValue ||
-                equalFunc(arrValue, othValue, customizer, bitmask, stack)
-            )) {
+        } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, customizer, bitmask, stack))) {
           result = false;
           break;
         }
@@ -6022,22 +5569,12 @@ module.exports = function() {
      * @param {Object} other The other object to compare.
      * @param {string} tag The `toStringTag` of the objects to compare.
      * @param {Function} equalFunc The function to determine equivalents of values.
-     * @param {Function} customizer The function to customize comparisons.
-     * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
-     * @param {Object} stack Tracks traversed `object` and `other` objects.
+     * @param {Function} [customizer] The function to customize comparisons.
+     * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual` for more details.
      * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
      */
-    function equalByTag(object, other, tag, equalFunc, customizer, bitmask, stack) {
+    function equalByTag(object, other, tag, equalFunc, customizer, bitmask) {
       switch (tag) {
-        case dataViewTag:
-          if ((object.byteLength != other.byteLength) ||
-              (object.byteOffset != other.byteOffset)) {
-            return false;
-          }
-          object = object.buffer;
-          other = other.buffer;
-
         case arrayBufferTag:
           if ((object.byteLength != other.byteLength) ||
               !equalFunc(new Uint8Array(object), new Uint8Array(other))) {
@@ -6047,9 +5584,8 @@ module.exports = function() {
 
         case boolTag:
         case dateTag:
-          // Coerce dates and booleans to numbers, dates to milliseconds and
-          // booleans to `1` or `0` treating invalid dates coerced to `NaN` as
-          // not equal.
+          // Coerce dates and booleans to numbers, dates to milliseconds and booleans
+          // to `1` or `0` treating invalid dates coerced to `NaN` as not equal.
           return +object == +other;
 
         case errorTag:
@@ -6061,9 +5597,8 @@ module.exports = function() {
 
         case regexpTag:
         case stringTag:
-          // Coerce regexes to strings and treat strings, primitives and objects,
-          // as equal. See http://www.ecma-international.org/ecma-262/6.0/#sec-regexp.prototype.tostring
-          // for more details.
+          // Coerce regexes to strings and treat strings primitives and string
+          // objects as equal. See https://es5.github.io/#x15.10.6.4 for more details.
           return object == (other + '');
 
         case mapTag:
@@ -6073,24 +5608,12 @@ module.exports = function() {
           var isPartial = bitmask & PARTIAL_COMPARE_FLAG;
           convert || (convert = setToArray);
 
-          if (object.size != other.size && !isPartial) {
-            return false;
-          }
-          // Assume cyclic values are equal.
-          var stacked = stack.get(object);
-          if (stacked) {
-            return stacked == other;
-          }
-          bitmask |= UNORDERED_COMPARE_FLAG;
-          stack.set(object, other);
-
           // Recursively compare objects (susceptible to call stack limits).
-          return equalArrays(convert(object), convert(other), equalFunc, customizer, bitmask, stack);
+          return (isPartial || object.size == other.size) &&
+            equalFunc(convert(object), convert(other), customizer, bitmask | UNORDERED_COMPARE_FLAG);
 
         case symbolTag:
-          if (symbolValueOf) {
-            return symbolValueOf.call(object) == symbolValueOf.call(other);
-          }
+          return !!Symbol && (symbolValueOf.call(object) == symbolValueOf.call(other));
       }
       return false;
     }
@@ -6103,10 +5626,9 @@ module.exports = function() {
      * @param {Object} object The object to compare.
      * @param {Object} other The other object to compare.
      * @param {Function} equalFunc The function to determine equivalents of values.
-     * @param {Function} customizer The function to customize comparisons.
-     * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
-     * @param {Object} stack Tracks traversed `object` and `other` objects.
+     * @param {Function} [customizer] The function to customize comparisons.
+     * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual` for more details.
+     * @param {Object} [stack] Tracks traversed `object` and `other` objects.
      * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
      */
     function equalObjects(object, other, equalFunc, customizer, bitmask, stack) {
@@ -6172,29 +5694,6 @@ module.exports = function() {
     }
 
     /**
-     * Creates an array of own enumerable property names and symbols of `object`.
-     *
-     * @private
-     * @param {Object} object The object to query.
-     * @returns {Array} Returns the array of property names and symbols.
-     */
-    function getAllKeys(object) {
-      return baseGetAllKeys(object, keys, getSymbols);
-    }
-
-    /**
-     * Creates an array of own and inherited enumerable property names and
-     * symbols of `object`.
-     *
-     * @private
-     * @param {Object} object The object to query.
-     * @returns {Array} Returns the array of property names and symbols.
-     */
-    function getAllKeysIn(object) {
-      return baseGetAllKeys(object, keysIn, getSymbolsIn);
-    }
-
-    /**
      * Gets metadata for `func`.
      *
      * @private
@@ -6228,22 +5727,10 @@ module.exports = function() {
     }
 
     /**
-     * Gets the argument placeholder value for `func`.
-     *
-     * @private
-     * @param {Function} func The function to inspect.
-     * @returns {*} Returns the placeholder value.
-     */
-    function getHolder(func) {
-      var object = hasOwnProperty.call(lodash, 'placeholder') ? lodash : func;
-      return object.placeholder;
-    }
-
-    /**
-     * Gets the appropriate "iteratee" function. If `_.iteratee` is customized,
-     * this function returns the custom method, otherwise it returns `baseIteratee`.
-     * If arguments are provided, the chosen function is invoked with them and
-     * its result is returned.
+     * Gets the appropriate "iteratee" function. If the `_.iteratee` method is
+     * customized this function returns the custom method, otherwise it returns
+     * `baseIteratee`. If arguments are provided the chosen function is invoked
+     * with them and its result is returned.
      *
      * @private
      * @param {*} [value] The value to convert to an iteratee.
@@ -6259,30 +5746,14 @@ module.exports = function() {
     /**
      * Gets the "length" property value of `object`.
      *
-     * **Note:** This function is used to avoid a
-     * [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792) that affects
-     * Safari on at least iOS 8.1-8.3 ARM64.
+     * **Note:** This function is used to avoid a [JIT bug](https://bugs.webkit.org/show_bug.cgi?id=142792)
+     * that affects Safari on at least iOS 8.1-8.3 ARM64.
      *
      * @private
      * @param {Object} object The object to query.
      * @returns {*} Returns the "length" value.
      */
     var getLength = baseProperty('length');
-
-    /**
-     * Gets the data for `map`.
-     *
-     * @private
-     * @param {Object} map The map to query.
-     * @param {string} key The reference key.
-     * @returns {*} Returns the map data.
-     */
-    function getMapData(map, key) {
-      var data = map.__data__;
-      return isKeyable(key)
-        ? data[typeof key == 'string' ? 'string' : 'hash']
-        : data.map;
-    }
 
     /**
      * Gets the property names, values, and compare flags of `object`.
@@ -6292,14 +5763,11 @@ module.exports = function() {
      * @returns {Array} Returns the match data of `object`.
      */
     function getMatchData(object) {
-      var result = keys(object),
+      var result = toPairs(object),
           length = result.length;
 
       while (length--) {
-        var key = result[length],
-            value = object[key];
-
-        result[length] = [key, value, isStrictComparable(value)];
+        result[length][2] = isStrictComparable(result[length][1]);
       }
       return result;
     }
@@ -6313,54 +5781,19 @@ module.exports = function() {
      * @returns {*} Returns the function if it's native, else `undefined`.
      */
     function getNative(object, key) {
-      var value = getValue(object, key);
-      return baseIsNative(value) ? value : undefined;
+      var value = object == null ? undefined : object[key];
+      return isNative(value) ? value : undefined;
     }
 
     /**
-     * Gets the `[[Prototype]]` of `value`.
-     *
-     * @private
-     * @param {*} value The value to query.
-     * @returns {null|Object} Returns the `[[Prototype]]`.
-     */
-    function getPrototype(value) {
-      return nativeGetPrototype(Object(value));
-    }
-
-    /**
-     * Creates an array of the own enumerable symbol properties of `object`.
+     * Creates an array of the own symbol properties of `object`.
      *
      * @private
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of symbols.
      */
-    function getSymbols(object) {
-      // Coerce `object` to an object to avoid non-object errors in V8.
-      // See https://bugs.chromium.org/p/v8/issues/detail?id=3443 for more details.
-      return getOwnPropertySymbols(Object(object));
-    }
-
-    // Fallback for IE < 11.
-    if (!getOwnPropertySymbols) {
-      getSymbols = stubArray;
-    }
-
-    /**
-     * Creates an array of the own and inherited enumerable symbol properties
-     * of `object`.
-     *
-     * @private
-     * @param {Object} object The object to query.
-     * @returns {Array} Returns the array of symbols.
-     */
-    var getSymbolsIn = !getOwnPropertySymbols ? getSymbols : function(object) {
-      var result = [];
-      while (object) {
-        arrayPush(result, getSymbols(object));
-        object = getPrototype(object);
-      }
-      return result;
+    var getSymbols = getOwnPropertySymbols || function() {
+      return [];
     };
 
     /**
@@ -6374,23 +5807,18 @@ module.exports = function() {
       return objectToString.call(value);
     }
 
-    // Fallback for data views, maps, sets, and weak maps in IE 11,
-    // for data views in Edge, and promises in Node.js.
-    if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
-        (Map && getTag(new Map) != mapTag) ||
-        (Promise && getTag(Promise.resolve()) != promiseTag) ||
+    // Fallback for IE 11 providing `toStringTag` values for maps, sets, and weakmaps.
+    if ((Map && getTag(new Map) != mapTag) ||
         (Set && getTag(new Set) != setTag) ||
         (WeakMap && getTag(new WeakMap) != weakMapTag)) {
       getTag = function(value) {
         var result = objectToString.call(value),
-            Ctor = result == objectTag ? value.constructor : undefined,
-            ctorString = Ctor ? toSource(Ctor) : undefined;
+            Ctor = result == objectTag ? value.constructor : null,
+            ctorString = typeof Ctor == 'function' ? funcToString.call(Ctor) : '';
 
         if (ctorString) {
           switch (ctorString) {
-            case dataViewCtorString: return dataViewTag;
             case mapCtorString: return mapTag;
-            case promiseCtorString: return promiseTag;
             case setCtorString: return setTag;
             case weakMapCtorString: return weakMapTag;
           }
@@ -6437,25 +5865,23 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `path` exists, else `false`.
      */
     function hasPath(object, path, hasFunc) {
-      path = isKey(path, object) ? [path] : castPath(path);
-
-      var result,
-          index = -1,
-          length = path.length;
-
-      while (++index < length) {
-        var key = toKey(path[index]);
-        if (!(result = object != null && hasFunc(object, key))) {
-          break;
+      if (object == null) {
+        return false;
+      }
+      var result = hasFunc(object, path);
+      if (!result && !isKey(path)) {
+        path = baseCastPath(path);
+        object = parent(object, path);
+        if (object != null) {
+          path = last(path);
+          result = hasFunc(object, path);
         }
-        object = object[key];
       }
-      if (result) {
-        return result;
-      }
-      var length = object ? object.length : 0;
-      return !!length && isLength(length) && isIndex(key, length) &&
-        (isArray(object) || isString(object) || isArguments(object));
+      var length = object ? object.length : undefined;
+      return result || (
+        !!length && isLength(length) && isIndex(path, length) &&
+        (isArray(object) || isString(object) || isArguments(object))
+      );
     }
 
     /**
@@ -6485,9 +5911,11 @@ module.exports = function() {
      * @returns {Object} Returns the initialized clone.
      */
     function initCloneObject(object) {
-      return (typeof object.constructor == 'function' && !isPrototype(object))
-        ? baseCreate(getPrototype(object))
-        : {};
+      if (isPrototype(object)) {
+        return {};
+      }
+      var Ctor = object.constructor;
+      return baseCreate(isFunction(Ctor) ? Ctor.prototype : undefined);
     }
 
     /**
@@ -6499,11 +5927,10 @@ module.exports = function() {
      * @private
      * @param {Object} object The object to clone.
      * @param {string} tag The `toStringTag` of the object to clone.
-     * @param {Function} cloneFunc The function to clone values.
      * @param {boolean} [isDeep] Specify a deep clone.
      * @returns {Object} Returns the initialized clone.
      */
-    function initCloneByTag(object, tag, cloneFunc, isDeep) {
+    function initCloneByTag(object, tag, isDeep) {
       var Ctor = object.constructor;
       switch (tag) {
         case arrayBufferTag:
@@ -6513,16 +5940,13 @@ module.exports = function() {
         case dateTag:
           return new Ctor(+object);
 
-        case dataViewTag:
-          return cloneDataView(object, isDeep);
-
         case float32Tag: case float64Tag:
         case int8Tag: case int16Tag: case int32Tag:
         case uint8Tag: case uint8ClampedTag: case uint16Tag: case uint32Tag:
           return cloneTypedArray(object, isDeep);
 
         case mapTag:
-          return cloneMap(object, isDeep, cloneFunc);
+          return cloneMap(object);
 
         case numberTag:
         case stringTag:
@@ -6532,7 +5956,7 @@ module.exports = function() {
           return cloneRegExp(object);
 
         case setTag:
-          return cloneSet(object, isDeep, cloneFunc);
+          return cloneSet(object);
 
         case symbolTag:
           return cloneSymbol(object);
@@ -6557,52 +5981,13 @@ module.exports = function() {
     }
 
     /**
-     * Checks if `value` is a flattenable `arguments` object or array.
-     *
-     * @private
-     * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
-     */
-    function isFlattenable(value) {
-      return isArray(value) || isArguments(value);
-    }
-
-    /**
-     * Checks if `value` is a flattenable array and not a `_.matchesProperty`
-     * iteratee shorthand.
-     *
-     * @private
-     * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
-     */
-    function isFlattenableIteratee(value) {
-      return isArray(value) && !(value.length == 2 && !isFunction(value[0]));
-    }
-
-    /**
-     * Checks if `value` is a valid array-like index.
-     *
-     * @private
-     * @param {*} value The value to check.
-     * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
-     * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
-     */
-    function isIndex(value, length) {
-      length = length == null ? MAX_SAFE_INTEGER : length;
-      return !!length &&
-        (typeof value == 'number' || reIsUint.test(value)) &&
-        (value > -1 && value % 1 == 0 && value < length);
-    }
-
-    /**
      * Checks if the given arguments are from an iteratee call.
      *
      * @private
      * @param {*} value The potential iteratee value argument.
      * @param {*} index The potential iteratee index or key argument.
      * @param {*} object The potential iteratee object argument.
-     * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if the arguments are from an iteratee call, else `false`.
      */
     function isIterateeCall(value, index, object) {
       if (!isObject(object)) {
@@ -6610,9 +5995,8 @@ module.exports = function() {
       }
       var type = typeof index;
       if (type == 'number'
-            ? (isArrayLike(object) && isIndex(index, object.length))
-            : (type == 'string' && index in object)
-          ) {
+          ? (isArrayLike(object) && isIndex(index, object.length))
+          : (type == 'string' && index in object)) {
         return eq(object[index], value);
       }
       return false;
@@ -6627,16 +6011,12 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
      */
     function isKey(value, object) {
-      if (isArray(value)) {
-        return false;
-      }
-      var type = typeof value;
-      if (type == 'number' || type == 'symbol' || type == 'boolean' ||
-          value == null || isSymbol(value)) {
+      if (typeof value == 'number') {
         return true;
       }
-      return reIsPlainProp.test(value) || !reIsDeepProp.test(value) ||
-        (object != null && value in Object(object));
+      return !isArray(value) &&
+        (reIsPlainProp.test(value) || !reIsDeepProp.test(value) ||
+          (object != null && value in Object(object)));
     }
 
     /**
@@ -6648,9 +6028,8 @@ module.exports = function() {
      */
     function isKeyable(value) {
       var type = typeof value;
-      return (type == 'string' || type == 'number' || type == 'symbol' || type == 'boolean')
-        ? (value !== '__proto__')
-        : (value === null);
+      return type == 'number' || type == 'boolean' ||
+        (type == 'string' && value != '__proto__') || value == null;
     }
 
     /**
@@ -6658,8 +6037,7 @@ module.exports = function() {
      *
      * @private
      * @param {Function} func The function to check.
-     * @returns {boolean} Returns `true` if `func` has a lazy counterpart,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `func` has a lazy counterpart, else `false`.
      */
     function isLaziable(func) {
       var funcName = getFuncName(func),
@@ -6674,26 +6052,6 @@ module.exports = function() {
       var data = getData(other);
       return !!data && func === data[0];
     }
-
-    /**
-     * Checks if `func` has its source masked.
-     *
-     * @private
-     * @param {Function} func The function to check.
-     * @returns {boolean} Returns `true` if `func` is masked, else `false`.
-     */
-    function isMasked(func) {
-      return !!maskSrcKey && (maskSrcKey in func);
-    }
-
-    /**
-     * Checks if `func` is capable of being masked.
-     *
-     * @private
-     * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `func` is maskable, else `false`.
-     */
-    var isMaskable = coreJsData ? isFunction : stubFalse;
 
     /**
      * Checks if `value` is likely a prototype object.
@@ -6722,34 +6080,14 @@ module.exports = function() {
     }
 
     /**
-     * A specialized version of `matchesProperty` for source values suitable
-     * for strict equality comparisons, i.e. `===`.
-     *
-     * @private
-     * @param {string} key The key of the property to get.
-     * @param {*} srcValue The value to match.
-     * @returns {Function} Returns the new spec function.
-     */
-    function matchesStrictComparable(key, srcValue) {
-      return function(object) {
-        if (object == null) {
-          return false;
-        }
-        return object[key] === srcValue &&
-          (srcValue !== undefined || (key in Object(object)));
-      };
-    }
-
-    /**
      * Merges the function metadata of `source` into `data`.
      *
      * Merging metadata reduces the number of wrappers used to invoke a function.
      * This is possible because methods like `_.bind`, `_.curry`, and `_.partial`
-     * may be applied regardless of execution order. Methods like `_.ary` and
-     * `_.rearg` modify function arguments, making the order in which they are
-     * executed important, preventing the merging of metadata. However, we make
-     * an exception for a safe combined case where curried functions have `_.ary`
-     * and or `_.rearg` applied.
+     * may be applied regardless of execution order. Methods like `_.ary` and `_.rearg`
+     * modify function arguments, making the order in which they are executed important,
+     * preventing the merging of metadata. However, we make an exception for a safe
+     * combined case where curried functions have `_.ary` and or `_.rearg` applied.
      *
      * @private
      * @param {Array} data The destination metadata.
@@ -6763,9 +6101,9 @@ module.exports = function() {
           isCommon = newBitmask < (BIND_FLAG | BIND_KEY_FLAG | ARY_FLAG);
 
       var isCombo =
-        ((srcBitmask == ARY_FLAG) && (bitmask == CURRY_FLAG)) ||
-        ((srcBitmask == ARY_FLAG) && (bitmask == REARG_FLAG) && (data[7].length <= source[8])) ||
-        ((srcBitmask == (ARY_FLAG | REARG_FLAG)) && (source[7].length <= source[8]) && (bitmask == CURRY_FLAG));
+        (srcBitmask == ARY_FLAG && (bitmask == CURRY_FLAG)) ||
+        (srcBitmask == ARY_FLAG && (bitmask == REARG_FLAG) && (data[7].length <= source[8])) ||
+        (srcBitmask == (ARY_FLAG | REARG_FLAG) && (source[7].length <= source[8]) && (bitmask == CURRY_FLAG));
 
       // Exit early if metadata can't be merged.
       if (!(isCommon || isCombo)) {
@@ -6775,26 +6113,26 @@ module.exports = function() {
       if (srcBitmask & BIND_FLAG) {
         data[2] = source[2];
         // Set when currying a bound function.
-        newBitmask |= bitmask & BIND_FLAG ? 0 : CURRY_BOUND_FLAG;
+        newBitmask |= (bitmask & BIND_FLAG) ? 0 : CURRY_BOUND_FLAG;
       }
       // Compose partial arguments.
       var value = source[3];
       if (value) {
         var partials = data[3];
-        data[3] = partials ? composeArgs(partials, value, source[4]) : value;
-        data[4] = partials ? replaceHolders(data[3], PLACEHOLDER) : source[4];
+        data[3] = partials ? composeArgs(partials, value, source[4]) : copyArray(value);
+        data[4] = partials ? replaceHolders(data[3], PLACEHOLDER) : copyArray(source[4]);
       }
       // Compose partial right arguments.
       value = source[5];
       if (value) {
         partials = data[5];
-        data[5] = partials ? composeArgsRight(partials, value, source[6]) : value;
-        data[6] = partials ? replaceHolders(data[5], PLACEHOLDER) : source[6];
+        data[5] = partials ? composeArgsRight(partials, value, source[6]) : copyArray(value);
+        data[6] = partials ? replaceHolders(data[5], PLACEHOLDER) : copyArray(source[6]);
       }
       // Use source `argPos` if available.
       value = source[7];
       if (value) {
-        data[7] = value;
+        data[7] = copyArray(value);
       }
       // Use source `ary` if it's smaller.
       if (srcBitmask & ARY_FLAG) {
@@ -6820,13 +6158,13 @@ module.exports = function() {
      * @param {string} key The key of the property to merge.
      * @param {Object} object The parent object of `objValue`.
      * @param {Object} source The parent object of `srcValue`.
-     * @param {Object} [stack] Tracks traversed source values and their merged
-     *  counterparts.
+     * @param {Object} [stack] Tracks traversed source values and their merged counterparts.
      * @returns {*} Returns the value to assign.
      */
     function mergeDefaults(objValue, srcValue, key, object, source, stack) {
       if (isObject(objValue) && isObject(srcValue)) {
-        baseMerge(objValue, srcValue, undefined, mergeDefaults, stack.set(srcValue, objValue));
+        stack.set(srcValue, objValue);
+        baseMerge(objValue, srcValue, undefined, mergeDefaults, stack);
       }
       return objValue;
     }
@@ -6840,7 +6178,7 @@ module.exports = function() {
      * @returns {*} Returns the parent value.
      */
     function parent(object, path) {
-      return path.length == 1 ? object : baseGet(object, baseSlice(path, 0, -1));
+      return path.length == 1 ? object : get(object, baseSlice(path, 0, -1));
     }
 
     /**
@@ -6869,9 +6207,8 @@ module.exports = function() {
      * Sets metadata for `func`.
      *
      * **Note:** If this function becomes hot, i.e. is invoked a lot in a short
-     * period of time, it will trip its breaker and transition to an identity
-     * function to avoid garbage collection pauses in V8. See
-     * [V8 issue 2070](https://bugs.chromium.org/p/v8/issues/detail?id=2070)
+     * period of time, it will trip its breaker and transition to an identity function
+     * to avoid garbage collection pauses in V8. See [V8 issue 2070](https://code.google.com/p/v8/issues/detail?id=2070)
      * for more details.
      *
      * @private
@@ -6906,46 +6243,12 @@ module.exports = function() {
      * @param {string} string The string to convert.
      * @returns {Array} Returns the property path array.
      */
-    var stringToPath = memoize(function(string) {
+    function stringToPath(string) {
       var result = [];
       toString(string).replace(rePropName, function(match, number, quote, string) {
         result.push(quote ? string.replace(reEscapeChar, '$1') : (number || match));
       });
       return result;
-    });
-
-    /**
-     * Converts `value` to a string key if it's not a string or symbol.
-     *
-     * @private
-     * @param {*} value The value to inspect.
-     * @returns {string|symbol} Returns the key.
-     */
-    function toKey(value) {
-      if (typeof value == 'string' || isSymbol(value)) {
-        return value;
-      }
-      var result = (value + '');
-      return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
-    }
-
-    /**
-     * Converts `func` to its source code.
-     *
-     * @private
-     * @param {Function} func The function to process.
-     * @returns {string} Returns the source code.
-     */
-    function toSource(func) {
-      if (func != null) {
-        try {
-          return funcToString.call(func);
-        } catch (e) {}
-        try {
-          return (func + '');
-        } catch (e) {}
-      }
-      return '';
     }
 
     /**
@@ -6975,12 +6278,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to process.
-     * @param {number} [size=1] The length of each chunk
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {Array} Returns the new array of chunks.
+     * @param {number} [size=0] The length of each chunk.
+     * @returns {Array} Returns the new array containing chunks.
      * @example
      *
      * _.chunk(['a', 'b', 'c', 'd'], 2);
@@ -6989,22 +6290,19 @@ module.exports = function() {
      * _.chunk(['a', 'b', 'c', 'd'], 3);
      * // => [['a', 'b', 'c'], ['d']]
      */
-    function chunk(array, size, guard) {
-      if ((guard ? isIterateeCall(array, size, guard) : size === undefined)) {
-        size = 1;
-      } else {
-        size = nativeMax(toInteger(size), 0);
-      }
+    function chunk(array, size) {
+      size = nativeMax(toInteger(size), 0);
+
       var length = array ? array.length : 0;
       if (!length || size < 1) {
         return [];
       }
       var index = 0,
-          resIndex = 0,
+          resIndex = -1,
           result = Array(nativeCeil(length / size));
 
       while (index < length) {
-        result[resIndex++] = baseSlice(array, index, (index += size));
+        result[++resIndex] = baseSlice(array, index, (index += size));
       }
       return result;
     }
@@ -7015,7 +6313,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to compact.
      * @returns {Array} Returns the new array of filtered values.
@@ -7027,13 +6324,13 @@ module.exports = function() {
     function compact(array) {
       var index = -1,
           length = array ? array.length : 0,
-          resIndex = 0,
+          resIndex = -1,
           result = [];
 
       while (++index < length) {
         var value = array[index];
         if (value) {
-          result[resIndex++] = value;
+          result[++resIndex] = value;
         }
       }
       return result;
@@ -7045,7 +6342,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to concatenate.
      * @param {...*} [values] The values to concatenate.
@@ -7061,64 +6357,52 @@ module.exports = function() {
      * console.log(array);
      * // => [1]
      */
-    function concat() {
-      var length = arguments.length,
-          args = Array(length ? length - 1 : 0),
-          array = arguments[0],
-          index = length;
-
-      while (index--) {
-        args[index - 1] = arguments[index];
+    var concat = rest(function(array, values) {
+      if (!isArray(array)) {
+        array = array == null ? [] : [Object(array)];
       }
-      return length
-        ? arrayPush(isArray(array) ? copyArray(array) : [array], baseFlatten(args, 1))
-        : [];
-    }
+      values = baseFlatten(values, 1);
+      return arrayConcat(array, values);
+    });
 
     /**
-     * Creates an array of unique `array` values not included in the other given
-     * arrays using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
-     * for equality comparisons. The order of result values is determined by the
-     * order they occur in the first array.
+     * Creates an array of unique `array` values not included in the other
+     * given arrays using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
+     * for equality comparisons.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {...Array} [values] The values to exclude.
      * @returns {Array} Returns the new array of filtered values.
-     * @see _.without, _.xor
      * @example
      *
-     * _.difference([2, 1], [2, 3]);
-     * // => [1]
+     * _.difference([3, 2, 1], [4, 2]);
+     * // => [3, 1]
      */
     var difference = rest(function(array, values) {
       return isArrayLikeObject(array)
-        ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true))
+        ? baseDifference(array, baseFlatten(values, 1, true))
         : [];
     });
 
     /**
      * This method is like `_.difference` except that it accepts `iteratee` which
      * is invoked for each element of `array` and `values` to generate the criterion
-     * by which they're compared. Result values are chosen from the first array.
-     * The iteratee is invoked with one argument: (value).
+     * by which uniqueness is computed. The iteratee is invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {...Array} [values] The values to exclude.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns the new array of filtered values.
      * @example
      *
-     * _.differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor);
-     * // => [1.2]
+     * _.differenceBy([3.1, 2.2, 1.3], [4.4, 2.5], Math.floor);
+     * // => [3.1, 1.3]
      *
      * // The `_.property` iteratee shorthand.
      * _.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x');
@@ -7130,19 +6414,17 @@ module.exports = function() {
         iteratee = undefined;
       }
       return isArrayLikeObject(array)
-        ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true), getIteratee(iteratee))
+        ? baseDifference(array, baseFlatten(values, 1, true), getIteratee(iteratee))
         : [];
     });
 
     /**
      * This method is like `_.difference` except that it accepts `comparator`
-     * which is invoked to compare elements of `array` to `values`. Result values
-     * are chosen from the first array. The comparator is invoked with two arguments:
-     * (arrVal, othVal).
+     * which is invoked to compare elements of `array` to `values`. The comparator
+     * is invoked with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {...Array} [values] The values to exclude.
@@ -7161,7 +6443,7 @@ module.exports = function() {
         comparator = undefined;
       }
       return isArrayLikeObject(array)
-        ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true), undefined, comparator)
+        ? baseDifference(array, baseFlatten(values, 1, true), undefined, comparator)
         : [];
     });
 
@@ -7170,11 +6452,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.5.0
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to drop.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -7204,11 +6485,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to drop.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -7241,11 +6521,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -7283,11 +6561,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -7326,7 +6602,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.2.0
      * @category Array
      * @param {Array} array The array to fill.
      * @param {*} value The value to fill `array` with.
@@ -7365,12 +6640,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 1.1.0
      * @category Array
      * @param {Array} array The array to search.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @param {number} [fromIndex=0] The index to search from.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {number} Returns the index of the found element, else `-1`.
      * @example
      *
@@ -7395,16 +6667,10 @@ module.exports = function() {
      * _.findIndex(users, 'active');
      * // => 2
      */
-    function findIndex(array, predicate, fromIndex) {
-      var length = array ? array.length : 0;
-      if (!length) {
-        return -1;
-      }
-      var index = fromIndex == null ? 0 : toInteger(fromIndex);
-      if (index < 0) {
-        index = nativeMax(length + index, 0);
-      }
-      return baseFindIndex(array, getIteratee(predicate, 3), index);
+    function findIndex(array, predicate) {
+      return (array && array.length)
+        ? baseFindIndex(array, getIteratee(predicate, 3))
+        : -1;
     }
 
     /**
@@ -7413,12 +6679,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Array
      * @param {Array} array The array to search.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @param {number} [fromIndex=array.length-1] The index to search from.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {number} Returns the index of the found element, else `-1`.
      * @example
      *
@@ -7443,19 +6706,10 @@ module.exports = function() {
      * _.findLastIndex(users, 'active');
      * // => 0
      */
-    function findLastIndex(array, predicate, fromIndex) {
-      var length = array ? array.length : 0;
-      if (!length) {
-        return -1;
-      }
-      var index = length - 1;
-      if (fromIndex !== undefined) {
-        index = toInteger(fromIndex);
-        index = fromIndex < 0
-          ? nativeMax(length + index, 0)
-          : nativeMin(index, length - 1);
-      }
-      return baseFindIndex(array, getIteratee(predicate, 3), index, true);
+    function findLastIndex(array, predicate) {
+      return (array && array.length)
+        ? baseFindIndex(array, getIteratee(predicate, 3), true)
+        : -1;
     }
 
     /**
@@ -7463,7 +6717,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to flatten.
      * @returns {Array} Returns the new flattened array.
@@ -7482,7 +6735,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to flatten.
      * @returns {Array} Returns the new flattened array.
@@ -7501,7 +6753,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.4.0
      * @category Array
      * @param {Array} array The array to flatten.
      * @param {number} [depth=1] The maximum recursion depth.
@@ -7531,7 +6782,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} pairs The key-value pairs.
      * @returns {Object} Returns the new object.
@@ -7557,7 +6807,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @alias first
      * @category Array
      * @param {Array} array The array to query.
@@ -7571,18 +6820,17 @@ module.exports = function() {
      * // => undefined
      */
     function head(array) {
-      return (array && array.length) ? array[0] : undefined;
+      return array ? array[0] : undefined;
     }
 
     /**
      * Gets the index at which the first occurrence of `value` is found in `array`
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
-     * for equality comparisons. If `fromIndex` is negative, it's used as the
-     * offset from the end of `array`.
+     * for equality comparisons. If `fromIndex` is negative, it's used as the offset
+     * from the end of `array`.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to search.
      * @param {*} value The value to search for.
@@ -7602,11 +6850,11 @@ module.exports = function() {
       if (!length) {
         return -1;
       }
-      var index = fromIndex == null ? 0 : toInteger(fromIndex);
-      if (index < 0) {
-        index = nativeMax(length + index, 0);
+      fromIndex = toInteger(fromIndex);
+      if (fromIndex < 0) {
+        fromIndex = nativeMax(length + fromIndex, 0);
       }
-      return baseIndexOf(array, value, index);
+      return baseIndexOf(array, value, fromIndex);
     }
 
     /**
@@ -7614,7 +6862,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to query.
      * @returns {Array} Returns the slice of `array`.
@@ -7630,22 +6877,20 @@ module.exports = function() {
     /**
      * Creates an array of unique values that are included in all given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
-     * for equality comparisons. The order of result values is determined by the
-     * order they occur in the first array.
+     * for equality comparisons.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @returns {Array} Returns the new array of intersecting values.
+     * @returns {Array} Returns the new array of shared values.
      * @example
      *
-     * _.intersection([2, 1], [2, 3]);
+     * _.intersection([2, 1], [4, 2], [1, 2]);
      * // => [2]
      */
     var intersection = rest(function(arrays) {
-      var mapped = arrayMap(arrays, castArrayLikeObject);
+      var mapped = arrayMap(arrays, baseCastArrayLikeObject);
       return (mapped.length && mapped[0] === arrays[0])
         ? baseIntersection(mapped)
         : [];
@@ -7654,20 +6899,17 @@ module.exports = function() {
     /**
      * This method is like `_.intersection` except that it accepts `iteratee`
      * which is invoked for each element of each `arrays` to generate the criterion
-     * by which they're compared. Result values are chosen from the first array.
-     * The iteratee is invoked with one argument: (value).
+     * by which uniqueness is computed. The iteratee is invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
-     * @returns {Array} Returns the new array of intersecting values.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
+     * @returns {Array} Returns the new array of shared values.
      * @example
      *
-     * _.intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+     * _.intersectionBy([2.1, 1.2], [4.3, 2.4], Math.floor);
      * // => [2.1]
      *
      * // The `_.property` iteratee shorthand.
@@ -7676,7 +6918,7 @@ module.exports = function() {
      */
     var intersectionBy = rest(function(arrays) {
       var iteratee = last(arrays),
-          mapped = arrayMap(arrays, castArrayLikeObject);
+          mapped = arrayMap(arrays, baseCastArrayLikeObject);
 
       if (iteratee === last(mapped)) {
         iteratee = undefined;
@@ -7690,17 +6932,15 @@ module.exports = function() {
 
     /**
      * This method is like `_.intersection` except that it accepts `comparator`
-     * which is invoked to compare elements of `arrays`. Result values are chosen
-     * from the first array. The comparator is invoked with two arguments:
-     * (arrVal, othVal).
+     * which is invoked to compare elements of `arrays`. The comparator is invoked
+     * with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of intersecting values.
+     * @returns {Array} Returns the new array of shared values.
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
@@ -7711,7 +6951,7 @@ module.exports = function() {
      */
     var intersectionWith = rest(function(arrays) {
       var comparator = last(arrays),
-          mapped = arrayMap(arrays, castArrayLikeObject);
+          mapped = arrayMap(arrays, baseCastArrayLikeObject);
 
       if (comparator === last(mapped)) {
         comparator = undefined;
@@ -7728,7 +6968,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to convert.
      * @param {string} [separator=','] The element separator.
@@ -7747,7 +6986,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to query.
      * @returns {*} Returns the last element of `array`.
@@ -7767,7 +7005,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to search.
      * @param {*} value The value to search for.
@@ -7790,14 +7027,10 @@ module.exports = function() {
       var index = length;
       if (fromIndex !== undefined) {
         index = toInteger(fromIndex);
-        index = (
-          index < 0
-            ? nativeMax(length + index, 0)
-            : nativeMin(index, length - 1)
-        ) + 1;
+        index = (index < 0 ? nativeMax(length + index, 0) : nativeMin(index, length - 1)) + 1;
       }
       if (value !== value) {
-        return indexOfNaN(array, index - 1, true);
+        return indexOfNaN(array, index, true);
       }
       while (index--) {
         if (array[index] === value) {
@@ -7808,52 +7041,25 @@ module.exports = function() {
     }
 
     /**
-     * Gets the element at index `n` of `array`. If `n` is negative, the nth
-     * element from the end is returned.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.11.0
-     * @category Array
-     * @param {Array} array The array to query.
-     * @param {number} [n=0] The index of the element to return.
-     * @returns {*} Returns the nth element of `array`.
-     * @example
-     *
-     * var array = ['a', 'b', 'c', 'd'];
-     *
-     * _.nth(array, 1);
-     * // => 'b'
-     *
-     * _.nth(array, -2);
-     * // => 'c';
-     */
-    function nth(array, n) {
-      return (array && array.length) ? baseNth(array, toInteger(n)) : undefined;
-    }
-
-    /**
      * Removes all given values from `array` using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
      * for equality comparisons.
      *
-     * **Note:** Unlike `_.without`, this method mutates `array`. Use `_.remove`
-     * to remove elements from an array by predicate.
+     * **Note:** Unlike `_.without`, this method mutates `array`.
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Array
      * @param {Array} array The array to modify.
      * @param {...*} [values] The values to remove.
      * @returns {Array} Returns `array`.
      * @example
      *
-     * var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+     * var array = [1, 2, 3, 1, 2, 3];
      *
-     * _.pull(array, 'a', 'c');
+     * _.pull(array, 2, 3);
      * console.log(array);
-     * // => ['b', 'b']
+     * // => [1, 1]
      */
     var pull = rest(pullAll);
 
@@ -7864,18 +7070,17 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to modify.
      * @param {Array} values The values to remove.
      * @returns {Array} Returns `array`.
      * @example
      *
-     * var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+     * var array = [1, 2, 3, 1, 2, 3];
      *
-     * _.pullAll(array, ['a', 'c']);
+     * _.pullAll(array, [2, 3]);
      * console.log(array);
-     * // => ['b', 'b']
+     * // => [1, 1]
      */
     function pullAll(array, values) {
       return (array && array.length && values && values.length)
@@ -7886,18 +7091,16 @@ module.exports = function() {
     /**
      * This method is like `_.pullAll` except that it accepts `iteratee` which is
      * invoked for each element of `array` and `values` to generate the criterion
-     * by which they're compared. The iteratee is invoked with one argument: (value).
+     * by which uniqueness is computed. The iteratee is invoked with one argument: (value).
      *
      * **Note:** Unlike `_.differenceBy`, this method mutates `array`.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to modify.
      * @param {Array} values The values to remove.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns `array`.
      * @example
      *
@@ -7909,36 +7112,7 @@ module.exports = function() {
      */
     function pullAllBy(array, values, iteratee) {
       return (array && array.length && values && values.length)
-        ? basePullAll(array, values, getIteratee(iteratee))
-        : array;
-    }
-
-    /**
-     * This method is like `_.pullAll` except that it accepts `comparator` which
-     * is invoked to compare elements of `array` to `values`. The comparator is
-     * invoked with two arguments: (arrVal, othVal).
-     *
-     * **Note:** Unlike `_.differenceWith`, this method mutates `array`.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.6.0
-     * @category Array
-     * @param {Array} array The array to modify.
-     * @param {Array} values The values to remove.
-     * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns `array`.
-     * @example
-     *
-     * var array = [{ 'x': 1, 'y': 2 }, { 'x': 3, 'y': 4 }, { 'x': 5, 'y': 6 }];
-     *
-     * _.pullAllWith(array, [{ 'x': 3, 'y': 4 }], _.isEqual);
-     * console.log(array);
-     * // => [{ 'x': 1, 'y': 2 }, { 'x': 5, 'y': 6 }]
-     */
-    function pullAllWith(array, values, comparator) {
-      return (array && array.length && values && values.length)
-        ? basePullAll(array, values, undefined, comparator)
+        ? basePullAllBy(array, values, getIteratee(iteratee))
         : array;
     }
 
@@ -7950,50 +7124,42 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to modify.
-     * @param {...(number|number[])} [indexes] The indexes of elements to remove.
+     * @param {...(number|number[])} [indexes] The indexes of elements to remove,
+     *  specified individually or in arrays.
      * @returns {Array} Returns the new array of removed elements.
      * @example
      *
-     * var array = ['a', 'b', 'c', 'd'];
-     * var pulled = _.pullAt(array, [1, 3]);
+     * var array = [5, 10, 15, 20];
+     * var evens = _.pullAt(array, 1, 3);
      *
      * console.log(array);
-     * // => ['a', 'c']
+     * // => [5, 15]
      *
-     * console.log(pulled);
-     * // => ['b', 'd']
+     * console.log(evens);
+     * // => [10, 20]
      */
     var pullAt = rest(function(array, indexes) {
-      indexes = baseFlatten(indexes, 1);
+      indexes = arrayMap(baseFlatten(indexes, 1), String);
 
-      var length = array ? array.length : 0,
-          result = baseAt(array, indexes);
-
-      basePullAt(array, arrayMap(indexes, function(index) {
-        return isIndex(index, length) ? +index : index;
-      }).sort(compareAscending));
-
+      var result = baseAt(array, indexes);
+      basePullAt(array, indexes.sort(compareAscending));
       return result;
     });
 
     /**
      * Removes all elements from `array` that `predicate` returns truthy for
-     * and returns an array of the removed elements. The predicate is invoked
-     * with three arguments: (value, index, array).
+     * and returns an array of the removed elements. The predicate is invoked with
+     * three arguments: (value, index, array).
      *
-     * **Note:** Unlike `_.filter`, this method mutates `array`. Use `_.pull`
-     * to pull elements from an array by value.
+     * **Note:** Unlike `_.filter`, this method mutates `array`.
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Array
      * @param {Array} array The array to modify.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new array of removed elements.
      * @example
      *
@@ -8038,9 +7204,7 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
-     * @param {Array} array The array to modify.
      * @returns {Array} Returns `array`.
      * @example
      *
@@ -8059,13 +7223,11 @@ module.exports = function() {
     /**
      * Creates a slice of `array` from `start` up to, but not including, `end`.
      *
-     * **Note:** This method is used instead of
-     * [`Array#slice`](https://mdn.io/Array/slice) to ensure dense arrays are
-     * returned.
+     * **Note:** This method is used instead of [`Array#slice`](https://mdn.io/Array/slice)
+     * to ensure dense arrays are returned.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to slice.
      * @param {number} [start=0] The start position.
@@ -8089,21 +7251,22 @@ module.exports = function() {
     }
 
     /**
-     * Uses a binary search to determine the lowest index at which `value`
-     * should be inserted into `array` in order to maintain its sort order.
+     * Uses a binary search to determine the lowest index at which `value` should
+     * be inserted into `array` in order to maintain its sort order.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The sorted array to inspect.
      * @param {*} value The value to evaluate.
-     * @returns {number} Returns the index at which `value` should be inserted
-     *  into `array`.
+     * @returns {number} Returns the index at which `value` should be inserted into `array`.
      * @example
      *
      * _.sortedIndex([30, 50], 40);
      * // => 1
+     *
+     * _.sortedIndex([4, 5], 4);
+     * // => 0
      */
     function sortedIndex(array, value) {
       return baseSortedIndex(array, value);
@@ -8116,23 +7279,20 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The sorted array to inspect.
      * @param {*} value The value to evaluate.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
-     * @returns {number} Returns the index at which `value` should be inserted
-     *  into `array`.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
+     * @returns {number} Returns the index at which `value` should be inserted into `array`.
      * @example
      *
-     * var objects = [{ 'x': 4 }, { 'x': 5 }];
+     * var dict = { 'thirty': 30, 'forty': 40, 'fifty': 50 };
      *
-     * _.sortedIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });
-     * // => 0
+     * _.sortedIndexBy(['thirty', 'fifty'], 'forty', _.propertyOf(dict));
+     * // => 1
      *
      * // The `_.property` iteratee shorthand.
-     * _.sortedIndexBy(objects, { 'x': 4 }, 'x');
+     * _.sortedIndexBy([{ 'x': 4 }, { 'x': 5 }], { 'x': 4 }, 'x');
      * // => 0
      */
     function sortedIndexBy(array, value, iteratee) {
@@ -8145,15 +7305,14 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to search.
      * @param {*} value The value to search for.
      * @returns {number} Returns the index of the matched value, else `-1`.
      * @example
      *
-     * _.sortedIndexOf([4, 5, 5, 5, 6], 5);
-     * // => 1
+     * _.sortedIndexOf([1, 1, 2, 2], 2);
+     * // => 2
      */
     function sortedIndexOf(array, value) {
       var length = array ? array.length : 0;
@@ -8173,16 +7332,14 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The sorted array to inspect.
      * @param {*} value The value to evaluate.
-     * @returns {number} Returns the index at which `value` should be inserted
-     *  into `array`.
+     * @returns {number} Returns the index at which `value` should be inserted into `array`.
      * @example
      *
-     * _.sortedLastIndex([4, 5, 5, 5, 6], 5);
-     * // => 4
+     * _.sortedLastIndex([4, 5], 4);
+     * // => 1
      */
     function sortedLastIndex(array, value) {
       return baseSortedIndex(array, value, true);
@@ -8195,23 +7352,15 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The sorted array to inspect.
      * @param {*} value The value to evaluate.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
-     * @returns {number} Returns the index at which `value` should be inserted
-     *  into `array`.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
+     * @returns {number} Returns the index at which `value` should be inserted into `array`.
      * @example
      *
-     * var objects = [{ 'x': 4 }, { 'x': 5 }];
-     *
-     * _.sortedLastIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });
-     * // => 1
-     *
      * // The `_.property` iteratee shorthand.
-     * _.sortedLastIndexBy(objects, { 'x': 4 }, 'x');
+     * _.sortedLastIndexBy([{ 'x': 4 }, { 'x': 5 }], { 'x': 4 }, 'x');
      * // => 1
      */
     function sortedLastIndexBy(array, value, iteratee) {
@@ -8224,14 +7373,13 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to search.
      * @param {*} value The value to search for.
      * @returns {number} Returns the index of the matched value, else `-1`.
      * @example
      *
-     * _.sortedLastIndexOf([4, 5, 5, 5, 6], 5);
+     * _.sortedLastIndexOf([1, 1, 2, 2], 2);
      * // => 3
      */
     function sortedLastIndexOf(array, value) {
@@ -8251,7 +7399,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
      * @returns {Array} Returns the new duplicate free array.
@@ -8272,7 +7419,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {Function} [iteratee] The iteratee invoked per element.
@@ -8284,7 +7430,7 @@ module.exports = function() {
      */
     function sortedUniqBy(array, iteratee) {
       return (array && array.length)
-        ? baseSortedUniq(array, getIteratee(iteratee))
+        ? baseSortedUniqBy(array, getIteratee(iteratee))
         : [];
     }
 
@@ -8293,7 +7439,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to query.
      * @returns {Array} Returns the slice of `array`.
@@ -8311,11 +7456,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to take.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -8344,11 +7488,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
      * @param {number} [n=1] The number of elements to take.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -8376,16 +7519,14 @@ module.exports = function() {
 
     /**
      * Creates a slice of `array` with elements taken from the end. Elements are
-     * taken until `predicate` returns falsey. The predicate is invoked with
-     * three arguments: (value, index, array).
+     * taken until `predicate` returns falsey. The predicate is invoked with three
+     * arguments: (value, index, array).
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -8423,11 +7564,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -8465,37 +7604,33 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @returns {Array} Returns the new array of combined values.
      * @example
      *
-     * _.union([2], [1, 2]);
-     * // => [2, 1]
+     * _.union([2, 1], [4, 2], [1, 2]);
+     * // => [2, 1, 4]
      */
     var union = rest(function(arrays) {
-      return baseUniq(baseFlatten(arrays, 1, isArrayLikeObject, true));
+      return baseUniq(baseFlatten(arrays, 1, true));
     });
 
     /**
      * This method is like `_.union` except that it accepts `iteratee` which is
-     * invoked for each element of each `arrays` to generate the criterion by
-     * which uniqueness is computed. The iteratee is invoked with one argument:
-     * (value).
+     * invoked for each element of each `arrays` to generate the criterion by which
+     * uniqueness is computed. The iteratee is invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns the new array of combined values.
      * @example
      *
-     * _.unionBy([2.1], [1.2, 2.3], Math.floor);
-     * // => [2.1, 1.2]
+     * _.unionBy([2.1, 1.2], [4.3, 2.4], Math.floor);
+     * // => [2.1, 1.2, 4.3]
      *
      * // The `_.property` iteratee shorthand.
      * _.unionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
@@ -8506,7 +7641,7 @@ module.exports = function() {
       if (isArrayLikeObject(iteratee)) {
         iteratee = undefined;
       }
-      return baseUniq(baseFlatten(arrays, 1, isArrayLikeObject, true), getIteratee(iteratee));
+      return baseUniq(baseFlatten(arrays, 1, true), getIteratee(iteratee));
     });
 
     /**
@@ -8516,7 +7651,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
@@ -8534,18 +7668,17 @@ module.exports = function() {
       if (isArrayLikeObject(comparator)) {
         comparator = undefined;
       }
-      return baseUniq(baseFlatten(arrays, 1, isArrayLikeObject, true), undefined, comparator);
+      return baseUniq(baseFlatten(arrays, 1, true), undefined, comparator);
     });
 
     /**
      * Creates a duplicate-free version of an array, using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
-     * for equality comparisons, in which only the first occurrence of each
-     * element is kept.
+     * for equality comparisons, in which only the first occurrence of each element
+     * is kept.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {Array} array The array to inspect.
      * @returns {Array} Returns the new duplicate free array.
@@ -8567,11 +7700,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns the new duplicate free array.
      * @example
      *
@@ -8595,14 +7726,13 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
      * @returns {Array} Returns the new duplicate free array.
      * @example
      *
-     * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
+     * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 },  { 'x': 1, 'y': 2 }];
      *
      * _.uniqWith(objects, _.isEqual);
      * // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
@@ -8620,7 +7750,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 1.2.0
      * @category Array
      * @param {Array} array The array of grouped elements to process.
      * @returns {Array} Returns the new array of regrouped elements.
@@ -8655,11 +7784,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.8.0
      * @category Array
      * @param {Array} array The array of grouped elements to process.
-     * @param {Function} [iteratee=_.identity] The function to combine
-     *  regrouped values.
+     * @param {Function} [iteratee=_.identity] The function to combine regrouped values.
      * @returns {Array} Returns the new array of regrouped elements.
      * @example
      *
@@ -8689,15 +7816,13 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
-     * @param {Array} array The array to inspect.
+     * @param {Array} array The array to filter.
      * @param {...*} [values] The values to exclude.
      * @returns {Array} Returns the new array of filtered values.
-     * @see _.difference, _.xor
      * @example
      *
-     * _.without([2, 1, 2, 3], 1, 2);
+     * _.without([1, 2, 1, 3], 1, 2);
      * // => [3]
      */
     var without = rest(function(array, values) {
@@ -8707,22 +7832,18 @@ module.exports = function() {
     });
 
     /**
-     * Creates an array of unique values that is the
-     * [symmetric difference](https://en.wikipedia.org/wiki/Symmetric_difference)
-     * of the given arrays. The order of result values is determined by the order
-     * they occur in the arrays.
+     * Creates an array of unique values that is the [symmetric difference](https://en.wikipedia.org/wiki/Symmetric_difference)
+     * of the given arrays.
      *
      * @static
      * @memberOf _
-     * @since 2.4.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @returns {Array} Returns the new array of filtered values.
-     * @see _.difference, _.without
+     * @returns {Array} Returns the new array of values.
      * @example
      *
-     * _.xor([2, 1], [2, 3]);
-     * // => [1, 3]
+     * _.xor([2, 1], [4, 2]);
+     * // => [1, 4]
      */
     var xor = rest(function(arrays) {
       return baseXor(arrayFilter(arrays, isArrayLikeObject));
@@ -8730,22 +7851,19 @@ module.exports = function() {
 
     /**
      * This method is like `_.xor` except that it accepts `iteratee` which is
-     * invoked for each element of each `arrays` to generate the criterion by
-     * which by which they're compared. The iteratee is invoked with one argument:
-     * (value).
+     * invoked for each element of each `arrays` to generate the criterion by which
+     * uniqueness is computed. The iteratee is invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
-     * @returns {Array} Returns the new array of filtered values.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
+     * @returns {Array} Returns the new array of values.
      * @example
      *
-     * _.xorBy([2.1, 1.2], [2.3, 3.4], Math.floor);
-     * // => [1.2, 3.4]
+     * _.xorBy([2.1, 1.2], [4.3, 2.4], Math.floor);
+     * // => [1.2, 4.3]
      *
      * // The `_.property` iteratee shorthand.
      * _.xorBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
@@ -8766,11 +7884,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
      * @param {Function} [comparator] The comparator invoked per element.
-     * @returns {Array} Returns the new array of filtered values.
+     * @returns {Array} Returns the new array of values.
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
@@ -8788,13 +7905,12 @@ module.exports = function() {
     });
 
     /**
-     * Creates an array of grouped elements, the first of which contains the
-     * first elements of the given arrays, the second of which contains the
-     * second elements of the given arrays, and so on.
+     * Creates an array of grouped elements, the first of which contains the first
+     * elements of the given arrays, the second of which contains the second elements
+     * of the given arrays, and so on.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Array
      * @param {...Array} [arrays] The arrays to process.
      * @returns {Array} Returns the new array of grouped elements.
@@ -8807,13 +7923,12 @@ module.exports = function() {
 
     /**
      * This method is like `_.fromPairs` except that it accepts two arrays,
-     * one of property identifiers and one of corresponding values.
+     * one of property names and one of corresponding values.
      *
      * @static
      * @memberOf _
-     * @since 0.4.0
      * @category Array
-     * @param {Array} [props=[]] The property identifiers.
+     * @param {Array} [props=[]] The property names.
      * @param {Array} [values=[]] The property values.
      * @returns {Object} Returns the new object.
      * @example
@@ -8830,9 +7945,8 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.1.0
      * @category Array
-     * @param {Array} [props=[]] The property identifiers.
+     * @param {Array} [props=[]] The property names.
      * @param {Array} [values=[]] The property values.
      * @returns {Object} Returns the new object.
      * @example
@@ -8851,7 +7965,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.8.0
      * @category Array
      * @param {...Array} [arrays] The arrays to process.
      * @param {Function} [iteratee=_.identity] The function to combine grouped values.
@@ -8874,13 +7987,11 @@ module.exports = function() {
     /*------------------------------------------------------------------------*/
 
     /**
-     * Creates a `lodash` wrapper instance that wraps `value` with explicit method
-     * chain sequences enabled. The result of such sequences must be unwrapped
-     * with `_#value`.
+     * Creates a `lodash` object that wraps `value` with explicit method chaining enabled.
+     * The result of such method chaining must be unwrapped with `_#value`.
      *
      * @static
      * @memberOf _
-     * @since 1.3.0
      * @category Seq
      * @param {*} value The value to wrap.
      * @returns {Object} Returns the new `lodash` wrapper instance.
@@ -8911,11 +8022,10 @@ module.exports = function() {
     /**
      * This method invokes `interceptor` and returns `value`. The interceptor
      * is invoked with one argument; (value). The purpose of this method is to
-     * "tap into" a method chain sequence in order to modify intermediate results.
+     * "tap into" a method chain in order to modify intermediate results.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Seq
      * @param {*} value The value to provide to `interceptor`.
      * @param {Function} interceptor The function to invoke.
@@ -8939,11 +8049,10 @@ module.exports = function() {
     /**
      * This method is like `_.tap` except that it returns the result of `interceptor`.
      * The purpose of this method is to "pass thru" values replacing intermediate
-     * results in a method chain sequence.
+     * results in a method chain.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Seq
      * @param {*} value The value to provide to `interceptor`.
      * @param {Function} interceptor The function to invoke.
@@ -8968,9 +8077,9 @@ module.exports = function() {
      *
      * @name at
      * @memberOf _
-     * @since 1.0.0
      * @category Seq
-     * @param {...(string|string[])} [paths] The property paths of elements to pick.
+     * @param {...(string|string[])} [paths] The property paths of elements to pick,
+     *  specified individually or in arrays.
      * @returns {Object} Returns the new `lodash` wrapper instance.
      * @example
      *
@@ -8978,6 +8087,9 @@ module.exports = function() {
      *
      * _(object).at(['a[0].b.c', 'a[1]']).value();
      * // => [3, 4]
+     *
+     * _(['a', 'b', 'c']).at(0, 2).value();
+     * // => ['a', 'c']
      */
     var wrapperAt = rest(function(paths) {
       paths = baseFlatten(paths, 1);
@@ -9005,11 +8117,10 @@ module.exports = function() {
     });
 
     /**
-     * Creates a `lodash` wrapper instance with explicit method chain sequences enabled.
+     * Enables explicit method chaining on the wrapper object.
      *
      * @name chain
      * @memberOf _
-     * @since 0.1.0
      * @category Seq
      * @returns {Object} Returns the new `lodash` wrapper instance.
      * @example
@@ -9036,11 +8147,10 @@ module.exports = function() {
     }
 
     /**
-     * Executes the chain sequence and returns the wrapped result.
+     * Executes the chained sequence and returns the wrapped result.
      *
      * @name commit
      * @memberOf _
-     * @since 3.2.0
      * @category Seq
      * @returns {Object} Returns the new `lodash` wrapper instance.
      * @example
@@ -9066,12 +8176,32 @@ module.exports = function() {
     }
 
     /**
+     * This method is the wrapper version of `_.flatMap`.
+     *
+     * @name flatMap
+     * @memberOf _
+     * @category Seq
+     * @param {Function|Object|string} [iteratee=_.identity] The function invoked per iteration.
+     * @returns {Object} Returns the new `lodash` wrapper instance.
+     * @example
+     *
+     * function duplicate(n) {
+     *   return [n, n];
+     * }
+     *
+     * _([1, 2]).flatMap(duplicate).value();
+     * // => [1, 1, 2, 2]
+     */
+    function wrapperFlatMap(iteratee) {
+      return this.map(iteratee).flatten();
+    }
+
+    /**
      * Gets the next value on a wrapped object following the
      * [iterator protocol](https://mdn.io/iteration_protocols#iterator).
      *
      * @name next
      * @memberOf _
-     * @since 4.0.0
      * @category Seq
      * @returns {Object} Returns the next iterator value.
      * @example
@@ -9102,7 +8232,6 @@ module.exports = function() {
      *
      * @name Symbol.iterator
      * @memberOf _
-     * @since 4.0.0
      * @category Seq
      * @returns {Object} Returns the wrapper object.
      * @example
@@ -9120,11 +8249,10 @@ module.exports = function() {
     }
 
     /**
-     * Creates a clone of the chain sequence planting `value` as the wrapped value.
+     * Creates a clone of the chained sequence planting `value` as the wrapped value.
      *
      * @name plant
      * @memberOf _
-     * @since 3.2.0
      * @category Seq
      * @param {*} value The value to plant.
      * @returns {Object} Returns the new `lodash` wrapper instance.
@@ -9170,7 +8298,6 @@ module.exports = function() {
      *
      * @name reverse
      * @memberOf _
-     * @since 0.1.0
      * @category Seq
      * @returns {Object} Returns the new `lodash` wrapper instance.
      * @example
@@ -9202,11 +8329,10 @@ module.exports = function() {
     }
 
     /**
-     * Executes the chain sequence to resolve the unwrapped value.
+     * Executes the chained sequence to extract the unwrapped value.
      *
      * @name value
      * @memberOf _
-     * @since 0.1.0
      * @alias toJSON, valueOf
      * @category Seq
      * @returns {*} Returns the resolved unwrapped value.
@@ -9223,24 +8349,21 @@ module.exports = function() {
 
     /**
      * Creates an object composed of keys generated from the results of running
-     * each element of `collection` thru `iteratee`. The corresponding value of
-     * each key is the number of times the key was returned by `iteratee`. The
-     * iteratee is invoked with one argument: (value).
+     * each element of `collection` through `iteratee`. The corresponding value
+     * of each key is the number of times the key was returned by `iteratee`.
+     * The iteratee is invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 0.5.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee to transform keys.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee to transform keys.
      * @returns {Object} Returns the composed aggregate object.
      * @example
      *
      * _.countBy([6.1, 4.2, 6.3], Math.floor);
      * // => { '4': 1, '6': 2 }
      *
-     * // The `_.property` iteratee shorthand.
      * _.countBy(['one', 'two', 'three'], 'length');
      * // => { '3': 2, '5': 1 }
      */
@@ -9255,22 +8378,19 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {boolean} Returns `true` if all elements pass the predicate check,
-     *  else `false`.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
+     * @returns {boolean} Returns `true` if all elements pass the predicate check, else `false`.
      * @example
      *
      * _.every([true, 1, null, 'yes'], Boolean);
      * // => false
      *
      * var users = [
-     *   { 'user': 'barney', 'age': 36, 'active': false },
-     *   { 'user': 'fred',   'age': 40, 'active': false }
+     *   { 'user': 'barney', 'active': false },
+     *   { 'user': 'fred',   'active': false }
      * ];
      *
      * // The `_.matches` iteratee shorthand.
@@ -9295,18 +8415,15 @@ module.exports = function() {
 
     /**
      * Iterates over elements of `collection`, returning an array of all elements
-     * `predicate` returns truthy for. The predicate is invoked with three
-     * arguments: (value, index|key, collection).
+     * `predicate` returns truthy for. The predicate is invoked with three arguments:
+     * (value, index|key, collection).
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new filtered array.
-     * @see _.reject
      * @example
      *
      * var users = [
@@ -9336,17 +8453,14 @@ module.exports = function() {
 
     /**
      * Iterates over elements of `collection`, returning the first element
-     * `predicate` returns truthy for. The predicate is invoked with three
-     * arguments: (value, index|key, collection).
+     * `predicate` returns truthy for. The predicate is invoked with three arguments:
+     * (value, index|key, collection).
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to search.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @param {number} [fromIndex=0] The index to search from.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {*} Returns the matched element, else `undefined`.
      * @example
      *
@@ -9371,7 +8485,14 @@ module.exports = function() {
      * _.find(users, 'active');
      * // => object for 'barney'
      */
-    var find = createFind(findIndex);
+    function find(collection, predicate) {
+      predicate = getIteratee(predicate, 3);
+      if (isArray(collection)) {
+        var index = baseFindIndex(collection, predicate);
+        return index > -1 ? collection[index] : undefined;
+      }
+      return baseFind(collection, predicate, baseEach);
+    }
 
     /**
      * This method is like `_.find` except that it iterates over elements of
@@ -9379,12 +8500,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to search.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @param {number} [fromIndex=collection.length-1] The index to search from.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {*} Returns the matched element, else `undefined`.
      * @example
      *
@@ -9393,20 +8511,25 @@ module.exports = function() {
      * });
      * // => 3
      */
-    var findLast = createFind(findLastIndex);
+    function findLast(collection, predicate) {
+      predicate = getIteratee(predicate, 3);
+      if (isArray(collection)) {
+        var index = baseFindIndex(collection, predicate, true);
+        return index > -1 ? collection[index] : undefined;
+      }
+      return baseFind(collection, predicate, baseEachRight);
+    }
 
     /**
-     * Creates a flattened array of values by running each element in `collection`
-     * thru `iteratee` and flattening the mapped results. The iteratee is invoked
-     * with three arguments: (value, index|key, collection).
+     * Creates an array of flattened values by running each element in `collection`
+     * through `iteratee` and concating its result to the other mapped values.
+     * The iteratee is invoked with three arguments: (value, index|key, collection).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new flattened array.
      * @example
      *
@@ -9422,90 +8545,37 @@ module.exports = function() {
     }
 
     /**
-     * This method is like `_.flatMap` except that it recursively flattens the
-     * mapped results.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.7.0
-     * @category Collection
-     * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The function invoked per iteration.
-     * @returns {Array} Returns the new flattened array.
-     * @example
-     *
-     * function duplicate(n) {
-     *   return [[[n, n]]];
-     * }
-     *
-     * _.flatMapDeep([1, 2], duplicate);
-     * // => [1, 1, 2, 2]
-     */
-    function flatMapDeep(collection, iteratee) {
-      return baseFlatten(map(collection, iteratee), INFINITY);
-    }
-
-    /**
-     * This method is like `_.flatMap` except that it recursively flattens the
-     * mapped results up to `depth` times.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.7.0
-     * @category Collection
-     * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The function invoked per iteration.
-     * @param {number} [depth=1] The maximum recursion depth.
-     * @returns {Array} Returns the new flattened array.
-     * @example
-     *
-     * function duplicate(n) {
-     *   return [[[n, n]]];
-     * }
-     *
-     * _.flatMapDepth([1, 2], duplicate, 2);
-     * // => [[1, 1], [2, 2]]
-     */
-    function flatMapDepth(collection, iteratee, depth) {
-      depth = depth === undefined ? 1 : toInteger(depth);
-      return baseFlatten(map(collection, iteratee), depth);
-    }
-
-    /**
-     * Iterates over elements of `collection` and invokes `iteratee` for each element.
+     * Iterates over elements of `collection` invoking `iteratee` for each element.
      * The iteratee is invoked with three arguments: (value, index|key, collection).
      * Iteratee functions may exit iteration early by explicitly returning `false`.
      *
-     * **Note:** As with other "Collections" methods, objects with a "length"
-     * property are iterated like arrays. To avoid this behavior use `_.forIn`
-     * or `_.forOwn` for object iteration.
+     * **Note:** As with other "Collections" methods, objects with a "length" property
+     * are iterated like arrays. To avoid this behavior use `_.forIn` or `_.forOwn`
+     * for object iteration.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @alias each
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Array|Object} Returns `collection`.
-     * @see _.forEachRight
      * @example
      *
      * _([1, 2]).forEach(function(value) {
      *   console.log(value);
      * });
-     * // => Logs `1` then `2`.
+     * // => logs `1` then `2`
      *
      * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+     * // => logs 'a' then 'b' (iteration order is not guaranteed)
      */
     function forEach(collection, iteratee) {
-      var func = isArray(collection) ? arrayEach : baseEach;
-      return func(collection, getIteratee(iteratee, 3));
+      return (typeof iteratee == 'function' && isArray(collection))
+        ? arrayEach(collection, iteratee)
+        : baseEach(collection, baseCastFunction(iteratee));
     }
 
     /**
@@ -9514,39 +8584,35 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @alias eachRight
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Array|Object} Returns `collection`.
-     * @see _.forEach
      * @example
      *
      * _.forEachRight([1, 2], function(value) {
      *   console.log(value);
      * });
-     * // => Logs `2` then `1`.
+     * // => logs `2` then `1`
      */
     function forEachRight(collection, iteratee) {
-      var func = isArray(collection) ? arrayEachRight : baseEachRight;
-      return func(collection, getIteratee(iteratee, 3));
+      return (typeof iteratee == 'function' && isArray(collection))
+        ? arrayEachRight(collection, iteratee)
+        : baseEachRight(collection, baseCastFunction(iteratee));
     }
 
     /**
      * Creates an object composed of keys generated from the results of running
-     * each element of `collection` thru `iteratee`. The order of grouped values
-     * is determined by the order they occur in `collection`. The corresponding
-     * value of each key is an array of elements responsible for generating the
-     * key. The iteratee is invoked with one argument: (value).
+     * each element of `collection` through `iteratee`. The corresponding value
+     * of each key is an array of elements responsible for generating the key.
+     * The iteratee is invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee to transform keys.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee to transform keys.
      * @returns {Object} Returns the composed aggregate object.
      * @example
      *
@@ -9566,20 +8632,18 @@ module.exports = function() {
     });
 
     /**
-     * Checks if `value` is in `collection`. If `collection` is a string, it's
-     * checked for a substring of `value`, otherwise
-     * [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
+     * Checks if `value` is in `collection`. If `collection` is a string it's checked
+     * for a substring of `value`, otherwise [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
      * is used for equality comparisons. If `fromIndex` is negative, it's used as
      * the offset from the end of `collection`.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object|string} collection The collection to search.
      * @param {*} value The value to search for.
      * @param {number} [fromIndex=0] The index to search from.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.reduce`.
      * @returns {boolean} Returns `true` if `value` is found, else `false`.
      * @example
      *
@@ -9611,12 +8675,11 @@ module.exports = function() {
     /**
      * Invokes the method at `path` of each element in `collection`, returning
      * an array of the results of each invoked method. Any additional arguments
-     * are provided to each invoked method. If `methodName` is a function, it's
-     * invoked for and `this` bound to, each element in `collection`.
+     * are provided to each invoked method. If `methodName` is a function it's
+     * invoked for, and `this` bound to, each element in `collection`.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Array|Function|string} path The path of the method to invoke or
@@ -9646,17 +8709,15 @@ module.exports = function() {
 
     /**
      * Creates an object composed of keys generated from the results of running
-     * each element of `collection` thru `iteratee`. The corresponding value of
-     * each key is the last element responsible for generating the key. The
+     * each element of `collection` through `iteratee`. The corresponding value
+     * of each key is the last element responsible for generating the key. The
      * iteratee is invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee to transform keys.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee to transform keys.
      * @returns {Object} Returns the composed aggregate object.
      * @example
      *
@@ -9678,7 +8739,7 @@ module.exports = function() {
     });
 
     /**
-     * Creates an array of values by running each element in `collection` thru
+     * Creates an array of values by running each element in `collection` through
      * `iteratee`. The iteratee is invoked with three arguments:
      * (value, index|key, collection).
      *
@@ -9686,18 +8747,16 @@ module.exports = function() {
      * `_.every`, `_.filter`, `_.map`, `_.mapValues`, `_.reject`, and `_.some`.
      *
      * The guarded methods are:
-     * `ary`, `chunk`, `curry`, `curryRight`, `drop`, `dropRight`, `every`,
-     * `fill`, `invert`, `parseInt`, `random`, `range`, `rangeRight`, `repeat`,
-     * `sampleSize`, `slice`, `some`, `sortBy`, `split`, `take`, `takeRight`,
-     * `template`, `trim`, `trimEnd`, `trimStart`, and `words`
+     * `ary`, `curry`, `curryRight`, `drop`, `dropRight`, `every`, `fill`,
+     * `invert`, `parseInt`, `random`, `range`, `rangeRight`, `slice`, `some`,
+     * `sortBy`, `take`, `takeRight`, `template`, `trim`, `trimEnd`, `trimStart`,
+     * and `words`
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new mapped array.
      * @example
      *
@@ -9733,26 +8792,24 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array[]|Function[]|Object[]|string[]} [iteratees=[_.identity]]
-     *  The iteratees to sort by.
+     * @param {Function[]|Object[]|string[]} [iteratees=[_.identity]] The iteratees to sort by.
      * @param {string[]} [orders] The sort orders of `iteratees`.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.reduce`.
      * @returns {Array} Returns the new sorted array.
      * @example
      *
      * var users = [
      *   { 'user': 'fred',   'age': 48 },
      *   { 'user': 'barney', 'age': 34 },
-     *   { 'user': 'fred',   'age': 40 },
+     *   { 'user': 'fred',   'age': 42 },
      *   { 'user': 'barney', 'age': 36 }
      * ];
      *
      * // Sort by `user` in ascending order and by `age` in descending order.
      * _.orderBy(users, ['user', 'age'], ['asc', 'desc']);
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 42]]
      */
     function orderBy(collection, iteratees, orders, guard) {
       if (collection == null) {
@@ -9776,11 +8833,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the array of grouped elements.
      * @example
      *
@@ -9811,9 +8866,9 @@ module.exports = function() {
 
     /**
      * Reduces `collection` to a value which is the accumulated result of running
-     * each element in `collection` thru `iteratee`, where each successive
+     * each element in `collection` through `iteratee`, where each successive
      * invocation is supplied the return value of the previous. If `accumulator`
-     * is not given, the first element of `collection` is used as the initial
+     * is not given the first element of `collection` is used as the initial
      * value. The iteratee is invoked with four arguments:
      * (accumulator, value, index|key, collection).
      *
@@ -9826,13 +8881,11 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @param {*} [accumulator] The initial value.
      * @returns {*} Returns the accumulated value.
-     * @see _.reduceRight
      * @example
      *
      * _.reduce([1, 2], function(sum, n) {
@@ -9859,13 +8912,11 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @param {*} [accumulator] The initial value.
      * @returns {*} Returns the accumulated value.
-     * @see _.reduce
      * @example
      *
      * var array = [[0, 1], [2, 3], [4, 5]];
@@ -9888,13 +8939,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new filtered array.
-     * @see _.filter
      * @example
      *
      * var users = [
@@ -9930,7 +8978,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to sample.
      * @returns {*} Returns the random element.
@@ -9952,11 +8999,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to sample.
-     * @param {number} [n=1] The number of elements to sample.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param {number} [n=0] The number of elements to sample.
      * @returns {Array} Returns the random elements.
      * @example
      *
@@ -9966,17 +9011,13 @@ module.exports = function() {
      * _.sampleSize([1, 2, 3], 4);
      * // => [2, 3, 1]
      */
-    function sampleSize(collection, n, guard) {
+    function sampleSize(collection, n) {
       var index = -1,
           result = toArray(collection),
           length = result.length,
           lastIndex = length - 1;
 
-      if ((guard ? isIterateeCall(collection, n, guard) : n === undefined)) {
-        n = 1;
-      } else {
-        n = baseClamp(toInteger(n), 0, length);
-      }
+      n = baseClamp(toInteger(n), 0, length);
       while (++index < n) {
         var rand = baseRandom(index, lastIndex),
             value = result[rand];
@@ -9994,7 +9035,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to shuffle.
      * @returns {Array} Returns the new shuffled array.
@@ -10009,11 +9049,10 @@ module.exports = function() {
 
     /**
      * Gets the size of `collection` by returning its length for array-like
-     * values or the number of own enumerable string keyed properties for objects.
+     * values or the number of own enumerable properties for objects.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to inspect.
      * @returns {number} Returns the collection size.
@@ -10036,12 +9075,6 @@ module.exports = function() {
         var result = collection.length;
         return (result && isString(collection)) ? stringSize(collection) : result;
       }
-      if (isObjectLike(collection)) {
-        var tag = getTag(collection);
-        if (tag == mapTag || tag == setTag) {
-          return collection.size;
-        }
-      }
       return keys(collection).length;
     }
 
@@ -10052,14 +9085,11 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {boolean} Returns `true` if any element passes the predicate check,
-     *  else `false`.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
+     * @returns {boolean} Returns `true` if any element passes the predicate check, else `false`.
      * @example
      *
      * _.some([null, 0, 'yes', false], Boolean);
@@ -10092,37 +9122,36 @@ module.exports = function() {
 
     /**
      * Creates an array of elements, sorted in ascending order by the results of
-     * running each element in a collection thru each iteratee. This method
+     * running each element in a collection through each iteratee. This method
      * performs a stable sort, that is, it preserves the original sort order of
      * equal elements. The iteratees are invoked with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {...(Array|Array[]|Function|Function[]|Object|Object[]|string|string[])}
-     *  [iteratees=[_.identity]] The iteratees to sort by.
+     * @param {...(Function|Function[]|Object|Object[]|string|string[])} [iteratees=[_.identity]]
+     *  The iteratees to sort by, specified individually or in arrays.
      * @returns {Array} Returns the new sorted array.
      * @example
      *
      * var users = [
      *   { 'user': 'fred',   'age': 48 },
      *   { 'user': 'barney', 'age': 36 },
-     *   { 'user': 'fred',   'age': 40 },
+     *   { 'user': 'fred',   'age': 42 },
      *   { 'user': 'barney', 'age': 34 }
      * ];
      *
      * _.sortBy(users, function(o) { return o.user; });
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 42]]
      *
      * _.sortBy(users, ['user', 'age']);
-     * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
+     * // => objects for [['barney', 34], ['barney', 36], ['fred', 42], ['fred', 48]]
      *
      * _.sortBy(users, 'user', function(o) {
      *   return Math.floor(o.age / 10);
      * });
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 42]]
      */
     var sortBy = rest(function(collection, iteratees) {
       if (collection == null) {
@@ -10132,13 +9161,9 @@ module.exports = function() {
       if (length > 1 && isIterateeCall(collection, iteratees[0], iteratees[1])) {
         iteratees = [];
       } else if (length > 2 && isIterateeCall(iteratees[0], iteratees[1], iteratees[2])) {
-        iteratees = [iteratees[0]];
+        iteratees.length = 1;
       }
-      iteratees = (iteratees.length == 1 && isArray(iteratees[0]))
-        ? iteratees[0]
-        : baseFlatten(iteratees, 1, isFlattenableIteratee);
-
-      return baseOrderBy(collection, iteratees, []);
+      return baseOrderBy(collection, baseFlatten(iteratees, 1), []);
     });
 
     /*------------------------------------------------------------------------*/
@@ -10149,7 +9174,7 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.4.0
+     * @type {Function}
      * @category Date
      * @returns {number} Returns the timestamp.
      * @example
@@ -10157,11 +9182,9 @@ module.exports = function() {
      * _.defer(function(stamp) {
      *   console.log(_.now() - stamp);
      * }, _.now());
-     * // => Logs the number of milliseconds it took for the deferred invocation.
+     * // => logs the number of milliseconds it took for the deferred function to be invoked
      */
-    function now() {
-      return Date.now();
-    }
+    var now = Date.now;
 
     /*------------------------------------------------------------------------*/
 
@@ -10171,7 +9194,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {number} n The number of calls before `func` is invoked.
      * @param {Function} func The function to restrict.
@@ -10187,7 +9209,7 @@ module.exports = function() {
      * _.forEach(saves, function(type) {
      *   asyncSave({ 'type': type, 'complete': done });
      * });
-     * // => Logs 'done saving!' after the two async saves have completed.
+     * // => logs 'done saving!' after the two async saves have completed
      */
     function after(n, func) {
       if (typeof func != 'function') {
@@ -10202,17 +9224,16 @@ module.exports = function() {
     }
 
     /**
-     * Creates a function that invokes `func`, with up to `n` arguments,
-     * ignoring any additional arguments.
+     * Creates a function that accepts up to `n` arguments, ignoring any
+     * additional arguments.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Function
      * @param {Function} func The function to cap arguments for.
      * @param {number} [n=func.length] The arity cap.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
-     * @returns {Function} Returns the new capped function.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * _.map(['6', '8', '10'], _.ary(parseInt, 1));
@@ -10231,7 +9252,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Function
      * @param {number} n The number of calls at which `func` is no longer invoked.
      * @param {Function} func The function to restrict.
@@ -10260,17 +9280,17 @@ module.exports = function() {
 
     /**
      * Creates a function that invokes `func` with the `this` binding of `thisArg`
-     * and `partials` prepended to the arguments it receives.
+     * and prepends any additional `_.bind` arguments to those provided to the
+     * bound function.
      *
      * The `_.bind.placeholder` value, which defaults to `_` in monolithic builds,
      * may be used as a placeholder for partially applied arguments.
      *
-     * **Note:** Unlike native `Function#bind`, this method doesn't set the "length"
+     * **Note:** Unlike native `Function#bind` this method doesn't set the "length"
      * property of bound functions.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {Function} func The function to bind.
      * @param {*} thisArg The `this` binding of `func`.
@@ -10296,19 +9316,21 @@ module.exports = function() {
     var bind = rest(function(func, thisArg, partials) {
       var bitmask = BIND_FLAG;
       if (partials.length) {
-        var holders = replaceHolders(partials, getHolder(bind));
+        var placeholder = lodash.placeholder || bind.placeholder,
+            holders = replaceHolders(partials, placeholder);
+
         bitmask |= PARTIAL_FLAG;
       }
       return createWrapper(func, bitmask, thisArg, partials, holders);
     });
 
     /**
-     * Creates a function that invokes the method at `object[key]` with `partials`
-     * prepended to the arguments it receives.
+     * Creates a function that invokes the method at `object[key]` and prepends
+     * any additional `_.bindKey` arguments to those provided to the bound function.
      *
      * This method differs from `_.bind` by allowing bound functions to reference
-     * methods that may be redefined or don't yet exist. See
-     * [Peter Michaux's article](http://peter.michaux.ca/articles/lazy-function-definition-pattern)
+     * methods that may be redefined or don't yet exist.
+     * See [Peter Michaux's article](http://peter.michaux.ca/articles/lazy-function-definition-pattern)
      * for more details.
      *
      * The `_.bindKey.placeholder` value, which defaults to `_` in monolithic
@@ -10316,7 +9338,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.10.0
      * @category Function
      * @param {Object} object The object to invoke the method on.
      * @param {string} key The key of the method.
@@ -10350,7 +9371,9 @@ module.exports = function() {
     var bindKey = rest(function(object, key, partials) {
       var bitmask = BIND_FLAG | BIND_KEY_FLAG;
       if (partials.length) {
-        var holders = replaceHolders(partials, getHolder(bindKey));
+        var placeholder = lodash.placeholder || bindKey.placeholder,
+            holders = replaceHolders(partials, placeholder);
+
         bitmask |= PARTIAL_FLAG;
       }
       return createWrapper(key, bitmask, object, partials, holders);
@@ -10370,11 +9393,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Function
      * @param {Function} func The function to curry.
      * @param {number} [arity=func.length] The arity of `func`.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Function} Returns the new curried function.
      * @example
      *
@@ -10400,7 +9422,7 @@ module.exports = function() {
     function curry(func, arity, guard) {
       arity = guard ? undefined : arity;
       var result = createWrapper(func, CURRY_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
-      result.placeholder = curry.placeholder;
+      result.placeholder = lodash.placeholder || curry.placeholder;
       return result;
     }
 
@@ -10415,11 +9437,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Function
      * @param {Function} func The function to curry.
      * @param {number} [arity=func.length] The arity of `func`.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Function} Returns the new curried function.
      * @example
      *
@@ -10445,7 +9466,7 @@ module.exports = function() {
     function curryRight(func, arity, guard) {
       arity = guard ? undefined : arity;
       var result = createWrapper(func, CURRY_RIGHT_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
-      result.placeholder = curryRight.placeholder;
+      result.placeholder = lodash.placeholder || curryRight.placeholder;
       return result;
     }
 
@@ -10463,22 +9484,21 @@ module.exports = function() {
      * on the trailing edge of the timeout only if the debounced function is
      * invoked more than once during the `wait` timeout.
      *
-     * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+     * See [David Corbacho's article](http://drupalmotion.com/article/debounce-and-throttle-visual-explanation)
      * for details over the differences between `_.debounce` and `_.throttle`.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {Function} func The function to debounce.
      * @param {number} [wait=0] The number of milliseconds to delay.
-     * @param {Object} [options={}] The options object.
-     * @param {boolean} [options.leading=false]
-     *  Specify invoking on the leading edge of the timeout.
-     * @param {number} [options.maxWait]
-     *  The maximum time `func` is allowed to be delayed before it's invoked.
-     * @param {boolean} [options.trailing=true]
-     *  Specify invoking on the trailing edge of the timeout.
+     * @param {Object} [options] The options object.
+     * @param {boolean} [options.leading=false] Specify invoking on the leading
+     *  edge of the timeout.
+     * @param {number} [options.maxWait] The maximum time `func` is allowed to be
+     *  delayed before it's invoked.
+     * @param {boolean} [options.trailing=true] Specify invoking on the trailing
+     *  edge of the timeout.
      * @returns {Function} Returns the new debounced function.
      * @example
      *
@@ -10500,15 +9520,16 @@ module.exports = function() {
      * jQuery(window).on('popstate', debounced.cancel);
      */
     function debounce(func, wait, options) {
-      var lastArgs,
-          lastThis,
-          maxWait,
+      var args,
+          maxTimeoutId,
           result,
-          timerId,
-          lastCallTime,
-          lastInvokeTime = 0,
+          stamp,
+          thisArg,
+          timeoutId,
+          trailingCall,
+          lastCalled = 0,
           leading = false,
-          maxing = false,
+          maxWait = false,
           trailing = true;
 
       if (typeof func != 'function') {
@@ -10517,99 +9538,96 @@ module.exports = function() {
       wait = toNumber(wait) || 0;
       if (isObject(options)) {
         leading = !!options.leading;
-        maxing = 'maxWait' in options;
-        maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+        maxWait = 'maxWait' in options && nativeMax(toNumber(options.maxWait) || 0, wait);
         trailing = 'trailing' in options ? !!options.trailing : trailing;
       }
 
-      function invokeFunc(time) {
-        var args = lastArgs,
-            thisArg = lastThis;
-
-        lastArgs = lastThis = undefined;
-        lastInvokeTime = time;
-        result = func.apply(thisArg, args);
-        return result;
-      }
-
-      function leadingEdge(time) {
-        // Reset any `maxWait` timer.
-        lastInvokeTime = time;
-        // Start the timer for the trailing edge.
-        timerId = setTimeout(timerExpired, wait);
-        // Invoke the leading edge.
-        return leading ? invokeFunc(time) : result;
-      }
-
-      function remainingWait(time) {
-        var timeSinceLastCall = time - lastCallTime,
-            timeSinceLastInvoke = time - lastInvokeTime,
-            result = wait - timeSinceLastCall;
-
-        return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
-      }
-
-      function shouldInvoke(time) {
-        var timeSinceLastCall = time - lastCallTime,
-            timeSinceLastInvoke = time - lastInvokeTime;
-
-        // Either this is the first call, activity has stopped and we're at the
-        // trailing edge, the system time has gone backwards and we're treating
-        // it as the trailing edge, or we've hit the `maxWait` limit.
-        return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
-          (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
-      }
-
-      function timerExpired() {
-        var time = now();
-        if (shouldInvoke(time)) {
-          return trailingEdge(time);
-        }
-        // Restart the timer.
-        timerId = setTimeout(timerExpired, remainingWait(time));
-      }
-
-      function trailingEdge(time) {
-        timerId = undefined;
-
-        // Only invoke if we have `lastArgs` which means `func` has been
-        // debounced at least once.
-        if (trailing && lastArgs) {
-          return invokeFunc(time);
-        }
-        lastArgs = lastThis = undefined;
-        return result;
-      }
-
       function cancel() {
-        lastInvokeTime = 0;
-        lastArgs = lastCallTime = lastThis = timerId = undefined;
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+        if (maxTimeoutId) {
+          clearTimeout(maxTimeoutId);
+        }
+        lastCalled = 0;
+        args = maxTimeoutId = thisArg = timeoutId = trailingCall = undefined;
+      }
+
+      function complete(isCalled, id) {
+        if (id) {
+          clearTimeout(id);
+        }
+        maxTimeoutId = timeoutId = trailingCall = undefined;
+        if (isCalled) {
+          lastCalled = now();
+          result = func.apply(thisArg, args);
+          if (!timeoutId && !maxTimeoutId) {
+            args = thisArg = undefined;
+          }
+        }
+      }
+
+      function delayed() {
+        var remaining = wait - (now() - stamp);
+        if (remaining <= 0 || remaining > wait) {
+          complete(trailingCall, maxTimeoutId);
+        } else {
+          timeoutId = setTimeout(delayed, remaining);
+        }
       }
 
       function flush() {
-        return timerId === undefined ? result : trailingEdge(now());
+        if ((timeoutId && trailingCall) || (maxTimeoutId && trailing)) {
+          result = func.apply(thisArg, args);
+        }
+        cancel();
+        return result;
+      }
+
+      function maxDelayed() {
+        complete(trailing, timeoutId);
       }
 
       function debounced() {
-        var time = now(),
-            isInvoking = shouldInvoke(time);
+        args = arguments;
+        stamp = now();
+        thisArg = this;
+        trailingCall = trailing && (timeoutId || !leading);
 
-        lastArgs = arguments;
-        lastThis = this;
-        lastCallTime = time;
-
-        if (isInvoking) {
-          if (timerId === undefined) {
-            return leadingEdge(lastCallTime);
+        if (maxWait === false) {
+          var leadingCall = leading && !timeoutId;
+        } else {
+          if (!lastCalled && !maxTimeoutId && !leading) {
+            lastCalled = stamp;
           }
-          if (maxing) {
-            // Handle invocations in a tight loop.
-            timerId = setTimeout(timerExpired, wait);
-            return invokeFunc(lastCallTime);
+          var remaining = maxWait - (stamp - lastCalled);
+
+          var isCalled = (remaining <= 0 || remaining > maxWait) &&
+            (leading || maxTimeoutId);
+
+          if (isCalled) {
+            if (maxTimeoutId) {
+              maxTimeoutId = clearTimeout(maxTimeoutId);
+            }
+            lastCalled = stamp;
+            result = func.apply(thisArg, args);
+          }
+          else if (!maxTimeoutId) {
+            maxTimeoutId = setTimeout(maxDelayed, remaining);
           }
         }
-        if (timerId === undefined) {
-          timerId = setTimeout(timerExpired, wait);
+        if (isCalled && timeoutId) {
+          timeoutId = clearTimeout(timeoutId);
+        }
+        else if (!timeoutId && wait !== maxWait) {
+          timeoutId = setTimeout(delayed, wait);
+        }
+        if (leadingCall) {
+          isCalled = true;
+          result = func.apply(thisArg, args);
+        }
+        if (isCalled && !timeoutId && !maxTimeoutId) {
+          args = thisArg = undefined;
         }
         return result;
       }
@@ -10624,7 +9642,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {Function} func The function to defer.
      * @param {...*} [args] The arguments to invoke `func` with.
@@ -10634,7 +9651,7 @@ module.exports = function() {
      * _.defer(function(text) {
      *   console.log(text);
      * }, 'deferred');
-     * // => Logs 'deferred' after one or more milliseconds.
+     * // => logs 'deferred' after one or more milliseconds
      */
     var defer = rest(function(func, args) {
       return baseDelay(func, 1, args);
@@ -10646,7 +9663,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {Function} func The function to delay.
      * @param {number} wait The number of milliseconds to delay invocation.
@@ -10657,7 +9673,7 @@ module.exports = function() {
      * _.delay(function(text) {
      *   console.log(text);
      * }, 1000, 'later');
-     * // => Logs 'later' after one second.
+     * // => logs 'later' after one second
      */
     var delay = rest(function(func, wait, args) {
       return baseDelay(func, toNumber(wait) || 0, args);
@@ -10668,10 +9684,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Function
      * @param {Function} func The function to flip arguments for.
-     * @returns {Function} Returns the new flipped function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var flipped = _.flip(function() {
@@ -10687,24 +9702,22 @@ module.exports = function() {
 
     /**
      * Creates a function that memoizes the result of `func`. If `resolver` is
-     * provided, it determines the cache key for storing the result based on the
+     * provided it determines the cache key for storing the result based on the
      * arguments provided to the memoized function. By default, the first argument
      * provided to the memoized function is used as the map cache key. The `func`
      * is invoked with the `this` binding of the memoized function.
      *
      * **Note:** The cache is exposed as the `cache` property on the memoized
      * function. Its creation may be customized by replacing the `_.memoize.Cache`
-     * constructor with one whose instances implement the
-     * [`Map`](http://ecma-international.org/ecma-262/6.0/#sec-properties-of-the-map-prototype-object)
+     * constructor with one whose instances implement the [`Map`](http://ecma-international.org/ecma-262/6.0/#sec-properties-of-the-map-prototype-object)
      * method interface of `delete`, `get`, `has`, and `set`.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {Function} func The function to have its output memoized.
      * @param {Function} [resolver] The function to resolve the cache key.
-     * @returns {Function} Returns the new memoized function.
+     * @returns {Function} Returns the new memoizing function.
      * @example
      *
      * var object = { 'a': 1, 'b': 2 };
@@ -10745,12 +9758,9 @@ module.exports = function() {
         memoized.cache = cache.set(key, result);
         return result;
       };
-      memoized.cache = new (memoize.Cache || MapCache);
+      memoized.cache = new memoize.Cache;
       return memoized;
     }
-
-    // Assign cache to `_.memoize`.
-    memoize.Cache = MapCache;
 
     /**
      * Creates a function that negates the result of the predicate `func`. The
@@ -10759,10 +9769,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Function
      * @param {Function} predicate The predicate to negate.
-     * @returns {Function} Returns the new negated function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * function isEven(n) {
@@ -10788,7 +9797,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {Function} func The function to restrict.
      * @returns {Function} Returns the new restricted function.
@@ -10808,12 +9816,11 @@ module.exports = function() {
      * corresponding `transforms`.
      *
      * @static
-     * @since 4.0.0
      * @memberOf _
      * @category Function
      * @param {Function} func The function to wrap.
-     * @param {...(Array|Array[]|Function|Function[]|Object|Object[]|string|string[])}
-     *  [transforms[_.identity]] The functions to transform.
+     * @param {...(Function|Function[])} [transforms] The functions to transform
+     * arguments, specified individually or in arrays.
      * @returns {Function} Returns the new function.
      * @example
      *
@@ -10827,7 +9834,7 @@ module.exports = function() {
      *
      * var func = _.overArgs(function(x, y) {
      *   return [x, y];
-     * }, [square, doubled]);
+     * }, square, doubled);
      *
      * func(9, 3);
      * // => [81, 6]
@@ -10836,9 +9843,7 @@ module.exports = function() {
      * // => [100, 10]
      */
     var overArgs = rest(function(func, transforms) {
-      transforms = (transforms.length == 1 && isArray(transforms[0]))
-        ? arrayMap(transforms[0], baseUnary(getIteratee()))
-        : arrayMap(baseFlatten(transforms, 1, isFlattenableIteratee), baseUnary(getIteratee()));
+      transforms = arrayMap(baseFlatten(transforms, 1), getIteratee());
 
       var funcsLength = transforms.length;
       return rest(function(args) {
@@ -10853,9 +9858,9 @@ module.exports = function() {
     });
 
     /**
-     * Creates a function that invokes `func` with `partials` prepended to the
-     * arguments it receives. This method is like `_.bind` except it does **not**
-     * alter the `this` binding.
+     * Creates a function that invokes `func` with `partial` arguments prepended
+     * to those provided to the new function. This method is like `_.bind` except
+     * it does **not** alter the `this` binding.
      *
      * The `_.partial.placeholder` value, which defaults to `_` in monolithic
      * builds, may be used as a placeholder for partially applied arguments.
@@ -10865,7 +9870,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.2.0
      * @category Function
      * @param {Function} func The function to partially apply arguments to.
      * @param {...*} [partials] The arguments to be partially applied.
@@ -10886,13 +9890,15 @@ module.exports = function() {
      * // => 'hi fred'
      */
     var partial = rest(function(func, partials) {
-      var holders = replaceHolders(partials, getHolder(partial));
+      var placeholder = lodash.placeholder || partial.placeholder,
+          holders = replaceHolders(partials, placeholder);
+
       return createWrapper(func, PARTIAL_FLAG, undefined, partials, holders);
     });
 
     /**
      * This method is like `_.partial` except that partially applied arguments
-     * are appended to the arguments it receives.
+     * are appended to those provided to the new function.
      *
      * The `_.partialRight.placeholder` value, which defaults to `_` in monolithic
      * builds, may be used as a placeholder for partially applied arguments.
@@ -10902,7 +9908,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 1.0.0
      * @category Function
      * @param {Function} func The function to partially apply arguments to.
      * @param {...*} [partials] The arguments to be partially applied.
@@ -10923,28 +9928,30 @@ module.exports = function() {
      * // => 'hello fred'
      */
     var partialRight = rest(function(func, partials) {
-      var holders = replaceHolders(partials, getHolder(partialRight));
+      var placeholder = lodash.placeholder || partialRight.placeholder,
+          holders = replaceHolders(partials, placeholder);
+
       return createWrapper(func, PARTIAL_RIGHT_FLAG, undefined, partials, holders);
     });
 
     /**
      * Creates a function that invokes `func` with arguments arranged according
-     * to the specified `indexes` where the argument value at the first index is
+     * to the specified indexes where the argument value at the first index is
      * provided as the first argument, the argument value at the second index is
      * provided as the second argument, and so on.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Function
      * @param {Function} func The function to rearrange arguments for.
-     * @param {...(number|number[])} indexes The arranged argument indexes.
+     * @param {...(number|number[])} indexes The arranged argument indexes,
+     *  specified individually or in arrays.
      * @returns {Function} Returns the new function.
      * @example
      *
      * var rearged = _.rearg(function(a, b, c) {
      *   return [a, b, c];
-     * }, [2, 0, 1]);
+     * }, 2, 0, 1);
      *
      * rearged('b', 'c', 'a')
      * // => ['a', 'b', 'c']
@@ -10955,15 +9962,12 @@ module.exports = function() {
 
     /**
      * Creates a function that invokes `func` with the `this` binding of the
-     * created function and arguments from `start` and beyond provided as
-     * an array.
+     * created function and arguments from `start` and beyond provided as an array.
      *
-     * **Note:** This method is based on the
-     * [rest parameter](https://mdn.io/rest_parameters).
+     * **Note:** This method is based on the [rest parameter](https://mdn.io/rest_parameters).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Function
      * @param {Function} func The function to apply a rest parameter to.
      * @param {number} [start=func.length-1] The start position of the rest parameter.
@@ -11008,16 +10012,13 @@ module.exports = function() {
     }
 
     /**
-     * Creates a function that invokes `func` with the `this` binding of the
-     * create function and an array of arguments much like
-     * [`Function#apply`](http://www.ecma-international.org/ecma-262/6.0/#sec-function.prototype.apply).
+     * Creates a function that invokes `func` with the `this` binding of the created
+     * function and an array of arguments much like [`Function#apply`](https://es5.github.io/#x15.3.4.3).
      *
-     * **Note:** This method is based on the
-     * [spread operator](https://mdn.io/spread_operator).
+     * **Note:** This method is based on the [spread operator](https://mdn.io/spread_operator).
      *
      * @static
      * @memberOf _
-     * @since 3.2.0
      * @category Function
      * @param {Function} func The function to spread arguments over.
      * @param {number} [start=0] The start position of the spread.
@@ -11048,7 +10049,7 @@ module.exports = function() {
       start = start === undefined ? 0 : nativeMax(toInteger(start), 0);
       return rest(function(args) {
         var array = args[start],
-            otherArgs = castSlice(args, 0, start);
+            otherArgs = args.slice(0, start);
 
         if (array) {
           arrayPush(otherArgs, array);
@@ -11067,24 +10068,23 @@ module.exports = function() {
      * throttled function. Subsequent calls to the throttled function return the
      * result of the last `func` invocation.
      *
-     * **Note:** If `leading` and `trailing` options are `true`, `func` is
-     * invoked on the trailing edge of the timeout only if the throttled function
-     * is invoked more than once during the `wait` timeout.
+     * **Note:** If `leading` and `trailing` options are `true`, `func` is invoked
+     * on the trailing edge of the timeout only if the throttled function is
+     * invoked more than once during the `wait` timeout.
      *
-     * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+     * See [David Corbacho's article](http://drupalmotion.com/article/debounce-and-throttle-visual-explanation)
      * for details over the differences between `_.throttle` and `_.debounce`.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {Function} func The function to throttle.
      * @param {number} [wait=0] The number of milliseconds to throttle invocations to.
-     * @param {Object} [options={}] The options object.
-     * @param {boolean} [options.leading=true]
-     *  Specify invoking on the leading edge of the timeout.
-     * @param {boolean} [options.trailing=true]
-     *  Specify invoking on the trailing edge of the timeout.
+     * @param {Object} [options] The options object.
+     * @param {boolean} [options.leading=true] Specify invoking on the leading
+     *  edge of the timeout.
+     * @param {boolean} [options.trailing=true] Specify invoking on the trailing
+     *  edge of the timeout.
      * @returns {Function} Returns the new throttled function.
      * @example
      *
@@ -11122,10 +10122,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Function
      * @param {Function} func The function to cap arguments for.
-     * @returns {Function} Returns the new capped function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * _.map(['6', '8', '10'], _.unary(parseInt));
@@ -11143,7 +10142,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Function
      * @param {*} value The value to wrap.
      * @param {Function} [wrapper=identity] The wrapper function.
@@ -11169,7 +10167,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.4.0
      * @category Lang
      * @param {*} value The value to inspect.
      * @returns {Array} Returns the cast array.
@@ -11218,11 +10215,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to clone.
      * @returns {*} Returns the cloned value.
-     * @see _.cloneDeep
      * @example
      *
      * var objects = [{ 'a': 1 }, { 'b': 2 }];
@@ -11232,23 +10227,21 @@ module.exports = function() {
      * // => true
      */
     function clone(value) {
-      return baseClone(value, false, true);
+      return baseClone(value);
     }
 
     /**
      * This method is like `_.clone` except that it accepts `customizer` which
-     * is invoked to produce the cloned value. If `customizer` returns `undefined`,
+     * is invoked to produce the cloned value. If `customizer` returns `undefined`
      * cloning is handled by the method instead. The `customizer` is invoked with
      * up to four arguments; (value [, index|key, object, stack]).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to clone.
      * @param {Function} [customizer] The function to customize cloning.
      * @returns {*} Returns the cloned value.
-     * @see _.cloneDeepWith
      * @example
      *
      * function customizer(value) {
@@ -11267,7 +10260,7 @@ module.exports = function() {
      * // => 0
      */
     function cloneWith(value, customizer) {
-      return baseClone(value, false, true, customizer);
+      return baseClone(value, false, customizer);
     }
 
     /**
@@ -11275,11 +10268,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 1.0.0
      * @category Lang
      * @param {*} value The value to recursively clone.
      * @returns {*} Returns the deep cloned value.
-     * @see _.clone
      * @example
      *
      * var objects = [{ 'a': 1 }, { 'b': 2 }];
@@ -11289,7 +10280,7 @@ module.exports = function() {
      * // => false
      */
     function cloneDeep(value) {
-      return baseClone(value, true, true);
+      return baseClone(value, true);
     }
 
     /**
@@ -11297,12 +10288,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to recursively clone.
      * @param {Function} [customizer] The function to customize cloning.
      * @returns {*} Returns the deep cloned value.
-     * @see _.cloneWith
      * @example
      *
      * function customizer(value) {
@@ -11321,17 +10310,15 @@ module.exports = function() {
      * // => 20
      */
     function cloneDeepWith(value, customizer) {
-      return baseClone(value, true, true, customizer);
+      return baseClone(value, true, customizer);
     }
 
     /**
-     * Performs a
-     * [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
+     * Performs a [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
      * comparison between two values to determine if they are equivalent.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
@@ -11365,13 +10352,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.9.0
      * @category Lang
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
-     * @returns {boolean} Returns `true` if `value` is greater than `other`,
-     *  else `false`.
-     * @see _.lt
+     * @returns {boolean} Returns `true` if `value` is greater than `other`, else `false`.
      * @example
      *
      * _.gt(3, 1);
@@ -11383,20 +10367,19 @@ module.exports = function() {
      * _.gt(1, 3);
      * // => false
      */
-    var gt = createRelationalOperation(baseGt);
+    function gt(value, other) {
+      return value > other;
+    }
 
     /**
      * Checks if `value` is greater than or equal to `other`.
      *
      * @static
      * @memberOf _
-     * @since 3.9.0
      * @category Lang
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
-     * @returns {boolean} Returns `true` if `value` is greater than or equal to
-     *  `other`, else `false`.
-     * @see _.lte
+     * @returns {boolean} Returns `true` if `value` is greater than or equal to `other`, else `false`.
      * @example
      *
      * _.gte(3, 1);
@@ -11408,20 +10391,18 @@ module.exports = function() {
      * _.gte(1, 3);
      * // => false
      */
-    var gte = createRelationalOperation(function(value, other) {
+    function gte(value, other) {
       return value >= other;
-    });
+    }
 
     /**
      * Checks if `value` is likely an `arguments` object.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isArguments(function() { return arguments; }());
@@ -11441,12 +10422,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @type {Function}
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isArray([1, 2, 3]);
@@ -11468,11 +10447,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.3.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isArrayBuffer(new ArrayBuffer(2));
@@ -11492,7 +10469,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
@@ -11511,7 +10487,8 @@ module.exports = function() {
      * // => false
      */
     function isArrayLike(value) {
-      return value != null && isLength(getLength(value)) && !isFunction(value);
+      return value != null &&
+        !(typeof value == 'function' && isFunction(value)) && isLength(getLength(value));
     }
 
     /**
@@ -11520,11 +10497,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is an array-like object,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is an array-like object, else `false`.
      * @example
      *
      * _.isArrayLikeObject([1, 2, 3]);
@@ -11548,11 +10523,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isBoolean(false);
@@ -11571,7 +10544,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.3.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
@@ -11583,7 +10555,7 @@ module.exports = function() {
      * _.isBuffer(new Uint8Array(2));
      * // => false
      */
-    var isBuffer = !Buffer ? stubFalse : function(value) {
+    var isBuffer = !Buffer ? constant(false) : function(value) {
       return value instanceof Buffer;
     };
 
@@ -11592,11 +10564,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isDate(new Date);
@@ -11614,11 +10584,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a DOM element,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is a DOM element, else `false`.
      * @example
      *
      * _.isElement(document.body);
@@ -11632,20 +10600,14 @@ module.exports = function() {
     }
 
     /**
-     * Checks if `value` is an empty object, collection, map, or set.
-     *
-     * Objects are considered empty if they have no own enumerable string keyed
-     * properties.
-     *
-     * Array-like values such as `arguments` objects, arrays, buffers, strings, or
-     * jQuery-like collections are considered empty if they have a `length` of `0`.
-     * Similarly, maps and sets are considered empty if they have a `size` of `0`.
+     * Checks if `value` is empty. A value is considered empty unless it's an
+     * `arguments` object, array, string, or jQuery-like collection with a length
+     * greater than `0` or an object with own enumerable properties.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
-     * @param {*} value The value to check.
+     * @param {Array|Object|string} value The value to inspect.
      * @returns {boolean} Returns `true` if `value` is empty, else `false`.
      * @example
      *
@@ -11666,22 +10628,16 @@ module.exports = function() {
      */
     function isEmpty(value) {
       if (isArrayLike(value) &&
-          (isArray(value) || isString(value) || isFunction(value.splice) ||
-            isArguments(value) || isBuffer(value))) {
+          (isArray(value) || isString(value) ||
+            isFunction(value.splice) || isArguments(value))) {
         return !value.length;
-      }
-      if (isObjectLike(value)) {
-        var tag = getTag(value);
-        if (tag == mapTag || tag == setTag) {
-          return !value.size;
-        }
       }
       for (var key in value) {
         if (hasOwnProperty.call(value, key)) {
           return false;
         }
       }
-      return !(nonEnumShadows && keys(value).length);
+      return true;
     }
 
     /**
@@ -11696,12 +10652,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
-     * @returns {boolean} Returns `true` if the values are equivalent,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
      * @example
      *
      * var object = { 'user': 'fred' };
@@ -11719,19 +10673,17 @@ module.exports = function() {
 
     /**
      * This method is like `_.isEqual` except that it accepts `customizer` which
-     * is invoked to compare values. If `customizer` returns `undefined`, comparisons
+     * is invoked to compare values. If `customizer` returns `undefined` comparisons
      * are handled by the method instead. The `customizer` is invoked with up to
      * six arguments: (objValue, othValue [, index|key, object, other, stack]).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
      * @param {Function} [customizer] The function to customize comparisons.
-     * @returns {boolean} Returns `true` if the values are equivalent,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
      * @example
      *
      * function isGreeting(value) {
@@ -11762,11 +10714,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is an error object,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is an error object, else `false`.
      * @example
      *
      * _.isError(new Error);
@@ -11779,35 +10729,33 @@ module.exports = function() {
       if (!isObjectLike(value)) {
         return false;
       }
+      var Ctor = value.constructor;
       return (objectToString.call(value) == errorTag) ||
-        (typeof value.message == 'string' && typeof value.name == 'string');
+        (typeof Ctor == 'function' && objectToString.call(Ctor.prototype) == errorTag);
     }
 
     /**
      * Checks if `value` is a finite primitive number.
      *
-     * **Note:** This method is based on
-     * [`Number.isFinite`](https://mdn.io/Number/isFinite).
+     * **Note:** This method is based on [`Number.isFinite`](https://mdn.io/Number/isFinite).
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a finite number,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is a finite number, else `false`.
      * @example
      *
      * _.isFinite(3);
      * // => true
      *
-     * _.isFinite(Number.MIN_VALUE);
+     * _.isFinite(Number.MAX_VALUE);
+     * // => true
+     *
+     * _.isFinite(3.14);
      * // => true
      *
      * _.isFinite(Infinity);
-     * // => false
-     *
-     * _.isFinite('3');
      * // => false
      */
     function isFinite(value) {
@@ -11819,11 +10767,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isFunction(_);
@@ -11834,8 +10780,8 @@ module.exports = function() {
      */
     function isFunction(value) {
       // The use of `Object#toString` avoids issues with the `typeof` operator
-      // in Safari 8 which returns 'object' for typed array and weak map constructors,
-      // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
+      // in Safari 8 which returns 'object' for typed array constructors, and
+      // PhantomJS 1.9 which returns 'function' for `NodeList` instances.
       var tag = isObject(value) ? objectToString.call(value) : '';
       return tag == funcTag || tag == genTag;
     }
@@ -11843,12 +10789,10 @@ module.exports = function() {
     /**
      * Checks if `value` is an integer.
      *
-     * **Note:** This method is based on
-     * [`Number.isInteger`](https://mdn.io/Number/isInteger).
+     * **Note:** This method is based on [`Number.isInteger`](https://mdn.io/Number/isInteger).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is an integer, else `false`.
@@ -11873,16 +10817,13 @@ module.exports = function() {
     /**
      * Checks if `value` is a valid array-like length.
      *
-     * **Note:** This function is loosely based on
-     * [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
+     * **Note:** This function is loosely based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a valid length,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
      * @example
      *
      * _.isLength(3);
@@ -11903,13 +10844,11 @@ module.exports = function() {
     }
 
     /**
-     * Checks if `value` is the
-     * [language type](http://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-language-types)
-     * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+     * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+     * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is an object, else `false`.
@@ -11938,7 +10877,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
@@ -11965,11 +10903,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.3.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isMap(new Map);
@@ -11991,7 +10927,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Lang
      * @param {Object} object The object to inspect.
      * @param {Object} source The object of property values to match.
@@ -12012,13 +10947,12 @@ module.exports = function() {
 
     /**
      * This method is like `_.isMatch` except that it accepts `customizer` which
-     * is invoked to compare values. If `customizer` returns `undefined`, comparisons
+     * is invoked to compare values. If `customizer` returns `undefined` comparisons
      * are handled by the method instead. The `customizer` is invoked with five
      * arguments: (objValue, srcValue, index|key, object, source).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {Object} object The object to inspect.
      * @param {Object} source The object of property values to match.
@@ -12050,14 +10984,11 @@ module.exports = function() {
     /**
      * Checks if `value` is `NaN`.
      *
-     * **Note:** This method is based on
-     * [`Number.isNaN`](https://mdn.io/Number/isNaN) and is not the same as
-     * global [`isNaN`](https://mdn.io/isNaN) which returns `true` for
-     * `undefined` and other non-number values.
+     * **Note:** This method is not the same as [`isNaN`](https://es5.github.io/#x15.1.2.4)
+     * which returns `true` for `undefined` and other non-numeric values.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is `NaN`, else `false`.
@@ -12077,29 +11008,18 @@ module.exports = function() {
      */
     function isNaN(value) {
       // An `NaN` primitive is the only value that is not equal to itself.
-      // Perform the `toStringTag` check first to avoid errors with some
-      // ActiveX objects in IE.
+      // Perform the `toStringTag` check first to avoid errors with some ActiveX objects in IE.
       return isNumber(value) && value != +value;
     }
 
     /**
-     * Checks if `value` is a pristine native function.
-     *
-     * **Note:** This method can't reliably detect native functions in the
-     * presence of the `core-js` package because `core-js` circumvents this kind
-     * of detection. Despite multiple requests, the `core-js` maintainer has made
-     * it clear: any attempt to fix the detection will be obstructed. As a result,
-     * we're left with little choice but to throw an error. Unfortunately, this
-     * also affects packages, like [babel-polyfill](https://www.npmjs.com/package/babel-polyfill),
-     * which rely on `core-js`.
+     * Checks if `value` is a native function.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a native function,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is a native function, else `false`.
      * @example
      *
      * _.isNative(Array.prototype.push);
@@ -12109,10 +11029,14 @@ module.exports = function() {
      * // => false
      */
     function isNative(value) {
-      if (isMaskable(value)) {
-        throw new Error('This method is not supported with `core-js`. Try https://github.com/es-shims.');
+      if (value == null) {
+        return false;
       }
-      return baseIsNative(value);
+      if (isFunction(value)) {
+        return reIsNative.test(funcToString.call(value));
+      }
+      return isObjectLike(value) &&
+        (isHostObject(value) ? reIsNative : reIsHostCtor).test(value);
     }
 
     /**
@@ -12120,7 +11044,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is `null`, else `false`.
@@ -12141,7 +11064,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
      * @returns {boolean} Returns `true` if `value` is nullish, else `false`.
@@ -12163,16 +11085,14 @@ module.exports = function() {
     /**
      * Checks if `value` is classified as a `Number` primitive or object.
      *
-     * **Note:** To exclude `Infinity`, `-Infinity`, and `NaN`, which are
-     * classified as numbers, use the `_.isFinite` method.
+     * **Note:** To exclude `Infinity`, `-Infinity`, and `NaN`, which are classified
+     * as numbers, use the `_.isFinite` method.
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isNumber(3);
@@ -12198,11 +11118,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.8.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a plain object,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
      * @example
      *
      * function Foo() {
@@ -12226,11 +11144,14 @@ module.exports = function() {
           objectToString.call(value) != objectTag || isHostObject(value)) {
         return false;
       }
-      var proto = getPrototype(value);
+      var proto = objectProto;
+      if (typeof value.constructor == 'function') {
+        proto = getPrototypeOf(value);
+      }
       if (proto === null) {
         return true;
       }
-      var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+      var Ctor = proto.constructor;
       return (typeof Ctor == 'function' &&
         Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString);
     }
@@ -12240,11 +11161,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.1.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isRegExp(/abc/);
@@ -12261,16 +11180,13 @@ module.exports = function() {
      * Checks if `value` is a safe integer. An integer is safe if it's an IEEE-754
      * double precision number which isn't the result of a rounded unsafe integer.
      *
-     * **Note:** This method is based on
-     * [`Number.isSafeInteger`](https://mdn.io/Number/isSafeInteger).
+     * **Note:** This method is based on [`Number.isSafeInteger`](https://mdn.io/Number/isSafeInteger).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is a safe integer,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is a safe integer, else `false`.
      * @example
      *
      * _.isSafeInteger(3);
@@ -12294,11 +11210,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.3.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isSet(new Set);
@@ -12315,12 +11229,10 @@ module.exports = function() {
      * Checks if `value` is classified as a `String` primitive or object.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isString('abc');
@@ -12339,11 +11251,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isSymbol(Symbol.iterator);
@@ -12362,11 +11272,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isTypedArray(new Uint8Array);
@@ -12384,7 +11292,6 @@ module.exports = function() {
      * Checks if `value` is `undefined`.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Lang
      * @param {*} value The value to check.
@@ -12406,11 +11313,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.3.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isWeakMap(new WeakMap);
@@ -12428,11 +11333,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.3.0
      * @category Lang
      * @param {*} value The value to check.
-     * @returns {boolean} Returns `true` if `value` is correctly classified,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
      * @example
      *
      * _.isWeakSet(new WeakSet);
@@ -12450,13 +11353,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.9.0
      * @category Lang
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
-     * @returns {boolean} Returns `true` if `value` is less than `other`,
-     *  else `false`.
-     * @see _.gt
+     * @returns {boolean} Returns `true` if `value` is less than `other`, else `false`.
      * @example
      *
      * _.lt(1, 3);
@@ -12468,20 +11368,19 @@ module.exports = function() {
      * _.lt(3, 1);
      * // => false
      */
-    var lt = createRelationalOperation(baseLt);
+    function lt(value, other) {
+      return value < other;
+    }
 
     /**
      * Checks if `value` is less than or equal to `other`.
      *
      * @static
      * @memberOf _
-     * @since 3.9.0
      * @category Lang
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
-     * @returns {boolean} Returns `true` if `value` is less than or equal to
-     *  `other`, else `false`.
-     * @see _.gte
+     * @returns {boolean} Returns `true` if `value` is less than or equal to `other`, else `false`.
      * @example
      *
      * _.lte(1, 3);
@@ -12493,15 +11392,14 @@ module.exports = function() {
      * _.lte(3, 1);
      * // => false
      */
-    var lte = createRelationalOperation(function(value, other) {
+    function lte(value, other) {
       return value <= other;
-    });
+    }
 
     /**
      * Converts `value` to an array.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Lang
      * @param {*} value The value to convert.
@@ -12537,55 +11435,18 @@ module.exports = function() {
     }
 
     /**
-     * Converts `value` to a finite number.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.12.0
-     * @category Lang
-     * @param {*} value The value to convert.
-     * @returns {number} Returns the converted number.
-     * @example
-     *
-     * _.toFinite(3.2);
-     * // => 3.2
-     *
-     * _.toFinite(Number.MIN_VALUE);
-     * // => 5e-324
-     *
-     * _.toFinite(Infinity);
-     * // => 1.7976931348623157e+308
-     *
-     * _.toFinite('3.2');
-     * // => 3.2
-     */
-    function toFinite(value) {
-      if (!value) {
-        return value === 0 ? value : 0;
-      }
-      value = toNumber(value);
-      if (value === INFINITY || value === -INFINITY) {
-        var sign = (value < 0 ? -1 : 1);
-        return sign * MAX_INTEGER;
-      }
-      return value === value ? value : 0;
-    }
-
-    /**
      * Converts `value` to an integer.
      *
-     * **Note:** This method is loosely based on
-     * [`ToInteger`](http://www.ecma-international.org/ecma-262/6.0/#sec-tointeger).
+     * **Note:** This function is loosely based on [`ToInteger`](http://www.ecma-international.org/ecma-262/6.0/#sec-tointeger).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to convert.
      * @returns {number} Returns the converted integer.
      * @example
      *
-     * _.toInteger(3.2);
+     * _.toInteger(3);
      * // => 3
      *
      * _.toInteger(Number.MIN_VALUE);
@@ -12594,32 +11455,36 @@ module.exports = function() {
      * _.toInteger(Infinity);
      * // => 1.7976931348623157e+308
      *
-     * _.toInteger('3.2');
+     * _.toInteger('3');
      * // => 3
      */
     function toInteger(value) {
-      var result = toFinite(value),
-          remainder = result % 1;
-
-      return result === result ? (remainder ? result - remainder : result) : 0;
+      if (!value) {
+        return value === 0 ? value : 0;
+      }
+      value = toNumber(value);
+      if (value === INFINITY || value === -INFINITY) {
+        var sign = (value < 0 ? -1 : 1);
+        return sign * MAX_INTEGER;
+      }
+      var remainder = value % 1;
+      return value === value ? (remainder ? value - remainder : value) : 0;
     }
 
     /**
      * Converts `value` to an integer suitable for use as the length of an
      * array-like object.
      *
-     * **Note:** This method is based on
-     * [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
+     * **Note:** This method is based on [`ToLength`](http://ecma-international.org/ecma-262/6.0/#sec-tolength).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to convert.
      * @returns {number} Returns the converted integer.
      * @example
      *
-     * _.toLength(3.2);
+     * _.toLength(3);
      * // => 3
      *
      * _.toLength(Number.MIN_VALUE);
@@ -12628,7 +11493,7 @@ module.exports = function() {
      * _.toLength(Infinity);
      * // => 4294967295
      *
-     * _.toLength('3.2');
+     * _.toLength('3');
      * // => 3
      */
     function toLength(value) {
@@ -12640,14 +11505,13 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to process.
      * @returns {number} Returns the number.
      * @example
      *
-     * _.toNumber(3.2);
-     * // => 3.2
+     * _.toNumber(3);
+     * // => 3
      *
      * _.toNumber(Number.MIN_VALUE);
      * // => 5e-324
@@ -12655,16 +11519,10 @@ module.exports = function() {
      * _.toNumber(Infinity);
      * // => Infinity
      *
-     * _.toNumber('3.2');
-     * // => 3.2
+     * _.toNumber('3');
+     * // => 3
      */
     function toNumber(value) {
-      if (typeof value == 'number') {
-        return value;
-      }
-      if (isSymbol(value)) {
-        return NAN;
-      }
       if (isObject(value)) {
         var other = isFunction(value.valueOf) ? value.valueOf() : value;
         value = isObject(other) ? (other + '') : other;
@@ -12680,12 +11538,11 @@ module.exports = function() {
     }
 
     /**
-     * Converts `value` to a plain object flattening inherited enumerable string
-     * keyed properties of `value` to own properties of the plain object.
+     * Converts `value` to a plain object flattening inherited enumerable
+     * properties of `value` to own properties of the plain object.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Lang
      * @param {*} value The value to convert.
      * @returns {Object} Returns the converted plain object.
@@ -12713,13 +11570,12 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to convert.
      * @returns {number} Returns the converted integer.
      * @example
      *
-     * _.toSafeInteger(3.2);
+     * _.toSafeInteger(3);
      * // => 3
      *
      * _.toSafeInteger(Number.MIN_VALUE);
@@ -12728,7 +11584,7 @@ module.exports = function() {
      * _.toSafeInteger(Infinity);
      * // => 9007199254740991
      *
-     * _.toSafeInteger('3.2');
+     * _.toSafeInteger('3');
      * // => 3
      */
     function toSafeInteger(value) {
@@ -12736,12 +11592,11 @@ module.exports = function() {
     }
 
     /**
-     * Converts `value` to a string. An empty string is returned for `null`
-     * and `undefined` values. The sign of `-0` is preserved.
+     * Converts `value` to a string if it's not one. An empty string is returned
+     * for `null` and `undefined` values. The sign of `-0` is preserved.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Lang
      * @param {*} value The value to process.
      * @returns {string} Returns the string.
@@ -12757,27 +11612,36 @@ module.exports = function() {
      * // => '1,2,3'
      */
     function toString(value) {
-      return value == null ? '' : baseToString(value);
+      // Exit early for strings to avoid a performance hit in some environments.
+      if (typeof value == 'string') {
+        return value;
+      }
+      if (value == null) {
+        return '';
+      }
+      if (isSymbol(value)) {
+        return Symbol ? symbolToString.call(value) : '';
+      }
+      var result = (value + '');
+      return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
     }
 
     /*------------------------------------------------------------------------*/
 
     /**
-     * Assigns own enumerable string keyed properties of source objects to the
-     * destination object. Source objects are applied from left to right.
-     * Subsequent sources overwrite property assignments of previous sources.
+     * Assigns own enumerable properties of source objects to the destination
+     * object. Source objects are applied from left to right. Subsequent sources
+     * overwrite property assignments of previous sources.
      *
      * **Note:** This method mutates `object` and is loosely based on
      * [`Object.assign`](https://mdn.io/Object/assign).
      *
      * @static
      * @memberOf _
-     * @since 0.10.0
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
-     * @see _.assignIn
      * @example
      *
      * function Foo() {
@@ -12795,15 +11659,7 @@ module.exports = function() {
      * // => { 'a': 1, 'c': 3, 'e': 5 }
      */
     var assign = createAssigner(function(object, source) {
-      if (nonEnumShadows || isPrototype(source) || isArrayLike(source)) {
-        copyObject(source, keys(source), object);
-        return;
-      }
-      for (var key in source) {
-        if (hasOwnProperty.call(source, key)) {
-          assignValue(object, key, source[key]);
-        }
-      }
+      copyObject(source, keys(source), object);
     });
 
     /**
@@ -12814,13 +11670,11 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @alias extend
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
-     * @see _.assign
      * @example
      *
      * function Foo() {
@@ -12838,33 +11692,25 @@ module.exports = function() {
      * // => { 'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5 }
      */
     var assignIn = createAssigner(function(object, source) {
-      if (nonEnumShadows || isPrototype(source) || isArrayLike(source)) {
-        copyObject(source, keysIn(source), object);
-        return;
-      }
-      for (var key in source) {
-        assignValue(object, key, source[key]);
-      }
+      copyObject(source, keysIn(source), object);
     });
 
     /**
-     * This method is like `_.assignIn` except that it accepts `customizer`
-     * which is invoked to produce the assigned values. If `customizer` returns
-     * `undefined`, assignment is handled by the method instead. The `customizer`
-     * is invoked with five arguments: (objValue, srcValue, key, object, source).
+     * This method is like `_.assignIn` except that it accepts `customizer` which
+     * is invoked to produce the assigned values. If `customizer` returns `undefined`
+     * assignment is handled by the method instead. The `customizer` is invoked
+     * with five arguments: (objValue, srcValue, key, object, source).
      *
      * **Note:** This method mutates `object`.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @alias extendWith
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} sources The source objects.
      * @param {Function} [customizer] The function to customize assigned values.
      * @returns {Object} Returns `object`.
-     * @see _.assignWith
      * @example
      *
      * function customizer(objValue, srcValue) {
@@ -12877,26 +11723,24 @@ module.exports = function() {
      * // => { 'a': 1, 'b': 2 }
      */
     var assignInWith = createAssigner(function(object, source, srcIndex, customizer) {
-      copyObject(source, keysIn(source), object, customizer);
+      copyObjectWith(source, keysIn(source), object, customizer);
     });
 
     /**
-     * This method is like `_.assign` except that it accepts `customizer`
-     * which is invoked to produce the assigned values. If `customizer` returns
-     * `undefined`, assignment is handled by the method instead. The `customizer`
-     * is invoked with five arguments: (objValue, srcValue, key, object, source).
+     * This method is like `_.assign` except that it accepts `customizer` which
+     * is invoked to produce the assigned values. If `customizer` returns `undefined`
+     * assignment is handled by the method instead. The `customizer` is invoked
+     * with five arguments: (objValue, srcValue, key, object, source).
      *
      * **Note:** This method mutates `object`.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} sources The source objects.
      * @param {Function} [customizer] The function to customize assigned values.
      * @returns {Object} Returns `object`.
-     * @see _.assignInWith
      * @example
      *
      * function customizer(objValue, srcValue) {
@@ -12909,7 +11753,7 @@ module.exports = function() {
      * // => { 'a': 1, 'b': 2 }
      */
     var assignWith = createAssigner(function(object, source, srcIndex, customizer) {
-      copyObject(source, keys(source), object, customizer);
+      copyObjectWith(source, keys(source), object, customizer);
     });
 
     /**
@@ -12917,30 +11761,31 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 1.0.0
      * @category Object
      * @param {Object} object The object to iterate over.
-     * @param {...(string|string[])} [paths] The property paths of elements to pick.
-     * @returns {Array} Returns the picked values.
+     * @param {...(string|string[])} [paths] The property paths of elements to pick,
+     *  specified individually or in arrays.
+     * @returns {Array} Returns the new array of picked elements.
      * @example
      *
      * var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
      *
      * _.at(object, ['a[0].b.c', 'a[1]']);
      * // => [3, 4]
+     *
+     * _.at(['a', 'b', 'c'], 0, 2);
+     * // => ['a', 'c']
      */
     var at = rest(function(object, paths) {
       return baseAt(object, baseFlatten(paths, 1));
     });
 
     /**
-     * Creates an object that inherits from the `prototype` object. If a
-     * `properties` object is given, its own enumerable string keyed properties
-     * are assigned to the created object.
+     * Creates an object that inherits from the `prototype` object. If a `properties`
+     * object is given its own enumerable properties are assigned to the created object.
      *
      * @static
      * @memberOf _
-     * @since 2.3.0
      * @category Object
      * @param {Object} prototype The object to inherit from.
      * @param {Object} [properties] The properties to assign to the object.
@@ -12973,21 +11818,19 @@ module.exports = function() {
     }
 
     /**
-     * Assigns own and inherited enumerable string keyed properties of source
-     * objects to the destination object for all destination properties that
-     * resolve to `undefined`. Source objects are applied from left to right.
-     * Once a property is set, additional values of the same property are ignored.
+     * Assigns own and inherited enumerable properties of source objects to the
+     * destination object for all destination properties that resolve to `undefined`.
+     * Source objects are applied from left to right. Once a property is set,
+     * additional values of the same property are ignored.
      *
      * **Note:** This method mutates `object`.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
-     * @see _.defaultsDeep
      * @example
      *
      * _.defaults({ 'user': 'barney' }, { 'age': 36 }, { 'user': 'fred' });
@@ -13006,12 +11849,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.10.0
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
      * @returns {Object} Returns `object`.
-     * @see _.defaults
      * @example
      *
      * _.defaultsDeep({ 'user': { 'name': 'barney' } }, { 'user': { 'name': 'fred', 'age': 36 } });
@@ -13029,13 +11870,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 1.1.0
      * @category Object
      * @param {Object} object The object to search.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @returns {string|undefined} Returns the key of the matched element,
-     *  else `undefined`.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
+     * @returns {string|undefined} Returns the key of the matched element, else `undefined`.
      * @example
      *
      * var users = {
@@ -13060,7 +11898,7 @@ module.exports = function() {
      * // => 'barney'
      */
     function findKey(object, predicate) {
-      return baseFindKey(object, getIteratee(predicate, 3), baseForOwn);
+      return baseFind(object, getIteratee(predicate, 3), baseForOwn, true);
     }
 
     /**
@@ -13069,13 +11907,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Object
      * @param {Object} object The object to search.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per iteration.
-     * @returns {string|undefined} Returns the key of the matched element,
-     *  else `undefined`.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per iteration.
+     * @returns {string|undefined} Returns the key of the matched element, else `undefined`.
      * @example
      *
      * var users = {
@@ -13100,23 +11935,21 @@ module.exports = function() {
      * // => 'pebbles'
      */
     function findLastKey(object, predicate) {
-      return baseFindKey(object, getIteratee(predicate, 3), baseForOwnRight);
+      return baseFind(object, getIteratee(predicate, 3), baseForOwnRight, true);
     }
 
     /**
-     * Iterates over own and inherited enumerable string keyed properties of an
-     * object and invokes `iteratee` for each property. The iteratee is invoked
-     * with three arguments: (value, key, object). Iteratee functions may exit
-     * iteration early by explicitly returning `false`.
+     * Iterates over own and inherited enumerable properties of an object invoking
+     * `iteratee` for each property. The iteratee is invoked with three arguments:
+     * (value, key, object). Iteratee functions may exit iteration early by explicitly
+     * returning `false`.
      *
      * @static
      * @memberOf _
-     * @since 0.3.0
      * @category Object
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
-     * @see _.forInRight
      * @example
      *
      * function Foo() {
@@ -13129,12 +11962,12 @@ module.exports = function() {
      * _.forIn(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a', 'b', then 'c' (iteration order is not guaranteed).
+     * // => logs 'a', 'b', then 'c' (iteration order is not guaranteed)
      */
     function forIn(object, iteratee) {
       return object == null
         ? object
-        : baseFor(object, getIteratee(iteratee, 3), keysIn);
+        : baseFor(object, baseCastFunction(iteratee), keysIn);
     }
 
     /**
@@ -13143,12 +11976,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Object
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
-     * @see _.forIn
      * @example
      *
      * function Foo() {
@@ -13161,28 +11992,26 @@ module.exports = function() {
      * _.forInRight(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'c', 'b', then 'a' assuming `_.forIn` logs 'a', 'b', then 'c'.
+     * // => logs 'c', 'b', then 'a' assuming `_.forIn` logs 'a', 'b', then 'c'
      */
     function forInRight(object, iteratee) {
       return object == null
         ? object
-        : baseForRight(object, getIteratee(iteratee, 3), keysIn);
+        : baseForRight(object, baseCastFunction(iteratee), keysIn);
     }
 
     /**
-     * Iterates over own enumerable string keyed properties of an object and
-     * invokes `iteratee` for each property. The iteratee is invoked with three
-     * arguments: (value, key, object). Iteratee functions may exit iteration
-     * early by explicitly returning `false`.
+     * Iterates over own enumerable properties of an object invoking `iteratee`
+     * for each property. The iteratee is invoked with three arguments:
+     * (value, key, object). Iteratee functions may exit iteration early by
+     * explicitly returning `false`.
      *
      * @static
      * @memberOf _
-     * @since 0.3.0
      * @category Object
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
-     * @see _.forOwnRight
      * @example
      *
      * function Foo() {
@@ -13195,10 +12024,10 @@ module.exports = function() {
      * _.forOwn(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+     * // => logs 'a' then 'b' (iteration order is not guaranteed)
      */
     function forOwn(object, iteratee) {
-      return object && baseForOwn(object, getIteratee(iteratee, 3));
+      return object && baseForOwn(object, baseCastFunction(iteratee));
     }
 
     /**
@@ -13207,12 +12036,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.0.0
      * @category Object
      * @param {Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns `object`.
-     * @see _.forOwn
      * @example
      *
      * function Foo() {
@@ -13225,10 +12052,10 @@ module.exports = function() {
      * _.forOwnRight(new Foo, function(value, key) {
      *   console.log(key);
      * });
-     * // => Logs 'b' then 'a' assuming `_.forOwn` logs 'a' then 'b'.
+     * // => logs 'b' then 'a' assuming `_.forOwn` logs 'a' then 'b'
      */
     function forOwnRight(object, iteratee) {
-      return object && baseForOwnRight(object, getIteratee(iteratee, 3));
+      return object && baseForOwnRight(object, baseCastFunction(iteratee));
     }
 
     /**
@@ -13236,12 +12063,10 @@ module.exports = function() {
      * of `object`.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The object to inspect.
-     * @returns {Array} Returns the function names.
-     * @see _.functionsIn
+     * @returns {Array} Returns the new array of property names.
      * @example
      *
      * function Foo() {
@@ -13264,11 +12089,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The object to inspect.
-     * @returns {Array} Returns the function names.
-     * @see _.functions
+     * @returns {Array} Returns the new array of property names.
      * @example
      *
      * function Foo() {
@@ -13287,15 +12110,14 @@ module.exports = function() {
 
     /**
      * Gets the value at `path` of `object`. If the resolved value is
-     * `undefined`, the `defaultValue` is used in its place.
+     * `undefined` the `defaultValue` is used in its place.
      *
      * @static
      * @memberOf _
-     * @since 3.7.0
      * @category Object
      * @param {Object} object The object to query.
      * @param {Array|string} path The path of the property to get.
-     * @param {*} [defaultValue] The value returned for `undefined` resolved values.
+     * @param {*} [defaultValue] The value returned if the resolved value is `undefined`.
      * @returns {*} Returns the resolved value.
      * @example
      *
@@ -13319,7 +12141,6 @@ module.exports = function() {
      * Checks if `path` is a direct property of `object`.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The object to query.
@@ -13327,23 +12148,23 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `path` exists, else `false`.
      * @example
      *
-     * var object = { 'a': { 'b': 2 } };
-     * var other = _.create({ 'a': _.create({ 'b': 2 }) });
+     * var object = { 'a': { 'b': { 'c': 3 } } };
+     * var other = _.create({ 'a': _.create({ 'b': _.create({ 'c': 3 }) }) });
      *
      * _.has(object, 'a');
      * // => true
      *
-     * _.has(object, 'a.b');
+     * _.has(object, 'a.b.c');
      * // => true
      *
-     * _.has(object, ['a', 'b']);
+     * _.has(object, ['a', 'b', 'c']);
      * // => true
      *
      * _.has(other, 'a');
      * // => false
      */
     function has(object, path) {
-      return object != null && hasPath(object, path, baseHas);
+      return hasPath(object, path, baseHas);
     }
 
     /**
@@ -13351,39 +12172,37 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The object to query.
      * @param {Array|string} path The path to check.
      * @returns {boolean} Returns `true` if `path` exists, else `false`.
      * @example
      *
-     * var object = _.create({ 'a': _.create({ 'b': 2 }) });
+     * var object = _.create({ 'a': _.create({ 'b': _.create({ 'c': 3 }) }) });
      *
      * _.hasIn(object, 'a');
      * // => true
      *
-     * _.hasIn(object, 'a.b');
+     * _.hasIn(object, 'a.b.c');
      * // => true
      *
-     * _.hasIn(object, ['a', 'b']);
+     * _.hasIn(object, ['a', 'b', 'c']);
      * // => true
      *
      * _.hasIn(object, 'b');
      * // => false
      */
     function hasIn(object, path) {
-      return object != null && hasPath(object, path, baseHasIn);
+      return hasPath(object, path, baseHasIn);
     }
 
     /**
      * Creates an object composed of the inverted keys and values of `object`.
-     * If `object` contains duplicate values, subsequent values overwrite
-     * property assignments of previous values.
+     * If `object` contains duplicate values, subsequent values overwrite property
+     * assignments of previous values.
      *
      * @static
      * @memberOf _
-     * @since 0.7.0
      * @category Object
      * @param {Object} object The object to invert.
      * @returns {Object} Returns the new inverted object.
@@ -13400,18 +12219,16 @@ module.exports = function() {
 
     /**
      * This method is like `_.invert` except that the inverted object is generated
-     * from the results of running each element of `object` thru `iteratee`. The
-     * corresponding inverted value of each inverted key is an array of keys
+     * from the results of running each element of `object` through `iteratee`.
+     * The corresponding inverted value of each inverted key is an array of keys
      * responsible for generating the inverted value. The iteratee is invoked
      * with one argument: (value).
      *
      * @static
      * @memberOf _
-     * @since 4.1.0
      * @category Object
      * @param {Object} object The object to invert.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Object} Returns the new inverted object.
      * @example
      *
@@ -13438,7 +12255,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The object to query.
      * @param {Array|string} path The path of the method to invoke.
@@ -13461,7 +12277,6 @@ module.exports = function() {
      * for more details.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The object to query.
@@ -13508,7 +12323,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Object
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of property names.
@@ -13547,18 +12361,14 @@ module.exports = function() {
     /**
      * The opposite of `_.mapValues`; this method creates an object with the
      * same values as `object` and keys generated by running each own enumerable
-     * string keyed property of `object` thru `iteratee`. The iteratee is invoked
-     * with three arguments: (value, key, object).
+     * property of `object` through `iteratee`.
      *
      * @static
      * @memberOf _
-     * @since 3.8.0
      * @category Object
      * @param {Object} object The object to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns the new mapped object.
-     * @see _.mapValues
      * @example
      *
      * _.mapKeys({ 'a': 1, 'b': 2 }, function(value, key) {
@@ -13577,20 +12387,16 @@ module.exports = function() {
     }
 
     /**
-     * Creates an object with the same keys as `object` and values generated
-     * by running each own enumerable string keyed property of `object` thru
-     * `iteratee`. The iteratee is invoked with three arguments:
-     * (value, key, object).
+     * Creates an object with the same keys as `object` and values generated by
+     * running each own enumerable property of `object` through `iteratee`. The
+     * iteratee function is invoked with three arguments: (value, key, object).
      *
      * @static
      * @memberOf _
-     * @since 2.4.0
      * @category Object
      * @param {Object} object The object to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function|Object|string} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Object} Returns the new mapped object.
-     * @see _.mapKeys
      * @example
      *
      * var users = {
@@ -13616,10 +12422,9 @@ module.exports = function() {
     }
 
     /**
-     * This method is like `_.assign` except that it recursively merges own and
-     * inherited enumerable string keyed properties of source objects into the
-     * destination object. Source properties that resolve to `undefined` are
-     * skipped if a destination value exists. Array and plain object properties
+     * Recursively merges own and inherited enumerable properties of source objects
+     * into the destination object. Source properties that resolve to `undefined`
+     * are skipped if a destination value exists. Array and plain object properties
      * are merged recursively. Other objects and value types are overridden by
      * assignment. Source objects are applied from left to right. Subsequent
      * sources overwrite property assignments of previous sources.
@@ -13628,7 +12433,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 0.5.0
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} [sources] The source objects.
@@ -13653,7 +12457,7 @@ module.exports = function() {
     /**
      * This method is like `_.merge` except that it accepts `customizer` which
      * is invoked to produce the merged values of the destination and source
-     * properties. If `customizer` returns `undefined`, merging is handled by the
+     * properties. If `customizer` returns `undefined` merging is handled by the
      * method instead. The `customizer` is invoked with seven arguments:
      * (objValue, srcValue, key, object, source, stack).
      *
@@ -13661,7 +12465,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The destination object.
      * @param {...Object} sources The source objects.
@@ -13694,15 +12497,14 @@ module.exports = function() {
 
     /**
      * The opposite of `_.pick`; this method creates an object composed of the
-     * own and inherited enumerable string keyed properties of `object` that are
-     * not omitted.
+     * own and inherited enumerable properties of `object` that are not omitted.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The source object.
-     * @param {...(string|string[])} [props] The property identifiers to omit.
+     * @param {...(string|string[])} [props] The property names to omit, specified
+     *  individually or in arrays.
      * @returns {Object} Returns the new object.
      * @example
      *
@@ -13715,23 +12517,20 @@ module.exports = function() {
       if (object == null) {
         return {};
       }
-      props = arrayMap(baseFlatten(props, 1), toKey);
-      return basePick(object, baseDifference(getAllKeysIn(object), props));
+      props = arrayMap(baseFlatten(props, 1), String);
+      return basePick(object, baseDifference(keysIn(object), props));
     });
 
     /**
-     * The opposite of `_.pickBy`; this method creates an object composed of
-     * the own and inherited enumerable string keyed properties of `object` that
-     * `predicate` doesn't return truthy for. The predicate is invoked with two
-     * arguments: (value, key).
+     * The opposite of `_.pickBy`; this method creates an object composed of the
+     * own and inherited enumerable properties of `object` that `predicate`
+     * doesn't return truthy for.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The source object.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per property.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per property.
      * @returns {Object} Returns the new object.
      * @example
      *
@@ -13741,7 +12540,7 @@ module.exports = function() {
      * // => { 'b': '2' }
      */
     function omitBy(object, predicate) {
-      predicate = getIteratee(predicate);
+      predicate = getIteratee(predicate, 2);
       return basePickBy(object, function(value, key) {
         return !predicate(value, key);
       });
@@ -13751,11 +12550,11 @@ module.exports = function() {
      * Creates an object composed of the picked `object` properties.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The source object.
-     * @param {...(string|string[])} [props] The property identifiers to pick.
+     * @param {...(string|string[])} [props] The property names to pick, specified
+     *  individually or in arrays.
      * @returns {Object} Returns the new object.
      * @example
      *
@@ -13765,7 +12564,7 @@ module.exports = function() {
      * // => { 'a': 1, 'c': 3 }
      */
     var pick = rest(function(object, props) {
-      return object == null ? {} : basePick(object, arrayMap(baseFlatten(props, 1), toKey));
+      return object == null ? {} : basePick(object, baseFlatten(props, 1));
     });
 
     /**
@@ -13774,11 +12573,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The source object.
-     * @param {Array|Function|Object|string} [predicate=_.identity]
-     *  The function invoked per property.
+     * @param {Function|Object|string} [predicate=_.identity] The function invoked per property.
      * @returns {Object} Returns the new object.
      * @example
      *
@@ -13788,21 +12585,20 @@ module.exports = function() {
      * // => { 'a': 1, 'c': 3 }
      */
     function pickBy(object, predicate) {
-      return object == null ? {} : basePickBy(object, getIteratee(predicate));
+      return object == null ? {} : basePickBy(object, getIteratee(predicate, 2));
     }
 
     /**
-     * This method is like `_.get` except that if the resolved value is a
-     * function it's invoked with the `this` binding of its parent object and
-     * its result is returned.
+     * This method is like `_.get` except that if the resolved value is a function
+     * it's invoked with the `this` binding of its parent object and its result
+     * is returned.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The object to query.
      * @param {Array|string} path The path of the property to resolve.
-     * @param {*} [defaultValue] The value returned for `undefined` resolved values.
+     * @param {*} [defaultValue] The value returned if the resolved value is `undefined`.
      * @returns {*} Returns the resolved value.
      * @example
      *
@@ -13821,29 +12617,21 @@ module.exports = function() {
      * // => 'default'
      */
     function result(object, path, defaultValue) {
-      path = isKey(path, object) ? [path] : castPath(path);
-
-      var index = -1,
-          length = path.length;
-
-      // Ensure the loop is entered when path is empty.
-      if (!length) {
-        object = undefined;
-        length = 1;
+      if (!isKey(path, object)) {
+        path = baseCastPath(path);
+        var result = get(object, path);
+        object = parent(object, path);
+      } else {
+        result = object == null ? undefined : object[path];
       }
-      while (++index < length) {
-        var value = object == null ? undefined : object[toKey(path[index])];
-        if (value === undefined) {
-          index = length;
-          value = defaultValue;
-        }
-        object = isFunction(value) ? value.call(object) : value;
+      if (result === undefined) {
+        result = defaultValue;
       }
-      return object;
+      return isFunction(result) ? result.call(object) : result;
     }
 
     /**
-     * Sets the value at `path` of `object`. If a portion of `path` doesn't exist,
+     * Sets the value at `path` of `object`. If a portion of `path` doesn't exist
      * it's created. Arrays are created for missing index properties while objects
      * are created for all other missing properties. Use `_.setWith` to customize
      * `path` creation.
@@ -13852,7 +12640,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.7.0
      * @category Object
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to set.
@@ -13866,7 +12653,7 @@ module.exports = function() {
      * console.log(object.a[0].b.c);
      * // => 4
      *
-     * _.set(object, ['x', '0', 'y', 'z'], 5);
+     * _.set(object, 'x[0].y.z', 5);
      * console.log(object.x[0].y.z);
      * // => 5
      */
@@ -13884,7 +12671,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to set.
@@ -13893,10 +12679,8 @@ module.exports = function() {
      * @returns {Object} Returns `object`.
      * @example
      *
-     * var object = {};
-     *
-     * _.setWith(object, '[0][1]', 'a', Object);
-     * // => { '0': { '1': 'a' } }
+     * _.setWith({ '0': { 'length': 2 } }, '[0][1][2]', 3, Object);
+     * // => { '0': { '1': { '2': 3 }, 'length': 2 } }
      */
     function setWith(object, path, value, customizer) {
       customizer = typeof customizer == 'function' ? customizer : undefined;
@@ -13904,17 +12688,14 @@ module.exports = function() {
     }
 
     /**
-     * Creates an array of own enumerable string keyed-value pairs for `object`
-     * which can be consumed by `_.fromPairs`. If `object` is a map or set, its
-     * entries are returned.
+     * Creates an array of own enumerable key-value pairs for `object` which
+     * can be consumed by `_.fromPairs`.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
-     * @alias entries
      * @category Object
      * @param {Object} object The object to query.
-     * @returns {Array} Returns the key-value pairs.
+     * @returns {Array} Returns the new array of key-value pairs.
      * @example
      *
      * function Foo() {
@@ -13927,20 +12708,19 @@ module.exports = function() {
      * _.toPairs(new Foo);
      * // => [['a', 1], ['b', 2]] (iteration order is not guaranteed)
      */
-    var toPairs = createToPairs(keys);
+    function toPairs(object) {
+      return baseToPairs(object, keys(object));
+    }
 
     /**
-     * Creates an array of own and inherited enumerable string keyed-value pairs
-     * for `object` which can be consumed by `_.fromPairs`. If `object` is a map
-     * or set, its entries are returned.
+     * Creates an array of own and inherited enumerable key-value pairs for
+     * `object` which can be consumed by `_.fromPairs`.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
-     * @alias entriesIn
      * @category Object
      * @param {Object} object The object to query.
-     * @returns {Array} Returns the key-value pairs.
+     * @returns {Array} Returns the new array of key-value pairs.
      * @example
      *
      * function Foo() {
@@ -13951,24 +12731,24 @@ module.exports = function() {
      * Foo.prototype.c = 3;
      *
      * _.toPairsIn(new Foo);
-     * // => [['a', 1], ['b', 2], ['c', 3]] (iteration order is not guaranteed)
+     * // => [['a', 1], ['b', 2], ['c', 1]] (iteration order is not guaranteed)
      */
-    var toPairsIn = createToPairs(keysIn);
+    function toPairsIn(object) {
+      return baseToPairs(object, keysIn(object));
+    }
 
     /**
      * An alternative to `_.reduce`; this method transforms `object` to a new
-     * `accumulator` object which is the result of running each of its own
-     * enumerable string keyed properties thru `iteratee`, with each invocation
-     * potentially mutating the `accumulator` object. If `accumulator` is not
-     * provided, a new object with the same `[[Prototype]]` will be used. The
-     * iteratee is invoked with four arguments: (accumulator, value, key, object).
-     * Iteratee functions may exit iteration early by explicitly returning `false`.
+     * `accumulator` object which is the result of running each of its own enumerable
+     * properties through `iteratee`, with each invocation potentially mutating
+     * the `accumulator` object. The iteratee is invoked with four arguments:
+     * (accumulator, value, key, object). Iteratee functions may exit iteration
+     * early by explicitly returning `false`.
      *
      * @static
      * @memberOf _
-     * @since 1.3.0
      * @category Object
-     * @param {Object} object The object to iterate over.
+     * @param {Array|Object} object The object to iterate over.
      * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @param {*} [accumulator] The custom accumulator value.
      * @returns {*} Returns the accumulated value.
@@ -13995,7 +12775,7 @@ module.exports = function() {
           if (isArr) {
             accumulator = isArray(object) ? new Ctor : [];
           } else {
-            accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {};
+            accumulator = baseCreate(isFunction(Ctor) ? Ctor.prototype : undefined);
           }
         } else {
           accumulator = {};
@@ -14014,7 +12794,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Object
      * @param {Object} object The object to modify.
      * @param {Array|string} path The path of the property to unset.
@@ -14028,7 +12807,7 @@ module.exports = function() {
      * console.log(object);
      * // => { 'a': [{ 'b': {} }] };
      *
-     * _.unset(object, ['a', '0', 'b', 'c']);
+     * _.unset(object, 'a[0].b.c');
      * // => true
      *
      * console.log(object);
@@ -14039,72 +12818,11 @@ module.exports = function() {
     }
 
     /**
-     * This method is like `_.set` except that accepts `updater` to produce the
-     * value to set. Use `_.updateWith` to customize `path` creation. The `updater`
-     * is invoked with one argument: (value).
-     *
-     * **Note:** This method mutates `object`.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.6.0
-     * @category Object
-     * @param {Object} object The object to modify.
-     * @param {Array|string} path The path of the property to set.
-     * @param {Function} updater The function to produce the updated value.
-     * @returns {Object} Returns `object`.
-     * @example
-     *
-     * var object = { 'a': [{ 'b': { 'c': 3 } }] };
-     *
-     * _.update(object, 'a[0].b.c', function(n) { return n * n; });
-     * console.log(object.a[0].b.c);
-     * // => 9
-     *
-     * _.update(object, 'x[0].y.z', function(n) { return n ? n + 1 : 0; });
-     * console.log(object.x[0].y.z);
-     * // => 0
-     */
-    function update(object, path, updater) {
-      return object == null ? object : baseUpdate(object, path, castFunction(updater));
-    }
-
-    /**
-     * This method is like `_.update` except that it accepts `customizer` which is
-     * invoked to produce the objects of `path`.  If `customizer` returns `undefined`
-     * path creation is handled by the method instead. The `customizer` is invoked
-     * with three arguments: (nsValue, key, nsObject).
-     *
-     * **Note:** This method mutates `object`.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.6.0
-     * @category Object
-     * @param {Object} object The object to modify.
-     * @param {Array|string} path The path of the property to set.
-     * @param {Function} updater The function to produce the updated value.
-     * @param {Function} [customizer] The function to customize assigned values.
-     * @returns {Object} Returns `object`.
-     * @example
-     *
-     * var object = {};
-     *
-     * _.updateWith(object, '[0][1]', _.constant('a'), Object);
-     * // => { '0': { '1': 'a' } }
-     */
-    function updateWith(object, path, updater, customizer) {
-      customizer = typeof customizer == 'function' ? customizer : undefined;
-      return object == null ? object : baseUpdate(object, path, castFunction(updater), customizer);
-    }
-
-    /**
-     * Creates an array of the own enumerable string keyed property values of `object`.
+     * Creates an array of the own enumerable property values of `object`.
      *
      * **Note:** Non-object values are coerced to objects.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The object to query.
@@ -14129,14 +12847,12 @@ module.exports = function() {
     }
 
     /**
-     * Creates an array of the own and inherited enumerable string keyed property
-     * values of `object`.
+     * Creates an array of the own and inherited enumerable property values of `object`.
      *
      * **Note:** Non-object values are coerced to objects.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Object
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of property values.
@@ -14163,7 +12879,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Number
      * @param {number} number The number to clamp.
      * @param {number} [lower] The lower bound.
@@ -14194,20 +12909,18 @@ module.exports = function() {
     }
 
     /**
-     * Checks if `n` is between `start` and up to, but not including, `end`. If
-     * `end` is not specified, it's set to `start` with `start` then set to `0`.
+     * Checks if `n` is between `start` and up to but not including, `end`. If
+     * `end` is not specified it's set to `start` with `start` then set to `0`.
      * If `start` is greater than `end` the params are swapped to support
      * negative ranges.
      *
      * @static
      * @memberOf _
-     * @since 3.3.0
      * @category Number
      * @param {number} number The number to check.
      * @param {number} [start=0] The start of the range.
      * @param {number} end The end of the range.
      * @returns {boolean} Returns `true` if `number` is in the range, else `false`.
-     * @see _.range, _.rangeRight
      * @example
      *
      * _.inRange(3, 2, 4);
@@ -14246,15 +12959,14 @@ module.exports = function() {
     /**
      * Produces a random number between the inclusive `lower` and `upper` bounds.
      * If only one argument is provided a number between `0` and the given number
-     * is returned. If `floating` is `true`, or either `lower` or `upper` are
-     * floats, a floating-point number is returned instead of an integer.
+     * is returned. If `floating` is `true`, or either `lower` or `upper` are floats,
+     * a floating-point number is returned instead of an integer.
      *
      * **Note:** JavaScript follows the IEEE-754 standard for resolving
      * floating-point values which can produce unexpected results.
      *
      * @static
      * @memberOf _
-     * @since 0.7.0
      * @category Number
      * @param {number} [lower=0] The lower bound.
      * @param {number} [upper=1] The upper bound.
@@ -14320,7 +13032,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the camel cased string.
@@ -14329,10 +13040,10 @@ module.exports = function() {
      * _.camelCase('Foo Bar');
      * // => 'fooBar'
      *
-     * _.camelCase('--foo-bar--');
+     * _.camelCase('--foo-bar');
      * // => 'fooBar'
      *
-     * _.camelCase('__FOO_BAR__');
+     * _.camelCase('__foo_bar__');
      * // => 'fooBar'
      */
     var camelCase = createCompounder(function(result, word, index) {
@@ -14346,7 +13057,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to capitalize.
      * @returns {string} Returns the capitalized string.
@@ -14360,14 +13070,11 @@ module.exports = function() {
     }
 
     /**
-     * Deburrs `string` by converting
-     * [latin-1 supplementary letters](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
-     * to basic latin letters and removing
-     * [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
+     * Deburrs `string` by converting [latin-1 supplementary letters](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
+     * to basic latin letters and removing [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to deburr.
      * @returns {string} Returns the deburred string.
@@ -14386,13 +13093,11 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to search.
      * @param {string} [target] The string to search for.
-     * @param {number} [position=string.length] The position to search up to.
-     * @returns {boolean} Returns `true` if `string` ends with `target`,
-     *  else `false`.
+     * @param {number} [position=string.length] The position to search from.
+     * @returns {boolean} Returns `true` if `string` ends with `target`, else `false`.
      * @example
      *
      * _.endsWith('abc', 'c');
@@ -14406,7 +13111,7 @@ module.exports = function() {
      */
     function endsWith(string, target, position) {
       string = toString(string);
-      target = baseToString(target);
+      target = typeof target == 'string' ? target : (target + '');
 
       var length = string.length;
       position = position === undefined
@@ -14426,22 +13131,20 @@ module.exports = function() {
      *
      * Though the ">" character is escaped for symmetry, characters like
      * ">" and "/" don't need escaping in HTML and have no special meaning
-     * unless they're part of a tag or unquoted attribute value. See
-     * [Mathias Bynens's article](https://mathiasbynens.be/notes/ambiguous-ampersands)
+     * unless they're part of a tag or unquoted attribute value.
+     * See [Mathias Bynens's article](https://mathiasbynens.be/notes/ambiguous-ampersands)
      * (under "semi-related fun fact") for more details.
      *
      * Backticks are escaped because in IE < 9, they can break out of
      * attribute values or HTML comments. See [#59](https://html5sec.org/#59),
      * [#102](https://html5sec.org/#102), [#108](https://html5sec.org/#108), and
-     * [#133](https://html5sec.org/#133) of the
-     * [HTML5 Security Cheatsheet](https://html5sec.org/) for more details.
+     * [#133](https://html5sec.org/#133) of the [HTML5 Security Cheatsheet](https://html5sec.org/)
+     * for more details.
      *
-     * When working with HTML you should always
-     * [quote attribute values](http://wonko.com/post/html-escaping) to reduce
-     * XSS vectors.
+     * When working with HTML you should always [quote attribute values](http://wonko.com/post/html-escaping)
+     * to reduce XSS vectors.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category String
      * @param {string} [string=''] The string to escape.
@@ -14464,7 +13167,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to escape.
      * @returns {string} Returns the escaped string.
@@ -14481,12 +13183,10 @@ module.exports = function() {
     }
 
     /**
-     * Converts `string` to
-     * [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
+     * Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the kebab cased string.
@@ -14498,7 +13198,7 @@ module.exports = function() {
      * _.kebabCase('fooBar');
      * // => 'foo-bar'
      *
-     * _.kebabCase('__FOO_BAR__');
+     * _.kebabCase('__foo_bar__');
      * // => 'foo-bar'
      */
     var kebabCase = createCompounder(function(result, word, index) {
@@ -14510,13 +13210,12 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the lower cased string.
      * @example
      *
-     * _.lowerCase('--Foo-Bar--');
+     * _.lowerCase('--Foo-Bar');
      * // => 'foo bar'
      *
      * _.lowerCase('fooBar');
@@ -14534,7 +13233,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the converted string.
@@ -14549,12 +13247,29 @@ module.exports = function() {
     var lowerFirst = createCaseFirst('toLowerCase');
 
     /**
+     * Converts the first character of `string` to upper case.
+     *
+     * @static
+     * @memberOf _
+     * @category String
+     * @param {string} [string=''] The string to convert.
+     * @returns {string} Returns the converted string.
+     * @example
+     *
+     * _.upperFirst('fred');
+     * // => 'Fred'
+     *
+     * _.upperFirst('FRED');
+     * // => 'FRED'
+     */
+    var upperFirst = createCaseFirst('toUpperCase');
+
+    /**
      * Pads `string` on the left and right sides if it's shorter than `length`.
      * Padding characters are truncated if they can't be evenly divided by `length`.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to pad.
      * @param {number} [length=0] The padding length.
@@ -14575,16 +13290,15 @@ module.exports = function() {
       string = toString(string);
       length = toInteger(length);
 
-      var strLength = length ? stringSize(string) : 0;
+      var strLength = stringSize(string);
       if (!length || strLength >= length) {
         return string;
       }
-      var mid = (length - strLength) / 2;
-      return (
-        createPadding(nativeFloor(mid), chars) +
-        string +
-        createPadding(nativeCeil(mid), chars)
-      );
+      var mid = (length - strLength) / 2,
+          leftLength = nativeFloor(mid),
+          rightLength = nativeCeil(mid);
+
+      return createPadding('', leftLength, chars) + string + createPadding('', rightLength, chars);
     }
 
     /**
@@ -14593,7 +13307,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to pad.
      * @param {number} [length=0] The padding length.
@@ -14612,12 +13325,7 @@ module.exports = function() {
      */
     function padEnd(string, length, chars) {
       string = toString(string);
-      length = toInteger(length);
-
-      var strLength = length ? stringSize(string) : 0;
-      return (length && strLength < length)
-        ? (string + createPadding(length - strLength, chars))
-        : string;
+      return string + createPadding(string, length, chars);
     }
 
     /**
@@ -14626,7 +13334,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to pad.
      * @param {number} [length=0] The padding length.
@@ -14645,29 +13352,23 @@ module.exports = function() {
      */
     function padStart(string, length, chars) {
       string = toString(string);
-      length = toInteger(length);
-
-      var strLength = length ? stringSize(string) : 0;
-      return (length && strLength < length)
-        ? (createPadding(length - strLength, chars) + string)
-        : string;
+      return createPadding(string, length, chars) + string;
     }
 
     /**
      * Converts `string` to an integer of the specified radix. If `radix` is
-     * `undefined` or `0`, a `radix` of `10` is used unless `value` is a
-     * hexadecimal, in which case a `radix` of `16` is used.
+     * `undefined` or `0`, a `radix` of `10` is used unless `value` is a hexadecimal,
+     * in which case a `radix` of `16` is used.
      *
-     * **Note:** This method aligns with the
-     * [ES5 implementation](https://es5.github.io/#x15.1.2.2) of `parseInt`.
+     * **Note:** This method aligns with the [ES5 implementation](https://es5.github.io/#x15.1.2.2)
+     * of `parseInt`.
      *
      * @static
      * @memberOf _
-     * @since 1.1.0
      * @category String
      * @param {string} string The string to convert.
      * @param {number} [radix=10] The radix to interpret `value` by.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {number} Returns the converted integer.
      * @example
      *
@@ -14679,7 +13380,7 @@ module.exports = function() {
      */
     function parseInt(string, radix, guard) {
       // Chrome fails to trim leading <BOM> whitespace characters.
-      // See https://bugs.chromium.org/p/v8/issues/detail?id=3109 for more details.
+      // See https://code.google.com/p/v8/issues/detail?id=3109 for more details.
       if (guard || radix == null) {
         radix = 0;
       } else if (radix) {
@@ -14694,11 +13395,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to repeat.
-     * @param {number} [n=1] The number of times to repeat the string.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param {number} [n=0] The number of times to repeat the string.
      * @returns {string} Returns the repeated string.
      * @example
      *
@@ -14711,24 +13410,34 @@ module.exports = function() {
      * _.repeat('abc', 0);
      * // => ''
      */
-    function repeat(string, n, guard) {
-      if ((guard ? isIterateeCall(string, n, guard) : n === undefined)) {
-        n = 1;
-      } else {
-        n = toInteger(n);
+    function repeat(string, n) {
+      string = toString(string);
+      n = toInteger(n);
+
+      var result = '';
+      if (!string || n < 1 || n > MAX_SAFE_INTEGER) {
+        return result;
       }
-      return baseRepeat(toString(string), n);
+      // Leverage the exponentiation by squaring algorithm for a faster repeat.
+      // See https://en.wikipedia.org/wiki/Exponentiation_by_squaring for more details.
+      do {
+        if (n % 2) {
+          result += string;
+        }
+        n = nativeFloor(n / 2);
+        string += string;
+      } while (n);
+
+      return result;
     }
 
     /**
      * Replaces matches for `pattern` in `string` with `replacement`.
      *
-     * **Note:** This method is based on
-     * [`String#replace`](https://mdn.io/String/replace).
+     * **Note:** This method is based on [`String#replace`](https://mdn.io/String/replace).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to modify.
      * @param {RegExp|string} pattern The pattern to replace.
@@ -14743,16 +13452,14 @@ module.exports = function() {
       var args = arguments,
           string = toString(args[0]);
 
-      return args.length < 3 ? string : nativeReplace.call(string, args[1], args[2]);
+      return args.length < 3 ? string : string.replace(args[1], args[2]);
     }
 
     /**
-     * Converts `string` to
-     * [snake case](https://en.wikipedia.org/wiki/Snake_case).
+     * Converts `string` to [snake case](https://en.wikipedia.org/wiki/Snake_case).
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the snake cased string.
@@ -14764,7 +13471,7 @@ module.exports = function() {
      * _.snakeCase('fooBar');
      * // => 'foo_bar'
      *
-     * _.snakeCase('--FOO-BAR--');
+     * _.snakeCase('--foo-bar');
      * // => 'foo_bar'
      */
     var snakeCase = createCompounder(function(result, word, index) {
@@ -14774,66 +13481,45 @@ module.exports = function() {
     /**
      * Splits `string` by `separator`.
      *
-     * **Note:** This method is based on
-     * [`String#split`](https://mdn.io/String/split).
+     * **Note:** This method is based on [`String#split`](https://mdn.io/String/split).
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to split.
      * @param {RegExp|string} separator The separator pattern to split by.
      * @param {number} [limit] The length to truncate results to.
-     * @returns {Array} Returns the string segments.
+     * @returns {Array} Returns the new array of string segments.
      * @example
      *
      * _.split('a-b-c', '-', 2);
      * // => ['a', 'b']
      */
     function split(string, separator, limit) {
-      if (limit && typeof limit != 'number' && isIterateeCall(string, separator, limit)) {
-        separator = limit = undefined;
-      }
-      limit = limit === undefined ? MAX_ARRAY_LENGTH : limit >>> 0;
-      if (!limit) {
-        return [];
-      }
-      string = toString(string);
-      if (string && (
-            typeof separator == 'string' ||
-            (separator != null && !isRegExp(separator))
-          )) {
-        separator = baseToString(separator);
-        if (separator == '' && reHasComplexSymbol.test(string)) {
-          return castSlice(stringToArray(string), 0, limit);
-        }
-      }
-      return nativeSplit.call(string, separator, limit);
+      return toString(string).split(separator, limit);
     }
 
     /**
-     * Converts `string` to
-     * [start case](https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage).
+     * Converts `string` to [start case](https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage).
      *
      * @static
      * @memberOf _
-     * @since 3.1.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the start cased string.
      * @example
      *
-     * _.startCase('--foo-bar--');
+     * _.startCase('--foo-bar');
      * // => 'Foo Bar'
      *
      * _.startCase('fooBar');
      * // => 'Foo Bar'
      *
-     * _.startCase('__FOO_BAR__');
-     * // => 'FOO BAR'
+     * _.startCase('__foo_bar__');
+     * // => 'Foo Bar'
      */
     var startCase = createCompounder(function(result, word, index) {
-      return result + (index ? ' ' : '') + upperFirst(word);
+      return result + (index ? ' ' : '') + capitalize(word);
     });
 
     /**
@@ -14841,13 +13527,11 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to search.
      * @param {string} [target] The string to search for.
      * @param {number} [position=0] The position to search from.
-     * @returns {boolean} Returns `true` if `string` starts with `target`,
-     *  else `false`.
+     * @returns {boolean} Returns `true` if `string` starts with `target`, else `false`.
      * @example
      *
      * _.startsWith('abc', 'a');
@@ -14862,7 +13546,7 @@ module.exports = function() {
     function startsWith(string, target, position) {
       string = toString(string);
       position = baseClamp(toInteger(position), 0, string.length);
-      return string.lastIndexOf(baseToString(target), position) == position;
+      return string.lastIndexOf(target, position) == position;
     }
 
     /**
@@ -14870,7 +13554,7 @@ module.exports = function() {
      * in "interpolate" delimiters, HTML-escape interpolated data properties in
      * "escape" delimiters, and execute JavaScript in "evaluate" delimiters. Data
      * properties may be accessed as free variables in the template. If a setting
-     * object is given, it takes precedence over `_.templateSettings` values.
+     * object is given it takes precedence over `_.templateSettings` values.
      *
      * **Note:** In the development build `_.template` utilizes
      * [sourceURLs](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-sourceurl)
@@ -14883,24 +13567,17 @@ module.exports = function() {
      * [Chrome's extensions documentation](https://developer.chrome.com/extensions/sandboxingEval).
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category String
      * @param {string} [string=''] The template string.
-     * @param {Object} [options={}] The options object.
-     * @param {RegExp} [options.escape=_.templateSettings.escape]
-     *  The HTML "escape" delimiter.
-     * @param {RegExp} [options.evaluate=_.templateSettings.evaluate]
-     *  The "evaluate" delimiter.
-     * @param {Object} [options.imports=_.templateSettings.imports]
-     *  An object to import into the template as free variables.
-     * @param {RegExp} [options.interpolate=_.templateSettings.interpolate]
-     *  The "interpolate" delimiter.
-     * @param {string} [options.sourceURL='lodash.templateSources[n]']
-     *  The sourceURL of the compiled template.
-     * @param {string} [options.variable='obj']
-     *  The data object variable name.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param {Object} [options] The options object.
+     * @param {RegExp} [options.escape] The HTML "escape" delimiter.
+     * @param {RegExp} [options.evaluate] The "evaluate" delimiter.
+     * @param {Object} [options.imports] An object to import into the template as free variables.
+     * @param {RegExp} [options.interpolate] The "interpolate" delimiter.
+     * @param {string} [options.sourceURL] The sourceURL of the template's compiled source.
+     * @param {string} [options.variable] The data object variable name.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Function} Returns the compiled template function.
      * @example
      *
@@ -14929,6 +13606,12 @@ module.exports = function() {
      * compiled({ 'user': 'pebbles' });
      * // => 'hello pebbles!'
      *
+     * // Use custom template delimiters.
+     * _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+     * var compiled = _.template('hello {{ user }}!');
+     * compiled({ 'user': 'mustache' });
+     * // => 'hello mustache!'
+     *
      * // Use backslashes to treat delimiters as plain text.
      * var compiled = _.template('<%= "\\<%- value %\\>" %>');
      * compiled({ 'value': 'ignored' });
@@ -14943,7 +13626,7 @@ module.exports = function() {
      * // Use the `sourceURL` option to specify a custom sourceURL for the template.
      * var compiled = _.template('hello <%= user %>!', { 'sourceURL': '/basic/greeting.jst' });
      * compiled(data);
-     * // => Find the source of "greeting.jst" under the Sources tab or Resources panel of the web inspector.
+     * // => find the source of "greeting.jst" under the Sources tab or Resources panel of the web inspector
      *
      * // Use the `variable` option to ensure a with-statement isn't used in the compiled template.
      * var compiled = _.template('hi <%= data.user %>!', { 'variable': 'data' });
@@ -14954,23 +13637,16 @@ module.exports = function() {
      * //   return __p;
      * // }
      *
-     * // Use custom template delimiters.
-     * _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
-     * var compiled = _.template('hello {{ user }}!');
-     * compiled({ 'user': 'mustache' });
-     * // => 'hello mustache!'
-     *
      * // Use the `source` property to inline compiled templates for meaningful
      * // line numbers in error messages and stack traces.
-     * fs.writeFileSync(path.join(process.cwd(), 'jst.js'), '\
+     * fs.writeFileSync(path.join(cwd, 'jst.js'), '\
      *   var JST = {\
      *     "main": ' + _.template(mainText).source + '\
      *   };\
      * ');
      */
     function template(string, options, guard) {
-      // Based on John Resig's `tmpl` implementation
-      // (http://ejohn.org/blog/javascript-micro-templating/)
+      // Based on John Resig's `tmpl` implementation (http://ejohn.org/blog/javascript-micro-templating/)
       // and Laura Doktorova's doT.js (https://github.com/olado/doT).
       var settings = lodash.templateSettings;
 
@@ -15077,19 +13753,17 @@ module.exports = function() {
     }
 
     /**
-     * Converts `string`, as a whole, to lower case just like
-     * [String#toLowerCase](https://mdn.io/toLowerCase).
+     * Converts `string`, as a whole, to lower case.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the lower cased string.
      * @example
      *
-     * _.toLower('--Foo-Bar--');
-     * // => '--foo-bar--'
+     * _.toLower('--Foo-Bar');
+     * // => '--foo-bar'
      *
      * _.toLower('fooBar');
      * // => 'foobar'
@@ -15102,19 +13776,17 @@ module.exports = function() {
     }
 
     /**
-     * Converts `string`, as a whole, to upper case just like
-     * [String#toUpperCase](https://mdn.io/toUpperCase).
+     * Converts `string`, as a whole, to upper case.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the upper cased string.
      * @example
      *
-     * _.toUpper('--foo-bar--');
-     * // => '--FOO-BAR--'
+     * _.toUpper('--foo-bar');
+     * // => '--FOO-BAR'
      *
      * _.toUpper('fooBar');
      * // => 'FOOBAR'
@@ -15131,11 +13803,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to trim.
      * @param {string} [chars=whitespace] The characters to trim.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {string} Returns the trimmed string.
      * @example
      *
@@ -15150,18 +13821,22 @@ module.exports = function() {
      */
     function trim(string, chars, guard) {
       string = toString(string);
-      if (string && (guard || chars === undefined)) {
+      if (!string) {
+        return string;
+      }
+      if (guard || chars === undefined) {
         return string.replace(reTrim, '');
       }
-      if (!string || !(chars = baseToString(chars))) {
+      chars = (chars + '');
+      if (!chars) {
         return string;
       }
       var strSymbols = stringToArray(string),
-          chrSymbols = stringToArray(chars),
-          start = charsStartIndex(strSymbols, chrSymbols),
-          end = charsEndIndex(strSymbols, chrSymbols) + 1;
+          chrSymbols = stringToArray(chars);
 
-      return castSlice(strSymbols, start, end).join('');
+      return strSymbols
+        .slice(charsStartIndex(strSymbols, chrSymbols), charsEndIndex(strSymbols, chrSymbols) + 1)
+        .join('');
     }
 
     /**
@@ -15169,11 +13844,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to trim.
      * @param {string} [chars=whitespace] The characters to trim.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {string} Returns the trimmed string.
      * @example
      *
@@ -15185,16 +13859,20 @@ module.exports = function() {
      */
     function trimEnd(string, chars, guard) {
       string = toString(string);
-      if (string && (guard || chars === undefined)) {
-        return string.replace(reTrimEnd, '');
-      }
-      if (!string || !(chars = baseToString(chars))) {
+      if (!string) {
         return string;
       }
-      var strSymbols = stringToArray(string),
-          end = charsEndIndex(strSymbols, stringToArray(chars)) + 1;
-
-      return castSlice(strSymbols, 0, end).join('');
+      if (guard || chars === undefined) {
+        return string.replace(reTrimEnd, '');
+      }
+      chars = (chars + '');
+      if (!chars) {
+        return string;
+      }
+      var strSymbols = stringToArray(string);
+      return strSymbols
+        .slice(0, charsEndIndex(strSymbols, stringToArray(chars)) + 1)
+        .join('');
     }
 
     /**
@@ -15202,11 +13880,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to trim.
      * @param {string} [chars=whitespace] The characters to trim.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {string} Returns the trimmed string.
      * @example
      *
@@ -15218,16 +13895,20 @@ module.exports = function() {
      */
     function trimStart(string, chars, guard) {
       string = toString(string);
-      if (string && (guard || chars === undefined)) {
-        return string.replace(reTrimStart, '');
-      }
-      if (!string || !(chars = baseToString(chars))) {
+      if (!string) {
         return string;
       }
-      var strSymbols = stringToArray(string),
-          start = charsStartIndex(strSymbols, stringToArray(chars));
-
-      return castSlice(strSymbols, start).join('');
+      if (guard || chars === undefined) {
+        return string.replace(reTrimStart, '');
+      }
+      chars = (chars + '');
+      if (!chars) {
+        return string;
+      }
+      var strSymbols = stringToArray(string);
+      return strSymbols
+        .slice(charsStartIndex(strSymbols, stringToArray(chars)))
+        .join('');
     }
 
     /**
@@ -15237,10 +13918,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to truncate.
-     * @param {Object} [options={}] The options object.
+     * @param {Object} [options=({})] The options object.
      * @param {number} [options.length=30] The maximum string length.
      * @param {string} [options.omission='...'] The string to indicate text is omitted.
      * @param {RegExp|string} [options.separator] The separator pattern to truncate to.
@@ -15274,7 +13954,7 @@ module.exports = function() {
       if (isObject(options)) {
         var separator = 'separator' in options ? options.separator : separator;
         length = 'length' in options ? toInteger(options.length) : length;
-        omission = 'omission' in options ? baseToString(options.omission) : omission;
+        omission = 'omission' in options ? toString(options.omission) : omission;
       }
       string = toString(string);
 
@@ -15291,7 +13971,7 @@ module.exports = function() {
         return omission;
       }
       var result = strSymbols
-        ? castSlice(strSymbols, 0, end).join('')
+        ? strSymbols.slice(0, end).join('')
         : string.slice(0, end);
 
       if (separator === undefined) {
@@ -15314,7 +13994,7 @@ module.exports = function() {
           }
           result = result.slice(0, newEnd === undefined ? end : newEnd);
         }
-      } else if (string.indexOf(baseToString(separator), end) != end) {
+      } else if (string.indexOf(separator, end) != end) {
         var index = result.lastIndexOf(separator);
         if (index > -1) {
           result = result.slice(0, index);
@@ -15325,15 +14005,14 @@ module.exports = function() {
 
     /**
      * The inverse of `_.escape`; this method converts the HTML entities
-     * `&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`, and `&#96;` in `string` to
-     * their corresponding characters.
+     * `&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`, and `&#96;` in `string` to their
+     * corresponding characters.
      *
-     * **Note:** No other HTML entities are unescaped. To unescape additional
-     * HTML entities use a third-party library like [_he_](https://mths.be/he).
+     * **Note:** No other HTML entities are unescaped. To unescape additional HTML
+     * entities use a third-party library like [_he_](https://mths.be/he).
      *
      * @static
      * @memberOf _
-     * @since 0.6.0
      * @category String
      * @param {string} [string=''] The string to unescape.
      * @returns {string} Returns the unescaped string.
@@ -15354,7 +14033,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category String
      * @param {string} [string=''] The string to convert.
      * @returns {string} Returns the upper cased string.
@@ -15374,34 +14052,14 @@ module.exports = function() {
     });
 
     /**
-     * Converts the first character of `string` to upper case.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.0.0
-     * @category String
-     * @param {string} [string=''] The string to convert.
-     * @returns {string} Returns the converted string.
-     * @example
-     *
-     * _.upperFirst('fred');
-     * // => 'Fred'
-     *
-     * _.upperFirst('FRED');
-     * // => 'FRED'
-     */
-    var upperFirst = createCaseFirst('toUpperCase');
-
-    /**
      * Splits `string` into an array of its words.
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category String
      * @param {string} [string=''] The string to inspect.
      * @param {RegExp|string} [pattern] The pattern to match words.
-     * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+     * @param- {Object} [guard] Enables use as an iteratee for functions like `_.map`.
      * @returns {Array} Returns the words of `string`.
      * @example
      *
@@ -15429,10 +14087,8 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Util
      * @param {Function} func The function to attempt.
-     * @param {...*} [args] The arguments to invoke `func` with.
      * @returns {*} Returns the `func` result or error object.
      * @example
      *
@@ -15460,11 +14116,11 @@ module.exports = function() {
      * **Note:** This method doesn't set the "length" property of bound functions.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Util
      * @param {Object} object The object to bind and assign the bound methods to.
-     * @param {...(string|string[])} methodNames The object method names to bind.
+     * @param {...(string|string[])} methodNames The object method names to bind,
+     *  specified individually or in arrays.
      * @returns {Object} Returns `object`.
      * @example
      *
@@ -15475,30 +14131,28 @@ module.exports = function() {
      *   }
      * };
      *
-     * _.bindAll(view, ['onClick']);
+     * _.bindAll(view, 'onClick');
      * jQuery(element).on('click', view.onClick);
-     * // => Logs 'clicked docs' when clicked.
+     * // => logs 'clicked docs' when clicked
      */
     var bindAll = rest(function(object, methodNames) {
       arrayEach(baseFlatten(methodNames, 1), function(key) {
-        key = toKey(key);
         object[key] = bind(object[key], object);
       });
       return object;
     });
 
     /**
-     * Creates a function that iterates over `pairs` and invokes the corresponding
+     * Creates a function that iterates over `pairs` invoking the corresponding
      * function of the first predicate to return truthy. The predicate-function
      * pairs are invoked with the `this` binding and arguments of the created
      * function.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Util
      * @param {Array} pairs The predicate-function pairs.
-     * @returns {Function} Returns the new composite function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var func = _.cond([
@@ -15545,10 +14199,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Util
      * @param {Object} source The object of property predicates to conform to.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var users = [
@@ -15556,7 +14209,7 @@ module.exports = function() {
      *   { 'user': 'fred',   'age': 40 }
      * ];
      *
-     * _.filter(users, _.conforms({ 'age': function(n) { return n > 38; } }));
+     * _.filter(users, _.conforms({ 'age': _.partial(_.gt, _, 38) }));
      * // => [{ 'user': 'fred', 'age': 40 }]
      */
     function conforms(source) {
@@ -15568,18 +14221,15 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.4.0
      * @category Util
      * @param {*} value The value to return from the new function.
-     * @returns {Function} Returns the new constant function.
+     * @returns {Function} Returns the new function.
      * @example
      *
-     * var objects = _.times(2, _.constant({ 'a': 1 }));
+     * var object = { 'user': 'fred' };
+     * var getter = _.constant(object);
      *
-     * console.log(objects);
-     * // => [{ 'a': 1 }, { 'a': 1 }]
-     *
-     * console.log(objects[0] === objects[1]);
+     * getter() === object;
      * // => true
      */
     function constant(value) {
@@ -15595,18 +14245,16 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Util
      * @param {...(Function|Function[])} [funcs] Functions to invoke.
-     * @returns {Function} Returns the new composite function.
-     * @see _.flowRight
+     * @returns {Function} Returns the new function.
      * @example
      *
      * function square(n) {
      *   return n * n;
      * }
      *
-     * var addSquare = _.flow([_.add, square]);
+     * var addSquare = _.flow(_.add, square);
      * addSquare(1, 2);
      * // => 9
      */
@@ -15617,19 +14265,17 @@ module.exports = function() {
      * invokes the given functions from right to left.
      *
      * @static
-     * @since 3.0.0
      * @memberOf _
      * @category Util
      * @param {...(Function|Function[])} [funcs] Functions to invoke.
-     * @returns {Function} Returns the new composite function.
-     * @see _.flow
+     * @returns {Function} Returns the new function.
      * @example
      *
      * function square(n) {
      *   return n * n;
      * }
      *
-     * var addSquare = _.flowRight([square, _.add]);
+     * var addSquare = _.flowRight(square, _.add);
      * addSquare(1, 2);
      * // => 9
      */
@@ -15639,7 +14285,6 @@ module.exports = function() {
      * This method returns the first argument given to it.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Util
      * @param {*} value Any value.
@@ -15648,7 +14293,7 @@ module.exports = function() {
      *
      * var object = { 'user': 'fred' };
      *
-     * console.log(_.identity(object) === object);
+     * _.identity(object) === object;
      * // => true
      */
     function identity(value) {
@@ -15657,13 +14302,12 @@ module.exports = function() {
 
     /**
      * Creates a function that invokes `func` with the arguments of the created
-     * function. If `func` is a property name, the created function returns the
-     * property value for a given element. If `func` is an array or object, the
-     * created function returns `true` for elements that contain the equivalent
-     * source properties, otherwise it returns `false`.
+     * function. If `func` is a property name the created callback returns the
+     * property value for a given element. If `func` is an object the created
+     * callback returns `true` for elements that contain the equivalent object
+     * properties, otherwise it returns `false`.
      *
      * @static
-     * @since 4.0.0
      * @memberOf _
      * @category Util
      * @param {*} [func=_.identity] The value to convert to a callback.
@@ -15671,31 +14315,20 @@ module.exports = function() {
      * @example
      *
      * var users = [
-     *   { 'user': 'barney', 'age': 36, 'active': true },
-     *   { 'user': 'fred',   'age': 40, 'active': false }
+     *   { 'user': 'barney', 'age': 36 },
+     *   { 'user': 'fred',   'age': 40 }
      * ];
      *
-     * // The `_.matches` iteratee shorthand.
-     * _.filter(users, _.iteratee({ 'user': 'barney', 'active': true }));
-     * // => [{ 'user': 'barney', 'age': 36, 'active': true }]
-     *
-     * // The `_.matchesProperty` iteratee shorthand.
-     * _.filter(users, _.iteratee(['user', 'fred']));
-     * // => [{ 'user': 'fred', 'age': 40 }]
-     *
-     * // The `_.property` iteratee shorthand.
-     * _.map(users, _.iteratee('user'));
-     * // => ['barney', 'fred']
-     *
      * // Create custom iteratee shorthands.
-     * _.iteratee = _.wrap(_.iteratee, function(iteratee, func) {
-     *   return !_.isRegExp(func) ? iteratee(func) : function(string) {
-     *     return func.test(string);
+     * _.iteratee = _.wrap(_.iteratee, function(callback, func) {
+     *   var p = /^(\S+)\s*([<>])\s*(\S+)$/.exec(func);
+     *   return !p ? callback(func) : function(object) {
+     *     return (p[2] == '>' ? object[p[1]] > p[3] : object[p[1]] < p[3]);
      *   };
      * });
      *
-     * _.filter(['abc', 'def'], /ef/);
-     * // => ['def']
+     * _.filter(users, 'age > 36');
+     * // => [{ 'user': 'fred', 'age': 40 }]
      */
     function iteratee(func) {
       return baseIteratee(typeof func == 'function' ? func : baseClone(func, true));
@@ -15711,10 +14344,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Util
      * @param {Object} source The object of property values to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var users = [
@@ -15738,11 +14370,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.2.0
      * @category Util
      * @param {Array|string} path The path of the property to get.
      * @param {*} srcValue The value to match.
-     * @returns {Function} Returns the new spec function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var users = [
@@ -15763,23 +14394,22 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.7.0
      * @category Util
      * @param {Array|string} path The path of the method to invoke.
      * @param {...*} [args] The arguments to invoke the method with.
-     * @returns {Function} Returns the new invoker function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var objects = [
-     *   { 'a': { 'b': _.constant(2) } },
-     *   { 'a': { 'b': _.constant(1) } }
+     *   { 'a': { 'b': { 'c': _.constant(2) } } },
+     *   { 'a': { 'b': { 'c': _.constant(1) } } }
      * ];
      *
-     * _.map(objects, _.method('a.b'));
+     * _.map(objects, _.method('a.b.c'));
      * // => [2, 1]
      *
-     * _.map(objects, _.method(['a', 'b']));
-     * // => [2, 1]
+     * _.invokeMap(_.sortBy(objects, _.method(['a', 'b', 'c'])), 'a.b.c');
+     * // => [1, 2]
      */
     var method = rest(function(path, args) {
       return function(object) {
@@ -15794,11 +14424,10 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.7.0
      * @category Util
      * @param {Object} object The object to query.
      * @param {...*} [args] The arguments to invoke the method with.
-     * @returns {Function} Returns the new invoker function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var array = _.times(3, _.constant),
@@ -15817,21 +14446,21 @@ module.exports = function() {
     });
 
     /**
-     * Adds all own enumerable string keyed function properties of a source
-     * object to the destination object. If `object` is a function, then methods
-     * are added to its prototype as well.
+     * Adds all own enumerable function properties of a source object to the
+     * destination object. If `object` is a function then methods are added to
+     * its prototype as well.
      *
      * **Note:** Use `_.runInContext` to create a pristine `lodash` function to
      * avoid conflicts caused by modifying the original.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Util
      * @param {Function|Object} [object=lodash] The destination object.
      * @param {Object} source The object of functions to add.
-     * @param {Object} [options={}] The options object.
-     * @param {boolean} [options.chain=true] Specify whether mixins are chainable.
+     * @param {Object} [options] The options object.
+     * @param {boolean} [options.chain=true] Specify whether the functions added
+     *  are chainable.
      * @returns {Function|Object} Returns `object`.
      * @example
      *
@@ -15863,7 +14492,7 @@ module.exports = function() {
         object = this;
         methodNames = baseFunctions(source, keys(source));
       }
-      var chain = !(isObject(options) && 'chain' in options) || !!options.chain,
+      var chain = (isObject(options) && 'chain' in options) ? options.chain : true,
           isFunc = isFunction(object);
 
       arrayEach(methodNames, function(methodName) {
@@ -15893,7 +14522,6 @@ module.exports = function() {
      * the `lodash` function.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Util
      * @returns {Function} Returns the `lodash` function.
@@ -15909,62 +14537,57 @@ module.exports = function() {
     }
 
     /**
-     * A method that returns `undefined`.
+     * A no-operation function that returns `undefined` regardless of the
+     * arguments it receives.
      *
      * @static
      * @memberOf _
-     * @since 2.3.0
      * @category Util
      * @example
      *
-     * _.times(2, _.noop);
-     * // => [undefined, undefined]
+     * var object = { 'user': 'fred' };
+     *
+     * _.noop(object) === undefined;
+     * // => true
      */
     function noop() {
       // No operation performed.
     }
 
     /**
-     * Creates a function that gets the argument at index `n`. If `n` is negative,
-     * the nth argument from the end is returned.
+     * Creates a function that returns its nth argument.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Util
      * @param {number} [n=0] The index of the argument to return.
-     * @returns {Function} Returns the new pass-thru function.
-     * @example
-     *
-     * var func = _.nthArg(1);
-     * func('a', 'b', 'c', 'd');
-     * // => 'b'
-     *
-     * var func = _.nthArg(-2);
-     * func('a', 'b', 'c', 'd');
-     * // => 'c'
-     */
-    function nthArg(n) {
-      n = toInteger(n);
-      return rest(function(args) {
-        return baseNth(args, n);
-      });
-    }
-
-    /**
-     * Creates a function that invokes `iteratees` with the arguments it receives
-     * and returns their results.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.0.0
-     * @category Util
-     * @param {...(Array|Array[]|Function|Function[]|Object|Object[]|string|string[])}
-     *  [iteratees=[_.identity]] The iteratees to invoke.
      * @returns {Function} Returns the new function.
      * @example
      *
-     * var func = _.over([Math.max, Math.min]);
+     * var func = _.nthArg(1);
+     *
+     * func('a', 'b', 'c');
+     * // => 'b'
+     */
+    function nthArg(n) {
+      n = toInteger(n);
+      return function() {
+        return arguments[n];
+      };
+    }
+
+    /**
+     * Creates a function that invokes `iteratees` with the arguments provided
+     * to the created function and returns their results.
+     *
+     * @static
+     * @memberOf _
+     * @category Util
+     * @param {...(Function|Function[])} iteratees The iteratees to invoke.
+     * @returns {Function} Returns the new function.
+     * @example
+     *
+     * var func = _.over(Math.max, Math.min);
      *
      * func(1, 2, 3, 4);
      * // => [4, 1]
@@ -15973,18 +14596,16 @@ module.exports = function() {
 
     /**
      * Creates a function that checks if **all** of the `predicates` return
-     * truthy when invoked with the arguments it receives.
+     * truthy when invoked with the arguments provided to the created function.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Util
-     * @param {...(Array|Array[]|Function|Function[]|Object|Object[]|string|string[])}
-     *  [predicates=[_.identity]] The predicates to check.
+     * @param {...(Function|Function[])} predicates The predicates to check.
      * @returns {Function} Returns the new function.
      * @example
      *
-     * var func = _.overEvery([Boolean, isFinite]);
+     * var func = _.overEvery(Boolean, isFinite);
      *
      * func('1');
      * // => true
@@ -15999,18 +14620,16 @@ module.exports = function() {
 
     /**
      * Creates a function that checks if **any** of the `predicates` return
-     * truthy when invoked with the arguments it receives.
+     * truthy when invoked with the arguments provided to the created function.
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Util
-     * @param {...(Array|Array[]|Function|Function[]|Object|Object[]|string|string[])}
-     *  [predicates=[_.identity]] The predicates to check.
+     * @param {...(Function|Function[])} predicates The predicates to check.
      * @returns {Function} Returns the new function.
      * @example
      *
-     * var func = _.overSome([Boolean, isFinite]);
+     * var func = _.overSome(Boolean, isFinite);
      *
      * func('1');
      * // => true
@@ -16028,25 +14647,24 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 2.4.0
      * @category Util
      * @param {Array|string} path The path of the property to get.
-     * @returns {Function} Returns the new accessor function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var objects = [
-     *   { 'a': { 'b': 2 } },
-     *   { 'a': { 'b': 1 } }
+     *   { 'a': { 'b': { 'c': 2 } } },
+     *   { 'a': { 'b': { 'c': 1 } } }
      * ];
      *
-     * _.map(objects, _.property('a.b'));
+     * _.map(objects, _.property('a.b.c'));
      * // => [2, 1]
      *
-     * _.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
+     * _.map(_.sortBy(objects, _.property(['a', 'b', 'c'])), 'a.b.c');
      * // => [1, 2]
      */
     function property(path) {
-      return isKey(path) ? baseProperty(toKey(path)) : basePropertyDeep(path);
+      return isKey(path) ? baseProperty(path) : basePropertyDeep(path);
     }
 
     /**
@@ -16055,10 +14673,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.0.0
      * @category Util
      * @param {Object} object The object to query.
-     * @returns {Function} Returns the new accessor function.
+     * @returns {Function} Returns the new function.
      * @example
      *
      * var array = [0, 1, 2],
@@ -16079,21 +14696,19 @@ module.exports = function() {
     /**
      * Creates an array of numbers (positive and/or negative) progressing from
      * `start` up to, but not including, `end`. A step of `-1` is used if a negative
-     * `start` is specified without an `end` or `step`. If `end` is not specified,
+     * `start` is specified without an `end` or `step`. If `end` is not specified
      * it's set to `start` with `start` then set to `0`.
      *
      * **Note:** JavaScript follows the IEEE-754 standard for resolving
      * floating-point values which can produce unexpected results.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Util
      * @param {number} [start=0] The start of the range.
      * @param {number} end The end of the range.
      * @param {number} [step=1] The value to increment or decrement by.
-     * @returns {Array} Returns the range of numbers.
-     * @see _.inRange, _.rangeRight
+     * @returns {Array} Returns the new array of numbers.
      * @example
      *
      * _.range(4);
@@ -16125,13 +14740,11 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Util
      * @param {number} [start=0] The start of the range.
      * @param {number} end The end of the range.
      * @param {number} [step=1] The value to increment or decrement by.
-     * @returns {Array} Returns the range of numbers.
-     * @see _.inRange, _.range
+     * @returns {Array} Returns the new array of numbers.
      * @example
      *
      * _.rangeRight(4);
@@ -16158,106 +14771,10 @@ module.exports = function() {
     var rangeRight = createRange(true);
 
     /**
-     * A method that returns a new empty array.
+     * Invokes the iteratee function `n` times, returning an array of the results
+     * of each invocation. The iteratee is invoked with one argument; (index).
      *
      * @static
-     * @memberOf _
-     * @since 4.13.0
-     * @category Util
-     * @returns {Array} Returns the new empty array.
-     * @example
-     *
-     * var arrays = _.times(2, _.stubArray);
-     *
-     * console.log(arrays);
-     * // => [[], []]
-     *
-     * console.log(arrays[0] === arrays[1]);
-     * // => false
-     */
-    function stubArray() {
-      return [];
-    }
-
-    /**
-     * A method that returns `false`.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.13.0
-     * @category Util
-     * @returns {boolean} Returns `false`.
-     * @example
-     *
-     * _.times(2, _.stubFalse);
-     * // => [false, false]
-     */
-    function stubFalse() {
-      return false;
-    }
-
-    /**
-     * A method that returns a new empty object.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.13.0
-     * @category Util
-     * @returns {Object} Returns the new empty object.
-     * @example
-     *
-     * var objects = _.times(2, _.stubObject);
-     *
-     * console.log(objects);
-     * // => [{}, {}]
-     *
-     * console.log(objects[0] === objects[1]);
-     * // => false
-     */
-    function stubObject() {
-      return {};
-    }
-
-    /**
-     * A method that returns an empty string.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.13.0
-     * @category Util
-     * @returns {string} Returns the empty string.
-     * @example
-     *
-     * _.times(2, _.stubString);
-     * // => ['', '']
-     */
-    function stubString() {
-      return '';
-    }
-
-    /**
-     * A method that returns `true`.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.13.0
-     * @category Util
-     * @returns {boolean} Returns `true`.
-     * @example
-     *
-     * _.times(2, _.stubTrue);
-     * // => [true, true]
-     */
-    function stubTrue() {
-      return true;
-    }
-
-    /**
-     * Invokes the iteratee `n` times, returning an array of the results of
-     * each invocation. The iteratee is invoked with one argument; (index).
-     *
-     * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Util
      * @param {number} n The number of times to invoke `iteratee`.
@@ -16268,8 +14785,8 @@ module.exports = function() {
      * _.times(3, String);
      * // => ['0', '1', '2']
      *
-     *  _.times(4, _.constant(0));
-     * // => [0, 0, 0, 0]
+     *  _.times(4, _.constant(true));
+     * // => [true, true, true, true]
      */
     function times(n, iteratee) {
       n = toInteger(n);
@@ -16279,7 +14796,7 @@ module.exports = function() {
       var index = MAX_ARRAY_LENGTH,
           length = nativeMin(n, MAX_ARRAY_LENGTH);
 
-      iteratee = getIteratee(iteratee);
+      iteratee = baseCastFunction(iteratee);
       n -= MAX_ARRAY_LENGTH;
 
       var result = baseTimes(length, iteratee);
@@ -16294,7 +14811,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Util
      * @param {*} value The value to convert.
      * @returns {Array} Returns the new property path array.
@@ -16305,19 +14821,24 @@ module.exports = function() {
      *
      * _.toPath('a[0].b.c');
      * // => ['a', '0', 'b', 'c']
+     *
+     * var path = ['a', 'b', 'c'],
+     *     newPath = _.toPath(path);
+     *
+     * console.log(newPath);
+     * // => ['a', 'b', 'c']
+     *
+     * console.log(path === newPath);
+     * // => false
      */
     function toPath(value) {
-      if (isArray(value)) {
-        return arrayMap(value, toKey);
-      }
-      return isSymbol(value) ? [value] : copyArray(stringToPath(value));
+      return isArray(value) ? arrayMap(value, String) : stringToPath(value);
     }
 
     /**
-     * Generates a unique ID. If `prefix` is given, the ID is appended to it.
+     * Generates a unique ID. If `prefix` is given the ID is appended to it.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Util
      * @param {string} [prefix=''] The value to prefix the ID with.
@@ -16342,7 +14863,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 3.4.0
      * @category Math
      * @param {number} augend The first number in an addition.
      * @param {number} addend The second number in an addition.
@@ -16352,16 +14872,25 @@ module.exports = function() {
      * _.add(6, 4);
      * // => 10
      */
-    var add = createMathOperation(function(augend, addend) {
-      return augend + addend;
-    });
+    function add(augend, addend) {
+      var result;
+      if (augend === undefined && addend === undefined) {
+        return 0;
+      }
+      if (augend !== undefined) {
+        result = augend;
+      }
+      if (addend !== undefined) {
+        result = result === undefined ? addend : (result + addend);
+      }
+      return result;
+    }
 
     /**
      * Computes `number` rounded up to `precision`.
      *
      * @static
      * @memberOf _
-     * @since 3.10.0
      * @category Math
      * @param {number} number The number to round up.
      * @param {number} [precision=0] The precision to round up to.
@@ -16380,30 +14909,10 @@ module.exports = function() {
     var ceil = createRound('ceil');
 
     /**
-     * Divide two numbers.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.7.0
-     * @category Math
-     * @param {number} dividend The first number in a division.
-     * @param {number} divisor The second number in a division.
-     * @returns {number} Returns the quotient.
-     * @example
-     *
-     * _.divide(6, 4);
-     * // => 1.5
-     */
-    var divide = createMathOperation(function(dividend, divisor) {
-      return dividend / divisor;
-    });
-
-    /**
      * Computes `number` rounded down to `precision`.
      *
      * @static
      * @memberOf _
-     * @since 3.10.0
      * @category Math
      * @param {number} number The number to round down.
      * @param {number} [precision=0] The precision to round down to.
@@ -16422,11 +14931,10 @@ module.exports = function() {
     var floor = createRound('floor');
 
     /**
-     * Computes the maximum value of `array`. If `array` is empty or falsey,
+     * Computes the maximum value of `array`. If `array` is empty or falsey
      * `undefined` is returned.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Math
      * @param {Array} array The array to iterate over.
@@ -16441,7 +14949,7 @@ module.exports = function() {
      */
     function max(array) {
       return (array && array.length)
-        ? baseExtremum(array, identity, baseGt)
+        ? baseExtremum(array, identity, gt)
         : undefined;
     }
 
@@ -16452,11 +14960,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Math
      * @param {Array} array The array to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {*} Returns the maximum value.
      * @example
      *
@@ -16471,7 +14977,7 @@ module.exports = function() {
      */
     function maxBy(array, iteratee) {
       return (array && array.length)
-        ? baseExtremum(array, getIteratee(iteratee), baseGt)
+        ? baseExtremum(array, getIteratee(iteratee), gt)
         : undefined;
     }
 
@@ -16480,7 +14986,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Math
      * @param {Array} array The array to iterate over.
      * @returns {number} Returns the mean.
@@ -16490,43 +14995,14 @@ module.exports = function() {
      * // => 5
      */
     function mean(array) {
-      return baseMean(array, identity);
+      return sum(array) / (array ? array.length : 0);
     }
 
     /**
-     * This method is like `_.mean` except that it accepts `iteratee` which is
-     * invoked for each element in `array` to generate the value to be averaged.
-     * The iteratee is invoked with one argument: (value).
-     *
-     * @static
-     * @memberOf _
-     * @since 4.7.0
-     * @category Math
-     * @param {Array} array The array to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
-     * @returns {number} Returns the mean.
-     * @example
-     *
-     * var objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
-     *
-     * _.meanBy(objects, function(o) { return o.n; });
-     * // => 5
-     *
-     * // The `_.property` iteratee shorthand.
-     * _.meanBy(objects, 'n');
-     * // => 5
-     */
-    function meanBy(array, iteratee) {
-      return baseMean(array, getIteratee(iteratee));
-    }
-
-    /**
-     * Computes the minimum value of `array`. If `array` is empty or falsey,
+     * Computes the minimum value of `array`. If `array` is empty or falsey
      * `undefined` is returned.
      *
      * @static
-     * @since 0.1.0
      * @memberOf _
      * @category Math
      * @param {Array} array The array to iterate over.
@@ -16541,7 +15017,7 @@ module.exports = function() {
      */
     function min(array) {
       return (array && array.length)
-        ? baseExtremum(array, identity, baseLt)
+        ? baseExtremum(array, identity, lt)
         : undefined;
     }
 
@@ -16552,11 +15028,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Math
      * @param {Array} array The array to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {*} Returns the minimum value.
      * @example
      *
@@ -16571,35 +15045,15 @@ module.exports = function() {
      */
     function minBy(array, iteratee) {
       return (array && array.length)
-        ? baseExtremum(array, getIteratee(iteratee), baseLt)
+        ? baseExtremum(array, getIteratee(iteratee), lt)
         : undefined;
     }
-
-    /**
-     * Multiply two numbers.
-     *
-     * @static
-     * @memberOf _
-     * @since 4.7.0
-     * @category Math
-     * @param {number} multiplier The first number in a multiplication.
-     * @param {number} multiplicand The second number in a multiplication.
-     * @returns {number} Returns the product.
-     * @example
-     *
-     * _.multiply(6, 4);
-     * // => 24
-     */
-    var multiply = createMathOperation(function(multiplier, multiplicand) {
-      return multiplier * multiplicand;
-    });
 
     /**
      * Computes `number` rounded to `precision`.
      *
      * @static
      * @memberOf _
-     * @since 3.10.0
      * @category Math
      * @param {number} number The number to round.
      * @param {number} [precision=0] The precision to round to.
@@ -16622,7 +15076,6 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Math
      * @param {number} minuend The first number in a subtraction.
      * @param {number} subtrahend The second number in a subtraction.
@@ -16632,16 +15085,25 @@ module.exports = function() {
      * _.subtract(6, 4);
      * // => 2
      */
-    var subtract = createMathOperation(function(minuend, subtrahend) {
-      return minuend - subtrahend;
-    });
+    function subtract(minuend, subtrahend) {
+      var result;
+      if (minuend === undefined && subtrahend === undefined) {
+        return 0;
+      }
+      if (minuend !== undefined) {
+        result = minuend;
+      }
+      if (subtrahend !== undefined) {
+        result = result === undefined ? subtrahend : (result - subtrahend);
+      }
+      return result;
+    }
 
     /**
      * Computes the sum of the values in `array`.
      *
      * @static
      * @memberOf _
-     * @since 3.4.0
      * @category Math
      * @param {Array} array The array to iterate over.
      * @returns {number} Returns the sum.
@@ -16663,11 +15125,9 @@ module.exports = function() {
      *
      * @static
      * @memberOf _
-     * @since 4.0.0
      * @category Math
      * @param {Array} array The array to iterate over.
-     * @param {Array|Function|Object|string} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function|Object|string} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {number} Returns the sum.
      * @example
      *
@@ -16688,7 +15148,39 @@ module.exports = function() {
 
     /*------------------------------------------------------------------------*/
 
-    // Add methods that return wrapped values in chain sequences.
+    // Ensure wrappers are instances of `baseLodash`.
+    lodash.prototype = baseLodash.prototype;
+
+    LodashWrapper.prototype = baseCreate(baseLodash.prototype);
+    LodashWrapper.prototype.constructor = LodashWrapper;
+
+    LazyWrapper.prototype = baseCreate(baseLodash.prototype);
+    LazyWrapper.prototype.constructor = LazyWrapper;
+
+    // Avoid inheriting from `Object.prototype` when possible.
+    Hash.prototype = nativeCreate ? nativeCreate(null) : objectProto;
+
+    // Add functions to the `MapCache`.
+    MapCache.prototype.clear = mapClear;
+    MapCache.prototype['delete'] = mapDelete;
+    MapCache.prototype.get = mapGet;
+    MapCache.prototype.has = mapHas;
+    MapCache.prototype.set = mapSet;
+
+    // Add functions to the `SetCache`.
+    SetCache.prototype.push = cachePush;
+
+    // Add functions to the `Stack` cache.
+    Stack.prototype.clear = stackClear;
+    Stack.prototype['delete'] = stackDelete;
+    Stack.prototype.get = stackGet;
+    Stack.prototype.has = stackHas;
+    Stack.prototype.set = stackSet;
+
+    // Assign cache to `_.memoize`.
+    memoize.Cache = MapCache;
+
+    // Add functions that return wrapped values when chaining.
     lodash.after = after;
     lodash.ary = ary;
     lodash.assign = assign;
@@ -16727,8 +15219,6 @@ module.exports = function() {
     lodash.fill = fill;
     lodash.filter = filter;
     lodash.flatMap = flatMap;
-    lodash.flatMapDeep = flatMapDeep;
-    lodash.flatMapDepth = flatMapDepth;
     lodash.flatten = flatten;
     lodash.flattenDeep = flattenDeep;
     lodash.flattenDepth = flattenDepth;
@@ -16781,7 +15271,6 @@ module.exports = function() {
     lodash.pull = pull;
     lodash.pullAll = pullAll;
     lodash.pullAllBy = pullAllBy;
-    lodash.pullAllWith = pullAllWith;
     lodash.pullAt = pullAt;
     lodash.range = range;
     lodash.rangeRight = rangeRight;
@@ -16824,8 +15313,6 @@ module.exports = function() {
     lodash.unset = unset;
     lodash.unzip = unzip;
     lodash.unzipWith = unzipWith;
-    lodash.update = update;
-    lodash.updateWith = updateWith;
     lodash.values = values;
     lodash.valuesIn = valuesIn;
     lodash.without = without;
@@ -16840,17 +15327,15 @@ module.exports = function() {
     lodash.zipWith = zipWith;
 
     // Add aliases.
-    lodash.entries = toPairs;
-    lodash.entriesIn = toPairsIn;
     lodash.extend = assignIn;
     lodash.extendWith = assignInWith;
 
-    // Add methods to `lodash.prototype`.
+    // Add functions to `lodash.prototype`.
     mixin(lodash, lodash);
 
     /*------------------------------------------------------------------------*/
 
-    // Add methods that return unwrapped values in chain sequences.
+    // Add functions that return unwrapped values when chaining.
     lodash.add = add;
     lodash.attempt = attempt;
     lodash.camelCase = camelCase;
@@ -16862,7 +15347,6 @@ module.exports = function() {
     lodash.cloneDeepWith = cloneDeepWith;
     lodash.cloneWith = cloneWith;
     lodash.deburr = deburr;
-    lodash.divide = divide;
     lodash.endsWith = endsWith;
     lodash.eq = eq;
     lodash.escape = escape;
@@ -16940,16 +15424,8 @@ module.exports = function() {
     lodash.max = max;
     lodash.maxBy = maxBy;
     lodash.mean = mean;
-    lodash.meanBy = meanBy;
     lodash.min = min;
     lodash.minBy = minBy;
-    lodash.stubArray = stubArray;
-    lodash.stubFalse = stubFalse;
-    lodash.stubObject = stubObject;
-    lodash.stubString = stubString;
-    lodash.stubTrue = stubTrue;
-    lodash.multiply = multiply;
-    lodash.nth = nth;
     lodash.noConflict = noConflict;
     lodash.noop = noop;
     lodash.now = now;
@@ -16982,7 +15458,6 @@ module.exports = function() {
     lodash.sumBy = sumBy;
     lodash.template = template;
     lodash.times = times;
-    lodash.toFinite = toFinite;
     lodash.toInteger = toInteger;
     lodash.toLength = toLength;
     lodash.toLower = toLower;
@@ -17190,7 +15665,7 @@ module.exports = function() {
       };
     });
 
-    // Add `Array` methods to `lodash.prototype`.
+    // Add `Array` and `String` methods to `lodash.prototype`.
     arrayEach(['pop', 'push', 'shift', 'sort', 'splice', 'unshift'], function(methodName) {
       var func = arrayProto[methodName],
           chainName = /^(?:push|sort|unshift)$/.test(methodName) ? 'tap' : 'thru',
@@ -17199,16 +15674,15 @@ module.exports = function() {
       lodash.prototype[methodName] = function() {
         var args = arguments;
         if (retUnwrapped && !this.__chain__) {
-          var value = this.value();
-          return func.apply(isArray(value) ? value : [], args);
+          return func.apply(this.value(), args);
         }
         return this[chainName](function(value) {
-          return func.apply(isArray(value) ? value : [], args);
+          return func.apply(value, args);
         });
       };
     });
 
-    // Map minified method names to their real names.
+    // Map minified function names to their real names.
     baseForOwn(LazyWrapper.prototype, function(func, methodName) {
       var lodashFunc = lodash[methodName];
       if (lodashFunc) {
@@ -17224,15 +15698,16 @@ module.exports = function() {
       'func': undefined
     }];
 
-    // Add methods to `LazyWrapper`.
+    // Add functions to the lazy wrapper.
     LazyWrapper.prototype.clone = lazyClone;
     LazyWrapper.prototype.reverse = lazyReverse;
     LazyWrapper.prototype.value = lazyValue;
 
-    // Add chain sequence methods to the `lodash` wrapper.
+    // Add chaining functions to the `lodash` wrapper.
     lodash.prototype.at = wrapperAt;
     lodash.prototype.chain = wrapperChain;
     lodash.prototype.commit = wrapperCommit;
+    lodash.prototype.flatMap = wrapperFlatMap;
     lodash.prototype.next = wrapperNext;
     lodash.prototype.plant = wrapperPlant;
     lodash.prototype.reverse = wrapperReverse;
@@ -17249,12 +15724,10 @@ module.exports = function() {
   // Export lodash.
   var _ = runInContext();
 
-  // Expose Lodash on the free variable `window` or `self` when available so it's
-  // globally accessible, even when bundled with Browserify, Webpack, etc. This
-  // also prevents errors in cases where Lodash is loaded by a script tag in the
-  // presence of an AMD loader. See http://requirejs.org/docs/errors.html#mismatch
-  // for more details. Use `_.noConflict` to remove Lodash from the global object.
-  (freeSelf || {})._ = _;
+  // Expose lodash on the free variable `window` or `self` when available. This
+  // prevents errors in cases where lodash is loaded by a script tag in the presence
+  // of an AMD loader. See http://requirejs.org/docs/errors.html#mismatch for more details.
+  (freeWindow || freeSelf || {})._ = _;
 
   // Some AMD build optimizers like r.js check for condition patterns like the following:
   if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
@@ -17265,9 +15738,11 @@ module.exports = function() {
     });
   }
   // Check for `exports` after `define` in case a build optimizer adds an `exports` object.
-  else if (freeModule) {
+  else if (freeExports && freeModule) {
     // Export for Node.js.
-    (freeModule.exports = _)._ = _;
+    if (moduleExports) {
+      (freeModule.exports = _)._ = _;
+    }
     // Export for CommonJS support.
     freeExports._ = _;
   }
@@ -17278,7 +15753,7 @@ module.exports = function() {
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function(){
   var crypt = require('crypt'),
       utf8 = require('charenc').utf8,
@@ -17440,7 +15915,26 @@ module.exports = function() {
 
 })();
 
-},{"charenc":11,"crypt":12,"is-buffer":13}],17:[function(require,module,exports){
+},{"charenc":11,"crypt":12,"is-buffer":16}],16:[function(require,module,exports){
+/**
+ * Determine if an object is Buffer
+ *
+ * Author:   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * License:  MIT
+ *
+ * `npm install is-buffer`
+ */
+
+module.exports = function (obj) {
+  return !!(
+    obj != null &&
+    obj.constructor &&
+    typeof obj.constructor.isBuffer === 'function' &&
+    obj.constructor.isBuffer(obj)
+  )
+}
+
+},{}],17:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -17651,7 +16145,7 @@ module.exports = React.createClass({
     };
   },
   render: function() {
-    var base, className, hash, modernBrowser, query, retinaQuery, retinaSrc, src;
+    var base, hash, modernBrowser, query, retinaQuery, retinaSrc, src;
     base = this.props.https ? "https://secure.gravatar.com/avatar/" : 'http://www.gravatar.com/avatar/';
     query = querystring.stringify({
       s: this.props.size,
@@ -17677,31 +16171,25 @@ module.exports = React.createClass({
     if (typeof window !== "undefined" && window !== null) {
       modernBrowser = 'srcset' in document.createElement('img');
     }
-    className = 'react-gravatar';
-    if (this.props.className) {
-      className = className + " " + this.props.className;
-    }
     if (!modernBrowser && isRetina()) {
-      return React.createElement("img", Object.assign({
+      return React.createElement("img", React.__spread({
         "style": this.props.style,
+        "className": "react-gravatar " + this.props.className,
         "src": retinaSrc,
         "height": this.props.size,
         "width": this.props.size
-      }, this.props, {
-        "className": className
-      }));
+      }, this.props));
     } else {
-      return React.createElement("img", Object.assign({
+      return React.createElement("img", React.__spread({
         "style": this.props.style,
+        "className": "react-gravatar " + this.props.className,
         "src": src,
         "srcSet": retinaSrc + " 2x",
         "height": this.props.size,
         "width": this.props.size
-      }, this.props, {
-        "className": className
-      }));
+      }, this.props));
     }
   }
 });
 
-},{"is-retina":14,"md5":16,"querystring":19,"react":undefined}]},{},[1]);
+},{"is-retina":13,"md5":15,"querystring":19,"react":undefined}]},{},[1]);

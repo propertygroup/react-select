@@ -791,6 +791,7 @@ const Select = React.createClass({
 				ref: "input",
 				required: this.state.required,
 				value: this.state.inputValue,
+				autocomplete: "off",
 				placeholder: this.props.showInputPlaceholder && this.props.placeholder
 			});
 
@@ -798,11 +799,7 @@ const Select = React.createClass({
 				props.placeholder = this.generateMultiselectLabel(options, valueArray);
 			}
 
-			return (
-				<input
-					{...props}
-				/>
-			);
+			return <input {...props} />;
 		}
 	},
 
