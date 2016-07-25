@@ -791,7 +791,7 @@ const Select = React.createClass({
 				ref: "input",
 				required: this.state.required,
 				value: this.state.inputValue,
-				autocomplete: "off",
+				autoComplete: "off",
 				placeholder: this.props.showInputPlaceholder && this.props.placeholder
 			});
 
