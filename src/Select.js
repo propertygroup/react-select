@@ -138,7 +138,7 @@ const Select = React.createClass({
 
 		if (this.props.value) {
 			this.setState({
-				inputValue: this.props.value.label
+				inputValue: this.props.value.label || ""
 			});
 		}
 
