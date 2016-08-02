@@ -249,13 +249,13 @@ const Select = React.createClass({
 	},
 
 	setInputValue(value) {
-		this.setState({inputValue: value});
+		this.setState({inputValue: value || ""});
 	},
 
 	getInputValue() {
 		return this.state.inputValue;
 	},
-	
+
 	clearInput() {
 		this.setInputValue("");
 	},

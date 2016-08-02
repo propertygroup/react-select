@@ -17637,7 +17637,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	setInputValue: function setInputValue(value) {
-		this.setState({ inputValue: value });
+		this.setState({ inputValue: value || "" });
 	},
 
 	getInputValue: function getInputValue() {
