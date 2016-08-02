@@ -137,9 +137,7 @@ const Select = React.createClass({
 		}
 
 		if (this.props.value) {
-			this.setState({
-				inputValue: this.props.value.label || ""
-			});
+			this.setInputValue(this.props.value.label);
 		}
 
 		this.setState({
@@ -158,9 +156,7 @@ const Select = React.createClass({
 		// todo fixme
 		if (nextProps.value) {
 			if(!_.isEqual(this.props.value, nextProps.value)) {
-				this.setState({
-					inputValue: nextProps.value.label
-				});
+				this.setInputValue(nextProps.value.label);
 			}
 		} else if (this.isInputEmpty() || (!nextProps.value && this.props.value)) {
 			this.setValue(null);
@@ -180,10 +176,10 @@ const Select = React.createClass({
 		}
 
 		let prevInput = prevState.inputValue;
-		let input = this.state.inputValue;
+		let input = this.getInputValue();
 
 		if (input != null && prevInput !== input && this.props.onInputChange) {
-			this.props.onInputChange(this.state.inputValue);
+			this.props.onInputChange(this.getInputValue());
 		}
 		if (this._scrollToFocusedOptionOnUpdate && this.refs.focused && this.refs.menu) {
 			this._scrollToFocusedOptionOnUpdate = false;
@@ -237,7 +233,7 @@ const Select = React.createClass({
 	},
 
 	isInputEmpty() {
-		return !this.state.inputValue;
+		return !this.getInputValue();
 	},
 
 	isDiabled() {
@@ -252,10 +248,16 @@ const Select = React.createClass({
 		return this.state.isOpen;
 	},
 
+	setInputValue(value) {
+		this.setState({inputValue: value});
+	},
+
+	getInputValue() {
+		return this.state.inputValue;
+	},
+	
 	clearInput() {
-		this.setState({
-			inputValue: ""
-		})
+		this.setInputValue("");
 	},
 
 	toggleMenu(shouldOpen) {
@@ -427,7 +429,7 @@ const Select = React.createClass({
 
 	handleInputBlur (event) {
 		if(!this.isMultiselect()) {
-			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
+			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.getInputValue()) {
 				if(!this.props.allowCreate) {
 					if (!this.isInputEmpty() && this.props.selectFocusedOnBlur && this._focusedOption) {
 						this.selectFocusedOption();
@@ -436,7 +438,7 @@ const Select = React.createClass({
 						this.clearInput();
 					}
 				} else {
-					let option = {value: this.state.inputValue, label: this.state.inputValue};
+					let option = {value: this.getInputValue(), label: this.getInputValue()};
 					this.setValue(option);
 				}
 			}
@@ -462,9 +464,7 @@ const Select = React.createClass({
 		}
 		//this.toggleMenu(true);
 		this.togglePseudoFocus(false);
-		this.setState({
-			inputValue: inputValue
-		});
+		this.setInputValue(inputValue);
 	},
 
 	handleKeyDown (event) {
@@ -614,9 +614,7 @@ const Select = React.createClass({
 			this.setValue(value);
 			this.toggleMenu(false);
 			this.togglePseudoFocus(this.isFocused());
-			this.setState({
-				inputValue: value.label,
-			});
+			this.setInputValue(value.label);
 		}
 	},
 
@@ -790,7 +788,7 @@ const Select = React.createClass({
 				minWidth: "5",
 				ref: "input",
 				required: this.state.required,
-				value: this.state.inputValue,
+				value: this.getInputValue(),
 				autoComplete: "off",
 				placeholder: this.props.showInputPlaceholder && this.props.placeholder
 			});
@@ -829,7 +827,7 @@ const Select = React.createClass({
 	},
 
 	filterOptions (excludeOptions) {
-		var filterValue = this.state.inputValue;
+		var filterValue = this.getInputValue();
 		var options = this.props.options || [];
 
 		if (this.props.filterOptions === false) {

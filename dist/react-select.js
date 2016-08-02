@@ -17413,9 +17413,7 @@ var Select = _react2['default'].createClass({
 		}
 
 		if (this.props.value) {
-			this.setState({
-				inputValue: this.props.value.label || ""
-			});
+			this.setInputValue(this.props.value.label);
 		}
 
 		this.setState({
@@ -17434,9 +17432,7 @@ var Select = _react2['default'].createClass({
 		// todo fixme
 		if (nextProps.value) {
 			if (!_.isEqual(this.props.value, nextProps.value)) {
-				this.setState({
-					inputValue: nextProps.value.label
-				});
+				this.setInputValue(nextProps.value.label);
 			}
 		} else if (this.isInputEmpty() || !nextProps.value && this.props.value) {
 			this.setValue(null);
@@ -17456,10 +17452,10 @@ var Select = _react2['default'].createClass({
 		}
 
 		var prevInput = prevState.inputValue;
-		var input = this.state.inputValue;
+		var input = this.getInputValue();
 
 		if (input != null && prevInput !== input && this.props.onInputChange) {
-			this.props.onInputChange(this.state.inputValue);
+			this.props.onInputChange(this.getInputValue());
 		}
 		if (this._scrollToFocusedOptionOnUpdate && this.refs.focused && this.refs.menu) {
 			this._scrollToFocusedOptionOnUpdate = false;
@@ -17512,7 +17508,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	isInputEmpty: function isInputEmpty() {
-		return !this.state.inputValue;
+		return !this.getInputValue();
 	},
 
 	isDiabled: function isDiabled() {
@@ -17527,10 +17523,16 @@ var Select = _react2['default'].createClass({
 		return this.state.isOpen;
 	},
 
+	setInputValue: function setInputValue(value) {
+		this.setState({ inputValue: value });
+	},
+
+	getInputValue: function getInputValue() {
+		return this.state.inputValue;
+	},
+
 	clearInput: function clearInput() {
-		this.setState({
-			inputValue: ""
-		});
+		this.setInputValue("");
 	},
 
 	toggleMenu: function toggleMenu(shouldOpen) {
@@ -17698,7 +17700,7 @@ var Select = _react2['default'].createClass({
 
 	handleInputBlur: function handleInputBlur(event) {
 		if (!this.isMultiselect()) {
-			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.state.inputValue) {
+			if (!this.getValueArray()[0] || this.getValueArray()[0].label != this.getInputValue()) {
 				if (!this.props.allowCreate) {
 					if (!this.isInputEmpty() && this.props.selectFocusedOnBlur && this._focusedOption) {
 						this.selectFocusedOption();
@@ -17707,7 +17709,7 @@ var Select = _react2['default'].createClass({
 						this.clearInput();
 					}
 				} else {
-					var option = { value: this.state.inputValue, label: this.state.inputValue };
+					var option = { value: this.getInputValue(), label: this.getInputValue() };
 					this.setValue(option);
 				}
 			}
@@ -17733,9 +17735,7 @@ var Select = _react2['default'].createClass({
 		}
 		//this.toggleMenu(true);
 		this.togglePseudoFocus(false);
-		this.setState({
-			inputValue: inputValue
-		});
+		this.setInputValue(inputValue);
 	},
 
 	handleKeyDown: function handleKeyDown(event) {
@@ -17897,9 +17897,7 @@ var Select = _react2['default'].createClass({
 				this.setValue(value);
 				this.toggleMenu(false);
 				this.togglePseudoFocus(this.isFocused());
-				this.setState({
-					inputValue: value.label
-				});
+				this.setInputValue(value.label);
 			}
 	},
 
@@ -18078,7 +18076,7 @@ var Select = _react2['default'].createClass({
 				minWidth: "5",
 				ref: "input",
 				required: this.state.required,
-				value: this.state.inputValue,
+				value: this.getInputValue(),
 				autoComplete: "off",
 				placeholder: this.props.showInputPlaceholder && this.props.placeholder
 			});
@@ -18118,7 +18116,7 @@ var Select = _react2['default'].createClass({
 	filterOptions: function filterOptions(excludeOptions) {
 		var _this3 = this;
 
-		var filterValue = this.state.inputValue;
+		var filterValue = this.getInputValue();
 		var options = this.props.options || [];
 
 		if (this.props.filterOptions === false) {
