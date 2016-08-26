@@ -111,6 +111,7 @@ const Select = React.createClass({
 			noResultsText: 'Brak wyników',
 			onBlurResetsInput: true,
 			optionComponent: Option,
+			optgroups: false,
 			placeholder: 'Wybierz',
 			required: false,
 			scrollMenuIntoView: true,
@@ -579,29 +580,6 @@ const Select = React.createClass({
 		return value;
 	},
 
-	//getValueArray () {
-	//	let value = this.props.value;
-	//	if (this.isAutocomplete()) {
-	//		if (typeof value === 'string') value = value.split(this.props.delimiter);
-	//		if (!Array.isArray(value)) {
-	//			if (value === null || value === undefined) return [];
-	//			value = [value];
-	//		}
-	//		return value.map(this.expandValue).filter(i => i);
-	//	}
-	//	var expandedValue = this.expandValue(value);
-	//	return expandedValue ? [expandedValue] : [];
-	//},
-
-	//expandValue (value) {
-	//	if (typeof value !== 'string' && typeof value !== 'number') return value;
-	//	let { options, valueKey } = this.props;
-	//	if (!options) return;
-	//	for (var i = 0; i < options.length; i++) {
-	//		if (options[i][valueKey] === value) return options[i];
-	//	}
-	//},
-
 	clear() {
 		this.setValue(null);
 		this.toggleMenu(false);
@@ -953,6 +931,19 @@ const Select = React.createClass({
 		return value1 === value2;
 	},
 
+	renderOptgroups (optgroups, valueArray, focusedOption) {
+
+		let elems = [];
+
+		optgroups.forEach((optgroup, i) => {
+			elems.push(<div key={i}>{optgroup.name}</div>);
+			optgroup.options.forEach((option, j) => elems.push(this.renderOption(option, j, valueArray, focusedOption)))
+		});
+
+		return elems;
+
+	},
+
 	renderOption (option, index, valueArray, focusedOption) {
 		let Option = this.props.optionComponent;
 		let renderLabel = this.props.optionRenderer || this.getOptionLabel;
@@ -1006,7 +997,11 @@ const Select = React.createClass({
 				}
 			}
 		} else if (options && options.length) {
-			return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+			if (!this.props.optgroups) {
+				return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+			} else {
+				return this.renderOptgroups(options, valueArray, focusedOption);
+			}
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			this._focusedOption = null;
 			return (

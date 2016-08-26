@@ -6082,9 +6082,20 @@ var Container = React.createClass({
 	},
 
 	render () {
+		let optgr = [
+			{name: "test", options: [{value: "a", label: "a"}, {value: "b", label: "b"}, {value: "c", label: "c"}]},
+			{name: "test 2", options: [{value: "d", label: "d"}, {value: "e", label: "e"}, {value: "f", label: "f"}]}
+		];
+
+
 		return (
 		<div>
-			<Select required={false} multi={true} searchable={true} options={options} optionRenderer={this.optionRenderer}  />
+			<Select
+				required={false}
+				searchable={false}
+				options={optgr}
+				optgroups={true}
+			/>
 		</div>
 		)
 
