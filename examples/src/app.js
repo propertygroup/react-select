@@ -6083,8 +6083,10 @@ var Container = React.createClass({
 
 	render () {
 		let optgr = [
+			{value: "", label: "Empty"},
 			{name: "test", options: [{value: "a", label: "a"}, {value: "b", label: "b"}, {value: "c", label: "c"}]},
-			{name: "test 2", options: [{value: "d", label: "d"}, {value: "e", label: "e"}, {value: "f", label: "f"}]}
+			{name: "test 2", options: [{value: "d", label: "d"}, {value: "e", label: "e"}, {value: "f", label: "f"}]},
+			{name: "test 3", options: [{value: "e", label: "e"}, {value: "f", label: "f"}, {value: "g", label: "g"}]}
 		];
 
 

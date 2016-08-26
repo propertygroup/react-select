@@ -936,8 +936,12 @@ const Select = React.createClass({
 		let elems = [];
 
 		optgroups.forEach((optgroup, i) => {
-			elems.push(<div key={i}>{optgroup.name}</div>);
-			optgroup.options.forEach((option, j) => elems.push(this.renderOption(option, j, valueArray, focusedOption)))
+			if (optgroup.type === "optgroup") {
+				elems.push(<div key={i}>{optgroup.name}</div>);
+				optgroup.options.forEach((option, j) => elems.push(this.renderOption(option, j, valueArray, focusedOption)))
+			} else {
+				elems.push(this.renderOption(optgroup, i, valueArray, focusedOption));
+			}
 		});
 
 		return elems;
