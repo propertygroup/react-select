@@ -19770,8 +19770,11 @@ var Select = _react2['default'].createClass({
 				}
 				event.stopPropagation();
 				// if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || !this.props.async))) {
-				this.selectFocusedOption();
-				// }
+				if (!this.isAutocomplete() || this.isAutocomplete() && !this.isInputEmpty()) {
+					this.selectFocusedOption();
+				} else {
+					this.selectValue(null);
+				}
 				break;
 			case 27:
 				// escape

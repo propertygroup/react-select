@@ -519,8 +519,11 @@ const Select = React.createClass({
 				}
 				event.stopPropagation();
 				// if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || !this.props.async))) {
+				if (!this.isAutocomplete() || (this.isAutocomplete() && !this.isInputEmpty())) {
 					this.selectFocusedOption();
-				// }
+				} else {
+					this.selectValue(null);
+				}
 			break;
 			case 27: // escape
 				if (this.isOpen()) {
