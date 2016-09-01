@@ -19362,6 +19362,7 @@ var Select = _react2['default'].createClass({
 			matchPos: 'any',
 			matchProp: 'any',
 			menuBuffer: 0,
+			menuUp: false,
 			multi: false,
 			noResultsText: 'Brak wyników',
 			onBlurResetsInput: true,
@@ -20374,6 +20375,10 @@ var Select = _react2['default'].createClass({
 			'has-value': valueArray.length
 		});
 
+		var menuClassName = (0, _classnames2['default'])("Select-menu-outer", {
+			"select-up": this.props.menuUp
+		});
+
 		var style = _.assign({}, this.props.menuContainerStyle, {
 			width: this.state.width
 		});
@@ -20401,7 +20406,7 @@ var Select = _react2['default'].createClass({
 			),
 			isOpen ? _react2['default'].createElement(
 				'div',
-				{ ref: 'menuContainer', className: 'Select-menu-outer', style: style },
+				{ ref: 'menuContainer', className: menuClassName, style: style },
 				_react2['default'].createElement(
 					'div',
 					{ ref: 'menu', className: 'Select-menu',

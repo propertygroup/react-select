@@ -107,6 +107,7 @@ const Select = React.createClass({
 			matchPos: 'any',
 			matchProp: 'any',
 			menuBuffer: 0,
+			menuUp: false,
 			multi: false,
 			noResultsText: 'Brak wyników',
 			onBlurResetsInput: true,
@@ -1069,6 +1070,10 @@ const Select = React.createClass({
 			'has-value': valueArray.length,
 		});
 
+		let menuClassName = classNames("Select-menu-outer", {
+			"select-up": this.props.menuUp
+		});
+
 		let style = _.assign({}, this.props.menuContainerStyle, {
 			width: this.state.width
 		});
@@ -1102,7 +1107,7 @@ const Select = React.createClass({
 						{this.renderArrow()}
 					</div>
 					{isOpen ? (
-						<div ref="menuContainer" className="Select-menu-outer" style={style}>
+						<div ref="menuContainer" className={menuClassName} style={style}>
 							<div ref="menu" className="Select-menu"
 									 style={this.props.menuStyle}
 									 onScroll={this.handleMenuScroll}
