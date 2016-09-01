@@ -522,7 +522,7 @@ const Select = React.createClass({
 				if (!this.isAutocomplete() || (this.isAutocomplete() && !this.isInputEmpty())) {
 					this.selectFocusedOption();
 				} else {
-					this.selectValue(null);
+					this.clear();
 				}
 			break;
 			case 27: // escape

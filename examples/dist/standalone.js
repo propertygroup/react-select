@@ -19660,7 +19660,7 @@ var Select = _react2['default'].createClass({
 				if (!this.isAutocomplete() || this.isAutocomplete() && !this.isInputEmpty()) {
 					this.selectFocusedOption();
 				} else {
-					this.selectValue(null);
+					this.clear();
 				}
 				break;
 			case 27:
