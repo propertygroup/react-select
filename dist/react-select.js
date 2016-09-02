@@ -19421,6 +19421,7 @@ var Select = _react2['default'].createClass({
 
 	clearInput: function clearInput() {
 		this.setInputValue("");
+		this.focusOption(null);
 	},
 
 	toggleMenu: function toggleMenu(shouldOpen) {
@@ -19653,13 +19654,13 @@ var Select = _react2['default'].createClass({
 				return;
 			case 13:
 				// enter
-				if (!this.isOpen()) {
-					this.toggleMenu(true);
-					return;
-				}
-				event.stopPropagation();
+				// if (!this.isOpen()) {
+				// 	this.toggleMenu(true);
+				// 	return;
+				// }
+				// event.stopPropagation();
 				// if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || !this.props.async))) {
-				if (!this.isAutocomplete() || this.isAutocomplete() && !this.isInputEmpty()) {
+				if (!this.isAutocomplete() || this.isAutocomplete() && (!this.isInputEmpty() || this.state.focusedOption)) {
 					this.selectFocusedOption();
 				} else {
 					this.clear();
@@ -19672,14 +19673,17 @@ var Select = _react2['default'].createClass({
 				} else if (this.props.clearable && this.props.escapeClearsValue) {
 					this.clearValue(event);
 				}
+				event.preventDefault();
 				break;
 			case 38:
 				// up
 				this.focusPreviousOption();
+				event.preventDefault();
 				break;
 			case 40:
 				// down
 				this.focusNextOption();
+				event.preventDefault();
 				break;
 			// case 188: // ,
 			// 	if (this.props.allowCreate && this.props.multi) {
@@ -19693,7 +19697,6 @@ var Select = _react2['default'].createClass({
 			default:
 				return;
 		}
-		event.preventDefault();
 	},
 
 	handleValueClick: function handleValueClick(option, event) {
@@ -20236,8 +20239,10 @@ var Select = _react2['default'].createClass({
 			if (index > -1) return options[index];
 		}
 
-		for (var i = 0; i < options.length; i++) {
-			if (!options[i].disabled) return options[i];
+		if (this.props.alwaysFocus) {
+			for (var i = 0; i < options.length; i++) {
+				if (!options[i].disabled) return options[i];
+			}
 		}
 	},
 
