@@ -77,7 +77,9 @@ const Async = React.createClass({
 		this._lastInput = '';
 	},
 	componentDidMount () {
-		this.loadOptionsWithDebounce('');
+		if (this.props.showAllValues) {
+			this.loadOptionsWithDebounce('');
+		}
 	},
 	componentWillReceiveProps (nextProps) {
 		if (nextProps.cache !== this.props.cache) {
