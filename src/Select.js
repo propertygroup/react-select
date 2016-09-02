@@ -521,6 +521,7 @@ const Select = React.createClass({
 				// event.stopPropagation();
 				// if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || !this.props.async))) {
 				if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || this.state.focusedOption))) {
+					event.preventDefault();
 					this.selectFocusedOption();
 				} else {
 					this.clear();
