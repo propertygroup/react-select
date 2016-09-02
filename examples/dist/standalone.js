@@ -18885,7 +18885,7 @@ var Async = _react2['default'].createClass({
 		this._lastInput = '';
 	},
 	componentDidMount: function componentDidMount() {
-		//this.loadOptions('');
+		this.loadOptionsWithDebounce('');
 	},
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 		if (nextProps.cache !== this.props.cache) {
