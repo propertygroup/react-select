@@ -19672,7 +19672,7 @@ var Select = _react2['default'].createClass({
 				if (!this.isAutocomplete() || this.isAutocomplete() && (!this.isInputEmpty() || this.state.focusedOption)) {
 					event.preventDefault();
 					this.selectFocusedOption();
-				} else {
+				} else if (!this.isMultiselectAutocomplete()) {
 					this.clear();
 				}
 				break;
@@ -19756,6 +19756,8 @@ var Select = _react2['default'].createClass({
 		}
 		// na sytuacje gdy przychodzi []
 		if (_.isEmpty(value)) value = null;
+
+		this.focusOption(null);
 
 		if (this.props.autoBlur) {
 			this.blurInput();

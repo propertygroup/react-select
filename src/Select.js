@@ -523,7 +523,7 @@ const Select = React.createClass({
 				if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || this.state.focusedOption))) {
 					event.preventDefault();
 					this.selectFocusedOption();
-				} else {
+				} else if (!this.isMultiselectAutocomplete()) {
 					this.clear();
 				}
 			break;
@@ -601,6 +601,8 @@ const Select = React.createClass({
 		}
 		// na sytuacje gdy przychodzi []
 		if (_.isEmpty(value)) value = null;
+
+		this.focusOption(null);
 
 		if (this.props.autoBlur){
 			this.blurInput();
