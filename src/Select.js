@@ -991,27 +991,27 @@ const Select = React.createClass({
 	},
 
 	renderMenuHeader (options, valueArray, focusedOption) {
-		if (!isAutocomplete() || this.props.allowCreate) {
+		if (!this.isAutocomplete() || this.props.allowCreate) {
 			return null; // header ma sens tylko przy autocomplete (?)
 		}
 
-		if (isMultiselectAutocomplete()) {
+		if (this.isMultiselectAutocomplete()) {
 			if (this.isInputEmpty()) {
 				if (valueArray.length) {
-					return <span>Wybrano następujące elementy</span>
+					return <div>Wybrano następujące elementy</div>
 				} else {
-					return <span>Zacznij pisać aby zobaczyć wyniki</span>
+					return <div>Zacznij pisać aby zobaczyć wyniki</div>
 				}
 			} else if (options && options.length) {
-				return <span>Znaleziono następujące wyniki</span>
+				return <div>Znaleziono następujące wyniki</div>
 			} else {
-
+				return <div>Nie znaleziono wyników</div>
 			}
-		} else if (isAutocomplete()) {
+		} else if (this.isAutocomplete()) {
 			if (this.isInputEmpty() && !this.props.showAllValues) {
-				return <span>Zacznij pisać aby zobaczyć wyniki</span>
+				return <div>Zacznij pisać aby zobaczyć wyniki</div>
 			} else if (!options || !options.length) {
-				return <span>Nie znaleziono wyników</span>
+				return <div>Nie znaleziono wyników</div>
 			}
 		}
 	},
@@ -1022,9 +1022,9 @@ const Select = React.createClass({
 			return null;
 		}
 
-		if (isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
+		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
 			return this.renderAutocompleteSelectedOpions(valueArray);
-		} else if (options && options.length && (!this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
+		} else if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
 			if (!this.props.optgroups) {
 				return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 			} else {
@@ -1152,7 +1152,9 @@ const Select = React.createClass({
 					</div>
 					{isOpen ? (
 						<div ref="menuContainer" className={menuClassName} style={style}>
-							{this.renderMenuHeader(options, valueArray, focusedOption)}
+							<div className="Select-menu-header">
+								{this.renderMenuHeader(options, valueArray, focusedOption)}
+							</div>
 							<div ref="menu" className="Select-menu"
 									 style={this.props.menuStyle}
 									 onScroll={this.handleMenuScroll}

@@ -20183,42 +20183,48 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderMenuHeader: function renderMenuHeader(options, valueArray, focusedOption) {
-		if (!isAutocomplete() || this.props.allowCreate) {
+		if (!this.isAutocomplete() || this.props.allowCreate) {
 			return null; // header ma sens tylko przy autocomplete (?)
 		}
 
-		if (isMultiselectAutocomplete()) {
+		if (this.isMultiselectAutocomplete()) {
 			if (this.isInputEmpty()) {
 				if (valueArray.length) {
 					return _react2['default'].createElement(
-						'span',
+						'div',
 						null,
 						'Wybrano następujące elementy'
 					);
 				} else {
 					return _react2['default'].createElement(
-						'span',
+						'div',
 						null,
 						'Zacznij pisać aby zobaczyć wyniki'
 					);
 				}
 			} else if (options && options.length) {
 				return _react2['default'].createElement(
-					'span',
+					'div',
 					null,
 					'Znaleziono następujące wyniki'
 				);
-			} else {}
-		} else if (isAutocomplete()) {
+			} else {
+				return _react2['default'].createElement(
+					'div',
+					null,
+					'Nie znaleziono wyników'
+				);
+			}
+		} else if (this.isAutocomplete()) {
 			if (this.isInputEmpty() && !this.props.showAllValues) {
 				return _react2['default'].createElement(
-					'span',
+					'div',
 					null,
 					'Zacznij pisać aby zobaczyć wyniki'
 				);
 			} else if (!options || !options.length) {
 				return _react2['default'].createElement(
-					'span',
+					'div',
 					null,
 					'Nie znaleziono wyników'
 				);
@@ -20233,10 +20239,10 @@ var Select = _react2['default'].createClass({
 			return null;
 		}
 
-		if (isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) {
+		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) {
 			// MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
 			return this.renderAutocompleteSelectedOpions(valueArray);
-		} else if (options && options.length && (!this.isInputEmpty() || this.isInputEmpty() && this.props.showAllValues)) {
+		} else if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || this.isInputEmpty() && this.props.showAllValues)) {
 			if (!this.props.optgroups) {
 				return options.map(function (option, i) {
 					return _this8.renderOption(option, i, valueArray, focusedOption);
@@ -20368,7 +20374,11 @@ var Select = _react2['default'].createClass({
 			isOpen ? _react2['default'].createElement(
 				'div',
 				{ ref: 'menuContainer', className: menuClassName, style: style },
-				this.renderMenuHeader(options, valueArray, focusedOption),
+				_react2['default'].createElement(
+					'div',
+					{ className: 'Select-menu-header' },
+					this.renderMenuHeader(options, valueArray, focusedOption)
+				),
 				_react2['default'].createElement(
 					'div',
 					{ ref: 'menu', className: 'Select-menu',
