@@ -20295,28 +20295,79 @@ var Select = _react2['default'].createClass({
 		);
 	},
 
-	renderMenu: function renderMenu(options, valueArray, focusedOption) {
-		var _this8 = this;
+	renderMenuHeader: function renderMenuHeader(options, valueArray, focusedOption) {
+		if (!isAutocomplete() || this.props.allowCreate) {
+			return null; // header ma sens tylko przy autocomplete (?)
+		}
 
-		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
-			if (!this.isMultiselect()) {
-				this._focusedOption = null;
-				return _react2['default'].createElement(
-					'div',
-					{ className: 'Select-noresults' },
-					'Zacznij pisać aby zobaczyć wyniki'
-				);
-			} else {
+		if (isMultiselectAutocomplete()) {
+			if (this.isInputEmpty()) {
 				if (valueArray.length) {
-					return this.renderAutocompleteSelectedOpions(valueArray);
-				} else {
-					this._focusedOption = null;
 					return _react2['default'].createElement(
-						'div',
-						{ className: 'Select-noresults' },
-						'Brak wybranych elementów'
+						'span',
+						null,
+						'Wybrano następujące elementy'
+					);
+				} else {
+					return _react2['default'].createElement(
+						'span',
+						null,
+						'Zacznij pisać aby zobaczyć wyniki'
 					);
 				}
+			} else if (options && options.length) {
+				return _react2['default'].createElement(
+					'span',
+					null,
+					'Znaleziono następujące wyniki'
+				);
+			} else {}
+		} else if (isAutocomplete()) {
+			if (this.isInputEmpty() && !this.props.showAllValues) {
+				return _react2['default'].createElement(
+					'span',
+					null,
+					'Zacznij pisać aby zobaczyć wyniki'
+				);
+			} else if (!options || !options.length) {
+				return _react2['default'].createElement(
+					'span',
+					null,
+					'Nie znaleziono wyników'
+				);
+			}
+		}
+	},
+
+	renderMenuOptions: function renderMenuOptions(options, valueArray, focusedOption) {
+		var _this8 = this;
+
+		if (!options || !options.length) {
+			return null;
+		}
+
+		if (isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) {
+			// MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
+			return this.renderAutocompleteSelectedOpions(valueArray);
+		} else if (options && options.length && (!this.isInputEmpty() || this.isInputEmpty() && this.props.showAllValues)) {
+			if (!this.props.optgroups) {
+				return options.map(function (option, i) {
+					return _this8.renderOption(option, i, valueArray, focusedOption);
+				});
+			} else {
+				return this.renderOptgroups(options, valueArray, focusedOption);
+			}
+		}
+
+		this._focusedOption = null;
+		return null;
+
+		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
+			if (this.isMultiselect() && valueArray.length) {
+				return this.renderAutocompleteSelectedOpions(valueArray);
+			} else {
+				this._focusedOption = null;
+				return null;
 			}
 		} else if (options && options.length) {
 			if (!this.props.optgroups) {
@@ -20328,14 +20379,15 @@ var Select = _react2['default'].createClass({
 			}
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			this._focusedOption = null;
-			return _react2['default'].createElement(
-				'div',
-				{ className: 'Select-noresults' },
-				this.props.noResultsText
-			);
-		} else {
 			return null;
-		}
+			// return (
+			// 	<div className="Select-noresults">
+			// 		{this.props.noResultsText}
+			// 	</div>
+			// );
+		} else {
+				return null;
+			}
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
@@ -20429,13 +20481,14 @@ var Select = _react2['default'].createClass({
 			isOpen ? _react2['default'].createElement(
 				'div',
 				{ ref: 'menuContainer', className: menuClassName, style: style },
+				this.renderMenuHeader(options, valueArray, focusedOption),
 				_react2['default'].createElement(
 					'div',
 					{ ref: 'menu', className: 'Select-menu',
 						style: this.props.menuStyle,
 						onScroll: this.handleMenuScroll,
 						onMouseDown: this.handleMouseDownOnMenu },
-					this.renderMenu(options, valueArray, focusedOption)
+					this.renderMenuOptions(options, valueArray, focusedOption)
 				)
 			) : null
 		);

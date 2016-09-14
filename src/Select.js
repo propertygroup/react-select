@@ -990,26 +990,57 @@ const Select = React.createClass({
 		);
 	},
 
-	renderMenu (options, valueArray, focusedOption) {
-		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
-			if (!this.isMultiselect()) {
-				this._focusedOption = null;
-				return (
-					<div className="Select-noresults">
-						Zacznij pisać aby zobaczyć wyniki
-					</div>
-				);
-			} else {
+	renderMenuHeader (options, valueArray, focusedOption) {
+		if (!isAutocomplete() || this.props.allowCreate) {
+			return null; // header ma sens tylko przy autocomplete (?)
+		}
+
+		if (isMultiselectAutocomplete()) {
+			if (this.isInputEmpty()) {
 				if (valueArray.length) {
-					return this.renderAutocompleteSelectedOpions(valueArray);
+					return <span>Wybrano następujące elementy</span>
 				} else {
-					this._focusedOption = null;
-					return (
-						<div className="Select-noresults">
-							Brak wybranych elementów
-						</div>
-					);
+					return <span>Zacznij pisać aby zobaczyć wyniki</span>
 				}
+			} else if (options && options.length) {
+				return <span>Znaleziono następujące wyniki</span>
+			} else {
+
+			}
+		} else if (isAutocomplete()) {
+			if (this.isInputEmpty() && !this.props.showAllValues) {
+				return <span>Zacznij pisać aby zobaczyć wyniki</span>
+			} else if (!options || !options.length) {
+				return <span>Nie znaleziono wyników</span>
+			}
+		}
+	},
+
+	renderMenuOptions (options, valueArray, focusedOption) {
+
+		if (!options || !options.length) {
+			return null;
+		}
+
+		if (isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
+			return this.renderAutocompleteSelectedOpions(valueArray);
+		} else if (options && options.length && (!this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
+			if (!this.props.optgroups) {
+				return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+			} else {
+				return this.renderOptgroups(options, valueArray, focusedOption);
+			}
+		}
+
+		this._focusedOption = null;
+		return null;
+
+		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
+			if (this.isMultiselect() && valueArray.length) {
+				return this.renderAutocompleteSelectedOpions(valueArray);
+			} else {
+				this._focusedOption = null;
+				return null;
 			}
 		} else if (options && options.length) {
 			if (!this.props.optgroups) {
@@ -1019,11 +1050,12 @@ const Select = React.createClass({
 			}
 		} else if (this.props.noResultsText && !this.props.allowCreate) {
 			this._focusedOption = null;
-			return (
-				<div className="Select-noresults">
-					{this.props.noResultsText}
-				</div>
-			);
+			return null;
+			// return (
+			// 	<div className="Select-noresults">
+			// 		{this.props.noResultsText}
+			// 	</div>
+			// );
 		} else {
 			return null;
 		}
@@ -1120,11 +1152,12 @@ const Select = React.createClass({
 					</div>
 					{isOpen ? (
 						<div ref="menuContainer" className={menuClassName} style={style}>
+							{this.renderMenuHeader(options, valueArray, focusedOption)}
 							<div ref="menu" className="Select-menu"
 									 style={this.props.menuStyle}
 									 onScroll={this.handleMenuScroll}
 									 onMouseDown={this.handleMouseDownOnMenu}>
-								{this.renderMenu(options, valueArray, focusedOption)}
+								{this.renderMenuOptions(options, valueArray, focusedOption)}
 							</div>
 						</div>
 					) : null}
