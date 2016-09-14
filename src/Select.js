@@ -998,7 +998,7 @@ const Select = React.createClass({
 		if (this.isMultiselectAutocomplete()) {
 			if (this.isInputEmpty()) {
 				if (valueArray.length) {
-					return <div>Wybrano następujące elementy</div>
+					return <div>Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki</div>
 				} else {
 					return <div>Zacznij pisać aby zobaczyć wyniki</div>
 				}

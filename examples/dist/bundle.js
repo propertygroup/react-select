@@ -20306,7 +20306,7 @@ var Select = _react2['default'].createClass({
 					return _react2['default'].createElement(
 						'div',
 						null,
-						'Wybrano następujące elementy'
+						'Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki'
 					);
 				} else {
 					return _react2['default'].createElement(
