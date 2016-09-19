@@ -49,6 +49,7 @@ const Select = React.createClass({
 	// 	inputProps: React.PropTypes.object,         // custom attributes for the Input
 	// 	isLoading: React.PropTypes.bool,            // whether the Select is loading externally or not (such as options being loaded)
 	// 	labelKey: React.PropTypes.string,           // path of the label value in option objects
+	// 	loadWaiting: React.PropTypes.boolean,
 	// 	matchPos: React.PropTypes.string,           // (any|start) match the start or entire string when filtering
 	// 	matchProp: React.PropTypes.string,          // (any|label|value) which option property to filter on
 	// 	menuBuffer: React.PropTypes.number,         // optional buffer (in px) between the bottom of the viewport and the bottom of the menu
@@ -104,6 +105,7 @@ const Select = React.createClass({
 			inputProps: {},
 			isLoading: false,
 			labelKey: 'label',
+			loadWaiting: false,
 			matchPos: 'any',
 			matchProp: 'any',
 			menuBuffer: 0,
@@ -590,6 +592,7 @@ const Select = React.createClass({
 	},
 
 	clear() {
+		console.log("clear")
 		this.setValue(null);
 		this.toggleMenu(false);
 		this.clearInput();
@@ -660,6 +663,7 @@ const Select = React.createClass({
 	},
 
 	clearValue (event) {
+		console.log("clear value");
 		// if the event was triggered by a mousedown and not the primary
 		// button, ignore it.
 		if (event && event.type === 'mousedown' && event.button !== 0) {
@@ -923,7 +927,7 @@ const Select = React.createClass({
 		let renderedOptions = _.map(selectedOptions, (option, index) => {
 			return (
 				<li key={index} className="multiselect-selected-item">
-					<span className="multiselect-selected-value">{option[this.props.labelKey]}</span>
+					{this.props.optionRenderer ? this.props.optionRenderer(option) : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
 					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option)}></span>
 				</li>
 			)
@@ -995,6 +999,10 @@ const Select = React.createClass({
 			return null; // header ma sens tylko przy autocomplete (?)
 		}
 
+		if (this.props.isLoading || this.props.loadWaiting) {
+			return null;
+		}
+
 		if (this.isMultiselectAutocomplete()) {
 			if (this.isInputEmpty()) {
 				if (valueArray.length) {
@@ -1022,6 +1030,10 @@ const Select = React.createClass({
 			return null;
 		}
 
+		if (this.props.isLoading || this.props.loadWaiting) {
+			return null;
+		}
+
 		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
 			return this.renderAutocompleteSelectedOpions(valueArray);
 		} else if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
@@ -1034,31 +1046,31 @@ const Select = React.createClass({
 
 		this._focusedOption = null;
 		return null;
-
-		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
-			if (this.isMultiselect() && valueArray.length) {
-				return this.renderAutocompleteSelectedOpions(valueArray);
-			} else {
-				this._focusedOption = null;
-				return null;
-			}
-		} else if (options && options.length) {
-			if (!this.props.optgroups) {
-				return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
-			} else {
-				return this.renderOptgroups(options, valueArray, focusedOption);
-			}
-		} else if (this.props.noResultsText && !this.props.allowCreate) {
-			this._focusedOption = null;
-			return null;
-			// return (
-			// 	<div className="Select-noresults">
-			// 		{this.props.noResultsText}
-			// 	</div>
-			// );
-		} else {
-			return null;
-		}
+        //
+		// if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
+		// 	if (this.isMultiselect() && valueArray.length) {
+		// 		return this.renderAutocompleteSelectedOpions(valueArray);
+		// 	} else {
+		// 		this._focusedOption = null;
+		// 		return null;
+		// 	}
+		// } else if (options && options.length) {
+		// 	if (!this.props.optgroups) {
+		// 		return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+		// 	} else {
+		// 		return this.renderOptgroups(options, valueArray, focusedOption);
+		// 	}
+		// } else if (this.props.noResultsText && !this.props.allowCreate) {
+		// 	this._focusedOption = null;
+		// 	return null;
+		// 	// return (
+		// 	// 	<div className="Select-noresults">
+		// 	// 		{this.props.noResultsText}
+		// 	// 	</div>
+		// 	// );
+		// } else {
+		// 	return null;
+		// }
 	},
 
 	renderHiddenField (valueArray) {

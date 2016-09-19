@@ -77,15 +77,21 @@ const Async = React.createClass({
 		this._lastInput = '';
 	},
 	componentDidMount () {
-		if (this.props.showAllValues) {
-			this.loadOptionsWithDebounce('');
-		}
+		this.shouldLoadOnOpen = true;
+		this.queryInput = "";
+		// if (this.props.showAllValues) {
+		// 	this.loadOptionsWithDebounce('');
+		// }
 	},
-	componentWillReceiveProps (nextProps) {
+	componentWillReceiveProps (nextProps, nextState) {
 		if (nextProps.cache !== this.props.cache) {
 			this.setState({
 				cache: initCache(nextProps.cache),
 			});
+		}
+
+		if (!this.state.isOpen && nextState.isOpen && this.shouldLoadOnOpen) {
+			this.loadOptionsWithDebounce(this.queryInput);
 		}
 	},
 	focus () {
@@ -121,19 +127,35 @@ const Async = React.createClass({
 			});
 		};
 	},
+	onInputChange: function(input) {
+		if (!this.refs["select"].isOpen()) {
+			this.shouldLoadOnOpen = true;
+			this.queryInput = input;
+		} else {
+			this.loadOptionsWithDebounce(input);
+		}
+	},
+	onOpen: function() {
+		if (this.shouldLoadOnOpen) {
+			this.loadOptionsWithDebounce(this.queryInput);
+		}
+	},
+	shouldLoadOnOpen: false,
+	queryInput: "",
 	loadTimeout: null,
-	loadWaiting: false,
+	// loadWaiting: false,
 	loadOptionsWithDebounce: function (input) {
-		if (this.loadWaiting === false) {
-			this.loadWaiting = true;
+		this.shouldLoadOnOpen = false;
+		if (!this.state.loadWaiting) {
+			this.setState({loadWaiting: true});
 			this.loadTimeout = setTimeout(function () {
-				this.loadWaiting = false;
+				this.setState({loadWaiting: false});
 				this.loadOptions(input);
 			}.bind(this), 300);
 		} else {
 			clearTimeout(this.loadTimeout);
 			this.loadTimeout = setTimeout(function () {
-				this.loadWaiting = false;
+				this.setState({loadWaiting: false});
 				this.loadOptions(input);
 			}.bind(this), 300)
 		}
@@ -170,10 +192,12 @@ const Async = React.createClass({
 			<Select
 				{...this.props}
 				ref="select"
-				isLoading={isLoading}
+				isLoading={this.state.loadWaiting || isLoading}
+				loadWaiting={this.state.loadWaiting}
 				filterOptions={false}
 				noResultsText={noResultsText}
-				onInputChange={this.loadOptionsWithDebounce}
+				onInputChange={this.onInputChange}
+				onOpen={this.onOpen}
 				options={options}
 				placeholder={placeholder}
 				/>

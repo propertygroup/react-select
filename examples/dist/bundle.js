@@ -18893,15 +18893,21 @@ var Async = _react2['default'].createClass({
 		this._lastInput = '';
 	},
 	componentDidMount: function componentDidMount() {
-		if (this.props.showAllValues) {
-			this.loadOptionsWithDebounce('');
-		}
+		this.shouldLoadOnOpen = true;
+		this.queryInput = "";
+		// if (this.props.showAllValues) {
+		// 	this.loadOptionsWithDebounce('');
+		// }
 	},
-	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextState) {
 		if (nextProps.cache !== this.props.cache) {
 			this.setState({
 				cache: initCache(nextProps.cache)
 			});
+		}
+
+		if (!this.state.isOpen && nextState.isOpen && this.shouldLoadOnOpen) {
+			this.loadOptionsWithDebounce(this.queryInput);
 		}
 	},
 	focus: function focus() {
@@ -18941,19 +18947,35 @@ var Async = _react2['default'].createClass({
 			});
 		};
 	},
+	onInputChange: function onInputChange(input) {
+		if (!this.refs["select"].isOpen()) {
+			this.shouldLoadOnOpen = true;
+			this.queryInput = input;
+		} else {
+			this.loadOptionsWithDebounce(input);
+		}
+	},
+	onOpen: function onOpen() {
+		if (this.shouldLoadOnOpen) {
+			this.loadOptionsWithDebounce(this.queryInput);
+		}
+	},
+	shouldLoadOnOpen: false,
+	queryInput: "",
 	loadTimeout: null,
-	loadWaiting: false,
+	// loadWaiting: false,
 	loadOptionsWithDebounce: function loadOptionsWithDebounce(input) {
-		if (this.loadWaiting === false) {
-			this.loadWaiting = true;
+		this.shouldLoadOnOpen = false;
+		if (!this.state.loadWaiting) {
+			this.setState({ loadWaiting: true });
 			this.loadTimeout = setTimeout((function () {
-				this.loadWaiting = false;
+				this.setState({ loadWaiting: false });
 				this.loadOptions(input);
 			}).bind(this), 300);
 		} else {
 			clearTimeout(this.loadTimeout);
 			this.loadTimeout = setTimeout((function () {
-				this.loadWaiting = false;
+				this.setState({ loadWaiting: false });
 				this.loadOptions(input);
 			}).bind(this), 300);
 		}
@@ -18991,10 +19013,12 @@ var Async = _react2['default'].createClass({
 		}
 		return _react2['default'].createElement(_Select2['default'], _extends({}, this.props, {
 			ref: 'select',
-			isLoading: isLoading,
+			isLoading: this.state.loadWaiting || isLoading,
+			loadWaiting: this.state.loadWaiting,
 			filterOptions: false,
 			noResultsText: noResultsText,
-			onInputChange: this.loadOptionsWithDebounce,
+			onInputChange: this.onInputChange,
+			onOpen: this.onOpen,
 			options: options,
 			placeholder: placeholder
 		}));
@@ -19315,6 +19339,7 @@ var Select = _react2['default'].createClass({
 	// 	inputProps: React.PropTypes.object,         // custom attributes for the Input
 	// 	isLoading: React.PropTypes.bool,            // whether the Select is loading externally or not (such as options being loaded)
 	// 	labelKey: React.PropTypes.string,           // path of the label value in option objects
+	// 	loadWaiting: React.PropTypes.boolean,
 	// 	matchPos: React.PropTypes.string,           // (any|start) match the start or entire string when filtering
 	// 	matchProp: React.PropTypes.string,          // (any|label|value) which option property to filter on
 	// 	menuBuffer: React.PropTypes.number,         // optional buffer (in px) between the bottom of the viewport and the bottom of the menu
@@ -19370,6 +19395,7 @@ var Select = _react2['default'].createClass({
 			inputProps: {},
 			isLoading: false,
 			labelKey: 'label',
+			loadWaiting: false,
 			matchPos: 'any',
 			matchProp: 'any',
 			menuBuffer: 0,
@@ -19856,6 +19882,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	clear: function clear() {
+		console.log("clear");
 		this.setValue(null);
 		this.toggleMenu(false);
 		this.clearInput();
@@ -19934,6 +19961,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	clearValue: function clearValue(event) {
+		console.log("clear value");
 		// if the event was triggered by a mousedown and not the primary
 		// button, ignore it.
 		if (event && event.type === 'mousedown' && event.button !== 0) {
@@ -20213,7 +20241,7 @@ var Select = _react2['default'].createClass({
 			return _react2['default'].createElement(
 				'li',
 				{ key: index, className: 'multiselect-selected-item' },
-				_react2['default'].createElement(
+				_this5.props.optionRenderer ? _this5.props.optionRenderer(option) : _react2['default'].createElement(
 					'span',
 					{ className: 'multiselect-selected-value' },
 					option[_this5.props.labelKey]
@@ -20300,6 +20328,10 @@ var Select = _react2['default'].createClass({
 			return null; // header ma sens tylko przy autocomplete (?)
 		}
 
+		if (this.props.isLoading || this.props.loadWaiting) {
+			return null;
+		}
+
 		if (this.isMultiselectAutocomplete()) {
 			if (this.isInputEmpty()) {
 				if (valueArray.length) {
@@ -20352,6 +20384,10 @@ var Select = _react2['default'].createClass({
 			return null;
 		}
 
+		if (this.props.isLoading || this.props.loadWaiting) {
+			return null;
+		}
+
 		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) {
 			// MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
 			return this.renderAutocompleteSelectedOpions(valueArray);
@@ -20367,33 +20403,31 @@ var Select = _react2['default'].createClass({
 
 		this._focusedOption = null;
 		return null;
-
-		if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
-			if (this.isMultiselect() && valueArray.length) {
-				return this.renderAutocompleteSelectedOpions(valueArray);
-			} else {
-				this._focusedOption = null;
-				return null;
-			}
-		} else if (options && options.length) {
-			if (!this.props.optgroups) {
-				return options.map(function (option, i) {
-					return _this8.renderOption(option, i, valueArray, focusedOption);
-				});
-			} else {
-				return this.renderOptgroups(options, valueArray, focusedOption);
-			}
-		} else if (this.props.noResultsText && !this.props.allowCreate) {
-			this._focusedOption = null;
-			return null;
-			// return (
-			// 	<div className="Select-noresults">
-			// 		{this.props.noResultsText}
-			// 	</div>
-			// );
-		} else {
-				return null;
-			}
+		//
+		// if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
+		// 	if (this.isMultiselect() && valueArray.length) {
+		// 		return this.renderAutocompleteSelectedOpions(valueArray);
+		// 	} else {
+		// 		this._focusedOption = null;
+		// 		return null;
+		// 	}
+		// } else if (options && options.length) {
+		// 	if (!this.props.optgroups) {
+		// 		return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+		// 	} else {
+		// 		return this.renderOptgroups(options, valueArray, focusedOption);
+		// 	}
+		// } else if (this.props.noResultsText && !this.props.allowCreate) {
+		// 	this._focusedOption = null;
+		// 	return null;
+		// 	// return (
+		// 	// 	<div className="Select-noresults">
+		// 	// 		{this.props.noResultsText}
+		// 	// 	</div>
+		// 	// );
+		// } else {
+		// 	return null;
+		// }
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
