@@ -19778,7 +19778,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	clear: function clear() {
-		console.log("clear");
 		this.setValue(null);
 		this.toggleMenu(false);
 		this.clearInput();
@@ -19861,7 +19860,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	clearValue: function clearValue(event) {
-		console.log("clear value");
 		// if the event was triggered by a mousedown and not the primary
 		// button, ignore it.
 		if (event && event.type === 'mousedown' && event.button !== 0) {
