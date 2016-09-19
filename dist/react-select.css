@@ -334,3 +334,15 @@
     -webkit-transform: rotate(1turn);
   }
 }
+.multiselect-selected-item {
+  position: relative;
+}
+.multiselect-selected-item .multiselect-selected-item-holder {
+  padding: 8px 10px;
+}
+.multiselect-selected-item .multiselect-selected-remove {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+}

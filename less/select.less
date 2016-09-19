@@ -80,3 +80,19 @@
 @import "mixins.less";
 @import "multi.less";
 @import "spinner.less";
+
+.multiselect-selected-item {
+	position: relative;
+
+	.multiselect-selected-item-holder {
+		padding: 8px 10px;
+	}
+
+	.multiselect-selected-remove {
+		position: absolute;
+		top: 50%;
+		right: 0px;
+		//margin-top: -18px;
+		transform: translateY(-50%);
+	}
+}

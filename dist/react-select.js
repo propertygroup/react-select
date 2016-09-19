@@ -16992,7 +16992,7 @@ var _TetherComponent2 = _interopRequireDefault(_TetherComponent);
 exports['default'] = _TetherComponent2['default'];
 module.exports = exports['default'];
 },{"./TetherComponent":2}],4:[function(require,module,exports){
-/*! tether 1.3.6 */
+/*! tether 1.3.7 */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -17173,7 +17173,11 @@ function getOffsetParent(el) {
   return el.offsetParent || document.documentElement;
 }
 
+var _scrollBarSize = null;
 function getScrollBarSize() {
+  if (_scrollBarSize) {
+    return _scrollBarSize;
+  }
   var inner = document.createElement('div');
   inner.style.width = '100%';
   inner.style.height = '200px';
@@ -17206,7 +17210,8 @@ function getScrollBarSize() {
 
   var width = widthContained - widthScroll;
 
-  return { width: width, height: width };
+  _scrollBarSize = { width: width, height: width };
+  return _scrollBarSize;
 }
 
 function extend() {
@@ -20132,14 +20137,18 @@ var Select = _react2['default'].createClass({
 		return result;
 	},
 
-	renderAutocompleteSelectedOpions: function renderAutocompleteSelectedOpions(selectedOptions) {
+	renderAutocompleteSelectedOptions: function renderAutocompleteSelectedOptions(selectedOptions) {
 		var _this5 = this;
 
 		var renderedOptions = _.map(selectedOptions, function (option, index) {
 			return _react2['default'].createElement(
 				'li',
 				{ key: index, className: 'multiselect-selected-item' },
-				_this5.props.optionRenderer ? _this5.props.optionRenderer(option) : _react2['default'].createElement(
+				_this5.props.optionRenderer ? _react2['default'].createElement(
+					'div',
+					{ className: 'multiselect-selected-item-holder' },
+					_this5.props.optionRenderer(option)
+				) : _react2['default'].createElement(
 					'span',
 					{ className: 'multiselect-selected-value' },
 					option[_this5.props.labelKey]
@@ -20288,7 +20297,7 @@ var Select = _react2['default'].createClass({
 
 		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) {
 			// MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
-			return this.renderAutocompleteSelectedOpions(valueArray);
+			return this.renderAutocompleteSelectedOptions(valueArray);
 		} else if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || this.isInputEmpty() && this.props.showAllValues)) {
 			if (!this.props.optgroups) {
 				return options.map(function (option, i) {
@@ -20304,7 +20313,7 @@ var Select = _react2['default'].createClass({
 		//
 		// if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
 		// 	if (this.isMultiselect() && valueArray.length) {
-		// 		return this.renderAutocompleteSelectedOpions(valueArray);
+		// 		return this.renderAutocompleteSelectedOptions(valueArray);
 		// 	} else {
 		// 		this._focusedOption = null;
 		// 		return null;

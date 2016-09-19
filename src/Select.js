@@ -935,11 +935,11 @@ const Select = React.createClass({
 		return result;
  	},
 
-	renderAutocompleteSelectedOpions(selectedOptions) {
+	renderAutocompleteSelectedOptions(selectedOptions) {
 		let renderedOptions = _.map(selectedOptions, (option, index) => {
 			return (
 				<li key={index} className="multiselect-selected-item">
-					{this.props.optionRenderer ? this.props.optionRenderer(option) : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
+					{this.props.optionRenderer ? <div className="multiselect-selected-item-holder">{this.props.optionRenderer(option)}</div> : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
 					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option)}></span>
 				</li>
 			)
@@ -1047,7 +1047,7 @@ const Select = React.createClass({
 		}
 
 		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
-			return this.renderAutocompleteSelectedOpions(valueArray);
+			return this.renderAutocompleteSelectedOptions(valueArray);
 		} else if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
 			if (!this.props.optgroups) {
 				return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
@@ -1061,7 +1061,7 @@ const Select = React.createClass({
         //
 		// if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
 		// 	if (this.isMultiselect() && valueArray.length) {
-		// 		return this.renderAutocompleteSelectedOpions(valueArray);
+		// 		return this.renderAutocompleteSelectedOptions(valueArray);
 		// 	} else {
 		// 		this._focusedOption = null;
 		// 		return null;
