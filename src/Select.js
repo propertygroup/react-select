@@ -157,24 +157,27 @@ const Select = React.createClass({
 		}
 	},
 
-	shouldComponentUpdate(nextProps, nextState) {
-		if (this.props.debug) {
-			console.log("diff", _.reduce(this.props, function (result, value, key) {
-				return _.isEqual(value, nextProps[key]) ?
-				result : result.concat(key);
-			}, []), _.reduce(this.state, function (result, value, key) {
-				return _.isEqual(value, nextState[key]) ?
-				result : result.concat(key);
-			}, []));
-		}
-		return true;
-	},
+	// shouldComponentUpdate(nextProps, nextState) {
+	// 	if (this.props.debug) {
+	// 		console.log("diff", _.reduce(this.props, function (result, value, key) {
+	// 			return _.isEqual(value, nextProps[key]) ?
+	// 			result : result.concat(key);
+	// 		}, []), _.reduce(this.state, function (result, value, key) {
+	// 			return _.isEqual(value, nextState[key]) ?
+	// 			result : result.concat(key);
+	// 		}, []));
+	// 	}
+	// 	return true;
+	// },
 
 	componentWillReceiveProps (nextProps) {
 		// todo fixme
-		if (this.props.debug) {
-			console.log("will receive props", nextProps.value);
-		}
+		// if (this.props.debug) {
+		// 	console.log("will receive props", nextProps.value);
+		// }
+
+
+
 		if (nextProps.value) {
 			if(!_.isEqual(this.props.value, nextProps.value)) {
 				this.setInputValue(nextProps.value[this.props.labelKey]);
@@ -183,6 +186,13 @@ const Select = React.createClass({
 			this.setValue(null);
 			this.clearInput();
 		}
+
+		if(!nextProps.options || !nextProps.options.length) {
+			this.setState({
+				value: null
+			});
+		}
+
 	},
 
 	componentDidUpdate (prevProps, prevState) {
@@ -461,7 +471,7 @@ const Select = React.createClass({
 				if(!this.props.allowCreate) {
 					if (!this.isInputEmpty() && (this.props.selectFocusedOnBlur || this.props.async) && this._focusedOption) {
 						this.selectFocusedOption();
-					} else {
+					} else if (!this.state.value) {
 						this.setValue(this.props.required && this.props.options[0] || null);
 						this.clearInput();
 					}
@@ -592,7 +602,6 @@ const Select = React.createClass({
 	},
 
 	clear() {
-		console.log("clear")
 		this.setValue(null);
 		this.toggleMenu(false);
 		this.clearInput();
@@ -604,6 +613,10 @@ const Select = React.createClass({
 		}
 		// na sytuacje gdy przychodzi []
 		if (_.isEmpty(value)) value = null;
+
+		this.setState({
+			value
+		});
 
 		this.focusOption(null);
 
@@ -663,7 +676,6 @@ const Select = React.createClass({
 	},
 
 	clearValue (event) {
-		console.log("clear value");
 		// if the event was triggered by a mousedown and not the primary
 		// button, ignore it.
 		if (event && event.type === 'mousedown' && event.button !== 0) {
