@@ -18926,9 +18926,13 @@ var Async = _react2['default'].createClass({
 			options: []
 		});
 	},
+	removeValue: function removeValue(value, focus) {
+		this.refs.select.removeValue(value, focus);
+	},
 	filterSelected: function filterSelected(options) {
 		var _this = this;
 
+		return options;
 		if (this.props.multi) {
 			return _.filter(options, function (option) {
 				return _.every(_this.props.value, function (selected) {
@@ -18966,6 +18970,11 @@ var Async = _react2['default'].createClass({
 			this.loadOptionsWithDebounce(this.queryInput);
 		}
 	},
+	// onChange: function(value) {
+	// 	this.props.onChange && this.props.onChange(value);
+	//
+	//
+	// },
 	shouldLoadOnOpen: false,
 	queryInput: "",
 	loadTimeout: null,
@@ -19282,6 +19291,7 @@ var Select = _react2['default'].createClass({
 			disabled: false,
 			escapeClearsValue: true,
 			filterOptions: true,
+			forceOpen: false,
 			ignoreAccents: true,
 			ignoreCase: true,
 			inputProps: {},
@@ -19372,9 +19382,16 @@ var Select = _react2['default'].createClass({
 				value: null
 			});
 		}
+
+		if (this.isMultiselectAutocomplete() && nextProps.value && nextProps.value.length) {
+			this.setState({
+				value: nextProps.value
+			});
+		}
 	},
 
 	componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+
 		// focus to the selected option
 		if (this.refs.menu && this.refs.focused && this.isOpen() && !this.hasScrolledToOption) {
 			var focusedOptionNode = _reactDom2['default'].findDOMNode(this.refs.focused);
@@ -19454,7 +19471,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	isOpen: function isOpen() {
-		return this.state.isOpen;
+		return this.props.forceOpen || this.state.isOpen;
 	},
 
 	setInputValue: function setInputValue(value) {
@@ -19846,7 +19863,7 @@ var Select = _react2['default'].createClass({
 		var option = _.find(valueArray, function (elem) {
 			return elem[_this2.props.labelKey] == value[_this2.props.labelKey] && elem.value == value.value;
 		});
-		option == null ? this.addValue(value) : this.removeValue(value);
+		option == null ? this.addValue(value) : this.removeValue(value, true);
 	},
 
 	popValue: function popValue() {
@@ -19856,12 +19873,12 @@ var Select = _react2['default'].createClass({
 		this.setValue(valueArray.slice(0, valueArray.length - 1));
 	},
 
-	removeValue: function removeValue(value) {
+	removeValue: function removeValue(value, focus) {
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(function (i) {
 			return i.value.toString() !== value.value.toString();
 		}));
-		this.focus();
+		focus && this.focus();
 	},
 
 	clearValue: function clearValue(event) {
@@ -20137,6 +20154,14 @@ var Select = _react2['default'].createClass({
 		return result;
 	},
 
+	excludeOptions: function excludeOptions(options, excludedOptions) {
+		return _.filter(options, function (option) {
+			return !_.some(excludedOptions, function (excluded) {
+				return excluded.value == option.value;
+			});
+		});
+	},
+
 	renderAutocompleteSelectedOptions: function renderAutocompleteSelectedOptions(selectedOptions) {
 		var _this5 = this;
 
@@ -20154,7 +20179,7 @@ var Select = _react2['default'].createClass({
 					option[_this5.props.labelKey]
 				),
 				_react2['default'].createElement('span', { className: 'multiselect-selected-remove unselectable', onClick: function () {
-						return _this5.removeValue(option);
+						return _this5.removeValue(option, true);
 					} })
 			);
 		});
@@ -20241,32 +20266,28 @@ var Select = _react2['default'].createClass({
 
 		if (this.isMultiselectAutocomplete()) {
 			if (this.isInputEmpty()) {
-				if (valueArray.length) {
+				// if (valueArray.length) {
+				// 	return <div>Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki</div>
+				// } else {
+				return _react2['default'].createElement(
+					'div',
+					null,
+					'Zacznij pisać aby zobaczyć wyniki'
+				);
+				// }
+			} else if (options && options.length) {
 					return _react2['default'].createElement(
 						'div',
 						null,
-						'Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki'
+						'Znaleziono następujące wyniki'
 					);
 				} else {
 					return _react2['default'].createElement(
 						'div',
 						null,
-						'Zacznij pisać aby zobaczyć wyniki'
+						'Nie znaleziono wyników'
 					);
 				}
-			} else if (options && options.length) {
-				return _react2['default'].createElement(
-					'div',
-					null,
-					'Znaleziono następujące wyniki'
-				);
-			} else {
-				return _react2['default'].createElement(
-					'div',
-					null,
-					'Nie znaleziono wyników'
-				);
-			}
 		} else if (this.isAutocomplete()) {
 			if (this.isInputEmpty() && !this.props.showAllValues) {
 				return _react2['default'].createElement(
@@ -20295,12 +20316,12 @@ var Select = _react2['default'].createClass({
 			return null;
 		}
 
-		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) {
-			// MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
-			return this.renderAutocompleteSelectedOptions(valueArray);
-		} else if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || this.isInputEmpty() && this.props.showAllValues)) {
+		// if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
+		// 	return this.renderAutocompleteSelectedOptions(valueArray);
+		// } else
+		if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || this.isInputEmpty() && this.props.showAllValues)) {
 			if (!this.props.optgroups) {
-				return options.map(function (option, i) {
+				return this.excludeOptions(options, this.state.value).map(function (option, i) {
 					return _this8.renderOption(option, i, valueArray, focusedOption);
 				});
 			} else {
@@ -20393,6 +20414,7 @@ var Select = _react2['default'].createClass({
 			'is-open': isOpen,
 			//'is-pseudo-focused': this.state.isPseudoFocused,
 			'is-searchable': this.props.searchable,
+			'is-searchable-multiselect': this.isMultiselect(),
 			'has-value': valueArray.length
 		});
 
@@ -20449,16 +20471,16 @@ var Select = _react2['default'].createClass({
 
 exports['default'] = Select;
 module.exports = exports['default'];
-/*<TetherComponent
-attachment="top left"
-targetAttachment="bottom left"
-constraints={[
-	{
-		to: "scrollParent",
-		attachment: "together"
-	}
-]}
->*/ /*</TetherComponent>*/
+/*<pre>{JSON.stringify(this.state, null, 2)}</pre>*/ /*<TetherComponent
+                                                     attachment="top left"
+                                                     targetAttachment="bottom left"
+                                                     constraints={[
+                                                     	{
+                                                     		to: "scrollParent",
+                                                     		attachment: "together"
+                                                     	}
+                                                     ]}
+                                                     >*/ /*</TetherComponent>*/
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./Async":5,"./Option":6,"./Value":8,"./utils/stripDiacritics":9,"lodash":1,"react-tether":3}],8:[function(require,module,exports){

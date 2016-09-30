@@ -104,7 +104,11 @@ const Async = React.createClass({
 			options: [],
 		});
 	},
+	removeValue(value, focus) {
+		this.refs.select.removeValue(value, focus);
+	},
 	filterSelected(options) {
+		return options;
 		if (this.props.multi) {
 			return _.filter(options, option => {
 				return _.every(this.props.value, selected => {
@@ -140,6 +144,11 @@ const Async = React.createClass({
 			this.loadOptionsWithDebounce(this.queryInput);
 		}
 	},
+	// onChange: function(value) {
+	// 	this.props.onChange && this.props.onChange(value);
+    //
+    //
+	// },
 	shouldLoadOnOpen: false,
 	queryInput: "",
 	loadTimeout: null,

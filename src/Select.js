@@ -100,6 +100,7 @@ const Select = React.createClass({
 			disabled: false,
 			escapeClearsValue: true,
 			filterOptions: true,
+			forceOpen: false,
 			ignoreAccents: true,
 			ignoreCase: true,
 			inputProps: {},
@@ -193,9 +194,16 @@ const Select = React.createClass({
 			});
 		}
 
+		if (this.isMultiselectAutocomplete() && nextProps.value && nextProps.value.length) {
+			this.setState({
+				value: nextProps.value
+			});
+		}
+
 	},
 
 	componentDidUpdate (prevProps, prevState) {
+
 		// focus to the selected option
 		if (this.refs.menu && this.refs.focused && this.isOpen() && !this.hasScrolledToOption) {
 			let focusedOptionNode = ReactDOM.findDOMNode(this.refs.focused);
@@ -276,7 +284,7 @@ const Select = React.createClass({
 	},
 
 	isOpen() {
-		return this.state.isOpen;
+		return this.props.forceOpen || this.state.isOpen;
 	},
 
 	setInputValue(value) {
@@ -659,7 +667,7 @@ const Select = React.createClass({
 		var option = _.find(valueArray, (elem) => {
 			return elem[this.props.labelKey] == value[this.props.labelKey] && elem.value == value.value;
 		});
-		option == null ? this.addValue(value) : this.removeValue(value);
+		option == null ? this.addValue(value) : this.removeValue(value, true);
 	},
 
 	popValue () {
@@ -669,10 +677,10 @@ const Select = React.createClass({
 		this.setValue(valueArray.slice(0, valueArray.length - 1));
 	},
 
-	removeValue (value) {
+	removeValue (value, focus) {
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(i => i.value.toString() !== value.value.toString()));
-		this.focus();
+		focus && this.focus();
 	},
 
 	clearValue (event) {
@@ -935,14 +943,17 @@ const Select = React.createClass({
 		return result;
  	},
 
+	excludeOptions(options, excludedOptions) {
+		return _.filter(options, option => !_.some(excludedOptions, (excluded) => excluded.value == option.value))
+	},
+
 	renderAutocompleteSelectedOptions(selectedOptions) {
 		let renderedOptions = _.map(selectedOptions, (option, index) => {
 			return (
 				<li key={index} className="multiselect-selected-item">
 					{this.props.optionRenderer ? <div className="multiselect-selected-item-holder">{this.props.optionRenderer(option)}</div> : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
-					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option)}></span>
-				</li>
-			)
+					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option, true)}></span>
+				</li>)
 		});
 
 		return (
@@ -1017,11 +1028,11 @@ const Select = React.createClass({
 
 		if (this.isMultiselectAutocomplete()) {
 			if (this.isInputEmpty()) {
-				if (valueArray.length) {
-					return <div>Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki</div>
-				} else {
+				// if (valueArray.length) {
+				// 	return <div>Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki</div>
+				// } else {
 					return <div>Zacznij pisać aby zobaczyć wyniki</div>
-				}
+				// }
 			} else if (options && options.length) {
 				return <div>Znaleziono następujące wyniki</div>
 			} else {
@@ -1046,11 +1057,12 @@ const Select = React.createClass({
 			return null;
 		}
 
-		if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
-			return this.renderAutocompleteSelectedOptions(valueArray);
-		} else if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
+		// if (this.isMultiselectAutocomplete() && this.isInputEmpty() && valueArray.length) { // MULTISELECT AUTOCOMPLETE SELECTED OPTIONS
+		// 	return this.renderAutocompleteSelectedOptions(valueArray);
+		// } else
+		if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
 			if (!this.props.optgroups) {
-				return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+				return this.excludeOptions(options, this.state.value).map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 			} else {
 				return this.renderOptgroups(options, valueArray, focusedOption);
 			}
@@ -1135,6 +1147,7 @@ const Select = React.createClass({
 			'is-open': isOpen,
 			//'is-pseudo-focused': this.state.isPseudoFocused,
 			'is-searchable': this.props.searchable,
+			'is-searchable-multiselect': this.isMultiselect(),
 			'has-value': valueArray.length,
 		});
 
@@ -1148,6 +1161,7 @@ const Select = React.createClass({
 
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
+				{/*<pre>{JSON.stringify(this.state, null, 2)}</pre>*/}
 				{this.renderHiddenField(valueArray)}
 				{this.props.debug && this.renderDebug()}
 				{/*<TetherComponent
