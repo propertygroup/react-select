@@ -1032,7 +1032,8 @@ const Select = React.createClass({
 				// if (valueArray.length) {
 				// 	return <div>Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki</div>
 				// } else {
-					return <div>Zacznij pisać aby zobaczyć wyniki</div>
+				let word = this.props.showAllValues ? "zawęzić" : "zobaczyć";
+					return <div>{`Zacznij pisać aby ${word} wyniki`}</div>
 				// }
 			} else if (options && options.length) {
 				return <div>Znaleziono następujące wyniki</div>
