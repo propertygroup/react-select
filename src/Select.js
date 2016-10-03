@@ -208,7 +208,7 @@ const Select = React.createClass({
 		if (this.refs.menu && this.refs.focused && this.isOpen() && !this.hasScrolledToOption) {
 			let focusedOptionNode = ReactDOM.findDOMNode(this.refs.focused);
 			let menuNode = ReactDOM.findDOMNode(this.refs.menu);
-			menuNode.scrollTop = focusedOptionNode.offsetTop;
+			// menuNode.scrollTop = focusedOptionNode.offsetTop;
 			this.hasScrolledToOption = true;
 		} else if (!this.isOpen()) {
 			this.hasScrolledToOption = false;
@@ -713,7 +713,8 @@ const Select = React.createClass({
 	},
 
 	focusAdjacentOption (dir) {
-		var options = this._visibleOptions.filter(i => !i.disabled);
+		var rawOptions = this._visibleOptions.filter(i => !i.disabled);
+		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(rawOptions, this.state.value) : rawOptions;
 		this._scrollToFocusedOptionOnUpdate = true;
 		if (!this.isOpen()) {
 			this.toggleMenu(true);

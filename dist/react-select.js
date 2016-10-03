@@ -19396,7 +19396,7 @@ var Select = _react2['default'].createClass({
 		if (this.refs.menu && this.refs.focused && this.isOpen() && !this.hasScrolledToOption) {
 			var focusedOptionNode = _reactDom2['default'].findDOMNode(this.refs.focused);
 			var menuNode = _reactDom2['default'].findDOMNode(this.refs.menu);
-			menuNode.scrollTop = focusedOptionNode.offsetTop;
+			// menuNode.scrollTop = focusedOptionNode.offsetTop;
 			this.hasScrolledToOption = true;
 		} else if (!this.isOpen()) {
 			this.hasScrolledToOption = false;
@@ -19911,9 +19911,10 @@ var Select = _react2['default'].createClass({
 	},
 
 	focusAdjacentOption: function focusAdjacentOption(dir) {
-		var options = this._visibleOptions.filter(function (i) {
+		var rawOptions = this._visibleOptions.filter(function (i) {
 			return !i.disabled;
 		});
+		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(rawOptions, this.state.value) : rawOptions;
 		this._scrollToFocusedOptionOnUpdate = true;
 		if (!this.isOpen()) {
 			this.toggleMenu(true);
