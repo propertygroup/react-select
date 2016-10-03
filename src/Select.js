@@ -180,7 +180,7 @@ const Select = React.createClass({
 
 
 		if (nextProps.value) {
-			if(!_.isEqual(this.props.value, nextProps.value)) {
+			if(!this.isMultiselectAutocomplete() && !_.isEqual(this.props.value, nextProps.value)) {
 				this.setInputValue(nextProps.value[this.props.labelKey]);
 			}
 		} else if (this.isInputEmpty() || (!nextProps.value && this.props.value)) {
