@@ -626,7 +626,9 @@ const Select = React.createClass({
 			value
 		});
 
-		this.focusOption(null);
+		if (!this.isMultiselectStandard()) { // dla zwyklego multiselecta skacze focus
+			this.focusOption(null);
+		}
 
 		if (this.props.autoBlur){
 			this.blurInput();
