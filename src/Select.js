@@ -1062,7 +1062,8 @@ const Select = React.createClass({
 		// } else
 		if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
 			if (!this.props.optgroups) {
-				return this.excludeOptions(options, this.state.value).map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
+				let optionsToRender = this.isMultiselectAutocomplete() ? this.excludeOptions(options, this.state.value) : options;
+				return optionsToRender.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 			} else {
 				return this.renderOptgroups(options, valueArray, focusedOption);
 			}
