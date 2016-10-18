@@ -19319,6 +19319,8 @@ var Select = _react2['default'].createClass({
 
 	getInitialState: function getInitialState() {
 		return {
+			focusedOption: null,
+			value: null,
 			inputValue: "",
 			isFocused: false,
 			isLoading: false,
@@ -19350,7 +19352,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	// shouldComponentUpdate(nextProps, nextState) {
-	// 	if (this.props.debug) {
 	// 		console.log("diff", _.reduce(this.props, function (result, value, key) {
 	// 			return _.isEqual(value, nextProps[key]) ?
 	// 			result : result.concat(key);
@@ -19358,7 +19359,6 @@ var Select = _react2['default'].createClass({
 	// 			return _.isEqual(value, nextState[key]) ?
 	// 			result : result.concat(key);
 	// 		}, []));
-	// 	}
 	// 	return true;
 	// },
 
@@ -19373,8 +19373,12 @@ var Select = _react2['default'].createClass({
 				this.setInputValue(nextProps.value[this.props.labelKey]);
 			}
 		} else if (this.isInputEmpty() || !nextProps.value && this.props.value) {
-			this.setValue(null);
-			this.clearInput();
+			if (this.props.value != null) {
+				this.setValue(null);
+			}
+			if (this.state.inputValue != "") {
+				this.clearInput();
+			}
 		}
 
 		if (!nextProps.options || !nextProps.options.length) {
