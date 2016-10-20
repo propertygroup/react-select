@@ -19692,9 +19692,15 @@ var Select = _react2['default'].createClass({
 
 	handleInputChange: function handleInputChange(event) {
 		var inputValue = event.target.value;
+
+		// todo zakomentowane zeby nie wysylal sie change jak sie skasuje wszystko z inputa, jak by cos sie wywalalo to odkomentowac
 		if (inputValue === "" && !this.isMultiselectAutocomplete()) {
-			this.setValue(null);
+			// this.setValue(null);
+			this.setState({
+				value: null
+			});
 		}
+
 		//this.toggleMenu(true);
 		this.togglePseudoFocus(false);
 		this.setInputValue(inputValue);
