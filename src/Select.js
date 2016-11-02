@@ -837,7 +837,6 @@ const Select = React.createClass({
 				onBlur,
 				onChange: this.handleInputChange,
 				onFocus: this.handleInputFocus,
-				minWidth: "5",
 				ref: "input",
 				required: this.state.required,
 				value: this.getInputValue(),
