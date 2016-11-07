@@ -135,7 +135,7 @@ const Select = React.createClass({
 			isLoading: false,
 			isOpen: false,
 			isPseudoFocused: false,
-			required: this.props.required && this.handleRequired(this.props.value, this.props.multi)
+			required: this.props.required// && this.handleRequired(this.props.value, this.props.multi)
 		};
 	},
 
@@ -959,21 +959,21 @@ const Select = React.createClass({
 		return _.filter(options, option => !_.some(excludedOptions, (excluded) => excluded.value == option.value))
 	},
 
-	renderAutocompleteSelectedOptions(selectedOptions) {
-		let renderedOptions = _.map(selectedOptions, (option, index) => {
-			return (
-				<li key={index} className="multiselect-selected-item">
-					{this.props.optionRenderer ? <div className="multiselect-selected-item-holder">{this.props.optionRenderer(option)}</div> : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
-					<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option, true)}></span>
-				</li>)
-		});
-
-		return (
-			<ul className="multiselect-selected-list">
-				{renderedOptions}
-			</ul>
-		)
-	},
+	// renderAutocompleteSelectedOptions(selectedOptions) {
+	// 	let renderedOptions = _.map(selectedOptions, (option, index) => {
+	// 		return (
+	// 			<li key={index} className="multiselect-selected-item">
+	// 				{this.props.optionRenderer ? <div className="multiselect-selected-item-holder">{this.props.optionRenderer(option)}</div> : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
+	// 				<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option, true)}></span>
+	// 			</li>)
+	// 	});
+    //
+	// 	return (
+	// 		<ul className="multiselect-selected-list">
+	// 			{renderedOptions}
+	// 		</ul>
+	// 	)
+	// },
 
 	areOptionsEqual(option1, option2) {
 		let value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
