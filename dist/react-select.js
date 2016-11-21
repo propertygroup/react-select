@@ -18884,6 +18884,7 @@ var Async = _react2['default'].createClass({
 			ignoreCase: true,
 			loadingPlaceholder: 'Ładowanie...',
 			minimumInput: 0,
+			limit: 20,
 			searchingText: 'Szukanie...',
 			searchPromptText: 'Wpisz zby wyszukać'
 		};
@@ -18985,17 +18986,17 @@ var Async = _react2['default'].createClass({
 			this.setState({ loadWaiting: true });
 			this.loadTimeout = setTimeout((function () {
 				this.setState({ loadWaiting: false });
-				this.loadOptions(input);
+				this.loadOptions(input, this.props.limit);
 			}).bind(this), 300);
 		} else {
 			clearTimeout(this.loadTimeout);
 			this.loadTimeout = setTimeout((function () {
 				this.setState({ loadWaiting: false });
-				this.loadOptions(input);
+				this.loadOptions(input, this.props.limit);
 			}).bind(this), 300);
 		}
 	},
-	loadOptions: function loadOptions(input) {
+	loadOptions: function loadOptions(input, limit) {
 		if (this.props.ignoreAccents) input = (0, _utilsStripDiacritics2['default'])(input);
 		if (this.props.ignoreCase) input = input.toLowerCase();
 		this._lastInput = input;
@@ -19012,7 +19013,7 @@ var Async = _react2['default'].createClass({
 			isLoading: true
 		});
 		var responseHandler = this.getResponseHandler(input);
-		return thenPromise(this.props.loadOptions(input, responseHandler), responseHandler);
+		return thenPromise(this.props.loadOptions(input, limit), responseHandler);
 	},
 	render: function render() {
 		var noResultsText = this.props.noResultsText;
