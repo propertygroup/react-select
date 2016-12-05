@@ -19293,6 +19293,7 @@ var Select = _react2['default'].createClass({
 			escapeClearsValue: true,
 			filterOptions: true,
 			forceOpen: false,
+			groups: [],
 			ignoreAccents: true,
 			ignoreCase: true,
 			inputProps: {},
@@ -19865,17 +19866,34 @@ var Select = _react2['default'].createClass({
 			}
 	},
 
-	addValue: function addValue(value) {
-		var valueArray = this.getValueArray();
-		this.setValue(valueArray.concat([value]));
-	},
-
-	toggleValue: function toggleValue(value) {
+	isValueSelected: function isValueSelected(value) {
 		var _this2 = this;
 
 		var valueArray = this.getValueArray();
 		var option = _.find(valueArray, function (elem) {
 			return elem[_this2.props.labelKey] == value[_this2.props.labelKey] && elem.value == value.value;
+		});
+		return option != null;
+	},
+
+	addValue: function addValue(value) {
+		var valueArray = this.getValueArray();
+		this.setValue(valueArray.concat([value]));
+	},
+
+	addValues: function addValues(values) {
+		var valueArray = this.getValueArray();
+		this.setValue(valueArray.concat(_.filter(values, function (value) {
+			return _.find(valueArray, { value: value.value }) == null;
+		})));
+	},
+
+	toggleValue: function toggleValue(value) {
+		var _this3 = this;
+
+		var valueArray = this.getValueArray();
+		var option = _.find(valueArray, function (elem) {
+			return elem[_this3.props.labelKey] == value[_this3.props.labelKey] && elem.value == value.value;
 		});
 		option == null ? this.addValue(value) : this.removeValue(value, true);
 	},
@@ -19892,6 +19910,16 @@ var Select = _react2['default'].createClass({
 		this.setValue(valueArray.filter(function (i) {
 			return i.value.toString() !== value.value.toString();
 		}));
+		focus && this.focus();
+	},
+
+	removeValues: function removeValues(values, focus) {
+		var valueArray = this.getValueArray();
+		var newValue = _.filter(valueArray, function (selectedOption) {
+			return _.find(values, { value: selectedOption.value.toString() }) == null;
+		});
+
+		this.setValue(newValue);
 		focus && this.focus();
 	},
 
@@ -20014,13 +20042,13 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderInput: function renderInput(valueArray, isOpen, options) {
-		var _this3 = this;
+		var _this4 = this;
 
 		var className = (0, _classnames2['default'])('Select-input', this.props.inputProps.className);
 
 		var onBlur = function onBlur(event) {
-			_this3.props.onInputBlur && _this3.props.onInputBlur(event);
-			_this3.handleInputBlur(event);
+			_this4.props.onInputBlur && _this4.props.onInputBlur(event);
+			_this4.handleInputBlur(event);
 		};
 
 		if (!this.isAutocomplete()) {
@@ -20080,7 +20108,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	filterOptions: function filterOptions(excludeOptions) {
-		var _this4 = this;
+		var _this5 = this;
 
 		var filterValue = this.getInputValue();
 		var options = this.props.options || [];
@@ -20102,7 +20130,7 @@ var Select = _react2['default'].createClass({
 		var _loop = function (i) {
 			var option = options[i];
 
-			var name = option[_this4.props.labelKey].toLowerCase().trim();
+			var name = option[_this5.props.labelKey].toLowerCase().trim();
 			var isValid = true;
 
 			if (name.indexOf(query) !== 0) {
@@ -20117,7 +20145,7 @@ var Select = _react2['default'].createClass({
 						var normalizedToken = tokens[k].trim().toLowerCase();
 						var normalizedQueryToken = queryTokens[j].trim();
 						var pos = normalizedToken.indexOf(normalizedQueryToken);
-						if (_this4.props.searchInside && pos != -1 || !_this4.props.searchInside && pos === 0) {
+						if (_this5.props.searchInside && pos != -1 || !_this5.props.searchInside && pos === 0) {
 							tokenValid = true;
 							break;
 						}
@@ -20135,9 +20163,9 @@ var Select = _react2['default'].createClass({
 				}
 
 				if (!_.some(excludeOptions, function (excluded) {
-					return _this4.areOptionsEqual(excluded, option);
+					return _this5.areOptionsEqual(excluded, option);
 				})) {
-					if (_this4.props.noLengthSorting) {
+					if (_this5.props.noLengthSorting) {
 						result.push(option);
 					} else {
 						matchResults[name.length].push(option);
@@ -20176,45 +20204,53 @@ var Select = _react2['default'].createClass({
 		});
 	},
 
-	// renderAutocompleteSelectedOptions(selectedOptions) {
-	// 	let renderedOptions = _.map(selectedOptions, (option, index) => {
-	// 		return (
-	// 			<li key={index} className="multiselect-selected-item">
-	// 				{this.props.optionRenderer ? <div className="multiselect-selected-item-holder">{this.props.optionRenderer(option)}</div> : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
-	// 				<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option, true)}></span>
-	// 			</li>)
-	// 	});
-	//
-	// 	return (
-	// 		<ul className="multiselect-selected-list">
-	// 			{renderedOptions}
-	// 		</ul>
-	// 	)
-	// },
-
 	areOptionsEqual: function areOptionsEqual(option1, option2) {
 		var value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
 		var value2 = !_.isUndefined(option2.value) ? option2.value.toString() : "";
 		return value1 === value2;
 	},
 
-	renderOptgroups: function renderOptgroups(optgroups, valueArray, focusedOption) {
-		var _this5 = this;
+	onOptgroupClick: function onOptgroupClick(optgroup, groupOptions) {
+		if (!this.props.multi) {
+			return;
+		}
+
+		if (_.every(groupOptions, this.isValueSelected)) {
+			this.removeValues(groupOptions);
+		} else {
+			this.addValues(groupOptions);
+		}
+	},
+
+	renderOptgroups: function renderOptgroups(options, valueArray, focusedOption, groups) {
+		var _this6 = this;
 
 		var elems = [];
 
-		optgroups.forEach(function (optgroup, i) {
-			if (optgroup.type === "optgroup") {
-				elems.push(_react2['default'].createElement(
+		elems = elems.concat(_.map(_.filter(options, function (option) {
+			return !option.groupId;
+		}), function (option) {
+			return _this6.renderOption(option, 0, valueArray, focusedOption);
+		}));
+
+		groups.forEach(function (optgroup, i) {
+			var groupOptions = _.filter(options, { groupId: optgroup.id });
+
+			if (groupOptions.length) {
+				elems = elems.concat(_react2['default'].createElement(
 					'div',
-					{ key: i },
-					optgroup.name
+					{ key: 'optgroup-' + i },
+					_react2['default'].createElement(
+						'div',
+						{ onClick: function () {
+								return _this6.onOptgroupClick(optgroup, groupOptions);
+							} },
+						optgroup.name
+					),
+					_.map(groupOptions, function (option) {
+						return _this6.renderOption(option, i, valueArray, focusedOption);
+					})
 				));
-				optgroup.options.forEach(function (option, j) {
-					return elems.push(_this5.renderOption(option, j, valueArray, focusedOption));
-				});
-			} else {
-				elems.push(_this5.renderOption(optgroup, i, valueArray, focusedOption));
 			}
 		});
 
@@ -20222,13 +20258,13 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderOption: function renderOption(option, index, valueArray, focusedOption) {
-		var _this6 = this;
+		var _this7 = this;
 
 		var Option = this.props.optionComponent;
 		var renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
 		var isSelected = valueArray && _.find(valueArray, function (value) {
-			return _this6.areOptionsEqual(value, option);
+			return _this7.areOptionsEqual(value, option);
 		}) != null;
 		var isFocused = option === focusedOption;
 		var optionRef = isFocused ? 'focused' : null;
@@ -20307,8 +20343,8 @@ var Select = _react2['default'].createClass({
 		}
 	},
 
-	renderMenuOptions: function renderMenuOptions(options, valueArray, focusedOption) {
-		var _this7 = this;
+	renderMenuOptions: function renderMenuOptions(options, valueArray, focusedOption, groups) {
+		var _this8 = this;
 
 		if (!options || !options.length) {
 			return null;
@@ -20322,13 +20358,13 @@ var Select = _react2['default'].createClass({
 		// 	return this.renderAutocompleteSelectedOptions(valueArray);
 		// } else
 		if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || this.isInputEmpty() && this.props.showAllValues)) {
-			if (!this.props.optgroups) {
+			if (!groups.length) {
 				var optionsToRender = this.isMultiselectAutocomplete() ? this.excludeOptions(options, this.state.value) : options;
 				return optionsToRender.map(function (option, i) {
-					return _this7.renderOption(option, i, valueArray, focusedOption);
+					return _this8.renderOption(option, i, valueArray, focusedOption);
 				});
 			} else {
-				return this.renderOptgroups(options, valueArray, focusedOption);
+				return this.renderOptgroups(options, valueArray, focusedOption, groups);
 			}
 		}
 
@@ -20362,18 +20398,18 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
-		var _this8 = this;
+		var _this9 = this;
 
 		if (!this.props.name) return;
 		var value = _.map(valueArray, function (i) {
 			var x = valueArray.length;
-			stringifyValue(i[_this8.props.valueKey]);
+			stringifyValue(i[_this9.props.valueKey]);
 		}).join(this.props.delimiter);
 		return _react2['default'].createElement('input', { type: 'hidden', ref: 'value', name: this.props.name, value: value, disabled: this.isDiabled() });
 	},
 
 	getFocusableOption: function getFocusableOption(selectedOption) {
-		var _this9 = this;
+		var _this10 = this;
 
 		var options = this._visibleOptions;
 		if (!options || !options.length) return;
@@ -20382,7 +20418,7 @@ var Select = _react2['default'].createClass({
 		// zamiast tego porownujemy label i value
 		if (focusedOption) {
 			var index = _.findIndex(options, function (elem) {
-				return elem.value === focusedOption.value && elem[_this9.props.labelKey] === focusedOption[_this9.props.labelKey];
+				return elem.value === focusedOption.value && elem[_this10.props.labelKey] === focusedOption[_this10.props.labelKey];
 			});
 			if (index > -1) return options[index];
 		}
@@ -20464,7 +20500,7 @@ var Select = _react2['default'].createClass({
 						style: this.props.menuStyle,
 						onScroll: this.handleMenuScroll,
 						onMouseDown: this.handleMouseDownOnMenu },
-					this.renderMenuOptions(options, valueArray, focusedOption)
+					this.renderMenuOptions(options, valueArray, focusedOption, this.props.groups)
 				)
 			) : null
 		);

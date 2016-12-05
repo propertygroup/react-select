@@ -101,6 +101,7 @@ const Select = React.createClass({
 			escapeClearsValue: true,
 			filterOptions: true,
 			forceOpen: false,
+			groups: [],
 			ignoreAccents: true,
 			ignoreCase: true,
 			inputProps: {},
@@ -669,9 +670,22 @@ const Select = React.createClass({
 		}
 	},
 
+	isValueSelected(value) {
+		var valueArray = this.getValueArray();
+		var option = _.find(valueArray, (elem) => {
+			return elem[this.props.labelKey] == value[this.props.labelKey] && elem.value == value.value;
+		});
+		return option != null;
+	},
+
 	addValue (value) {
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.concat([value]));
+	},
+
+	addValues(values) {
+		var valueArray = this.getValueArray();
+		this.setValue(valueArray.concat(_.filter(values, value => _.find(valueArray, {value: value.value}) == null)))
 	},
 
 	toggleValue (value) {
@@ -692,6 +706,14 @@ const Select = React.createClass({
 	removeValue (value, focus) {
 		var valueArray = this.getValueArray();
 		this.setValue(valueArray.filter(i => i.value.toString() !== value.value.toString()));
+		focus && this.focus();
+	},
+
+	removeValues(values, focus) {
+		var valueArray = this.getValueArray();
+		var newValue = _.filter(valueArray, (selectedOption) => _.find(values, {value: selectedOption.value.toString()}) == null);
+
+		this.setValue(newValue);
 		focus && this.focus();
 	},
 
@@ -959,43 +981,42 @@ const Select = React.createClass({
 		return _.filter(options, option => !_.some(excludedOptions, (excluded) => excluded.value == option.value))
 	},
 
-	// renderAutocompleteSelectedOptions(selectedOptions) {
-	// 	let renderedOptions = _.map(selectedOptions, (option, index) => {
-	// 		return (
-	// 			<li key={index} className="multiselect-selected-item">
-	// 				{this.props.optionRenderer ? <div className="multiselect-selected-item-holder">{this.props.optionRenderer(option)}</div> : <span className="multiselect-selected-value">{option[this.props.labelKey]}</span>}
-	// 				<span className="multiselect-selected-remove unselectable" onClick={() => this.removeValue(option, true)}></span>
-	// 			</li>)
-	// 	});
-    //
-	// 	return (
-	// 		<ul className="multiselect-selected-list">
-	// 			{renderedOptions}
-	// 		</ul>
-	// 	)
-	// },
-
 	areOptionsEqual(option1, option2) {
 		let value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
 		let value2 = !_.isUndefined(option2.value) ? option2.value.toString() : "";
 		return value1 === value2;
 	},
 
-	renderOptgroups (optgroups, valueArray, focusedOption) {
+	onOptgroupClick(optgroup, groupOptions) {
+		if (!this.props.multi) {
+			return;
+		}
 
+		if (_.every(groupOptions, this.isValueSelected)) {
+			this.removeValues(groupOptions);
+		} else {
+			this.addValues(groupOptions);
+		}
+	},
+
+	renderOptgroups (options, valueArray, focusedOption, groups) {
 		let elems = [];
 
-		optgroups.forEach((optgroup, i) => {
-			if (optgroup.type === "optgroup") {
-				elems.push(<div key={i}>{optgroup.name}</div>);
-				optgroup.options.forEach((option, j) => elems.push(this.renderOption(option, j, valueArray, focusedOption)))
-			} else {
-				elems.push(this.renderOption(optgroup, i, valueArray, focusedOption));
+		elems = elems.concat(_.map(_.filter(options, option => !option.groupId), (option) => this.renderOption(option, 0, valueArray, focusedOption)));
+
+		groups.forEach((optgroup, i) => {
+			let groupOptions = _.filter(options, {groupId: optgroup.id});
+
+			if (groupOptions.length) {
+				elems = elems.concat(
+				<div key={`optgroup-${i}`}>
+					<div onClick={() => this.onOptgroupClick(optgroup, groupOptions)}>{optgroup.name}</div>
+					{_.map(groupOptions, (option) => this.renderOption(option, i, valueArray, focusedOption))}
+				</div>);
 			}
 		});
 
 		return elems;
-
 	},
 
 	renderOption (option, index, valueArray, focusedOption) {
@@ -1060,7 +1081,7 @@ const Select = React.createClass({
 		}
 	},
 
-	renderMenuOptions (options, valueArray, focusedOption) {
+	renderMenuOptions (options, valueArray, focusedOption, groups) {
 
 		if (!options || !options.length) {
 			return null;
@@ -1074,11 +1095,11 @@ const Select = React.createClass({
 		// 	return this.renderAutocompleteSelectedOptions(valueArray);
 		// } else
 		if (options && options.length && (!this.isAutocomplete() || !this.isInputEmpty() || (this.isInputEmpty() && this.props.showAllValues))) {
-			if (!this.props.optgroups) {
+			if (!groups.length) {
 				let optionsToRender = this.isMultiselectAutocomplete() ? this.excludeOptions(options, this.state.value) : options;
 				return optionsToRender.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
 			} else {
-				return this.renderOptgroups(options, valueArray, focusedOption);
+				return this.renderOptgroups(options, valueArray, focusedOption, groups);
 			}
 		}
 
@@ -1211,7 +1232,7 @@ const Select = React.createClass({
 									 style={this.props.menuStyle}
 									 onScroll={this.handleMenuScroll}
 									 onMouseDown={this.handleMouseDownOnMenu}>
-								{this.renderMenuOptions(options, valueArray, focusedOption)}
+								{this.renderMenuOptions(options, valueArray, focusedOption, this.props.groups)}
 							</div>
 						</div>
 					) : null}
