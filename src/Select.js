@@ -1009,8 +1009,8 @@ const Select = React.createClass({
 
 			if (groupOptions.length) {
 				elems = elems.concat(
-				<div key={`optgroup-${i}`}>
-					<div onClick={() => this.onOptgroupClick(optgroup, groupOptions)}>{optgroup.name}</div>
+				<div className="Select-group-holde" key={`optgroup-${i}`}>
+					<div className="Select-header" onClick={() => this.onOptgroupClick(optgroup, groupOptions)}>{optgroup.name}</div>
 					{_.map(groupOptions, (option) => this.renderOption(option, i, valueArray, focusedOption))}
 				</div>);
 			}

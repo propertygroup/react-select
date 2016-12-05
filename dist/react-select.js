@@ -20239,10 +20239,10 @@ var Select = _react2['default'].createClass({
 			if (groupOptions.length) {
 				elems = elems.concat(_react2['default'].createElement(
 					'div',
-					{ key: 'optgroup-' + i },
+					{ className: 'Select-group-holde', key: 'optgroup-' + i },
 					_react2['default'].createElement(
 						'div',
-						{ onClick: function () {
+						{ className: 'Select-header', onClick: function () {
 								return _this6.onOptgroupClick(optgroup, groupOptions);
 							} },
 						optgroup.name
