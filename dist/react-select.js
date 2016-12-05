@@ -20242,8 +20242,15 @@ var Select = _react2['default'].createClass({
 					{ className: 'Select-group-holder', key: 'optgroup-' + i },
 					_react2['default'].createElement(
 						'div',
-						{ className: 'Select-header', onClick: function () {
+						{ className: 'Select-header',
+							onClick: function () {
 								return _this6.onOptgroupClick(optgroup, groupOptions);
+							},
+							onMouseEnter: function () {
+								return _this6.setState({ mouseOverGroup: true });
+							},
+							onMouseLeave: function () {
+								return _this6.setState({ mouseOverGroup: false });
 							} },
 						optgroup.name
 					),
@@ -20412,7 +20419,7 @@ var Select = _react2['default'].createClass({
 		var _this10 = this;
 
 		var options = this._visibleOptions;
-		if (!options || !options.length) return;
+		if (!options || !options.length || this.state.mouseOverGroup) return;
 		var focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
 		// zamiast tego porownujemy label i value

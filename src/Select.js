@@ -1010,7 +1010,12 @@ const Select = React.createClass({
 			if (groupOptions.length) {
 				elems = elems.concat(
 				<div className="Select-group-holder" key={`optgroup-${i}`}>
-					<div className="Select-header" onClick={() => this.onOptgroupClick(optgroup, groupOptions)}>{optgroup.name}</div>
+					<div className="Select-header"
+						 onClick={() => this.onOptgroupClick(optgroup, groupOptions)}
+						 onMouseEnter={() => this.setState({mouseOverGroup: true})}
+						 onMouseLeave={() => this.setState({mouseOverGroup: false})}>
+						{optgroup.name}
+					</div>
 					{_.map(groupOptions, (option) => this.renderOption(option, i, valueArray, focusedOption))}
 				</div>);
 			}
@@ -1143,7 +1148,7 @@ const Select = React.createClass({
 
 	getFocusableOption (selectedOption) {
 		var options = this._visibleOptions;
-		if (!options || !options.length) return;
+		if (!options || !options.length || this.state.mouseOverGroup) return;
 		let focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
 		// zamiast tego porownujemy label i value
