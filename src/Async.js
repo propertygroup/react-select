@@ -108,6 +108,9 @@ const Async = React.createClass({
 	removeValue(value, focus) {
 		this.refs.select.removeValue(value, focus);
 	},
+	removeValues(values, focus) {
+		this.refs.select.removeValues(values, focus);
+	},
 	filterSelected(options) {
 		return options;
 		if (this.props.multi) {

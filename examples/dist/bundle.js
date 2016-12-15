@@ -18929,6 +18929,9 @@ var Async = _react2['default'].createClass({
 	removeValue: function removeValue(value, focus) {
 		this.refs.select.removeValue(value, focus);
 	},
+	removeValues: function removeValues(values, focus) {
+		this.refs.select.removeValues(values, focus);
+	},
 	filterSelected: function filterSelected(options) {
 		var _this = this;
 
