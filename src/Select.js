@@ -711,7 +711,7 @@ const Select = React.createClass({
 
 	removeValues(values, focus) {
 		var valueArray = this.getValueArray();
-		var newValue = _.filter(valueArray, (selectedOption) => _.find(values, {value: selectedOption.value.toString()}) == null);
+		var newValue = _.filter(valueArray, (selectedOption) => _.find(values, (value) => value.value.toString() !== selectedOption.value.toString()) == null);
 
 		this.setValue(newValue);
 		focus && this.focus();

@@ -19919,7 +19919,9 @@ var Select = _react2['default'].createClass({
 	removeValues: function removeValues(values, focus) {
 		var valueArray = this.getValueArray();
 		var newValue = _.filter(valueArray, function (selectedOption) {
-			return _.find(values, { value: selectedOption.value.toString() }) == null;
+			return _.find(values, function (value) {
+				return value.value.toString() !== selectedOption.value.toString();
+			}) == null;
 		});
 
 		this.setValue(newValue);
