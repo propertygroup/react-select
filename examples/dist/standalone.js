@@ -19030,6 +19030,7 @@ var Async = _react2['default'].createClass({
 			if (this._lastInput.length < this.props.minimumInput) noResultsText = this.props.searchPromptText;
 			if (isLoading) noResultsText = this.props.searchingText;
 		}
+
 		return _react2['default'].createElement(_Select2['default'], _extends({}, this.props, {
 			ref: 'select',
 			isLoading: this.state.loadWaiting || isLoading,
@@ -19373,6 +19374,10 @@ var Select = _react2['default'].createClass({
 		// 	console.log("will receive props", nextProps.value);
 		// }
 
+		if (this.isMultiselectAutocomplete() && this.props.value && this.props.value.length && (!nextProps.value || !nextProps.value.length)) {
+			this.setValue(null);
+		}
+
 		if (nextProps.value) {
 			if (!this.isMultiselectAutocomplete() && !_.isEqual(this.props.value, nextProps.value)) {
 				this.setInputValue(nextProps.value[this.props.labelKey]);
@@ -19484,9 +19489,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	setInputValue: function setInputValue(value) {
-		if (this.props.debug) {
-			console.log("set input value", value);
-		}
 		this.setState({ inputValue: value || "" });
 	},
 
@@ -19663,9 +19665,6 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputBlur: function handleInputBlur(event) {
-		if (this.props.debug) {
-			console.log("handle blur");
-		}
 		if (!this.isMultiselect()) {
 			if (!this.getValueArray()[0] || this.getValueArray()[0][this.props.labelKey] != this.getInputValue()) {
 				if (!this.props.allowCreate) {
@@ -19823,9 +19822,6 @@ var Select = _react2['default'].createClass({
 	setValue: function setValue(value) {
 		var _this = this;
 
-		if (this.props.debug) {
-			console.log("set value", value);
-		}
 		// na sytuacje gdy przychodzi []
 		if (_.isEmpty(value)) value = null;
 

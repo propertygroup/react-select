@@ -173,12 +173,9 @@ const Select = React.createClass({
 	// },
 
 	componentWillReceiveProps (nextProps) {
-		// todo fixme
-		// if (this.props.debug) {
-		// 	console.log("will receive props", nextProps.value);
-		// }
-
-
+		if (this.isMultiselectAutocomplete() && this.props.value && this.props.value.length && (!nextProps.value || !nextProps.value.length)) {
+			this.setValue(null);
+		}
 
 		if (nextProps.value) {
 			if(!this.isMultiselectAutocomplete() && !_.isEqual(this.props.value, nextProps.value)) {
@@ -293,9 +290,6 @@ const Select = React.createClass({
 	},
 
 	setInputValue(value) {
-		if(this.props.debug) {
-			console.log("set input value", value)
-		}
 		this.setState({inputValue: value || ""});
 	},
 
@@ -476,9 +470,6 @@ const Select = React.createClass({
 	},
 
 	handleInputBlur (event) {
-		if(this.props.debug) {
-			console.log("handle blur");
-		}
 		if(!this.isMultiselect()) {
 			if (!this.getValueArray()[0] || this.getValueArray()[0][this.props.labelKey] != this.getInputValue()) {
 				if(!this.props.allowCreate) {
@@ -627,9 +618,6 @@ const Select = React.createClass({
 	},
 
 	setValue (value) {
-		if (this.props.debug) {
-			console.log("set value", value);
-		}
 		// na sytuacje gdy przychodzi []
 		if (_.isEmpty(value)) value = null;
 
