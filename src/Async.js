@@ -62,7 +62,7 @@ const Async = React.createClass({
 			ignoreCase: true,
 			loadingPlaceholder: 'Ładowanie...',
 			minimumInput: 0,
-			limit: 20,
+			limit: 0,
 			searchingText: 'Szukanie...',
 			searchPromptText: 'Wpisz zby wyszukać',
 		};

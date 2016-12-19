@@ -18884,7 +18884,7 @@ var Async = _react2['default'].createClass({
 			ignoreCase: true,
 			loadingPlaceholder: 'Ładowanie...',
 			minimumInput: 0,
-			limit: 20,
+			limit: 0,
 			searchingText: 'Szukanie...',
 			searchPromptText: 'Wpisz zby wyszukać'
 		};
@@ -19369,11 +19369,6 @@ var Select = _react2['default'].createClass({
 	// },
 
 	componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-		// todo fixme
-		// if (this.props.debug) {
-		// 	console.log("will receive props", nextProps.value);
-		// }
-
 		if (this.isMultiselectAutocomplete() && this.props.value && this.props.value.length && (!nextProps.value || !nextProps.value.length)) {
 			this.setValue(null);
 		}
