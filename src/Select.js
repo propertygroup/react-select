@@ -699,7 +699,8 @@ const Select = React.createClass({
 
 	removeValues(values, focus) {
 		var valueArray = this.getValueArray();
-		var newValue = _.filter(valueArray, (selectedOption) => _.find(values, (value) => value.value.toString() !== selectedOption.value.toString()) == null);
+
+		var newValue = _.filter(valueArray, (selectedOption) => _.every(values, (value) => value.value.toString() !== selectedOption.value.toString()));
 
 		this.setValue(newValue);
 		focus && this.focus();
@@ -1053,13 +1054,11 @@ const Select = React.createClass({
 		}
 
 		if (this.isMultiselectAutocomplete()) {
-			if (this.isInputEmpty()) {
-				// if (valueArray.length) {
-				// 	return <div>Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki</div>
-				// } else {
+			if (!this.excludeOptions(options, this.state.value).length) {
+				return <div>Nie znaleziono wyników</div>
+			} else if (this.isInputEmpty()) {
 				let word = this.props.showAllValues ? "zawęzić" : "zobaczyć";
-					return <div>{`Zacznij pisać aby ${word} wyniki`}</div>
-				// }
+				return <div>{`Zacznij pisać aby ${word} wyniki`}</div>
 			} else if (options && options.length) {
 				return <div>Znaleziono następujące wyniki</div>
 			} else {
@@ -1135,7 +1134,7 @@ const Select = React.createClass({
 	},
 
 	getFocusableOption (selectedOption) {
-		var options = this._visibleOptions;
+		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(this._visibleOptions, this.state.value) : this._visibleOptions;
 		if (!options || !options.length || this.state.mouseOverGroup) return;
 		let focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
@@ -1189,7 +1188,7 @@ const Select = React.createClass({
 
 		return (
 			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
-				{/*<pre>{JSON.stringify(this.state, null, 2)}</pre>*/}
+				{/*<pre>{JSON.stringify({"this.state.focusedOption": this.state && this.state.focusedOption, "this._focusedOption": this._focusedOption}, null, 2)}</pre>*/}
 				{this.renderHiddenField(valueArray)}
 				{this.props.debug && this.renderDebug()}
 				{/*<TetherComponent

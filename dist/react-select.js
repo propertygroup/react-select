@@ -19909,10 +19909,11 @@ var Select = _react2['default'].createClass({
 
 	removeValues: function removeValues(values, focus) {
 		var valueArray = this.getValueArray();
+
 		var newValue = _.filter(valueArray, function (selectedOption) {
-			return _.find(values, function (value) {
+			return _.every(values, function (value) {
 				return value.value.toString() !== selectedOption.value.toString();
-			}) == null;
+			});
 		});
 
 		this.setValue(newValue);
@@ -20305,30 +20306,32 @@ var Select = _react2['default'].createClass({
 		}
 
 		if (this.isMultiselectAutocomplete()) {
-			if (this.isInputEmpty()) {
-				// if (valueArray.length) {
-				// 	return <div>Wybrano następujące elementy, zacznij pisać aby zobaczyć wyniki</div>
-				// } else {
+			if (!this.excludeOptions(options, this.state.value).length) {
+				return _react2['default'].createElement(
+					'div',
+					null,
+					'Nie znaleziono wyników'
+				);
+			} else if (this.isInputEmpty()) {
 				var word = this.props.showAllValues ? "zawęzić" : "zobaczyć";
 				return _react2['default'].createElement(
 					'div',
 					null,
 					'Zacznij pisać aby ' + word + ' wyniki'
 				);
-				// }
 			} else if (options && options.length) {
-					return _react2['default'].createElement(
-						'div',
-						null,
-						'Znaleziono następujące wyniki'
-					);
-				} else {
-					return _react2['default'].createElement(
-						'div',
-						null,
-						'Nie znaleziono wyników'
-					);
-				}
+				return _react2['default'].createElement(
+					'div',
+					null,
+					'Znaleziono następujące wyniki'
+				);
+			} else {
+				return _react2['default'].createElement(
+					'div',
+					null,
+					'Nie znaleziono wyników'
+				);
+			}
 		} else if (this.isAutocomplete()) {
 			if (this.isInputEmpty() && !this.props.showAllValues) {
 				return _react2['default'].createElement(
@@ -20414,7 +20417,7 @@ var Select = _react2['default'].createClass({
 	getFocusableOption: function getFocusableOption(selectedOption) {
 		var _this10 = this;
 
-		var options = this._visibleOptions;
+		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(this._visibleOptions, this.state.value) : this._visibleOptions;
 		if (!options || !options.length || this.state.mouseOverGroup) return;
 		var focusedOption = this.state.focusedOption || selectedOption;
 		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
@@ -20513,16 +20516,16 @@ var Select = _react2['default'].createClass({
 
 exports['default'] = Select;
 module.exports = exports['default'];
-/*<pre>{JSON.stringify(this.state, null, 2)}</pre>*/ /*<TetherComponent
-                                                     attachment="top left"
-                                                     targetAttachment="bottom left"
-                                                     constraints={[
-                                                     	{
-                                                     		to: "scrollParent",
-                                                     		attachment: "together"
-                                                     	}
-                                                     ]}
-                                                     >*/ /*</TetherComponent>*/
+/*<pre>{JSON.stringify({"this.state.focusedOption": this.state && this.state.focusedOption, "this._focusedOption": this._focusedOption}, null, 2)}</pre>*/ /*<TetherComponent
+                                                                                                                                                           attachment="top left"
+                                                                                                                                                           targetAttachment="bottom left"
+                                                                                                                                                           constraints={[
+                                                                                                                                                           	{
+                                                                                                                                                           		to: "scrollParent",
+                                                                                                                                                           		attachment: "together"
+                                                                                                                                                           	}
+                                                                                                                                                           ]}
+                                                                                                                                                           >*/ /*</TetherComponent>*/
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./Async":5,"./Option":6,"./Value":8,"./utils/stripDiacritics":9,"lodash":1,"react-tether":3}],8:[function(require,module,exports){
