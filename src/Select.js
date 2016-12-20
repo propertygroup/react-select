@@ -26,6 +26,7 @@ const stringOrNode = React.PropTypes.oneOfType([
 
 const Select = React.createClass({
 
+// <editor-fold desc="React methods">
 	displayName: 'Select',
 
 	// propTypes: {
@@ -85,6 +86,10 @@ const Select = React.createClass({
 	// 	valueRenderer: React.PropTypes.func,        // valueRenderer: function (option) {}
 	// 	wrapperStyle: React.PropTypes.object,       // optional style to apply to the component wrapper
 	// },
+
+	/**
+	 * React stuff
+	 */
 
 	statics: { Async },
 
@@ -161,17 +166,6 @@ const Select = React.createClass({
 		}
 	},
 
-	// shouldComponentUpdate(nextProps, nextState) {
-	// 		console.log("diff", _.reduce(this.props, function (result, value, key) {
-	// 			return _.isEqual(value, nextProps[key]) ?
-	// 			result : result.concat(key);
-	// 		}, []), _.reduce(this.state, function (result, value, key) {
-	// 			return _.isEqual(value, nextState[key]) ?
-	// 			result : result.concat(key);
-	// 		}, []));
-	// 	return true;
-	// },
-
 	componentWillReceiveProps (nextProps) {
 		if (this.isMultiselectAutocomplete() && this.props.value && this.props.value.length && (!nextProps.value || !nextProps.value.length)) {
 			this.setValue(null);
@@ -247,8 +241,9 @@ const Select = React.createClass({
 			this.setState({width});
 		}
 	},
+// </editor-fold>
 
-
+// <editor-fold desc="Helpers">
 	/**
 	 * HELPERS
      */
@@ -322,15 +317,6 @@ const Select = React.createClass({
 
 	generateMultiselectLabel(options, valueArray) {
 		let label;
-		// if (valueArray.length === 0) {
-		// 	label = this.props.placeholder;
-		// } else if (valueArray.length === 1 && this.isMultiselectStandard()) {
-		// 	label = valueArray[0].label;
-		// } else if (valueArray.length === options.length) {
-		// 	label = "Wybrano wszystkie (" + options.length + ")";
-		// } else {
-		// 	label = valueArray.length + " wybrane";
-		// }
 
 		if (valueArray.length === 0) {
 			label = this.props.placeholder;
@@ -342,10 +328,6 @@ const Select = React.createClass({
 
 		return label;
 	},
-
-
-
-
 
 	focus (shouldOpen) {
 		if (!this.refs.input) return;
@@ -359,6 +341,308 @@ const Select = React.createClass({
 		if (!this.refs.input) return;
 		this.refs.input.blur();
 	},
+
+	closeMenu () {
+		this.togglePseudoFocus(this.isFocused() && !this.isMultiselect());
+		this.toggleMenu(false);
+		this.hasScrolledToOption = false;
+	},
+
+	getOptionLabel (op) {
+		return op[this.props.labelKey];
+	},
+
+	getValueArray() {
+		let value = this.props.value;
+		if (value == null) {
+			return []
+		} else if (!_.isArray(value)) {
+			return [value];
+		}
+		return value;
+	},
+
+	clear() {
+		this.setValue(null);
+		this.toggleMenu(false);
+		this.clearInput();
+	},
+
+	setValue (value) {
+		// na sytuacje gdy przychodzi []
+		if (_.isEmpty(value)) value = null;
+
+		this.setState({
+			value
+		});
+
+		if (!this.isMultiselectStandard()) { // dla zwyklego multiselecta skacze focus
+			this.focusOption(null);
+		}
+
+		if (this.props.autoBlur) {
+			this.blurInput();
+		}
+		if (!this.props.onChange) return;
+		if (this.props.required) {
+			const required = this.handleRequired(value, this.props.multi);
+			this.setState({required});
+		}
+		if (this.props.simpleValue && value) {
+			value = this.props.multi ? value.map(i => i[this.props.valueKey]).join(this.props.delimiter) : value[this.props.valueKey];
+		}
+		this.props.onChange(value);
+	},
+
+	selectValue (value) {
+		//this.hasScrolledToOption = false;
+		if (this.isMultiselect()) {
+			this.toggleValue(value);
+			//this.setState({
+			//	inputValue: value.label,
+			//});
+		} else {
+			this.setValue(value);
+			this.toggleMenu(false);
+			this.togglePseudoFocus(this.isFocused());
+			this.setInputValue(value[this.props.labelKey]);
+		}
+	},
+
+	isValueSelected(value) {
+		var valueArray = this.getValueArray();
+		var option = _.find(valueArray, (elem) => {
+			return elem[this.props.labelKey] == value[this.props.labelKey] && elem.value == value.value;
+		});
+		return option != null;
+	},
+
+	addValue (value) {
+		var valueArray = this.getValueArray();
+		this.setValue(valueArray.concat([value]));
+	},
+
+	addValues(values) {
+		var valueArray = this.getValueArray();
+		this.setValue(valueArray.concat(_.filter(values, value => _.find(valueArray, {value: value.value}) == null)))
+	},
+
+	toggleValue (value) {
+		var valueArray = this.getValueArray();
+		var option = _.find(valueArray, (elem) => {
+			return elem[this.props.labelKey] == value[this.props.labelKey] && elem.value == value.value;
+		});
+		option == null ? this.addValue(value) : this.removeValue(value, true);
+	},
+
+	popValue () {
+		var valueArray = this.getValueArray();
+		if (!valueArray.length) return;
+		if (valueArray[valueArray.length - 1].clearableValue === false) return;
+		this.setValue(valueArray.slice(0, valueArray.length - 1));
+	},
+
+	removeValue (value, focus) {
+		var valueArray = this.getValueArray();
+		this.setValue(valueArray.filter(i => i.value.toString() !== value.value.toString()));
+		focus && this.focus();
+	},
+
+	removeValues(values, focus) {
+		var valueArray = this.getValueArray();
+
+		var newValue = _.filter(valueArray, (selectedOption) => _.every(values, (value) => value.value.toString() !== selectedOption.value.toString()));
+
+		this.setValue(newValue);
+		focus && this.focus();
+	},
+
+	clearValue (event) {
+		// if the event was triggered by a mousedown and not the primary
+		// button, ignore it.
+		if (event && event.type === 'mousedown' && event.button !== 0) {
+			return;
+		}
+		event.stopPropagation();
+		event.preventDefault();
+		this.setValue(null);
+		this.clearInput();
+		this.toggleMenu(false);
+		//this.setState({
+		//	isOpen: false,//}, this.focus);
+	},
+
+	focusOption (option) {
+		this.setState({
+			focusedOption: option
+		});
+	},
+
+	focusNextOption () {
+		this.focusAdjacentOption('next');
+	},
+
+	focusPreviousOption () {
+		this.focusAdjacentOption('previous');
+	},
+
+	focusAdjacentOption (dir) {
+		var rawOptions = this._visibleOptions.filter(i => !i.disabled);
+		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(rawOptions, this.state.value) : rawOptions;
+		this._scrollToFocusedOptionOnUpdate = true;
+		if (!this.isOpen()) {
+			this.toggleMenu(true);
+			this.setState({
+				focusedOption: this._focusedOption || options[dir === 'next' ? 0 : options.length - 1]
+			});
+			return;
+		}
+		if (!options.length) return;
+		var focusedIndex = -1;
+		for (var i = 0; i < options.length; i++) {
+			if (this._focusedOption === options[i]) {
+				focusedIndex = i;
+				break;
+			}
+		}
+		var focusedOption = options[0];
+		if (dir === 'next' && focusedIndex > -1 && focusedIndex < options.length - 1) {
+			focusedOption = options[focusedIndex + 1];
+		} else if (dir === 'previous') {
+			if (focusedIndex > 0) {
+				focusedOption = options[focusedIndex - 1];
+			} else {
+				focusedOption = options[options.length - 1];
+			}
+		}
+		this.setState({
+			focusedOption: focusedOption
+		});
+	},
+
+	selectFocusedOption () {
+		// if (this.props.allowCreate && !this.state.focusedOption) {
+		// 	return this.selectValue(this.state.inputValue);
+		// }
+		if (this._focusedOption) {
+			return this.selectValue(this._focusedOption);
+		}
+	},
+
+	filterOptions (excludeOptions) {
+		var filterValue = this.getInputValue();
+		var options = this.props.options || [];
+
+		if (this.props.filterOptions === false) {
+			return options;
+		}
+
+		if (!this.props.noResultLimit && (!this.isAutocomplete() || filterValue === "")) {
+			return options.slice(0, this.props.resultLimit || 30);
+		}
+
+		let query = filterValue && filterValue.toLowerCase().trim() || "";
+
+		let queryTokens = query.split(" ");
+		let matchResults = {};
+		let result = [];
+		for (let i = 0; i < options.length; i++) {
+			let option = options[i];
+
+			let name = option[this.props.labelKey].toLowerCase().trim();
+			let isValid = true;
+
+			if (name.indexOf(query) !== 0) {
+				let tokens = name.split(/[,-]/);
+				tokens.push(name);
+
+				for (let j = 0; j < queryTokens.length; j++) {
+					// "ma", "wa"
+					let tokenValid = false;
+					for (let k = 0; k < tokens.length; k++) {
+						// "mazowieckie", "warszawa"
+						let normalizedToken = tokens[k].trim().toLowerCase();
+						let normalizedQueryToken = queryTokens[j].trim();
+						let pos = normalizedToken.indexOf(normalizedQueryToken);
+						if (this.props.searchInside && pos != -1 || !this.props.searchInside && pos === 0) {
+							tokenValid = true;
+							break;
+						}
+					}
+					if (!tokenValid) {
+						isValid = false;
+						break;
+					}
+				}
+			}
+
+			if (isValid) {
+				if (!matchResults[name.length]) {
+					matchResults[name.length] = [];
+				}
+
+				if (!_.some(excludeOptions, (excluded) => this.areOptionsEqual(excluded, option))) {
+					if (this.props.noLengthSorting) {
+						result.push(option);
+					} else {
+						matchResults[name.length].push(option);
+					}
+				}
+			}
+		}
+
+		if (!this.props.noLengthSorting) {
+			let keys = _.keys(matchResults).sort((a, b) => a - b);
+			_.each(keys, (key) => {
+				_.each(matchResults[key], (res) => {
+					result.push(res);
+				});
+			});
+		}
+
+		if (!this.props.noResultLimit) {
+			return result.slice(0, this.props.resultLimit || 30);
+		}
+
+		return result;
+	},
+
+	excludeOptions(options, excludedOptions) {
+		return _.filter(options, option => !_.some(excludedOptions, (excluded) => excluded.value == option.value))
+	},
+
+	areOptionsEqual(option1, option2) {
+		let value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
+		let value2 = !_.isUndefined(option2.value) ? option2.value.toString() : "";
+		return value1 === value2;
+	},
+
+	getFocusableOption (selectedOption) {
+		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(this._visibleOptions, this.state.value) : this._visibleOptions;
+		if (!options || !options.length || this.state.mouseOverGroup) return;
+		let focusedOption = this.state.focusedOption || selectedOption;
+		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
+		// zamiast tego porownujemy label i value
+		if (focusedOption) {
+			let index = _.findIndex(options, (elem) => {
+				return elem.value === focusedOption.value && elem[this.props.labelKey] === focusedOption[this.props.labelKey]
+			});
+			if (index > -1) return options[index];
+		}
+
+		if (this.props.alwaysFocus) {
+			for (var i = 0; i < options.length; i++) {
+				if (!options[i].disabled) return options[i];
+			}
+		}
+	},
+
+// </editor-fold>
+
+// <editor-fold desc="Event handlers">
+	/**
+	 * Event handlers
+	 */
 
 	handleTouchMove (event) {
 		// Set a flag that the view is being dragged
@@ -444,12 +728,6 @@ const Select = React.createClass({
 
 		this._openAfterFocus = true;
 		this.focus();
-	},
-
-	closeMenu () {
-		this.togglePseudoFocus(this.isFocused() && !this.isMultiselect());
-		this.toggleMenu(false);
-		this.hasScrolledToOption = false;
 	},
 
 	handleNormalSelectFocus (event) {
@@ -597,192 +875,29 @@ const Select = React.createClass({
 		return (multi ? value.length === 0 : Object.keys(value).length === 0);
 	},
 
-	getOptionLabel (op) {
-		return op[this.props.labelKey];
-	},
-
-	getValueArray() {
-		let value = this.props.value;
-		if (value == null) {
-			return []
-		} else if (!_.isArray(value)) {
-			return [value];
-		}
-		return value;
-	},
-
-	clear() {
-		this.setValue(null);
-		this.toggleMenu(false);
-		this.clearInput();
-	},
-
-	setValue (value) {
-		// na sytuacje gdy przychodzi []
-		if (_.isEmpty(value)) value = null;
-
-		this.setState({
-			value
-		});
-
-		if (!this.isMultiselectStandard()) { // dla zwyklego multiselecta skacze focus
-			this.focusOption(null);
+	onOptgroupClick(optgroup, groupOptions) {
+		if (!this.props.multi) {
+			return;
 		}
 
-		if (this.props.autoBlur){
-			this.blurInput();
-		}
-		if (!this.props.onChange) return;
-		if (this.props.required) {
-			const required = this.handleRequired(value, this.props.multi);
-			this.setState({ required });
-		}
-		if (this.props.simpleValue && value) {
-			value = this.props.multi ? value.map(i => i[this.props.valueKey]).join(this.props.delimiter) : value[this.props.valueKey];
-		}
-		this.props.onChange(value);
-	},
-
-	selectValue (value) {
-		//this.hasScrolledToOption = false;
-		if (this.isMultiselect()) {
-			this.toggleValue(value);
-			//this.setState({
-			//	inputValue: value.label,
-			//});
+		if (_.every(groupOptions, this.isValueSelected)) {
+			this.removeValues(groupOptions);
 		} else {
-			this.setValue(value);
-			this.toggleMenu(false);
-			this.togglePseudoFocus(this.isFocused());
-			this.setInputValue(value[this.props.labelKey]);
+			this.addValues(groupOptions);
 		}
 	},
 
-	isValueSelected(value) {
-		var valueArray = this.getValueArray();
-		var option = _.find(valueArray, (elem) => {
-			return elem[this.props.labelKey] == value[this.props.labelKey] && elem.value == value.value;
-		});
-		return option != null;
-	},
 
-	addValue (value) {
-		var valueArray = this.getValueArray();
-		this.setValue(valueArray.concat([value]));
-	},
+// </editor-fold>
 
-	addValues(values) {
-		var valueArray = this.getValueArray();
-		this.setValue(valueArray.concat(_.filter(values, value => _.find(valueArray, {value: value.value}) == null)))
-	},
+// <editor-fold desc="Renders">
 
-	toggleValue (value) {
-		var valueArray = this.getValueArray();
-		var option = _.find(valueArray, (elem) => {
-			return elem[this.props.labelKey] == value[this.props.labelKey] && elem.value == value.value;
-		});
-		option == null ? this.addValue(value) : this.removeValue(value, true);
-	},
-
-	popValue () {
-		var valueArray = this.getValueArray();
-		if (!valueArray.length) return;
-		if (valueArray[valueArray.length-1].clearableValue === false) return;
-		this.setValue(valueArray.slice(0, valueArray.length - 1));
-	},
-
-	removeValue (value, focus) {
-		var valueArray = this.getValueArray();
-		this.setValue(valueArray.filter(i => i.value.toString() !== value.value.toString()));
-		focus && this.focus();
-	},
-
-	removeValues(values, focus) {
-		var valueArray = this.getValueArray();
-
-		var newValue = _.filter(valueArray, (selectedOption) => _.every(values, (value) => value.value.toString() !== selectedOption.value.toString()));
-
-		this.setValue(newValue);
-		focus && this.focus();
-	},
-
-	clearValue (event) {
-		// if the event was triggered by a mousedown and not the primary
-		// button, ignore it.
-		if (event && event.type === 'mousedown' && event.button !== 0) {
-			return;
-		}
-		event.stopPropagation();
-		event.preventDefault();
-		this.setValue(null);
-		this.clearInput();
-		this.toggleMenu(false);
-		//this.setState({
-		//	isOpen: false,//}, this.focus);
-	},
-
-	focusOption (option) {
-		this.setState({
-			focusedOption: option
-		});
-	},
-
-	focusNextOption () {
-		this.focusAdjacentOption('next');
-	},
-
-	focusPreviousOption () {
-		this.focusAdjacentOption('previous');
-	},
-
-	focusAdjacentOption (dir) {
-		var rawOptions = this._visibleOptions.filter(i => !i.disabled);
-		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(rawOptions, this.state.value) : rawOptions;
-		this._scrollToFocusedOptionOnUpdate = true;
-		if (!this.isOpen()) {
-			this.toggleMenu(true);
-			this.setState({
-				focusedOption: this._focusedOption || options[dir === 'next' ? 0 : options.length - 1]
-			});
-			return;
-		}
-		if (!options.length) return;
-		var focusedIndex = -1;
-		for (var i = 0; i < options.length; i++) {
-			if (this._focusedOption === options[i]) {
-				focusedIndex = i;
-				break;
-			}
-		}
-		var focusedOption = options[0];
-		if (dir === 'next' && focusedIndex > -1 && focusedIndex < options.length - 1) {
-			focusedOption = options[focusedIndex + 1];
-		} else if (dir === 'previous') {
-			if (focusedIndex > 0) {
-				focusedOption = options[focusedIndex - 1];
-			} else {
-				focusedOption = options[options.length - 1];
-			}
-		}
-		this.setState({
-			focusedOption: focusedOption
-		});
-	},
-
-	selectFocusedOption () {
-		// if (this.props.allowCreate && !this.state.focusedOption) {
-		// 	return this.selectValue(this.state.inputValue);
-		// }
-		if (this._focusedOption) {
-			return this.selectValue(this._focusedOption);
-		}
-	},
 
 	renderLoading () {
 		if (!this.props.isLoading) return;
 		return (
-			<span className="Select-loading-zone" aria-hidden="true">
-				<span className="Select-loading" />
+		<span className="Select-loading-zone" aria-hidden="true">
+				<span className="Select-loading"/>
 			</span>
 		);
 	},
@@ -792,7 +907,8 @@ const Select = React.createClass({
 		let ValueComponent = this.props.valueComponent;
 
 		if (!valueArray.length) {
-			return (this.isInputEmpty() && !this.isAutocomplete()) ? <div className="Select-placeholder">{this.props.placeholder}</div> : null;
+			return (this.isInputEmpty() && !this.isAutocomplete()) ?
+			<div className="Select-placeholder">{this.props.placeholder}</div> : null;
 		}
 
 		let onClick = this.props.onValueClick ? this.handleValueClick : null;
@@ -800,21 +916,21 @@ const Select = React.createClass({
 			if (isOpen) onClick = null;
 			let label = this.generateMultiselectLabel(options, valueArray);
 			return (
-				<ValueComponent
-					disabled={this.isDiabled()}
-					onClick={onClick}
-					value={{}}
-				>
-					{label}
-				</ValueComponent>
+			<ValueComponent
+			disabled={this.isDiabled()}
+			onClick={onClick}
+			value={{}}
+			>
+				{label}
+			</ValueComponent>
 			);
 
 		} else if (!this.isAutocomplete() || (this.isInputEmpty() && this.props.required)) {
 			if (isOpen) onClick = null;
 			return (
-				<ValueComponent disabled={this.isDiabled()} onClick={onClick} value={valueArray[0]}>
-					{renderLabel(valueArray[0])}
-				</ValueComponent>
+			<ValueComponent disabled={this.isDiabled()} onClick={onClick} value={valueArray[0]}>
+				{renderLabel(valueArray[0])}
+			</ValueComponent>
 			);
 		}
 	},
@@ -829,16 +945,16 @@ const Select = React.createClass({
 
 		if (!this.isAutocomplete()) {
 			return (
-				<div
-					{...this.props.inputProps}
-					className={className}
-					tabIndex={this.props.tabIndex || 0}
-					onBlur={onBlur}
-					onFocus={this.handleNormalSelectFocus}
-					ref="input"
-					style={{ border: 0, width: 1, display:'inline-block' }}
-				>
-				</div>
+			<div
+			{...this.props.inputProps}
+			className={className}
+			tabIndex={this.props.tabIndex || 0}
+			onBlur={onBlur}
+			onFocus={this.handleNormalSelectFocus}
+			ref="input"
+			style={{border: 0, width: 1, display: 'inline-block'}}
+			>
+			</div>
 			);
 		} else {
 			let props = _.assign({}, this.props.inputProps, {
@@ -866,13 +982,13 @@ const Select = React.createClass({
 	renderClear () {
 		if (!this.props.clearable || !this.props.value || (this.isMultiselect() && !this.props.value.length) || this.isDiabled() || this.props.isLoading) return;
 		return (
-			<span className="Select-clear-zone" title={this.isMultiselect() ? this.props.clearAllText : this.props.clearValueText}
-						aria-label={this.props.multi ? this.props.clearAllText : this.props.clearValueText}
-						onMouseDown={this.clearValue}
-						onTouchStart={this.handleTouchStart}
-						onTouchMove={this.handleTouchMove}
-						onTouchEnd={this.handleTouchEndClearValue}>
-				<span className="Select-clear" dangerouslySetInnerHTML={{ __html: '&times;' }} />
+		<span className="Select-clear-zone" title={this.isMultiselect() ? this.props.clearAllText : this.props.clearValueText}
+			  aria-label={this.props.multi ? this.props.clearAllText : this.props.clearValueText}
+			  onMouseDown={this.clearValue}
+			  onTouchStart={this.handleTouchStart}
+			  onTouchMove={this.handleTouchMove}
+			  onTouchEnd={this.handleTouchEndClearValue}>
+				<span className="Select-clear" dangerouslySetInnerHTML={{__html: '&times;'}}/>
 			</span>
 		);
 	},
@@ -882,110 +998,10 @@ const Select = React.createClass({
 			return;
 
 		return (
-			<span className="Select-arrow-zone" onMouseDown={this.handleMouseDownOnArrow}>
-				<span className="Select-arrow" onMouseDown={this.handleMouseDownOnArrow} />
+		<span className="Select-arrow-zone" onMouseDown={this.handleMouseDownOnArrow}>
+				<span className="Select-arrow" onMouseDown={this.handleMouseDownOnArrow}/>
 			</span>
 		);
-	},
-
-	filterOptions (excludeOptions) {
-		var filterValue = this.getInputValue();
-		var options = this.props.options || [];
-
-		if (this.props.filterOptions === false) {
-			return options;
-		}
-
-		if (!this.props.noResultLimit && (!this.isAutocomplete() || filterValue === "")) {
-			return options.slice(0, this.props.resultLimit || 30);
-		}
-
-		let query = filterValue && filterValue.toLowerCase().trim() || "";
-
-		let queryTokens = query.split(" ");
-		let matchResults = {};
-		let result = [];
-		for (let i = 0; i < options.length; i++) {
-			let option = options[i];
-
-			let name = option[this.props.labelKey].toLowerCase().trim();
-			let isValid = true;
-
-			if (name.indexOf(query) !== 0) {
-				let tokens = name.split(/[,-]/);
-				tokens.push(name);
-
-				for (let j = 0; j < queryTokens.length; j++) {
-					// "ma", "wa"
-					let tokenValid = false;
-					for (let k = 0; k < tokens.length; k++) {
-						// "mazowieckie", "warszawa"
-						let normalizedToken = tokens[k].trim().toLowerCase();
-						let normalizedQueryToken = queryTokens[j].trim();
-						let pos = normalizedToken.indexOf(normalizedQueryToken);
-						if (this.props.searchInside && pos != -1 || !this.props.searchInside && pos === 0) {
-							tokenValid = true;
-							break;
-						}
-					}
-					if (!tokenValid) {
-						isValid = false;
-						break;
-					}
-				}
-			}
-
-			if (isValid) {
-				if (!matchResults[name.length]) {
-					matchResults[name.length] = [];
-				}
-
-				if (!_.some(excludeOptions, (excluded) => this.areOptionsEqual(excluded, option))) {
-					if (this.props.noLengthSorting) {
-						result.push(option);
-					} else {
-						matchResults[name.length].push(option);
-					}
-				}
-			}
-		}
-
-		if (!this.props.noLengthSorting) {
-			let keys = _.keys(matchResults).sort((a, b) => a - b);
-			_.each(keys, (key) => {
-				_.each(matchResults[key], (res) => {
-					result.push(res);
-				});
-			});
-		}
-
-		if (!this.props.noResultLimit) {
-			return result.slice(0, this.props.resultLimit || 30);
-		}
-
-		return result;
- 	},
-
-	excludeOptions(options, excludedOptions) {
-		return _.filter(options, option => !_.some(excludedOptions, (excluded) => excluded.value == option.value))
-	},
-
-	areOptionsEqual(option1, option2) {
-		let value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
-		let value2 = !_.isUndefined(option2.value) ? option2.value.toString() : "";
-		return value1 === value2;
-	},
-
-	onOptgroupClick(optgroup, groupOptions) {
-		if (!this.props.multi) {
-			return;
-		}
-
-		if (_.every(groupOptions, this.isValueSelected)) {
-			this.removeValues(groupOptions);
-		} else {
-			this.addValues(groupOptions);
-		}
 	},
 
 	renderOptgroups (options, valueArray, focusedOption, groups) {
@@ -996,9 +1012,17 @@ const Select = React.createClass({
 		groups.forEach((optgroup, i) => {
 			let groupOptions = _.filter(options, {groupId: optgroup.id});
 
+			let allSelected = false;
+			if (_.every(groupOptions, this.isValueSelected)) {
+				allSelected = true;
+			}
+
 			if (groupOptions.length) {
+				let holderClass = classNames("Select-group-holder", {
+					"is-selected": allSelected
+				});
 				elems = elems.concat(
-				<div className="Select-group-holder" key={`optgroup-${i}`}>
+				<div className={holderClass} key={`optgroup-${i}`}>
 					<div className="Select-header"
 						 onClick={() => this.onOptgroupClick(optgroup, groupOptions)}
 						 onMouseEnter={() => this.setState({mouseOverGroup: true})}
@@ -1029,15 +1053,15 @@ const Select = React.createClass({
 
 		return (
 		<Option
-			className={optionClass}
-			isDisabled={option.disabled}
-			isFocused={isFocused}
-			key={`option-${index}-${option[this.props.valueKey]}`}
-			onSelect={this.selectValue}
-			onFocus={this.focusOption}
-			option={option}
-			isSelected={isSelected}
-			ref={optionRef}
+		className={optionClass}
+		isDisabled={option.disabled}
+		isFocused={isFocused}
+		key={`option-${index}-${option[this.props.valueKey]}`}
+		onSelect={this.selectValue}
+		onFocus={this.focusOption}
+		option={option}
+		isSelected={isSelected}
+		ref={optionRef}
 		>
 			{renderLabel(option)}
 		</Option>
@@ -1097,7 +1121,7 @@ const Select = React.createClass({
 
 		this._focusedOption = null;
 		return null;
-        //
+		//
 		// if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
 		// 	if (this.isMultiselect() && valueArray.length) {
 		// 		return this.renderAutocompleteSelectedOptions(valueArray);
@@ -1130,32 +1154,12 @@ const Select = React.createClass({
 			let x = valueArray.length;
 			stringifyValue(i[this.props.valueKey]);
 		}).join(this.props.delimiter);
-		return <input type="hidden" ref="value" name={this.props.name} value={value} disabled={this.isDiabled()} />;
-	},
-
-	getFocusableOption (selectedOption) {
-		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(this._visibleOptions, this.state.value) : this._visibleOptions;
-		if (!options || !options.length || this.state.mouseOverGroup) return;
-		let focusedOption = this.state.focusedOption || selectedOption;
-		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
-		// zamiast tego porownujemy label i value
-		if(focusedOption) {
-			let index = _.findIndex(options, (elem) => {
-				return elem.value === focusedOption.value && elem[this.props.labelKey] === focusedOption[this.props.labelKey]
-			});
-			if (index > -1) return options[index];
-		}
-
-		if (this.props.alwaysFocus) {
-			for (var i = 0; i < options.length; i++) {
-				if (!options[i].disabled) return options[i];
-			}
-		}
+		return <input type="hidden" ref="value" name={this.props.name} value={value} disabled={this.isDiabled()}/>;
 	},
 
 	renderDebug () {
 		return (
-			<pre>{JSON.stringify(this.state, null, 2)}</pre>
+		<pre>{JSON.stringify(this.state, null, 2)}</pre>
 		);
 	},
 
@@ -1187,51 +1191,54 @@ const Select = React.createClass({
 		});
 
 		return (
-			<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
-				{/*<pre>{JSON.stringify({"this.state.focusedOption": this.state && this.state.focusedOption, "this._focusedOption": this._focusedOption}, null, 2)}</pre>*/}
-				{this.renderHiddenField(valueArray)}
-				{this.props.debug && this.renderDebug()}
-				{/*<TetherComponent
-					attachment="top left"
-					targetAttachment="bottom left"
-					constraints={[
-						{
-							to: "scrollParent",
-							attachment: "together"
-						}
-					]}
-				>*/}
-					<div ref="control"
-							 className="Select-control"
-							 style={this.props.style}
-							 onKeyDown={this.handleKeyDown}
-							 onMouseDown={this.handleMouseDown}
-							 onTouchEnd={this.handleTouchEnd}
-							 onTouchStart={this.handleTouchStart}
-							 onTouchMove={this.handleTouchMove}>
-						{this.renderValue(valueArray, isOpen, options)}
-						{this.renderInput(valueArray, isOpen, options)}
-						{this.renderLoading()}
-						{this.renderClear()}
-						{this.renderArrow()}
-					</div>
-					{isOpen ? (
-						<div ref="menuContainer" className={menuClassName} style={style}>
-							<div className="Select-menu-header">
-								{this.renderMenuHeader(options, valueArray, focusedOption)}
-							</div>
-							<div ref="menu" className="Select-menu"
-									 style={this.props.menuStyle}
-									 onScroll={this.handleMenuScroll}
-									 onMouseDown={this.handleMouseDownOnMenu}>
-								{this.renderMenuOptions(options, valueArray, focusedOption, this.props.groups)}
-							</div>
-						</div>
-					) : null}
-				{/*</TetherComponent>*/}
+		<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
+			{/*<pre>{JSON.stringify({"this.state.focusedOption": this.state && this.state.focusedOption, "this._focusedOption": this._focusedOption}, null, 2)}</pre>*/}
+			{this.renderHiddenField(valueArray)}
+			{this.props.debug && this.renderDebug()}
+			{/*<TetherComponent
+			 attachment="top left"
+			 targetAttachment="bottom left"
+			 constraints={[
+			 {
+			 to: "scrollParent",
+			 attachment: "together"
+			 }
+			 ]}
+			 >*/}
+			<div ref="control"
+				 className="Select-control"
+				 style={this.props.style}
+				 onKeyDown={this.handleKeyDown}
+				 onMouseDown={this.handleMouseDown}
+				 onTouchEnd={this.handleTouchEnd}
+				 onTouchStart={this.handleTouchStart}
+				 onTouchMove={this.handleTouchMove}>
+				{this.renderValue(valueArray, isOpen, options)}
+				{this.renderInput(valueArray, isOpen, options)}
+				{this.renderLoading()}
+				{this.renderClear()}
+				{this.renderArrow()}
 			</div>
+			{isOpen ? (
+			<div ref="menuContainer" className={menuClassName} style={style}>
+				<div className="Select-menu-header">
+					{this.renderMenuHeader(options, valueArray, focusedOption)}
+				</div>
+				<div ref="menu" className="Select-menu"
+					 style={this.props.menuStyle}
+					 onScroll={this.handleMenuScroll}
+					 onMouseDown={this.handleMouseDownOnMenu}>
+					{this.renderMenuOptions(options, valueArray, focusedOption, this.props.groups)}
+				</div>
+			</div>
+			) : null}
+			{/*</TetherComponent>*/}
+		</div>
 		);
 	}
+
+
+// </editor-fold>
 
 });
 
