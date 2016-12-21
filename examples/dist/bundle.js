@@ -19283,6 +19283,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -19552,9 +19554,8 @@ var Select = _react2['default'].createClass({
 	// </editor-fold>
 
 	// <editor-fold desc="Helpers">
-	/**
-  * HELPERS
-     */
+
+	// <editor-fold desc="State/props helpers">
 
 	isMultiselectStandard: function isMultiselectStandard() {
 		return this.props.multi && !this.props.searchable;
@@ -19599,6 +19600,23 @@ var Select = _react2['default'].createClass({
 	getInputValue: function getInputValue() {
 		return this.state.inputValue;
 	},
+
+	focusOption: function focusOption(option) {
+		this.setState({
+			focusedOption: option,
+			focusedGroup: null
+		});
+	},
+
+	focusGroup: function focusGroup(group) {
+		this._focusedOption = false;
+		this.setState({
+			focusedOption: null,
+			focusedGroup: group
+		});
+	},
+
+	// </editor-fold>
 
 	clearInput: function clearInput() {
 		this.setInputValue("");
@@ -19797,12 +19815,6 @@ var Select = _react2['default'].createClass({
 		//	isOpen: false,//}, this.focus);
 	},
 
-	focusOption: function focusOption(option) {
-		this.setState({
-			focusedOption: option
-		});
-	},
-
 	focusNextOption: function focusNextOption() {
 		this.focusAdjacentOption('next');
 	},
@@ -19812,19 +19824,49 @@ var Select = _react2['default'].createClass({
 	},
 
 	focusAdjacentOption: function focusAdjacentOption(dir) {
+		var _this4 = this;
+
+		/**
+   * jesli kiedys ktos to bedzie czytal i sie zastanawial czemu tu jest taki pierdolnik - wyszla potrzeba zeby optgroupy tez
+   * mozna bylo focusowac klawiszami, etc. wydawało się bezpieczniej napisac taki mechanizm dla specjalnych przypadkow
+   * niz przerabiac wszystko tak, ze grupa to tez jest jakby option bo tutaj duzo rzeczy na indexach polega a nie chcialem zeby
+   * cos sie niepodziewanie spier.. popsulo
+   */
+
 		var rawOptions = this._visibleOptions.filter(function (i) {
 			return !i.disabled;
 		});
 		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(rawOptions, this.state.value) : rawOptions;
 		this._scrollToFocusedOptionOnUpdate = true;
+
 		if (!this.isOpen()) {
 			this.toggleMenu(true);
-			this.setState({
-				focusedOption: this._focusedOption || options[dir === 'next' ? 0 : options.length - 1]
-			});
+
+			if (false && this.props.groups && this.props.groups.length) {
+				// todo tymczasowo wylaczone, do skonczenia
+				if (dir === 'next') {
+					var grouplessOptions = _.filter(options, function (option) {
+						return !option.groupId;
+					});
+					if (grouplessOptions.length) {
+						this.focusOption(grouplessOptions[0]);
+					} else {
+						this.focusGroup(this.getFirstGroupWithOptions());
+					}
+				} else {
+					var lastGroupWithOptions = this.getLastGroupWithOptions();
+					if (lastGroupWithOptions) {
+						var groupOptions = this.getGroupOptions(options, lastGroupWithOptions);
+						this.focusOption(groupOptions[groupOptions.length - 1]);
+					}
+				}
+			} else {
+				this.focusOption(this._focusedOption || options[dir === 'next' ? 0 : options.length - 1]);
+			}
 			return;
 		}
 		if (!options.length) return;
+
 		var focusedIndex = -1;
 		for (var i = 0; i < options.length; i++) {
 			if (this._focusedOption === options[i]) {
@@ -19832,19 +19874,92 @@ var Select = _react2['default'].createClass({
 				break;
 			}
 		}
-		var focusedOption = options[0];
-		if (dir === 'next' && focusedIndex > -1 && focusedIndex < options.length - 1) {
-			focusedOption = options[focusedIndex + 1];
-		} else if (dir === 'previous') {
-			if (focusedIndex > 0) {
-				focusedOption = options[focusedIndex - 1];
-			} else {
-				focusedOption = options[options.length - 1];
+
+		if (false && this.props.groups && this.props.groups.length) {
+			// todo tymczasowo wylaczone, do skonczenia
+			if (this.state.focusedGroup) {
+				if (dir === 'next') {
+					// jesli next to wez peirwszy elem tej grupy
+					var _options = this.getGroupOptions(_options, this.state.focusedGroup);
+					this.focusOption(_options[0]);
+				} else {
+					// jesli prev to znajdz poprzednia grupe i wez ostatni element, jesli to byla pierwsza grupa to zobacz czy sa
+					// bez grupy jakies i zaznacz ostatni, jesli nie ma to wez ostatnia grupe i zaznacz ostatni element (jak wyzej przy otwarciu menu)
+
+					var groupIndex = _.findIndex(this.props.groups, function (group) {
+						return group.id === _this4.state.focusedGroup.id;
+					});
+					if (groupIndex === 0) {
+						var grouplessOptions = _.filter(options, function (option) {
+							return !option.groupId;
+						});
+						if (grouplessOptions.length) {
+							this.focusOption(grouplessOptions[grouplessOptions.length - 1]);
+						} else {
+							var _options2 = this.getLastGroupWithOptions();
+							this.focusOption(_options2[_options2.length - 1]);
+						}
+					} else {
+						var _options3 = this.getGroupOptions(_options3, this.state.groups[groupIndex - 1]);
+						this.focusOption(_options3[_options3.length - 1]);
+					}
+				}
+			} else if (focusedIndex > -1) {
+				if (dir === 'next') {
+					if (options[focusedIndex].groupId) {// jesli element jest w grupie
+
+					} else {
+							// groupless element
+							var grouplessOptions = _.filter(options, function (option) {
+								return !option.groupId;
+							});
+							if (grouplessOptions.indexOf(options[focusedIndex]) === grouplessOptions.length - 1) {
+								// jesli to ostatni element groupless
+								var _options4 = this.getGroupOptions(this.getFirstGroupWithOptions(_options4, this.props.groups));
+								this.focusOption(_options4[0]);
+							} else {}
+						}
+				} else {}
+				// jesli next i ostatni element grupy to zaznacz nastepna grupe, chyba ze to ostatni element ostatniej grupy
+				// wtedy zaznacz pierwszy element bez grupy lub pierwsza grupe, jesli nie ostatni element to zaznacz nastepny element
+
+				// jesli prev i pierwszy element to zaznacz grupe, inaczej zaznacz poprzedni element
+			}
+		} else {
+				var focusedOption = options[0];
+				if (dir === 'next' && focusedIndex > -1 && focusedIndex < options.length - 1) {
+					focusedOption = options[focusedIndex + 1];
+				} else if (dir === 'previous') {
+					if (focusedIndex > 0) {
+						focusedOption = options[focusedIndex - 1];
+					} else {
+						focusedOption = options[options.length - 1];
+					}
+				}
+				this.focusOption(focusedOption);
+			}
+	},
+
+	getFocusableOption: function getFocusableOption(selectedOption) {
+		var _this5 = this;
+
+		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(this._visibleOptions, this.state.value) : this._visibleOptions;
+		if (!options || !options.length || this.state.mouseOverGroup) return;
+		var focusedOption = this.state.focusedOption || selectedOption;
+		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
+		// zamiast tego porownujemy label i value
+		if (focusedOption) {
+			var index = _.findIndex(options, function (elem) {
+				return elem.value === focusedOption.value && elem[_this5.props.labelKey] === focusedOption[_this5.props.labelKey];
+			});
+			if (index > -1) return options[index];
+		}
+
+		if (this.props.alwaysFocus) {
+			for (var i = 0; i < options.length; i++) {
+				if (!options[i].disabled) return options[i];
 			}
 		}
-		this.setState({
-			focusedOption: focusedOption
-		});
 	},
 
 	selectFocusedOption: function selectFocusedOption() {
@@ -19856,8 +19971,24 @@ var Select = _react2['default'].createClass({
 		}
 	},
 
+	getLastGroupWithOptions: function getLastGroupWithOptions(options, groups) {
+		return _.findLast(groups, function (optgroup) {
+			return _.some(options, { groupId: optgroup.id });
+		});
+	},
+
+	getFirstGroupWithOptions: function getFirstGroupWithOptions(options, groups) {
+		return _.find(groups, function (optgroup) {
+			return _.some(options, { groupId: optgroup.id });
+		});
+	},
+
+	getGroupOptions: function getGroupOptions(options, group) {
+		return _.filter(options, { groupId: group.id });
+	},
+
 	filterOptions: function filterOptions(excludeOptions) {
-		var _this4 = this;
+		var _this6 = this;
 
 		var filterValue = this.getInputValue();
 		var options = this.props.options || [];
@@ -19879,7 +20010,7 @@ var Select = _react2['default'].createClass({
 		var _loop = function (i) {
 			var option = options[i];
 
-			var name = option[_this4.props.labelKey].toLowerCase().trim();
+			var name = option[_this6.props.labelKey].toLowerCase().trim();
 			var isValid = true;
 
 			if (name.indexOf(query) !== 0) {
@@ -19894,7 +20025,7 @@ var Select = _react2['default'].createClass({
 						var normalizedToken = tokens[k].trim().toLowerCase();
 						var normalizedQueryToken = queryTokens[j].trim();
 						var pos = normalizedToken.indexOf(normalizedQueryToken);
-						if (_this4.props.searchInside && pos != -1 || !_this4.props.searchInside && pos === 0) {
+						if (_this6.props.searchInside && pos != -1 || !_this6.props.searchInside && pos === 0) {
 							tokenValid = true;
 							break;
 						}
@@ -19912,9 +20043,9 @@ var Select = _react2['default'].createClass({
 				}
 
 				if (!_.some(excludeOptions, function (excluded) {
-					return _this4.areOptionsEqual(excluded, option);
+					return _this6.areOptionsEqual(excluded, option);
 				})) {
-					if (_this4.props.noLengthSorting) {
+					if (_this6.props.noLengthSorting) {
 						result.push(option);
 					} else {
 						matchResults[name.length].push(option);
@@ -19957,28 +20088,6 @@ var Select = _react2['default'].createClass({
 		var value1 = !_.isUndefined(option1.value) ? option1.value.toString() : "";
 		var value2 = !_.isUndefined(option2.value) ? option2.value.toString() : "";
 		return value1 === value2;
-	},
-
-	getFocusableOption: function getFocusableOption(selectedOption) {
-		var _this5 = this;
-
-		var options = this.isMultiselectAutocomplete() ? this.excludeOptions(this._visibleOptions, this.state.value) : this._visibleOptions;
-		if (!options || !options.length || this.state.mouseOverGroup) return;
-		var focusedOption = this.state.focusedOption || selectedOption;
-		// z jakiegos powodu nie znajduje poprzez indexOf chociaz to jest taki sam obiekt (gdzies wczesniej klonowany albo tworzony na nowo?)
-		// zamiast tego porownujemy label i value
-		if (focusedOption) {
-			var index = _.findIndex(options, function (elem) {
-				return elem.value === focusedOption.value && elem[_this5.props.labelKey] === focusedOption[_this5.props.labelKey];
-			});
-			if (index > -1) return options[index];
-		}
-
-		if (this.props.alwaysFocus) {
-			for (var i = 0; i < options.length; i++) {
-				if (!options[i].disabled) return options[i];
-			}
-		}
 	},
 
 	// </editor-fold>
@@ -20287,13 +20396,13 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderInput: function renderInput(valueArray, isOpen, options) {
-		var _this6 = this;
+		var _this7 = this;
 
 		var className = (0, _classnames2['default'])('Select-input', this.props.inputProps.className);
 
 		var onBlur = function onBlur(event) {
-			_this6.props.onInputBlur && _this6.props.onInputBlur(event);
-			_this6.handleInputBlur(event);
+			_this7.props.onInputBlur && _this7.props.onInputBlur(event);
+			_this7.handleInputBlur(event);
 		};
 
 		if (!this.isAutocomplete()) {
@@ -20353,27 +20462,28 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderOptgroups: function renderOptgroups(options, valueArray, focusedOption, groups) {
-		var _this7 = this;
+		var _this8 = this;
 
 		var elems = [];
 
 		elems = elems.concat(_.map(_.filter(options, function (option) {
 			return !option.groupId;
 		}), function (option) {
-			return _this7.renderOption(option, 0, valueArray, focusedOption);
+			return _this8.renderOption(option, 0, valueArray, focusedOption);
 		}));
 
 		groups.forEach(function (optgroup, i) {
-			var groupOptions = _.filter(options, { groupId: optgroup.id });
+			var groupOptions = _this8.getGroupOptions(options, optgroup);
 
 			var allSelected = false;
-			if (_.every(groupOptions, _this7.isValueSelected)) {
+			if (_.every(groupOptions, _this8.isValueSelected)) {
 				allSelected = true;
 			}
 
 			if (groupOptions.length) {
 				var holderClass = (0, _classnames2['default'])("Select-group-holder", {
-					"is-selected": allSelected
+					"is-selected": allSelected,
+					"is-focused": true || (_this8.state.focusedGroup ? _this8.state.focusedGroup.id === optgroup.id : false)
 				});
 				elems = elems.concat(_react2['default'].createElement(
 					'div',
@@ -20382,18 +20492,22 @@ var Select = _react2['default'].createClass({
 						'div',
 						{ className: 'Select-header',
 							onClick: function () {
-								return _this7.onOptgroupClick(optgroup, groupOptions);
+								return _this8.onOptgroupClick(optgroup, groupOptions);
 							},
 							onMouseEnter: function () {
-								return _this7.setState({ mouseOverGroup: true });
+								return _this8.setState({ mouseOverGroup: true });
 							},
 							onMouseLeave: function () {
-								return _this7.setState({ mouseOverGroup: false });
-							} },
+								return _this8.setState({ mouseOverGroup: false });
+							},
+							onFocus: function () {
+								return _this8.focusGroup(optgroup);
+							}
+						},
 						optgroup.name
 					),
 					_.map(groupOptions, function (option) {
-						return _this7.renderOption(option, i, valueArray, focusedOption);
+						return _this8.renderOption(option, i, valueArray, focusedOption);
 					})
 				));
 			}
@@ -20403,13 +20517,13 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderOption: function renderOption(option, index, valueArray, focusedOption) {
-		var _this8 = this;
+		var _this9 = this;
 
 		var Option = this.props.optionComponent;
 		var renderLabel = this.props.optionRenderer || this.getOptionLabel;
 
 		var isSelected = valueArray && _.find(valueArray, function (value) {
-			return _this8.areOptionsEqual(value, option);
+			return _this9.areOptionsEqual(value, option);
 		}) != null;
 		var isFocused = option === focusedOption;
 		var optionRef = isFocused ? 'focused' : null;
@@ -20491,7 +20605,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderMenuOptions: function renderMenuOptions(options, valueArray, focusedOption, groups) {
-		var _this9 = this;
+		var _this10 = this;
 
 		if (!options || !options.length) {
 			return null;
@@ -20508,7 +20622,7 @@ var Select = _react2['default'].createClass({
 			if (!groups.length) {
 				var optionsToRender = this.isMultiselectAutocomplete() ? this.excludeOptions(options, this.state.value) : options;
 				return optionsToRender.map(function (option, i) {
-					return _this9.renderOption(option, i, valueArray, focusedOption);
+					return _this10.renderOption(option, i, valueArray, focusedOption);
 				});
 			} else {
 				return this.renderOptgroups(options, valueArray, focusedOption, groups);
@@ -20517,40 +20631,15 @@ var Select = _react2['default'].createClass({
 
 		this._focusedOption = null;
 		return null;
-		//
-		// if (this.isAutocomplete() && !this.props.allowCreate && this.isInputEmpty() && !this.props.showAllValues) {
-		// 	if (this.isMultiselect() && valueArray.length) {
-		// 		return this.renderAutocompleteSelectedOptions(valueArray);
-		// 	} else {
-		// 		this._focusedOption = null;
-		// 		return null;
-		// 	}
-		// } else if (options && options.length) {
-		// 	if (!this.props.optgroups) {
-		// 		return options.map((option, i) => this.renderOption(option, i, valueArray, focusedOption));
-		// 	} else {
-		// 		return this.renderOptgroups(options, valueArray, focusedOption);
-		// 	}
-		// } else if (this.props.noResultsText && !this.props.allowCreate) {
-		// 	this._focusedOption = null;
-		// 	return null;
-		// 	// return (
-		// 	// 	<div className="Select-noresults">
-		// 	// 		{this.props.noResultsText}
-		// 	// 	</div>
-		// 	// );
-		// } else {
-		// 	return null;
-		// }
 	},
 
 	renderHiddenField: function renderHiddenField(valueArray) {
-		var _this10 = this;
+		var _this11 = this;
 
 		if (!this.props.name) return;
 		var value = _.map(valueArray, function (i) {
 			var x = valueArray.length;
-			stringifyValue(i[_this10.props.valueKey]);
+			stringifyValue(i[_this11.props.valueKey]);
 		}).join(this.props.delimiter);
 		return _react2['default'].createElement('input', { type: 'hidden', ref: 'value', name: this.props.name, value: value, disabled: this.isDiabled() });
 	},
@@ -20582,9 +20671,9 @@ var Select = _react2['default'].createClass({
 			'has-value': valueArray.length
 		});
 
-		var menuClassName = (0, _classnames2['default'])("Select-menu-outer", {
+		var menuClassName = (0, _classnames2['default'])("Select-menu-outer", _defineProperty({
 			"select-up": this.props.menuUp
-		});
+		}, this.props.menuClassName, this.props.menuClassName));
 
 		var style = _.assign({}, this.props.menuContainerStyle, {
 			width: this.state.width
