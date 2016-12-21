@@ -1259,11 +1259,9 @@ const Select = React.createClass({
 			[this.props.menuClassName]: this.props.menuClassName
 		});
 
-
-
-		let style = _.assign({}, this.props.menuContainerStyle, {
+		let style = _.assign({
 			width: this.state.width
-		});
+		}, this.props.menuContainerStyle);
 
 		return (
 		<div ref="wrapper" className={className} style={this.props.wrapperStyle}>

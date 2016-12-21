@@ -20675,9 +20675,9 @@ var Select = _react2['default'].createClass({
 			"select-up": this.props.menuUp
 		}, this.props.menuClassName, this.props.menuClassName));
 
-		var style = _.assign({}, this.props.menuContainerStyle, {
+		var style = _.assign({
 			width: this.state.width
-		});
+		}, this.props.menuContainerStyle);
 
 		return _react2['default'].createElement(
 			'div',
