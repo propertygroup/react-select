@@ -38133,12 +38133,13 @@ var Select = _react2['default'].createClass({
 			this._scrollToFocusedOptionOnUpdate = false;
 			var ref = this._focusedOption ? "option-" + this._focusedOption.value : "group-" + this._focusedGroup.id;
 			var focusedDOM = _reactDom2['default'].findDOMNode(this.refs[ref]);
-			console.log("srolling to focused DOM", focusedDOM);
 			var menuDOM = _reactDom2['default'].findDOMNode(this.refs.menu);
 			var focusedRect = focusedDOM.getBoundingClientRect();
 			var menuRect = menuDOM.getBoundingClientRect();
-			if (focusedRect.bottom > menuRect.bottom || focusedRect.top < menuRect.top) {
+			if (focusedRect.bottom > menuRect.bottom) {
 				menuDOM.scrollTop = focusedDOM.offsetTop + focusedDOM.clientHeight - menuDOM.offsetHeight;
+			} else if (focusedRect.top < menuRect.top) {
+				menuDOM.scrollTop = focusedDOM.offsetTop;
 			}
 		}
 		if (this.props.scrollMenuIntoView && this.refs.menuContainer) {
@@ -38207,7 +38208,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	focusOption: function focusOption(option) {
-		console.log("focusing option", option);
+		// console.log("focusing option", option)
 		this.setState({
 			focusedOption: option,
 			focusedGroup: null
@@ -38217,7 +38218,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	focusGroup: function focusGroup(group) {
-		console.log("focusing group", group);
+		// console.log("focusing group", group)
 		this.setState({
 			focusedOption: null,
 			focusedGroup: group
@@ -39267,7 +39268,7 @@ var Select = _react2['default'].createClass({
 		}) != null;
 		var isFocused = option === this._focusedOption;
 		if (isFocused) {
-			console.log("focused option", option, this._focusedOption);
+			// console.log("focused option", option, this._focusedOption);
 		}
 		var optionRef = "option-" + option.value;
 		var optionClass = (0, _classnames2['default'])({
@@ -39372,7 +39373,7 @@ var Select = _react2['default'].createClass({
 			}
 		}
 
-		this.focusOption(null);
+		// this.focusOption(null);
 		return null;
 	},
 

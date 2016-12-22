@@ -224,12 +224,13 @@ const Select = React.createClass({
 			this._scrollToFocusedOptionOnUpdate = false;
 			let ref = this._focusedOption ? ("option-" + this._focusedOption.value) : ("group-" + this._focusedGroup.id);
 			var focusedDOM = ReactDOM.findDOMNode(this.refs[ref]);
-			console.log("srolling to focused DOM", focusedDOM);
 			var menuDOM = ReactDOM.findDOMNode(this.refs.menu);
 			var focusedRect = focusedDOM.getBoundingClientRect();
 			var menuRect = menuDOM.getBoundingClientRect();
-			if (focusedRect.bottom > menuRect.bottom || focusedRect.top < menuRect.top) {
+			if (focusedRect.bottom > menuRect.bottom) {
 				menuDOM.scrollTop = (focusedDOM.offsetTop + focusedDOM.clientHeight - menuDOM.offsetHeight);
+			} else if (focusedRect.top < menuRect.top) {
+				menuDOM.scrollTop = focusedDOM.offsetTop;
 			}
 		}
 		if (this.props.scrollMenuIntoView && this.refs.menuContainer) {
@@ -298,7 +299,7 @@ const Select = React.createClass({
 	},
 
 	focusOption (option) {
-		console.log("focusing option", option)
+		// console.log("focusing option", option)
 		this.setState({
 			focusedOption: option,
 			focusedGroup: null
@@ -308,7 +309,7 @@ const Select = React.createClass({
 	},
 
 	focusGroup (group) {
-		console.log("focusing group", group)
+		// console.log("focusing group", group)
 		this.setState({
 			focusedOption: null,
 			focusedGroup: group
@@ -1265,7 +1266,7 @@ const Select = React.createClass({
 		let isSelected = valueArray && _.find(valueArray, value => this.areOptionsEqual(value, option)) != null;
 		let isFocused = option === this._focusedOption;
 		if (isFocused) {
-			console.log("focused option", option, this._focusedOption);
+			// console.log("focused option", option, this._focusedOption);
 		}
 		let optionRef = "option-" + option.value;
 		let optionClass = classNames({
@@ -1343,7 +1344,7 @@ const Select = React.createClass({
 			}
 		}
 
-		this.focusOption(null);
+		// this.focusOption(null);
 		return null;
 	},
 
