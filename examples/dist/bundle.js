@@ -38247,12 +38247,15 @@ var Select = _react2['default'].createClass({
 			var ref = this._focusedOption ? "option-" + this._focusedOption.value : "group-" + this._focusedGroup.id;
 			var focusedDOM = _reactDom2['default'].findDOMNode(this.refs[ref]);
 			var menuDOM = _reactDom2['default'].findDOMNode(this.refs.menu);
-			var focusedRect = focusedDOM.getBoundingClientRect();
-			var menuRect = menuDOM.getBoundingClientRect();
-			if (focusedRect.bottom > menuRect.bottom) {
-				menuDOM.scrollTop = focusedDOM.offsetTop + focusedDOM.clientHeight - menuDOM.offsetHeight;
-			} else if (focusedRect.top < menuRect.top) {
-				menuDOM.scrollTop = focusedDOM.offsetTop;
+
+			if (focusedDOM && menuDOM) {
+				var focusedRect = focusedDOM.getBoundingClientRect();
+				var menuRect = menuDOM.getBoundingClientRect();
+				if (focusedRect.bottom > menuRect.bottom) {
+					menuDOM.scrollTop = focusedDOM.offsetTop + focusedDOM.clientHeight - menuDOM.offsetHeight;
+				} else if (focusedRect.top < menuRect.top) {
+					menuDOM.scrollTop = focusedDOM.offsetTop;
+				}
 			}
 		}
 		if (this.props.scrollMenuIntoView && this.refs.menuContainer) {
