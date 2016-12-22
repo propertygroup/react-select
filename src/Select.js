@@ -370,6 +370,8 @@ const Select = React.createClass({
 	},
 
 	closeMenu () {
+		this._focusedOption = null;
+		this._focusedGroup = null;
 		this.togglePseudoFocus(this.isFocused() && !this.isMultiselect());
 		this.toggleMenu(false);
 		this.hasScrolledToOption = false;
@@ -521,8 +523,10 @@ const Select = React.createClass({
 		const options = this.isMultiselectAutocomplete() ? this.excludeOptions(rawOptions, this.state.value) : rawOptions;
 		this._scrollToFocusedOptionOnUpdate = true;
 
-		if (!this.isOpen()) {
-			this.toggleMenu(true);
+		if (!this.isOpen() || (!this._focusedOption && !this._focusedGroup)) { // to ejst sytuacja gdy jest focus na selekcie i menu jest zamkniete a nacisniemy strzalke
+			if (!this.isOpen()) {
+				this.toggleMenu(true);
+			}
 
 			if (this.props.groups && this.props.groups.length) { // todo tymczasowo wylaczone, do skonczenia
 				if (dir === 'next') {
@@ -540,13 +544,12 @@ const Select = React.createClass({
 					}
 				}
 			} else {
-				this.focusOption(this._focusedOption || options[dir === 'next' ? 0 : options.length - 1]);
+				this.focusOption(options[dir === 'next' ? 0 : options.length - 1]);
 			}
 			return;
 		}
 
 		if (!options.length) return;
-
 
 		// console.log("dir", dir);
 
