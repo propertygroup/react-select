@@ -529,7 +529,7 @@ const Select = React.createClass({
 				this.toggleMenu(true);
 			}
 
-			if (this.props.groups && this.props.groups.length) { // todo tymczasowo wylaczone, do skonczenia
+			if (this.isMultiselect() && this.props.groups && this.props.groups.length) { // todo tymczasowo wylaczone, do skonczenia
 				if (dir === 'next') {
 					let grouplessOptions = _.filter(options, option => !option.groupId);
 					if (grouplessOptions.length) {
@@ -562,7 +562,7 @@ const Select = React.createClass({
 			}
 		}
 
-		if (this.props.groups && this.props.groups.length) { // todo tymczasowo wylaczone, do skonczenia
+		if (this.isMultiselect() && this.props.groups && this.props.groups.length) { // todo tymczasowo wylaczone, do skonczenia
 			if (this._focusedGroup) {
 				// console.log("focused group", this._focusedGroup)
 				if (dir === 'next') { // jesli next to wez peirwszy elem tej grupy
