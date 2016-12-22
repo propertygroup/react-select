@@ -511,6 +511,23 @@ const Select = React.createClass({
 		this.focusAdjacentOption('previous');
 	},
 
+	focusFirstItem(options) {
+		let grouplessOptions = _.filter(options, option => !option.groupId);
+		if (grouplessOptions.length) {
+			this.focusOption(grouplessOptions[0]);
+		} else {
+			this.focusGroup(this.getFirstGroupWithOptions(options, this.props.groups));
+		}
+	},
+
+	focusLastItem(options) {
+		let lastGroupWithOptions = this.getLastGroupWithOptions(options, this.props.groups);
+		if (lastGroupWithOptions) {
+			let groupOptions = this.getGroupOptions(options, lastGroupWithOptions.id);
+			this.focusOption(groupOptions[groupOptions.length - 1]);
+		}
+	},
+
 	focusAdjacentOption (dir) {
 
 		/**
@@ -531,18 +548,9 @@ const Select = React.createClass({
 
 			if (this.isMultiselect() && this.props.groups && this.props.groups.length) { // todo tymczasowo wylaczone, do skonczenia
 				if (dir === 'next') {
-					let grouplessOptions = _.filter(options, option => !option.groupId);
-					if (grouplessOptions.length) {
-						this.focusOption(grouplessOptions[0]);
-					} else {
-						this.focusGroup(this.getFirstGroupWithOptions(options, this.props.groups));
-					}
+					this.focusFirstItem(options);
 				} else {
-					let lastGroupWithOptions = this.getLastGroupWithOptions(options, this.props.groups);
-					if (lastGroupWithOptions) {
-						let groupOptions = this.getGroupOptions(options, lastGroupWithOptions.id);
-						this.focusOption(groupOptions[groupOptions.length - 1]);
-					}
+					this.focusLastItem(options);
 				}
 			} else {
 				this.focusOption(options[dir === 'next' ? 0 : options.length - 1]);
@@ -603,15 +611,7 @@ const Select = React.createClass({
 							let groupIndex = _.findIndex(this.props.groups, {id: options[focusedIndex].groupId});
 							let lastGroup = groupIndex === this.props.groups.length - 1;
 							if (lastGroup) { // jesli ostatnia grupa
-								// console.log("and it is last group")
-								let grouplessOptions = _.filter(options, option => !option.groupId);
-								if (grouplessOptions.length) { // jesli istnieja elementy bez grupy
-									// console.log("there are groupless options, selecting first", grouplessOptions[0])
-									this.focusOption(grouplessOptions[0]);
-								} else {
-									// console.log("no groupless options, selecting first group", this.getFirstGroupWithOptions(options, this.props.groups))
-									this.focusGroup(this.getFirstGroupWithOptions(options, this.props.groups));
-								}
+								this.focusFirstItem(options);
 							} else { // bierzemy nastepna grupe
 								// console.log("it is not last group, focusing next group", this.props.groups[groupIndex + 1])
 								this.focusGroup(this.props.groups[groupIndex + 1]);
@@ -985,14 +985,23 @@ const Select = React.createClass({
 				// 	this.toggleMenu(true);
 				// 	return;
 				// }
-				// event.stopPropagation();
-				// if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || !this.props.async))) {
+
 				if (this.isMultiselect() && this.props.groups && this.props.groups.length && this._focusedGroup) {
 					let groupOptions = this.getGroupOptions(this.props.options, this._focusedGroup.id);
 					this.onOptgroupClick(this._focusedGroup, groupOptions)
 				} else if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || this._focusedOption))) {
 					event.preventDefault();
+					const prevFocusedOption = this._focusedOption;
 					this.selectFocusedOption();
+
+					if (this.isMultiselectAutocomplete() && (!this.props.groups || !this.props.groups.length)) {
+						let visibleOptions = this.excludeOptions(this.props.options, this.state.value)
+
+						let prevIndex = _.findIndex(visibleOptions, (option) => option.value === prevFocusedOption.value);
+						if (prevIndex < visibleOptions.length - 1) {
+							this.focusOption(visibleOptions[prevIndex + 1]);
+						}
+					}
 				} else if (!this.isMultiselectAutocomplete()) {
 					this.clear();
 				}
