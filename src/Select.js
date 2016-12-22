@@ -1102,7 +1102,7 @@ const Select = React.createClass({
 	renderLoading () {
 		if (!this.props.isLoading) return;
 		return (
-		<span className="Select-loading-zone" aria-hidden="true">
+			<span className="Select-loading-zone" aria-hidden="true">
 				<span className="Select-loading"/>
 			</span>
 		);
@@ -1181,7 +1181,12 @@ const Select = React.createClass({
 				props.placeholder = this.generateMultiselectLabel(options, valueArray);
 			}
 
-			return <input {...props} />;
+			return (
+				<div className="psr">
+					<input {...props} />
+					{ this.renderLoading() }
+				</div>
+			);
 		}
 	},
 
@@ -1467,7 +1472,6 @@ const Select = React.createClass({
 				{this.renderValue(valueArray, isOpen, options)}
 				{this.renderInput(valueArray, isOpen, options)}
 				{this.renderSelectedOptions()}
-				{this.renderLoading()}
 				{this.renderClear()}
 				{this.renderArrow()}
 			</div>
