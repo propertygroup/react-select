@@ -4,6 +4,8 @@ import Input from 'react-input-autosize';
 import classNames from 'classnames';
 import * as _ from "lodash";
 import TetherComponent from 'react-tether';
+import {OverlayTrigger, Tooltip, Popover} from "react-bootstrap";
+import {Overlay} from "react-overlays";
 
 import stripDiacritics from './utils/stripDiacritics';
 
@@ -87,11 +89,11 @@ const Select = React.createClass({
 	// 	wrapperStyle: React.PropTypes.object,       // optional style to apply to the component wrapper
 	// },
 
-	/**
-	 * React stuff
-	 */
-
 	statics: { Async },
+
+	selectedContainerRef: null,
+
+	selectedBtnRef: null,
 
 	getDefaultProps () {
 		return {
@@ -141,7 +143,9 @@ const Select = React.createClass({
 			isLoading: false,
 			isOpen: false,
 			isPseudoFocused: false,
-			required: this.props.required// && this.handleRequired(this.props.value, this.props.multi)
+			required: this.props.required, // && this.handleRequired(this.props.value, this.props.multi)
+			showSelected: false,
+			showSelectedTooltip: false
 		};
 	},
 
@@ -460,7 +464,8 @@ const Select = React.createClass({
 
 	removeValue (value, focus) {
 		var valueArray = this.getValueArray();
-		this.setValue(valueArray.filter(i => i.value.toString() !== value.value.toString()));
+		var filteredResult = valueArray.filter(i => i.value.toString() !== value.value.toString());
+		this.setValue(filteredResult);
 		focus && this.focus();
 	},
 
@@ -981,6 +986,46 @@ const Select = React.createClass({
 		}
 	},
 
+	// <editor-fold desc="Event handlers for selected">
+	onBodyKeydown(e) {
+		if (e.keyCode === 9) {
+			this.onSelectedPopoverHide();
+		}
+	},
+
+	onSelectedPopoverHide() {
+		this.setState({showSelected: false});
+		document.removeEventListener("keydown", this.onBodyKeydown, false);
+	},
+
+	onSelectedBtnClick() {
+		this.state.showSelected
+		? document.removeEventListener("keydown", this.onBodyKeydown, false)
+		: document.addEventListener("keydown", this.onBodyKeydown, false);
+		this.setState({showSelected: !this.state.showSelected});
+	},
+
+	onSelectedBtnMouseEnter() {
+		this.setState({showSelectedTooltip: true});
+	},
+
+	onSelectedBtnMouseLeave() {
+		this.setState({showSelectedTooltip: false});
+	},
+
+	onRemoveAllSelectedCLick() {
+		this.setState({showSelected: false});
+		this.removeValues(this.state.value, false);
+	},
+
+	onRemoveSelectedClick(option) {
+		if (this.state.value.length === 1) {
+			this.setState({showSelected: false});
+		}
+		this.removeValue(option, false);
+	},
+
+	// </editor-fold>
 
 // </editor-fold>
 
@@ -1235,6 +1280,66 @@ const Select = React.createClass({
 		);
 	},
 
+	renderSelectedOptions() {
+		if (!this.isAutocomplete() || !this.state.value || !this.state.value.length) {
+			return null;
+		}
+
+		return (
+			<div
+				ref={(ref) => {this.selectedContainerRef = ref}}
+				className="multiselect-selected-value-holder psr"
+				onMouseEnter={this.onSelectedBtnMouseEnter}
+				onMouseLeave={this.onSelectedBtnMouseLeave} >
+				<div
+					className="btn btn-primary bdrs-0 multiselect-selected-value"
+					ref={(ref) => {this.selectedBtnRef = ref}}
+					onClick={this.onSelectedBtnClick} >
+					{ this.props.selectedText }{this.state.value.length}
+				</div>
+			</div>
+		);
+	},
+
+	renderSelectedItems() {
+		// Option list
+		const renderedOptions = _.map(this.state.value, (option, index) => {
+
+			// Option item
+			let optionRenderer;
+			if (this.props.optionRenderer) {
+				optionRenderer = (
+				<div className="multiselect-selected-item-holder dtc w100">{this.props.optionRenderer(option)}</div>
+				);
+			} else {
+				optionRenderer = <span className="multiselect-selected-item-value">{option.label}</span>;
+			}
+
+			return (
+				<li key={index} className="multiselect-selected-item">
+					{optionRenderer}
+					<span
+					className="multiselect-selected-remove unselectable"
+					onClick={() => this.onRemoveSelectedClick(option)}/>
+				</li>
+			);
+		});
+
+		return (
+			<div>
+				<div className="popover-title dt w100">
+					<h3 className="dtc w100 vab fs16">Wybrane elementy</h3>
+					<div className="dtc vab fs14 nowrap">
+						<a className="small curp" onClick={this.onRemoveAllSelectedCLick}>Wyczyść wszystkie</a>
+					</div>
+				</div>
+				<ul className="multiselect-selected-list">
+					{renderedOptions}
+				</ul>
+			</div>
+		);
+	},
+
 	render () {
 		let valueArray = this.getValueArray();
 		let options = this._visibleOptions = this.filterOptions(this.isMultiselectAutocomplete() ? valueArray : null);
@@ -1265,19 +1370,19 @@ const Select = React.createClass({
 
 		return (
 		<div ref="wrapper" className={className} style={this.props.wrapperStyle}>
-			{/*<pre>{JSON.stringify({"this.state.focusedOption": this.state && this.state.focusedOption, "this._focusedOption": this._focusedOption}, null, 2)}</pre>*/}
+			{/*<pre>{JSON.stringify(this.state, null, 2)}</pre>*/}
 			{this.renderHiddenField(valueArray)}
 			{this.props.debug && this.renderDebug()}
-			{/*<TetherComponent
+			<TetherComponent
 			 attachment="top left"
 			 targetAttachment="bottom left"
 			 constraints={[
 			 {
-			 to: "scrollParent",
-			 attachment: "together"
+			 	to: "scrollParent",
+			 	attachment: "together"
 			 }
 			 ]}
-			 >*/}
+			 >
 			<div ref="control"
 				 className="Select-control"
 				 style={this.props.style}
@@ -1288,6 +1393,7 @@ const Select = React.createClass({
 				 onTouchMove={this.handleTouchMove}>
 				{this.renderValue(valueArray, isOpen, options)}
 				{this.renderInput(valueArray, isOpen, options)}
+				{this.renderSelectedOptions()}
 				{this.renderLoading()}
 				{this.renderClear()}
 				{this.renderArrow()}
@@ -1305,7 +1411,28 @@ const Select = React.createClass({
 				</div>
 			</div>
 			) : null}
-			{/*</TetherComponent>*/}
+			</TetherComponent>
+
+
+			<Overlay
+				rootClose={true}
+				show={this.state.showSelected}
+				target={() => this.selectedBtnRef}
+				onHide={this.onSelectedPopoverHide}
+				placement={this.props.popoverPlacement || "left"}
+				container={this.props.popoverContainer || this.selectedContainerRef}>
+				<Popover id="selectedOptionsPopover">
+					{this.renderSelectedItems()}
+				</Popover>
+			</Overlay>
+
+			<Overlay
+				show={this.state.showSelectedTooltip}
+				target={() => this.selectedContainerRef}
+				placement="top">
+				<Tooltip style={{"opacity": 1}} id={`tooltip-${this.props.name}`}>Zobacz wybrane elementy</Tooltip>
+			</Overlay>
+
 		</div>
 		);
 	}
