@@ -1378,7 +1378,11 @@ const Select = React.createClass({
 					className="btn btn-primary bdrs-0 multiselect-selected-value"
 					ref={(ref) => {this.selectedBtnRef = ref}}
 					onClick={this.onSelectedBtnClick} >
+
+
 					{ this.props.selectedText }{this.state.value.length}
+
+
 				</div>
 			</div>
 		);
@@ -1441,8 +1445,11 @@ const Select = React.createClass({
 			'has-value': valueArray.length,
 		});
 
+		// console.log("isMultiselectStandard()", this.isMultiselectStandard());
+
 		let menuClassName = classNames("Select-menu-outer", {
 			"select-up": this.props.menuUp,
+			"Select-menu-outer-multiselect": this.isMultiselectStandard() ? true : false,
 			[this.props.menuClassName]: this.props.menuClassName
 		});
 
