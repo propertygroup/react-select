@@ -39569,10 +39569,10 @@ var Select = _react2['default'].createClass({
 				_reactTether2['default'],
 				_extends({
 					attachment: 'top left',
-					targetAttachment: this.props.menuUp ? "top left" : "bottom left",
+					targetAttachment: 'bottom left',
 					constraints: [{
 						to: "scrollParent",
-						attachment: "none together"
+						attachment: "together"
 					}]
 				}, this.props.tetherOptions),
 				_react2['default'].createElement(

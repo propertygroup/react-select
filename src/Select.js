@@ -1499,11 +1499,11 @@ const Select = React.createClass({
 			{this.props.debug && this.renderDebug()}
 			<TetherComponent
 			 attachment="top left"
-			 targetAttachment={this.props.menuUp ? "top left" : "bottom left"}
+			 targetAttachment="bottom left"
 			 constraints={[
 			 {
 			 	to: "scrollParent",
-			 	attachment: "none together"
+			 	attachment: "together"
 			 }
 			 ]}
 			 {...this.props.tetherOptions}
