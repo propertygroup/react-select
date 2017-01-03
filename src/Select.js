@@ -993,12 +993,11 @@ const Select = React.createClass({
 					let groupOptions = this.getGroupOptions(this.props.options, this._focusedGroup.id);
 					this.onOptgroupClick(this._focusedGroup, groupOptions)
 				} else if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || this._focusedOption))) {
+					const prevFocusedOption = this._focusedOption;
 					event.preventDefault();
 					this.selectFocusedOption();
 
-
 					// jesli autocomplete multiselect i wybierzemy opcje enterem to chcemy zeby sie zaznaczyla nastepna
-					const prevFocusedOption = this._focusedOption;
 					if (prevFocusedOption && this.isMultiselectAutocomplete() && (!this.props.groups || !this.props.groups.length)) {
 						let visibleOptions = this.excludeOptions(this.props.options, this.state.value)
 
@@ -1478,7 +1477,7 @@ const Select = React.createClass({
 			{this.props.debug && this.renderDebug()}
 			<TetherComponent
 			 attachment="top left"
-			 targetAttachment="bottom left"
+			 targetAttachment={this.props.menuUp ? "top left" : "bottom left"}
 			 constraints={[
 			 {
 			 	to: "scrollParent",
