@@ -994,10 +994,12 @@ const Select = React.createClass({
 					this.onOptgroupClick(this._focusedGroup, groupOptions)
 				} else if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || this._focusedOption))) {
 					event.preventDefault();
-					const prevFocusedOption = this._focusedOption;
 					this.selectFocusedOption();
 
-					if (this.isMultiselectAutocomplete() && (!this.props.groups || !this.props.groups.length)) {
+
+					// jesli autocomplete multiselect i wybierzemy opcje enterem to chcemy zeby sie zaznaczyla nastepna
+					const prevFocusedOption = this._focusedOption;
+					if (prevFocusedOption && this.isMultiselectAutocomplete() && (!this.props.groups || !this.props.groups.length)) {
 						let visibleOptions = this.excludeOptions(this.props.options, this.state.value)
 
 						let prevIndex = _.findIndex(visibleOptions, (option) => option.value === prevFocusedOption.value);
@@ -1483,6 +1485,7 @@ const Select = React.createClass({
 			 	attachment: "together"
 			 }
 			 ]}
+			 {...this.props.tetherOptions}
 			 >
 			<div ref="control"
 				 className="Select-control"
