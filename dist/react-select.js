@@ -38113,6 +38113,10 @@ var Select = _react2['default'].createClass({
 
 	componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
 
+		if (this.state.showAferRender) {
+			this.setState({ showSelected: true, showAferRender: false });
+		}
+
 		// focus to the selected option
 		if (this.refs.menu && this.refs.focused && this.isOpen() && !this.hasScrolledToOption) {
 			var focusedOptionNode = _reactDom2['default'].findDOMNode(this.refs.focused);
@@ -39108,6 +39112,8 @@ var Select = _react2['default'].createClass({
 	onRemoveSelectedClick: function onRemoveSelectedClick(option) {
 		if (this.state.value.length === 1) {
 			this.setState({ showSelected: false });
+		} else {
+			this.setState({ showSelected: false, showAferRender: true });
 		}
 		this.removeValue(option, false);
 	},

@@ -204,6 +204,10 @@ const Select = React.createClass({
 
 	componentDidUpdate (prevProps, prevState) {
 
+		if (this.state.showAferRender) {
+			this.setState({showSelected: true, showAferRender: false});
+		}
+
 		// focus to the selected option
 		if (this.refs.menu && this.refs.focused && this.isOpen() && !this.hasScrolledToOption) {
 			let focusedOptionNode = ReactDOM.findDOMNode(this.refs.focused);
@@ -1120,6 +1124,9 @@ const Select = React.createClass({
 	onRemoveSelectedClick(option) {
 		if (this.state.value.length === 1) {
 			this.setState({showSelected: false});
+		} else {
+			this.setState({showSelected: false, showAferRender: true});
+
 		}
 		this.removeValue(option, false);
 	},
