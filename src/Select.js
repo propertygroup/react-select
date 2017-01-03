@@ -1496,7 +1496,7 @@ const Select = React.createClass({
 			 constraints={[
 			 {
 			 	to: "scrollParent",
-			 	attachment: "together"
+			 	attachment: "none together"
 			 }
 			 ]}
 			 {...this.props.tetherOptions}

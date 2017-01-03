@@ -39566,7 +39566,7 @@ var Select = _react2['default'].createClass({
 					targetAttachment: this.props.menuUp ? "top left" : "bottom left",
 					constraints: [{
 						to: "scrollParent",
-						attachment: "together"
+						attachment: "none together"
 					}]
 				}, this.props.tetherOptions),
 				_react2['default'].createElement(
