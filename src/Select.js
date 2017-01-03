@@ -963,6 +963,43 @@ const Select = React.createClass({
 		this.setInputValue(inputValue);
 	},
 
+	handleKeyUp (event) {
+		if (this.isDiabled()) return;
+		switch (event.keyCode) {
+			case 13: // enter
+				// if (!this.isOpen()) {
+				// 	this.toggleMenu(true);
+				// 	return;
+				// }
+
+				if (this._focusedOption) { // jesli jakis element jest focusowany to nie chcemy defaultowej akcji
+					event.preventDefault();
+				}
+
+				if (this.isMultiselect() && this.props.groups && this.props.groups.length && this._focusedGroup) {
+					let groupOptions = this.getGroupOptions(this.props.options, this._focusedGroup.id);
+					this.onOptgroupClick(this._focusedGroup, groupOptions)
+				} else if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || this._focusedOption))) {
+					const prevFocusedOption = this._focusedOption;
+
+					this.selectFocusedOption();
+
+					// jesli autocomplete multiselect i wybierzemy opcje enterem to chcemy zeby sie zaznaczyla nastepna
+					if (prevFocusedOption && this.isMultiselectAutocomplete() && (!this.props.groups || !this.props.groups.length)) {
+						let visibleOptions = this.excludeOptions(this.props.options, this.state.value)
+
+						let prevIndex = _.findIndex(visibleOptions, (option) => option.value === prevFocusedOption.value);
+						if (prevIndex < visibleOptions.length - 1) {
+							this.focusOption(visibleOptions[prevIndex + 1]);
+						}
+					}
+				} else if (!this.isMultiselectAutocomplete()) {
+					this.clear();
+				}
+				break;
+		}
+	},
+
 	handleKeyDown (event) {
 		if (this.isDiabled()) return;
 		if (this.isFocused() && !this.isOpen()) {
@@ -984,30 +1021,8 @@ const Select = React.createClass({
 				}
 			return;
 			case 13: // enter
-				// if (!this.isOpen()) {
-				// 	this.toggleMenu(true);
-				// 	return;
-				// }
-
-				if (this.isMultiselect() && this.props.groups && this.props.groups.length && this._focusedGroup) {
-					let groupOptions = this.getGroupOptions(this.props.options, this._focusedGroup.id);
-					this.onOptgroupClick(this._focusedGroup, groupOptions)
-				} else if (!this.isAutocomplete() || (this.isAutocomplete() && (!this.isInputEmpty() || this._focusedOption))) {
-					const prevFocusedOption = this._focusedOption;
+				if (this._focusedOption) { // jesli jakis element jest focusowany to nie chcemy defaultowej akcji
 					event.preventDefault();
-					this.selectFocusedOption();
-
-					// jesli autocomplete multiselect i wybierzemy opcje enterem to chcemy zeby sie zaznaczyla nastepna
-					if (prevFocusedOption && this.isMultiselectAutocomplete() && (!this.props.groups || !this.props.groups.length)) {
-						let visibleOptions = this.excludeOptions(this.props.options, this.state.value)
-
-						let prevIndex = _.findIndex(visibleOptions, (option) => option.value === prevFocusedOption.value);
-						if (prevIndex < visibleOptions.length - 1) {
-							this.focusOption(visibleOptions[prevIndex + 1]);
-						}
-					}
-				} else if (!this.isMultiselectAutocomplete()) {
-					this.clear();
 				}
 			break;
 			case 27: // escape
@@ -1490,6 +1505,7 @@ const Select = React.createClass({
 				 className="Select-control"
 				 style={this.props.style}
 				 onKeyDown={this.handleKeyDown}
+				 onKeyUp={this.handleKeyUp}
 				 onMouseDown={this.handleMouseDown}
 				 onTouchEnd={this.handleTouchEnd}
 				 onTouchStart={this.handleTouchStart}
