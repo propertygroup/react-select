@@ -1159,7 +1159,8 @@ const Select = React.createClass({
 		let onClick = this.props.onValueClick ? this.handleValueClick : null;
 		if (this.isMultiselectStandard()) {
 			if (isOpen) onClick = null;
-			let label = this.generateMultiselectLabel(options, valueArray);
+			// provide custom render function
+			var label = this.props.generateCustomMultiselectLabel ? this.props.generateCustomMultiselectLabel(options, valueArray) : this.generateMultiselectLabel(options, valueArray);
 			return (
 			<ValueComponent
 			disabled={this.isDiabled()}
