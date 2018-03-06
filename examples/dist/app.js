@@ -1,7 +1,7 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /* eslint react/prop-types: 0 */'use strict';function _interopRequireWildcard(obj){if(obj && obj.__esModule){return obj;}else {var newObj={};if(obj != null){for(var key in obj) {if(Object.prototype.hasOwnProperty.call(obj,key))newObj[key] = obj[key];}}newObj['default'] = obj;return newObj;}}function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _react=require('react');var _react2=_interopRequireDefault(_react);var _reactDom=require('react-dom');var _reactDom2=_interopRequireDefault(_reactDom);var _reactSelect=require('react-select');var _reactSelect2=_interopRequireDefault(_reactSelect);var _lodash=require("lodash");var _=_interopRequireWildcard(_lodash);var _componentsContributors=require('./components/Contributors');var _componentsContributors2=_interopRequireDefault(_componentsContributors);var _componentsCustomComponents=require('./components/CustomComponents');var _componentsCustomComponents2=_interopRequireDefault(_componentsCustomComponents);var _componentsCustomRender=require('./components/CustomRender');var _componentsCustomRender2=_interopRequireDefault(_componentsCustomRender);var _componentsMultiselect=require('./components/Multiselect');var _componentsMultiselect2=_interopRequireDefault(_componentsMultiselect);var _componentsNumericSelect=require('./components/NumericSelect');var _componentsNumericSelect2=_interopRequireDefault(_componentsNumericSelect);var _componentsStates=require('./components/States');var _componentsStates2=_interopRequireDefault(_componentsStates);var options=[{"test":"abc","value":1,"label":'Dolnośląskie'},{"test":"abc","value":31,"label":"Kujawsko-pomorskie"},{"test":"abc","value":95,"label":'Łódzkie'},{"test":"abc","value":55,"label":"Lubelskie"},{"test":"abc","value":80,"label":"Lubuskie"},{"test":"abc","value":120,"label":'Małopolskie'},{"test":"abc","value":143,"label":"Mazowieckie"},{"test":"abc","value":186,"label":"Opolskie"},{"test":"abc","value":199,"label":"Podkarpackie"},{"test":"abc","value":225,"label":"Podlaskie"},{"test":"abc","value":243,"label":"Pomorskie"},{"test":"abc","value":264,"label":'Śląskie'},{"test":"abc","value":301,"label":'Świętokrzyskie'},{"test":"abc","value":316,"label":'Warmińsko-mazurskie'},{"test":"abc","value":338,"label":"Wielkopolskie"},{"test":"abc","value":374,"label":"Zachodniopomorskie"},{"test":"abc","value":52362,"label":"Kujawsko-Pomorskie, Bydgoszcz i okolice"},{"test":"abc","value":52261,"label":'Śląskie, Katowice i okolice'},{"test":"abc","value":52258,"label":'Małopolskie, Kraków i okolice'},{"test":"abc","value":52259,"label":'Łódzkie, Łódź i okolice'},{"test":"abc","value":52366,"label":"Lubelskie, Lublin i okolice"},{"test":"abc","value":52363,"label":"Kujawsko-Pomorskie, okolice Bydgoszczy"},{"test":"abc","value":52269,"label":'Śląskie, okolice Katowic'},{"test":"abc","value":52265,"label":'Małopolskie, okolice Krakowa'},{"test":"abc","value":52267,"label":'Łódzkie, okolice Łodzi'},{"test":"abc","value":52367,"label":"Lubelskie, okolice Lublina"},{"test":"abc","value":52365,"label":'Warmińsko-Mazurskie, okolice Olsztyna'},{"test":"abc","value":52263,"label":"Wielkopolskie, okolice Poznania"},{"test":"abc","value":52268,"label":"Zachodniopomorskie, okolice Szczecina"},{"test":"abc","value":52264,"label":'Pomorskie, okolice Trójmiasta'},{"test":"abc","value":52262,"label":"Mazowieckie, okolice Warszawy"},{"test":"abc","value":52266,"label":'Dolnośląskie, okolice Wrocławia'},{"test":"abc","value":52364,"label":'Warmińsko-Mazurskie, Olsztyn i okolice'},{"test":"abc","value":52254,"label":'Wielkopolskie, Poznań i okolice'},{"test":"abc","value":52260,"label":"Zachodniopomorskie, Szczecin i okolice"},{"test":"abc","value":52255,"label":'Pomorskie, Trójmiasto'},{"test":"abc","value":52256,"label":'Pomorskie, Trójmiasto i okolice'},{"test":"abc","value":52253,"label":"Mazowieckie, Warszawa i okolice"},{"test":"abc","value":52257,"label":'Dolnośląskie, Wrocław i okolice'},{"test":"abc","value":52380,"label":"Kujawsko-Pomorskie, Aleksandrowski"},{"test":"abc","value":52412,"label":"Podlaskie, Augustowski"},{"test":"abc","value":265,"label":'Śląskie, Będziński'},{"test":"abc","value":96,"label":'Łódzkie, Bełchatowski'},{"test":"abc","value":144,"label":'Mazowieckie, Białobrzeski'},{"test":"abc","value":227,"label":'Podlaskie, Białostocki'},{"test":"abc","value":266,"label":'Śląskie, Bielski'},{"test":"abc","value":228,"label":"Podlaskie, Bielski"},{"test":"abc","value":57,"label":'Lubelskie, Biłgorajski'},{"test":"abc","value":121,"label":'Małopolskie, Bocheński'},{"test":"abc","value":52423,"label":'Dolnośląskie, Bolesławiecki'},{"test":"abc","value":33,"label":"Kujawsko-Pomorskie, Brodnicki"},{"test":"abc","value":187,"label":"Opolskie, Brzeski"},{"test":"abc","value":122,"label":'Małopolskie, Brzeski'},{"test":"abc","value":116,"label":'Łódzkie, Brzeziński'},{"test":"abc","value":52589,"label":'Świętokrzyskie, Buski'},{"test":"abc","value":34,"label":"Kujawsko-Pomorskie, Bydgoski"},{"test":"abc","value":244,"label":"Pomorskie, Bytowski"},{"test":"abc","value":52332,"label":'Kujawsko-Pomorskie, Chełmiński'},{"test":"abc","value":52292,"label":'Lubelskie, Chełmski'},{"test":"abc","value":245,"label":"Pomorskie, Chojnicki"},{"test":"abc","value":123,"label":'Małopolskie, Chrzanowski'},{"test":"abc","value":145,"label":"Mazowieckie, Ciechanowski"},{"test":"abc","value":267,"label":'Śląskie, Cieszyński'},{"test":"abc","value":340,"label":"Wielkopolskie, Czarnkowsko-Trzcianecki"},{"test":"abc","value":52535,"label":'Śląskie, Częstochowski'},{"test":"abc","value":319,"label":'Warmińsko-Mazurskie, Działdowski'},{"test":"abc","value":52278,"label":'Dolnośląskie, Dzierżoniowski'},{"test":"abc","value":321,"label":'Warmińsko-Mazurskie, Ełcki'},{"test":"abc","value":146,"label":'Mazowieckie, Garwoliński'},{"test":"abc","value":247,"label":'Pomorskie, Gdański'},{"test":"abc","value":322,"label":'Warmińsko-Mazurskie, Giżycki'},{"test":"abc","value":269,"label":'Śląskie, Gliwicki'},{"test":"abc","value":4,"label":'Dolnośląskie, Głogowski'},{"test":"abc","value":341,"label":'Wielkopolskie, Gnieźnieński'},{"test":"abc","value":334,"label":'Warmińsko-Mazurskie, Gołdapski'},{"test":"abc","value":378,"label":"Zachodniopomorskie, Goleniowski"},{"test":"abc","value":36,"label":'Kujawsko-Pomorskie, Golubsko-Dobrzyński'},{"test":"abc","value":52471,"label":"Lubuskie, Gorzowski"},{"test":"abc","value":52386,"label":'Mazowieckie, Gostyniński'},{"test":"abc","value":342,"label":'Wielkopolskie, Gostyński'},{"test":"abc","value":148,"label":"Mazowieckie, Grodziski"},{"test":"abc","value":343,"label":"Wielkopolskie, Grodziski"},{"test":"abc","value":149,"label":'Mazowieckie, Grójecki'},{"test":"abc","value":379,"label":"Zachodniopomorskie, Gryficki"},{"test":"abc","value":380,"label":'Zachodniopomorskie, Gryfiński'},{"test":"abc","value":230,"label":"Podlaskie, Hajnowski"},{"test":"abc","value":323,"label":'Warmińsko-Mazurskie, Iławski'},{"test":"abc","value":38,"label":'Kujawsko-Pomorskie, Inowrocławski'},{"test":"abc","value":52403,"label":"Lubelskie, Janowski"},{"test":"abc","value":344,"label":'Wielkopolskie, Jarociński'},{"test":"abc","value":203,"label":'Podkarpackie, Jarosławski'},{"test":"abc","value":52283,"label":"Podkarpackie, Jasielski"},{"test":"abc","value":6,"label":'Dolnośląskie, Jaworski'},{"test":"abc","value":7,"label":'Dolnośląskie, Jeleniogórski'},{"test":"abc","value":345,"label":"Wielkopolskie, Kaliski"},{"test":"abc","value":381,"label":'Zachodniopomorskie, Kamieński'},{"test":"abc","value":248,"label":"Pomorskie, Kartuski"},{"test":"abc","value":52519,"label":'Warmińsko-Mazurskie, Kętrzyński'},{"test":"abc","value":305,"label":'Świętokrzyskie, Kielecki'},{"test":"abc","value":52541,"label":'Śląskie, Kłobucki'},{"test":"abc","value":9,"label":'Dolnośląskie, Kłodzki'},{"test":"abc","value":382,"label":'Zachodniopomorskie, Kołobrzeski'},{"test":"abc","value":349,"label":'Wielkopolskie, Kościański'},{"test":"abc","value":249,"label":'Pomorskie, Kościerski'},{"test":"abc","value":383,"label":'Zachodniopomorskie, Koszaliński'},{"test":"abc","value":150,"label":"Mazowieckie, Kozienicki"},{"test":"abc","value":126,"label":'Małopolskie, Krakowski'},{"test":"abc","value":191,"label":"Opolskie, Krapkowicki"},{"test":"abc","value":52333,"label":'Lubelskie, Kraśnicki'},{"test":"abc","value":52473,"label":'Wielkopolskie, Krotoszyński'},{"test":"abc","value":97,"label":'Łódzkie, Kutnowski'},{"test":"abc","value":98,"label":'Łódzkie, Łaski'},{"test":"abc","value":251,"label":'Pomorskie, Lęborski'},{"test":"abc","value":52458,"label":'Lubelskie, Łęczyński'},{"test":"abc","value":151,"label":"Mazowieckie, Legionowski"},{"test":"abc","value":52276,"label":'Dolnośląskie, Legnicki'},{"test":"abc","value":220,"label":"Podkarpackie, Leski"},{"test":"abc","value":351,"label":'Wielkopolskie, Leszczyński'},{"test":"abc","value":52309,"label":'Warmińsko-Mazurskie, Lidzbarski'},{"test":"abc","value":392,"label":'Zachodniopomorskie, Łobeski'},{"test":"abc","value":101,"label":'Łódzkie, Łódzki Wschodni'},{"test":"abc","value":11,"label":'Dolnośląskie, Lubański'},{"test":"abc","value":52469,"label":"Lubelskie, Lubartowski"},{"test":"abc","value":64,"label":"Lubelskie, Lubelski"},{"test":"abc","value":12,"label":'Dolnośląskie, Lubiński'},{"test":"abc","value":66,"label":'Lubelskie, Łukowski'},{"test":"abc","value":13,"label":'Dolnośląskie, Lwówecki'},{"test":"abc","value":52539,"label":"Mazowieckie, Makowski"},{"test":"abc","value":252,"label":"Pomorskie, Malborski"},{"test":"abc","value":128,"label":'Małopolskie, Miechowski'},{"test":"abc","value":352,"label":'Wielkopolskie, Międzychodzki'},{"test":"abc","value":210,"label":"Podkarpackie, Mielecki"},{"test":"abc","value":272,"label":'Śląskie, Mikołowski'},{"test":"abc","value":155,"label":'Mazowieckie, Miński'},{"test":"abc","value":156,"label":'Mazowieckie, Mławski'},{"test":"abc","value":326,"label":'Warmińsko-Mazurskie, Mrągowski'},{"test":"abc","value":129,"label":'Małopolskie, Myślenicki'},{"test":"abc","value":384,"label":'Zachodniopomorskie, Myśliborski'},{"test":"abc","value":52550,"label":'Śląskie, Myszkowski'},{"test":"abc","value":41,"label":"Kujawsko-Pomorskie, Nakielski"},{"test":"abc","value":192,"label":'Opolskie, Namysłowski'},{"test":"abc","value":52406,"label":'Warmińsko-Mazurskie, Nidzicki'},{"test":"abc","value":157,"label":"Mazowieckie, Nowodworski"},{"test":"abc","value":253,"label":"Pomorskie, Nowodworski"},{"test":"abc","value":130,"label":'Małopolskie, Nowosądecki'},{"test":"abc","value":84,"label":"Lubuskie, Nowosolski"},{"test":"abc","value":131,"label":'Małopolskie, Nowotarski'},{"test":"abc","value":353,"label":"Wielkopolskie, Nowotomyski"},{"test":"abc","value":52454,"label":"Opolskie, Nyski"},{"test":"abc","value":354,"label":"Wielkopolskie, Obornicki"},{"test":"abc","value":16,"label":'Dolnośląskie, Oławski'},{"test":"abc","value":329,"label":'Warmińsko-Mazurskie, Olecki'},{"test":"abc","value":15,"label":'Dolnośląskie, Oleśnicki'},{"test":"abc","value":132,"label":'Małopolskie, Olkuski'},{"test":"abc","value":330,"label":'Warmińsko-Mazurskie, Olsztyński'},{"test":"abc","value":307,"label":'Świętokrzyskie, Opatowski'},{"test":"abc","value":67,"label":"Lubelskie, Opolski"},{"test":"abc","value":195,"label":"Opolskie, Opolski"},{"test":"abc","value":331,"label":'Warmińsko-Mazurskie, Ostródzki'},{"test":"abc","value":52529,"label":'Mazowieckie, Ostrołęcki'},{"test":"abc","value":308,"label":'Świętokrzyskie, Ostrowiecki'},{"test":"abc","value":355,"label":"Wielkopolskie, Ostrowski"},{"test":"abc","value":52306,"label":"Wielkopolskie, Ostrzeszowski"},{"test":"abc","value":133,"label":'Małopolskie, Oświęcimski'},{"test":"abc","value":160,"label":"Mazowieckie, Otwocki"},{"test":"abc","value":103,"label":'Łódzkie, Pabianicki'},{"test":"abc","value":161,"label":'Mazowieckie, Piaseczyński'},{"test":"abc","value":357,"label":"Wielkopolskie, Pilski"},{"test":"abc","value":332,"label":'Warmińsko-Mazurskie, Piski'},{"test":"abc","value":358,"label":"Wielkopolskie, Pleszewski"},{"test":"abc","value":162,"label":'Mazowieckie, Płocki'},{"test":"abc","value":163,"label":'Mazowieckie, Płoński'},{"test":"abc","value":385,"label":"Zachodniopomorskie, Policki"},{"test":"abc","value":17,"label":'Dolnośląskie, Polkowicki'},{"test":"abc","value":359,"label":'Wielkopolskie, Poznański'},{"test":"abc","value":134,"label":'Małopolskie, Proszowicki'},{"test":"abc","value":164,"label":"Mazowieckie, Pruszkowski"},{"test":"abc","value":165,"label":"Mazowieckie, Przasnyski"},{"test":"abc","value":213,"label":"Podkarpackie, Przeworski"},{"test":"abc","value":274,"label":'Śląskie, Pszczyński'},{"test":"abc","value":254,"label":"Pomorskie, Pucki"},{"test":"abc","value":69,"label":'Lubelskie, Puławski'},{"test":"abc","value":167,"label":'Mazowieckie, Pułtuski'},{"test":"abc","value":386,"label":"Zachodniopomorskie, Pyrzycki"},{"test":"abc","value":275,"label":'Śląskie, Raciborski'},{"test":"abc","value":168,"label":"Mazowieckie, Radomski"},{"test":"abc","value":107,"label":'Łódzkie, Radomszczański'},{"test":"abc","value":52515,"label":'Lubelskie, Radzyński'},{"test":"abc","value":360,"label":"Wielkopolskie, Rawicki"},{"test":"abc","value":108,"label":'Łódzkie, Rawski'},{"test":"abc","value":215,"label":"Podkarpackie, Rzeszowski"},{"test":"abc","value":216,"label":"Podkarpackie, Sanocki"},{"test":"abc","value":44,"label":'Kujawsko-Pomorskie, Sępoleński'},{"test":"abc","value":52248,"label":"Mazowieckie, Siedlecki"},{"test":"abc","value":52521,"label":'Łódzkie, Sieradzki'},{"test":"abc","value":311,"label":'Świętokrzyskie, Skarżyski'},{"test":"abc","value":110,"label":'Łódzkie, Skierniewicki'},{"test":"abc","value":387,"label":'Zachodniopomorskie, Sławieński'},{"test":"abc","value":52215,"label":'Lubuskie, Słubicki'},{"test":"abc","value":361,"label":'Wielkopolskie, Słupecki'},{"test":"abc","value":255,"label":'Pomorskie, Słupski'},{"test":"abc","value":171,"label":"Mazowieckie, Sochaczewski"},{"test":"abc","value":52527,"label":'Mazowieckie, Sokołowski'},{"test":"abc","value":363,"label":'Wielkopolskie, Średzki'},{"test":"abc","value":19,"label":'Dolnośląskie, Średzki'},{"test":"abc","value":364,"label":'Wielkopolskie, Śremski'},{"test":"abc","value":217,"label":"Podkarpackie, Stalowowolski"},{"test":"abc","value":312,"label":'Świętokrzyskie, Starachowicki'},{"test":"abc","value":388,"label":"Zachodniopomorskie, Stargardzki"},{"test":"abc","value":256,"label":"Pomorskie, Starogardzki"},{"test":"abc","value":197,"label":"Opolskie, Strzelecki"},{"test":"abc","value":52523,"label":"Lubuskie, Strzelecko-Drezdenecki"},{"test":"abc","value":18,"label":'Dolnośląskie, Strzeliński'},{"test":"abc","value":218,"label":'Podkarpackie, Strzyżowski'},{"test":"abc","value":52446,"label":'Lubuskie, Sulęciński'},{"test":"abc","value":135,"label":'Małopolskie, Suski'},{"test":"abc","value":72,"label":'Lubelskie, Świdnicki'},{"test":"abc","value":20,"label":'Dolnośląskie, Świdnicki'},{"test":"abc","value":52285,"label":'Zachodniopomorskie, Świdwiński'},{"test":"abc","value":362,"label":"Wielkopolskie, Szamotulski"},{"test":"abc","value":389,"label":"Zachodniopomorskie, Szczecinecki"},{"test":"abc","value":333,"label":'Warmińsko-Mazurskie, Szczycieński'},{"test":"abc","value":52505,"label":'Mazowieckie, Szydłowiecki'},{"test":"abc","value":277,"label":'Śląskie, Tarnogórski'},{"test":"abc","value":136,"label":'Małopolskie, Tarnowski'},{"test":"abc","value":137,"label":'Małopolskie, Tatrzański'},{"test":"abc","value":257,"label":"Pomorskie, Tczewski"},{"test":"abc","value":111,"label":'Łódzkie, Tomaszowski'},{"test":"abc","value":73,"label":"Lubelskie, Tomaszowski"},{"test":"abc","value":46,"label":'Kujawsko-Pomorskie, Toruński'},{"test":"abc","value":21,"label":'Dolnośląskie, Trzebnicki'},{"test":"abc","value":52343,"label":'Małopolskie, Wadowicki'},{"test":"abc","value":52370,"label":'Wielkopolskie, Wągrowiecki'},{"test":"abc","value":22,"label":'Dolnośląskie, Wałbrzyski'},{"test":"abc","value":174,"label":"Mazowieckie, Warszawski Zachodni"},{"test":"abc","value":335,"label":'Warmińsko-Mazurskie, Węgorzewski'},{"test":"abc","value":175,"label":'Mazowieckie, Węgrowski'},{"test":"abc","value":258,"label":"Pomorskie, Wejherowski"},{"test":"abc","value":139,"label":'Małopolskie, Wielicki'},{"test":"abc","value":52320,"label":'Łódzkie, Wieruszowski'},{"test":"abc","value":49,"label":'Kujawsko-Pomorskie, Włocławski'},{"test":"abc","value":74,"label":'Lubelskie, Włodawski'},{"test":"abc","value":176,"label":'Mazowieckie, Wołomiński'},{"test":"abc","value":23,"label":'Dolnośląskie, Wołowski'},{"test":"abc","value":367,"label":'Wielkopolskie, Wolsztyński'},{"test":"abc","value":24,"label":'Dolnośląskie, Wrocławski'},{"test":"abc","value":368,"label":'Wielkopolskie, Wrzesiński'},{"test":"abc","value":52436,"label":"Lubuskie, Wschowski"},{"test":"abc","value":177,"label":"Mazowieckie, Wyszkowski"},{"test":"abc","value":52450,"label":'Dolnośląskie, Ząbkowicki'},{"test":"abc","value":52334,"label":'Lubuskie, Żagański'},{"test":"abc","value":75,"label":"Lubelskie, Zamojski"},{"test":"abc","value":91,"label":'Lubuskie, Żarski'},{"test":"abc","value":280,"label":'Śląskie, Zawierciański'},{"test":"abc","value":115,"label":'Łódzkie, Zgierski'},{"test":"abc","value":26,"label":'Dolnośląskie, Zgorzelecki'},{"test":"abc","value":89,"label":'Lubuskie, Zielonogórski'},{"test":"abc","value":369,"label":'Wielkopolskie, Złotowski'},{"test":"abc","value":178,"label":'Mazowieckie, Zwoleński'},{"test":"abc","value":180,"label":'Mazowieckie, Żyrardowski'},{"test":"abc","value":52511,"label":'Kujawsko-Pomorskie, Aleksandrowski, Aleksandrów Kujawski'},{"test":"abc","value":14762,"label":'Łódzkie, Zgierski, Aleksandrów Łódzki'},{"test":"abc","value":52461,"label":'Małopolskie, Chrzanowski, Alwernia'},{"test":"abc","value":52344,"label":'Małopolskie, Wadowicki, Andrychów'},{"test":"abc","value":52413,"label":'Podlaskie, Augustowski, Augustów'},{"test":"abc","value":52756,"label":"Kujawsko-pomorskie, Barcin"},{"test":"abc","value":52272,"label":'Warmińsko-Mazurskie, Olsztyński, Barczewo'},{"test":"abc","value":13435,"label":'Zachodniopomorskie, Myśliborski, Barlinek'},{"test":"abc","value":15056,"label":'Śląskie, Będziński, Będzin'},{"test":"abc","value":8510,"label":'Łódzkie, Bełchatowski, Bełchatów'},{"test":"abc","value":24220,"label":'Lubelskie, Biała Podlaska'},{"test":"abc","value":26641,"label":'Mazowieckie, Białobrzeski, Białobrzegi'},{"test":"abc","value":9692,"label":'Podlaskie, Białystok'},{"test":"abc","value":52279,"label":'Dolnośląskie, Dzierżoniowski, Bielawa'},{"test":"abc","value":13414,"label":'Śląskie, Bielsko-Biała'},{"test":"abc","value":3739,"label":"Podlaskie, Bielski, Bielsk Podlaski"},{"test":"abc","value":33494,"label":'Dolnośląskie, Oleśnicki, Bierutów'},{"test":"abc","value":52545,"label":'Warmińsko-Mazurskie, Olsztyński, Biskupiec'},{"test":"abc","value":2396,"label":'Mazowieckie, Warszawski Zachodni, Błonie'},{"test":"abc","value":36034,"label":'Małopolskie, Bocheński, Bochnia'},{"test":"abc","value":52424,"label":'Dolnośląskie, Bolesławiecki, Bolesławiec'},{"test":"abc","value":22811,"label":'Dolnośląskie, Jaworski, Bolków'},{"test":"abc","value":34065,"label":"Zachodniopomorskie, Szczecinecki, Borne Sulinowo"},{"test":"abc","value":21231,"label":"Kujawsko-Pomorskie, Brodnicki, Brodnica"},{"test":"abc","value":37359,"label":'Mazowieckie, Pruszkowski, Brwinów'},{"test":"abc","value":10425,"label":"Opolskie, Brzeski, Brzeg"},{"test":"abc","value":35561,"label":'Dolnośląskie, Wołowski, Brzeg Dolny'},{"test":"abc","value":39392,"label":'Małopolskie, Brzeski, Brzesko'},{"test":"abc","value":32853,"label":'Łódzkie, Brzeziński, Brzeziny'},{"test":"abc","value":52590,"label":'Świętokrzyskie, Buski, Busko-Zdrój'},{"test":"abc","value":22550,"label":"Kujawsko-Pomorskie, Bydgoszcz"},{"test":"abc","value":34871,"label":'Śląskie, Bytom'},{"test":"abc","value":12539,"label":'Pomorskie, Bytowski, Bytów'},{"test":"abc","value":52293,"label":'Lubelskie, Chełmski, Chełm'},{"test":"abc","value":52219,"label":'Małopolskie, Oświęcimski, Chełmek'},{"test":"abc","value":52238,"label":'Kujawsko-Pomorskie, Chełmiński, Chełmno'},{"test":"abc","value":46761,"label":"Pomorskie, Chojnicki, Chojnice"},{"test":"abc","value":19219,"label":'Śląskie, Chorzów'},{"test":"abc","value":52251,"label":'Małopolskie, Chrzanowski, Chrzanów'},{"test":"abc","value":6296,"label":'Mazowieckie, Ciechanowski, Ciechanów'},{"test":"abc","value":52381,"label":"Kujawsko-Pomorskie, Aleksandrowski, Ciechocinek"},{"test":"abc","value":16000,"label":'Śląskie, Cieszyński, Cieszyn'},{"test":"abc","value":52441,"label":'Podlaskie, Białostocki, Czarna Białostocka'},{"test":"abc","value":52410,"label":'Wielkopolskie, Czarnkowsko-Trzcianecki, Czarnków'},{"test":"abc","value":52513,"label":'Śląskie, Bielski, Czechowice-Dziedzice'},{"test":"abc","value":30668,"label":'Śląskie, Częstochowa'},{"test":"abc","value":16293,"label":'Śląskie, Dąbrowa Górnicza'},{"test":"abc","value":35342,"label":'Zachodniopomorskie, Sławieński, Darłowo'},{"test":"abc","value":52524,"label":"Lubuskie, Strzelecko-Drezdenecki, Drezdenko"},{"test":"abc","value":24294,"label":'Warmińsko-Mazurskie, Działdowski, Działdowo'},{"test":"abc","value":22546,"label":'Zachodniopomorskie, Kamieński, Dziwnów'},{"test":"abc","value":25289,"label":'Warmińsko-mazurskie, Elbląg'},{"test":"abc","value":51050,"label":'Warmińsko-mazurskie, Ełcki, Ełk'},{"test":"abc","value":50491,"label":'Mazowieckie, Garwoliński, Garwolin'},{"test":"abc","value":46083,"label":'Pomorskie, Gdańsk'},{"test":"abc","value":6196,"label":"Pomorskie, Gdynia"},{"test":"abc","value":11016,"label":'Warmińsko-mazurskie, Giżycki, Giżycko'},{"test":"abc","value":31825,"label":'Śląskie, Gliwice'},{"test":"abc","value":11592,"label":'Dolnośląskie, Głogowski, Głogów'},{"test":"abc","value":20423,"label":'Podkarpackie, Rzeszowski, Głogów Małopolski'},{"test":"abc","value":28203,"label":'Wielkopolskie, Gnieźnieński, Gniezno'},{"test":"abc","value":4455,"label":"Opolskie, Krapkowicki, Gogolin"},{"test":"abc","value":31788,"label":'Warmińsko-Mazurskie, Gołdapski, Gołdap'},{"test":"abc","value":28905,"label":'Zachodniopomorskie, Goleniowski, Goleniów'},{"test":"abc","value":21549,"label":'Mazowieckie, Piaseczyński, Góra Kalwaria'},{"test":"abc","value":37058,"label":'Lubuskie, Gorzów Wielkopolski'},{"test":"abc","value":52822,"label":'Zachodniopomorskie, Kołobrzeski, Gościno'},{"test":"abc","value":52287,"label":'Wielkopolskie, Gostyński, Gostyń'},{"test":"abc","value":52387,"label":'Mazowieckie, Gostyniński, Gostynin'},{"test":"abc","value":36132,"label":"Mazowieckie, Grodziski, Grodzisk Mazowiecki"},{"test":"abc","value":45812,"label":"Wielkopolskie, Grodziski, Grodzisk Wielkopolski"},{"test":"abc","value":1642,"label":'Mazowieckie, Grójecki, Grójec'},{"test":"abc","value":13077,"label":'Kujawsko-Pomorskie, Grudziądz'},{"test":"abc","value":52322,"label":"Zachodniopomorskie, Gryficki, Gryfice"},{"test":"abc","value":47110,"label":'Zachodniopomorskie, Gryfiński, Gryfino'},{"test":"abc","value":20511,"label":'Podlaskie, Hajnowski, Hajnówka'},{"test":"abc","value":52499,"label":'Mazowieckie, Miński, Halinów'},{"test":"abc","value":45344,"label":"Pomorskie, Pucki, Hel"},{"test":"abc","value":9385,"label":'Warmińsko-Mazurskie, Iławski, Iława'},{"test":"abc","value":35739,"label":'Kujawsko-Pomorskie, Inowrocławski, Inowrocław'},{"test":"abc","value":52445,"label":'Zachodniopomorskie, Stargardzki, Ińsko'},{"test":"abc","value":52404,"label":'Lubelskie, Janowski, Janów Lubelski'},{"test":"abc","value":47119,"label":'Wielkopolskie, Jarociński, Jarocin'},{"test":"abc","value":52284,"label":'Podkarpackie, Jasielski, Jasło'},{"test":"abc","value":13032,"label":"Pomorskie, Pucki, Jastarnia"},{"test":"abc","value":52433,"label":'Wielkopolskie, Złotowski, Jastrowie'},{"test":"abc","value":23134,"label":'Śląskie, Jastrzębie-Zdrój'},{"test":"abc","value":52457,"label":'Śląskie, Jaworzno'},{"test":"abc","value":52314,"label":'Dolnośląskie, Świdnicki, Jaworzyna Śląska'},{"test":"abc","value":4661,"label":'Dolnośląskie, Oławski, Jelcz-Laskowice'},{"test":"abc","value":51619,"label":'Dolnośląskie, Jelenia Góra'},{"test":"abc","value":7727,"label":'Mazowieckie, Otwocki, Józefów'},{"test":"abc","value":18767,"label":"Wielkopolskie, Kalisz"},{"test":"abc","value":52546,"label":'Mazowieckie, Miński, Kałuszyn'},{"test":"abc","value":37976,"label":'Dolnośląskie, Jeleniogórski, Karpacz'},{"test":"abc","value":1737,"label":"Pomorskie, Kartuski, Kartuzy"},{"test":"abc","value":31600,"label":'Śląskie, Katowice'},{"test":"abc","value":39252,"label":'Dolnośląskie, Wrocławski, Kąty Wrocławskie'},{"test":"abc","value":52520,"label":'Warmińsko-Mazurskie, Kętrzyński, Kętrzyn'},{"test":"abc","value":36190,"label":'Świętokrzyskie, Kielce'},{"test":"abc","value":52542,"label":'Śląskie, Kłobucki, Kłobuck'},{"test":"abc","value":18264,"label":'Dolnośląskie, Kłodzki, Kłodzko'},{"test":"abc","value":27502,"label":'Śląskie, Gliwicki, Knurów'},{"test":"abc","value":9913,"label":'Mazowieckie, Wołomiński, Kobyłka'},{"test":"abc","value":14102,"label":'Zachodniopomorskie, Kołobrzeski, Kołobrzeg'},{"test":"abc","value":39772,"label":'Łódzkie, Łódzki Wschodni, Koluszki'},{"test":"abc","value":2067,"label":"Wielkopolskie, Konin"},{"test":"abc","value":8437,"label":'Mazowieckie, Piaseczyński, Konstancin-Jeziorna'},{"test":"abc","value":12010,"label":'Łódzkie, Pabianicki, Konstantynów Łódzki'},{"test":"abc","value":2436,"label":'Wielkopolskie, Poznański, Kórnik'},{"test":"abc","value":871,"label":'Wielkopolskie, Kościański, Kościan'},{"test":"abc","value":4395,"label":'Pomorskie, Kościerski, Kościerzyna'},{"test":"abc","value":38447,"label":'Wielkopolskie, Poznański, Kostrzyn'},{"test":"abc","value":52472,"label":'Lubuskie, Gorzowski, Kostrzyn nad Odrą'},{"test":"abc","value":48606,"label":"Zachodniopomorskie, Koszalin"},{"test":"abc","value":44124,"label":'Kujawsko-Pomorskie, Golubsko-Dobrzyński, Kowalewo Pomorskie'},{"test":"abc","value":41196,"label":"Mazowieckie, Kozienicki, Kozienice"},{"test":"abc","value":11158,"label":'Małopolskie, Kraków'},{"test":"abc","value":22482,"label":"Opolskie, Krapkowicki, Krapkowice"},{"test":"abc","value":52237,"label":'Lubelskie, Kraśnicki, Kraśnik'},{"test":"abc","value":36014,"label":"Podkarpackie, Krosno"},{"test":"abc","value":52474,"label":'Wielkopolskie, Krotoszyński, Krotoszyn'},{"test":"abc","value":35022,"label":"Pomorskie, Nowodworski, Krynica Morska"},{"test":"abc","value":11328,"label":'Małopolskie, Nowosądecki, Krynica-Zdrój'},{"test":"abc","value":30868,"label":'Małopolskie, Krakowski, Krzeszowice'},{"test":"abc","value":52534,"label":'Wielkopolskie, Kościański, Krzywiń'},{"test":"abc","value":52525,"label":'Wielkopolskie, Czarnkowsko-Trzcianecki, Krzyż Wielkopolski'},{"test":"abc","value":49787,"label":'Łódzkie, Kutnowski, Kutno'},{"test":"abc","value":52388,"label":'Podkarpackie, Łańcut'},{"test":"abc","value":52382,"label":'Podlaskie, Białostocki, Łapy'},{"test":"abc","value":8769,"label":'Śląskie, Mikołowski, Łaziska Górne'},{"test":"abc","value":41675,"label":'Pomorskie, Lęborski, Łeba'},{"test":"abc","value":52805,"label":'Pomorskie, Lębork'},{"test":"abc","value":52459,"label":'Lubelskie, łęczyński, Łęczna'},{"test":"abc","value":52418,"label":'Śląskie, Lędziny'},{"test":"abc","value":47675,"label":"Mazowieckie, Legionowski, Legionowo"},{"test":"abc","value":40444,"label":'Dolnośląskie, Legnica'},{"test":"abc","value":32749,"label":'Opolskie, Strzelecki, Leśnica'},{"test":"abc","value":12259,"label":"Wielkopolskie, Leszno"},{"test":"abc","value":11303,"label":'Małopolskie, Chrzanowski, Libiąż'},{"test":"abc","value":16187,"label":'Łódzkie, Łódź'},{"test":"abc","value":51541,"label":'Mazowieckie, Warszawski Zachodni, Łomianki'},{"test":"abc","value":23038,"label":'Podlaskie, Łomża'},{"test":"abc","value":30988,"label":'Dolnośląskie, Lubiński, Lubin'},{"test":"abc","value":13220,"label":"Lubelskie, Lublin"},{"test":"abc","value":20203,"label":'Wielkopolskie, Poznański, Luboń'},{"test":"abc","value":19526,"label":'Lubelskie, Łukowski, Łuków'},{"test":"abc","value":52540,"label":'Mazowieckie, Makowski, Maków Mazowiecki'},{"test":"abc","value":44923,"label":"Pomorskie, Malborski, Malbork"},{"test":"abc","value":41324,"label":'Mazowieckie, Wołomiński, Marki'},{"test":"abc","value":28812,"label":'Dolnośląskie, Kłodzki, Międzylesie'},{"test":"abc","value":52760,"label":'Lubuskie, Międzyrzecz'},{"test":"abc","value":33992,"label":'Zachodniopomorskie, Kamieński, Międzyzdroje'},{"test":"abc","value":32591,"label":"Podkarpackie, Mielecki, Mielec"},{"test":"abc","value":16048,"label":'Warmińsko-Mazurskie, Mrągowski, Mikołajki'},{"test":"abc","value":13580,"label":'Śląskie, Mikołowski, Mikołów'},{"test":"abc","value":44298,"label":'Mazowieckie, Grodziski, Milanówek'},{"test":"abc","value":52420,"label":'Dolnośląskie, Milicz'},{"test":"abc","value":43897,"label":'Mazowieckie, Miński, Mińsk Mazowiecki'},{"test":"abc","value":37733,"label":'Mazowieckie, Mławski, Mława'},{"test":"abc","value":49117,"label":'Wielkopolskie, Poznański, Mosina'},{"test":"abc","value":48654,"label":'Warmińsko-Mazurskie, Mrągowski, Mrągowo'},{"test":"abc","value":52323,"label":'Mazowieckie, Żyrardowski, Mszczonów'},{"test":"abc","value":29754,"label":'Wielkopolskie, Poznański, Murowana Goślina'},{"test":"abc","value":47901,"label":'Małopolskie, Myślenicki, Myślenice'},{"test":"abc","value":8955,"label":'Śląskie, Mysłowice'},{"test":"abc","value":25809,"label":'Lubelskie, Puławski, Nałęczów'},{"test":"abc","value":29372,"label":'Opolskie, Namysłowski, Namysłów'},{"test":"abc","value":14321,"label":"Mazowieckie, Nowodworski, Nasielsk"},{"test":"abc","value":36712,"label":'Wielkopolskie, Wrzesiński, Nekla'},{"test":"abc","value":52548,"label":'Warmińsko-Mazurskie, Nidzicki, Nidzica'},{"test":"abc","value":36397,"label":'Małopolskie, Wielicki, Niepołomice'},{"test":"abc","value":10117,"label":'Lubuskie, Nowosolski, Nowa Sól'},{"test":"abc","value":52543,"label":"Zachodniopomorskie, Goleniowski, Nowogard"},{"test":"abc","value":7572,"label":'Mazowieckie, Nowodworski, Nowy Dwór Mazowiecki'},{"test":"abc","value":52247,"label":'Małopolskie, Nowy Sącz'},{"test":"abc","value":1899,"label":'Małopolskie, Nowotarski, Nowy Targ'},{"test":"abc","value":52533,"label":'Wielkopolskie, Nowotomyski, Nowy Tomyśl'},{"test":"abc","value":52455,"label":"Opolskie, Nyski, Nysa"},{"test":"abc","value":21343,"label":"Wielkopolskie, Obornicki, Oborniki"},{"test":"abc","value":32620,"label":'Dolnośląskie, Trzebnicki, Oborniki Śląskie'},{"test":"abc","value":14663,"label":'Dolnośląskie, Oławski, Oława'},{"test":"abc","value":51671,"label":'Warmińsko-Mazurskie, Olecki, Olecko'},{"test":"abc","value":34312,"label":'Dolnośląskie, Oleśnicki, Oleśnica'},{"test":"abc","value":31391,"label":'Małopolskie, Olkuski, Olkusz'},{"test":"abc","value":26804,"label":'Warmińsko-Mazurskie, Olsztyn'},{"test":"abc","value":20064,"label":'Warmińsko-Mazurskie, Olsztyński, Olsztynek'},{"test":"abc","value":52233,"label":"Wielkopolskie, Nowotomyski, Opalenica"},{"test":"abc","value":12168,"label":"Opolskie, Opole"},{"test":"abc","value":19975,"label":"Lubelskie, Opolski, Opole Lubelskie"},{"test":"abc","value":52494,"label":'Warmińsko-Mazurskie, Piski, Orzysz'},{"test":"abc","value":30635,"label":'Warmińsko-Mazurskie, Ostródzki, Ostróda'},{"test":"abc","value":19025,"label":'Mazowieckie, Ostrołęka'},{"test":"abc","value":28917,"label":'Świętokrzyskie, Ostrowiecki, Ostrowiec Świętokrzyski'},{"test":"abc","value":34136,"label":'Wielkopolskie, Ostrowski, Ostrów Wielkopolski'},{"test":"abc","value":52307,"label":'Wielkopolskie, Ostrzeszowski, Ostrzeszów'},{"test":"abc","value":52252,"label":'Małopolskie, Oświęcimski, Oświęcim'},{"test":"abc","value":12955,"label":"Mazowieckie, Otwocki, Otwock"},{"test":"abc","value":24508,"label":'Świętokrzyskie, Opatowski, Ożarów'},{"test":"abc","value":37871,"label":'Mazowieckie, Warszawski Zachodni, Ożarów Mazowiecki'},{"test":"abc","value":19008,"label":'Łódzkie, Zgierski, Ozorków'},{"test":"abc","value":9195,"label":'Łódzkie, Pabianicki, Pabianice'},{"test":"abc","value":28307,"label":'Mazowieckie, Piaseczyński, Piaseczno'},{"test":"abc","value":5414,"label":'Mazowieckie, Pruszkowski, Piastów'},{"test":"abc","value":9467,"label":'Śląskie, Piekary Śląskie'},{"test":"abc","value":36816,"label":'Wielkopolskie, Pilski, Piła'},{"test":"abc","value":52326,"label":'Łódzkie, Piotrków Trybunalski'},{"test":"abc","value":50016,"label":'Warmińsko-Mazurskie, Piski, Pisz'},{"test":"abc","value":52532,"label":'Małopolskie, Nowosądecki, Piwniczna-Zdrój'},{"test":"abc","value":30792,"label":'Mazowieckie, Płocki, Płock'},{"test":"abc","value":42177,"label":'Mazowieckie, Płoński, Płońsk'},{"test":"abc","value":52396,"label":"Wielkopolskie, Szamotulski, Pniewy"},{"test":"abc","value":52510,"label":'Wielkopolskie, Poznański, Pobiedziska'},{"test":"abc","value":2375,"label":'Dolnośląskie, Kłodzki, Polanica-Zdrój'},{"test":"abc","value":52286,"label":'Zachodniopomorskie, Świdwiński, Połczyn-Zdrój'},{"test":"abc","value":28779,"label":"Zachodniopomorskie, Policki, Police"},{"test":"abc","value":16956,"label":'Dolnośląskie, Polkowicki, Polkowice'},{"test":"abc","value":9905,"label":"Lubelskie, Opolski, Poniatowa"},{"test":"abc","value":30892,"label":'Wielkopolskie, Poznań'},{"test":"abc","value":49550,"label":'Pomorskie, Gdański, Pruszcz Gdański'},{"test":"abc","value":10399,"label":'Mazowieckie, Pruszkowski, Pruszków'},{"test":"abc","value":1236,"label":"Mazowieckie, Przasnyski, Przasnysz"},{"test":"abc","value":52374,"label":'Podkarpackie, Przemyśl'},{"test":"abc","value":39791,"label":"Podkarpackie, Przeworski, Przeworsk"},{"test":"abc","value":49952,"label":'Śląskie, Pszczyński, Pszczyna'},{"test":"abc","value":36584,"label":"Pomorskie, Pucki, Puck"},{"test":"abc","value":51827,"label":'Lubelskie, Puławski, Puławy'},{"test":"abc","value":25679,"label":'Mazowieckie, Pułtuski, Pułtusk'},{"test":"abc","value":51217,"label":'Wielkopolskie, Poznański, Puszczykowo'},{"test":"abc","value":52414,"label":'Śląskie, Gliwicki, Pyskowice'},{"test":"abc","value":52392,"label":'Małopolskie, Nowotarski, Rabka-Zdrój'},{"test":"abc","value":14537,"label":'Śląskie, Raciborski, Racibórz'},{"test":"abc","value":21988,"label":'Małopolskie, Tarnowski, Radłów'},{"test":"abc","value":33423,"label":"Mazowieckie, Radom"},{"test":"abc","value":35114,"label":'Łódzkie, Radomszczański, Radomsko'},{"test":"abc","value":2829,"label":'Mazowieckie, Wołomiński, Radzymin'},{"test":"abc","value":52516,"label":'Lubelskie, Radzyński, Radzyń Podlaski'},{"test":"abc","value":15600,"label":'Łódzkie, Rawski, Rawa Mazowiecka'},{"test":"abc","value":25977,"label":"Wielkopolskie, Rawicki, Rawicz"},{"test":"abc","value":23029,"label":"Pomorskie, Wejherowski, Reda"},{"test":"abc","value":52712,"label":"Podkarpackie, Ropczyce"},{"test":"abc","value":8857,"label":'Śląskie, Ruda Śląska'},{"test":"abc","value":18709,"label":"Pomorskie, Wejherowski, Rumia"},{"test":"abc","value":19648,"label":'Śląskie, Rybnik'},{"test":"abc","value":33659,"label":'Podkarpackie, Rzeszów'},{"test":"abc","value":51977,"label":'Łódzkie, Łódzki Wschodni, Rzgów'},{"test":"abc","value":25168,"label":"Podkarpackie, Sanocki, Sanok"},{"test":"abc","value":21267,"label":'Kujawsko-Pomorskie, Sępoleński, Sępólno Krajeńskie'},{"test":"abc","value":52241,"label":"Mazowieckie, Legionowski, Serock"},{"test":"abc","value":3910,"label":'Dolnośląskie, Wrocławski, Siechnice'},{"test":"abc","value":49690,"label":"Mazowieckie, Siedlce"},{"test":"abc","value":49528,"label":'Śląskie, Siemianowice Śląskie'},{"test":"abc","value":52341,"label":"Podlaskie, Siemiatycze"},{"test":"abc","value":52522,"label":'Łódzkie, Sieradzki, Sieradz'},{"test":"abc","value":52339,"label":'Śląskie, Będziński, Siewierz'},{"test":"abc","value":29950,"label":'Świętokrzyskie, Skarżyski, Skarżysko-Kamienna'},{"test":"abc","value":42472,"label":'Łódzkie, Skierniewice'},{"test":"abc","value":29464,"label":'Zachodniopomorskie, Sławieński, Sławno'},{"test":"abc","value":52217,"label":'Lubuskie, Słubicki, Słubice'},{"test":"abc","value":2435,"label":'Wielkopolskie, Słupecki, Słupca'},{"test":"abc","value":15753,"label":'Pomorskie, Słupsk'},{"test":"abc","value":15168,"label":'Dolnośląskie, Wrocławski, Sobótka'},{"test":"abc","value":42582,"label":"Mazowieckie, Sochaczewski, Sochaczew"},{"test":"abc","value":52528,"label":'Mazowieckie, Sokołowski, Sokołów Podlaski'},{"test":"abc","value":52352,"label":"Kujawsko-Pomorskie, Bydgoski, Solec Kujawski"},{"test":"abc","value":10847,"label":"Pomorskie, Sopot"},{"test":"abc","value":43947,"label":'Śląskie, Sosnowiec'},{"test":"abc","value":23503,"label":'Wielkopolskie, Śremski, Śrem'},{"test":"abc","value":17556,"label":'Dolnośląskie, Średzki, Środa Śląska'},{"test":"abc","value":10183,"label":'Wielkopolskie, Średzki, Środa Wielkopolska'},{"test":"abc","value":46169,"label":'Świętokrzyskie, Starachowicki, Starachowice'},{"test":"abc","value":38840,"label":'Zachodniopomorskie, Stargardzki, Stargard Szczeciński'},{"test":"abc","value":32224,"label":'Pomorskie, Starogardzki, Starogard Gdański'},{"test":"abc","value":17501,"label":'Wielkopolskie, Poznański, Stęszew'},{"test":"abc","value":33825,"label":'Śląskie, Cieszyński, Strumień'},{"test":"abc","value":12292,"label":'Łódzkie, Zgierski, Stryków'},{"test":"abc","value":18777,"label":'Dolnośląskie, Strzeliński, Strzelin'},{"test":"abc","value":29050,"label":'Podkarpackie, Strzyżowski, Strzyżów'},{"test":"abc","value":51813,"label":'Małopolskie, Suski, Sucha Beskidzka'},{"test":"abc","value":52447,"label":'Lubuskie, Sulęciński, Sulęcin'},{"test":"abc","value":26213,"label":'Mazowieckie, Miński, Sulejówek'},{"test":"abc","value":42309,"label":'Podlaskie, Suwałki'},{"test":"abc","value":46908,"label":'Wielkopolskie, Poznański, Swarzędz'},{"test":"abc","value":47866,"label":'Dolnośląskie, Świdnicki, Świdnica'},{"test":"abc","value":19804,"label":'Lubelskie, Świdnicki, Świdnik'},{"test":"abc","value":22934,"label":'Dolnośląskie, Świdnicki, Świebodzice'},{"test":"abc","value":52759,"label":'Kujawsko-pomorskie, Świecie'},{"test":"abc","value":52232,"label":'Dolnośląskie, Lubański, Świeradów Zdrój'},{"test":"abc","value":5229,"label":'Śląskie, Świętochłowice'},{"test":"abc","value":28754,"label":'Zachodniopomorskie, Świnoujście'},{"test":"abc","value":52758,"label":'Dolnośląskie, Syców'},{"test":"abc","value":625,"label":'Wielkopolskie, Szamotulski, Szamotuły'},{"test":"abc","value":2151,"label":'Dolnośląskie, Wałbrzyski, Szczawno-Zdrój'},{"test":"abc","value":32657,"label":"Zachodniopomorskie, Szczecin"},{"test":"abc","value":4435,"label":"Zachodniopomorskie, Szczecinecki, Szczecinek"},{"test":"abc","value":52555,"label":'Śląskie, Bielski, Szczyrk'},{"test":"abc","value":36606,"label":'Warmińsko-Mazurskie, Szczycieński, Szczytno'},{"test":"abc","value":49967,"label":'Dolnośląskie, Jeleniogórski, Szklarska Poręba'},{"test":"abc","value":20836,"label":"Kujawsko-Pomorskie, Nakielski, Szubin"},{"test":"abc","value":52506,"label":'Mazowieckie, Szydłowiecki, Szydłowiec'},{"test":"abc","value":52228,"label":'Małopolskie, Tarnów'},{"test":"abc","value":41348,"label":'Śląskie, Tarnogórski, Tarnowskie Góry'},{"test":"abc","value":52273,"label":'Śląskie, Tarnowskie Góry'},{"test":"abc","value":29078,"label":"Pomorskie, Tczewski, Tczew"},{"test":"abc","value":52647,"label":'Mazowieckie, Wołomiński, Tłuszcz'},{"test":"abc","value":52517,"label":'Lubelskie, Tomaszowski, Tomaszów Lubelski'},{"test":"abc","value":42140,"label":'Łódzkie, Tomaszowski, Tomaszów Mazowiecki'},{"test":"abc","value":19894,"label":'Kujawsko-Pomorskie, Toruń'},{"test":"abc","value":8588,"label":"Wielkopolskie, Czarnkowsko-Trzcianecki, Trzcianka"},{"test":"abc","value":32972,"label":'Dolnośląskie, Trzebnicki, Trzebnica'},{"test":"abc","value":12932,"label":'Wielkopolskie, Gnieźnieński, Trzemeszno'},{"test":"abc","value":52707,"label":"Wielkopolskie, Turek"},{"test":"abc","value":39949,"label":'Śląskie, Tychy'},{"test":"abc","value":17318,"label":'Wielkopolskie, Pilski, Ujście'},{"test":"abc","value":20905,"label":'Pomorskie, Słupski, Ustka'},{"test":"abc","value":42904,"label":'Śląskie, Cieszyński, Ustroń'},{"test":"abc","value":52304,"label":'Małopolskie, Wadowice'},{"test":"abc","value":52236,"label":'Dolnośląskie, Wałbrzych'},{"test":"abc","value":52214,"label":'Mazowieckie, Grójecki, Warka'},{"test":"abc","value":8647,"label":"Mazowieckie, Warszawa"},{"test":"abc","value":1786,"label":'Podlaskie, Białostocki, Wasilków'},{"test":"abc","value":35729,"label":'Warmińsko-mazurskie, Węgorzewski, Węgorzewo'},{"test":"abc","value":19240,"label":"Pomorskie, Wejherowski, Wejherowo"},{"test":"abc","value":49238,"label":'Małopolskie, Wielicki, Wieliczka'},{"test":"abc","value":52321,"label":'Łódzkie, Wieruszowski, Wieruszów'},{"test":"abc","value":52294,"label":'Śląskie, Cieszyński, Wisła'},{"test":"abc","value":49596,"label":'Pomorskie, Pucki, Władysławowo'},{"test":"abc","value":44391,"label":'Kujawsko-Pomorskie, Włocławek'},{"test":"abc","value":29786,"label":'Lubelskie, Włodawski, Włodawa'},{"test":"abc","value":16576,"label":'Zachodniopomorskie, Kamieński, Wolin'},{"test":"abc","value":34586,"label":'Mazowieckie, Wołomiński, Wołomin'},{"test":"abc","value":4237,"label":'Dolnośląskie, Wołowski, Wołów'},{"test":"abc","value":50574,"label":'Wielkopolskie, Wolsztyński, Wolsztyn'},{"test":"abc","value":26955,"label":'Dolnośląskie, Wrocław'},{"test":"abc","value":49639,"label":'Wielkopolskie, Wrzesiński, Września'},{"test":"abc","value":52437,"label":"Lubuskie, Wschowski, Wschowa"},{"test":"abc","value":33411,"label":"Wielkopolskie, Pilski, Wyrzysk"},{"test":"abc","value":37260,"label":'Mazowieckie, Wyszkowski, Wyszków'},{"test":"abc","value":23007,"label":'Mazowieckie, Wołomiński, Ząbki'},{"test":"abc","value":52711,"label":'Dolnośląskie, Ząbkowicki, Ząbkowice Śląskie'},{"test":"abc","value":1945,"label":'Śląskie, Zabrze'},{"test":"abc","value":52246,"label":'Lubuskie, Żagański, Żagań'},{"test":"abc","value":24848,"label":'Małopolskie, Tatrzański, Zakopane'},{"test":"abc","value":52401,"label":'Lubelskie, Zamość'},{"test":"abc","value":52468,"label":'Dolnośląskie, Świdnicki, Żarów'},{"test":"abc","value":8848,"label":'Lubuskie, Żarski, Żary'},{"test":"abc","value":40517,"label":'Śląskie, Zawierciański, Zawiercie'},{"test":"abc","value":1136,"label":'Łódzkie, Zgierski, Zgierz'},{"test":"abc","value":49163,"label":'Dolnośląskie, Zgorzelecki, Zgorzelec'},{"test":"abc","value":52451,"label":'Dolnośląskie, Ząbkowicki, Ziębice'},{"test":"abc","value":48806,"label":'Lubuskie, Zielona Góra'},{"test":"abc","value":43707,"label":'Mazowieckie, Wołomiński, Zielonka'},{"test":"abc","value":24706,"label":'Wielkopolskie, Złotowski, Złotów'},{"test":"abc","value":52462,"label":'Dolnośląskie, Trzebnicki, Żmigród'},{"test":"abc","value":52297,"label":'Śląskie, Żory'},{"test":"abc","value":39454,"label":'Pomorskie, Kartuski, Żukowo'},{"test":"abc","value":11917,"label":"Lubelskie, Zamojski, Zwierzyniec"},{"test":"abc","value":19760,"label":'Mazowieckie, Żyrardowski, Żyrardów'},{"test":"abc","value":47604,"label":'Dolnośląskie, Wołowski, Aleksandrowice'},{"test":"abc","value":27903,"label":'Małopolskie, Chrzanowski, Babice'},{"test":"abc","value":22914,"label":"Pomorskie, Kartuski, Banino"},{"test":"abc","value":6771,"label":'Wielkopolskie, Poznański, Baranowo'},{"test":"abc","value":52407,"label":'Warmińsko-Mazurskie, Nidzicki, Bartoszki'},{"test":"abc","value":6766,"label":'Mazowieckie, Piaseczyński, Baszkówka'},{"test":"abc","value":2598,"label":"Zachodniopomorskie, Policki, Bezrzecze"},{"test":"abc","value":52378,"label":'Łódzkie, Zgierski, Biała'},{"test":"abc","value":52349,"label":'Mazowieckie, Legionowski, Białobrzegi'},{"test":"abc","value":8419,"label":'Dolnośląskie, Głogowski, Białołęka'},{"test":"abc","value":27497,"label":'Małopolskie, Krakowski, Bibice'},{"test":"abc","value":38313,"label":'Wielkopolskie, Poznański, Biedrusko'},{"test":"abc","value":17812,"label":'Dolnośląskie, Wrocławski, Bielany Wrocławskie'},{"test":"abc","value":23356,"label":"Mazowieckie, Warszawski Zachodni, Bieniewice"},{"test":"abc","value":52372,"label":'Lubelskie, Biłgorajski, Biłgoraj'},{"test":"abc","value":31477,"label":'Mazowieckie, Nowodworski, Błędowo'},{"test":"abc","value":52470,"label":'Dolnośląskie, Wrocławski, Blizanowice'},{"test":"abc","value":52500,"label":'Mazowieckie, Warszawski Zachodni, Blizne Jasińskiego'},{"test":"abc","value":52203,"label":'Wielkopolskie, Poznański, Bnin'},{"test":"abc","value":48318,"label":'Mazowieckie, Piaseczyński, Bobrowiec'},{"test":"abc","value":52329,"label":'Świętokrzyskie, Ostrowiecki, Bodzechów'},{"test":"abc","value":8304,"label":"Wielkopolskie, Obornicki, Bogdanowo"},{"test":"abc","value":52311,"label":'Dolnośląskie, Oleśnicki, Boguszyce'},{"test":"abc","value":27562,"label":"Pomorskie, Wejherowski, Bojano"},{"test":"abc","value":39699,"label":'Małopolskie, Krakowski, Bolechowice'},{"test":"abc","value":52289,"label":'Mazowieckie, Otwocki, Bolesławów'},{"test":"abc","value":17403,"label":'Łódzkie, Skierniewicki, Bolimów'},{"test":"abc","value":9336,"label":"Pomorskie, Wejherowski, Bolszewo"},{"test":"abc","value":26167,"label":"Pomorskie, Kartuski, Borcz"},{"test":"abc","value":2230,"label":'Pomorskie, Gdański, Borkowo'},{"test":"abc","value":27495,"label":'Wielkopolskie, Poznański, Borówiec'},{"test":"abc","value":52302,"label":'Łódzkie, Zgierski, Bratoszewice'},{"test":"abc","value":3578,"label":'Wielkopolskie, Średzki, Brodowo'},{"test":"abc","value":52526,"label":'Dolnośląskie, Wrocławski, Brzezia Łąka'},{"test":"abc","value":38115,"label":"Opolskie, Opolski, Brzezie"},{"test":"abc","value":6684,"label":'Małopolskie, Krakowski, Brzezie'},{"test":"abc","value":25972,"label":'Dolnośląskie, Średzki, Brzezina'},{"test":"abc","value":52710,"label":'Małopolskie, Krakowski, Brzozówka'},{"test":"abc","value":48736,"label":'Wielkopolskie, Poznański, Bugaj'},{"test":"abc","value":7431,"label":'Łódzkie, Pabianicki, Bychlew'},{"test":"abc","value":52301,"label":'Pomorskie, Słupski, Bydlino'},{"test":"abc","value":52229,"label":'Zachodniopomorskie, Kołobrzeski, Byszewo'},{"test":"abc","value":27525,"label":'Mazowieckie, Legionowski, Chotomów'},{"test":"abc","value":17941,"label":'Dolnośląskie, Wrocławski, Chrząstawa Wielka'},{"test":"abc","value":49279,"label":"Pomorskie, Kartuski, Chwaszczyno"},{"test":"abc","value":6338,"label":'Mazowieckie, Piaseczyński, Chylice'},{"test":"abc","value":31995,"label":'Mazowieckie, Piaseczyński, Chyliczki'},{"test":"abc","value":52299,"label":'Kujawsko-Pomorskie, Toruński, Cierpice'},{"test":"abc","value":52757,"label":'Mazowieckie, Nowodworski, Cybulice Małe'},{"test":"abc","value":32830,"label":"Pomorskie, Kartuski, Czaple"},{"test":"abc","value":16583,"label":'Wielkopolskie, Poznański, Czapury'},{"test":"abc","value":31177,"label":'Małopolskie, Tatrzański, Czarna Góra'},{"test":"abc","value":34679,"label":'Małopolskie, Wielicki, Czarnochowice'},{"test":"abc","value":52312,"label":'Kujawsko-Pomorskie, Toruński, Czernikowo'},{"test":"abc","value":19840,"label":'Wielkopolskie, Poznański, Czmoń'},{"test":"abc","value":52400,"label":'Wielkopolskie, Poznański, Dąbrowa'},{"test":"abc","value":52708,"label":'Świętokrzyskie, Kielecki, Dąbrowa'},{"test":"abc","value":52508,"label":'Mazowieckie, Legionowski, Dąbrowa Chotomowska'},{"test":"abc","value":39467,"label":'Wielkopolskie, Nowotomyski, Dąbrowa Nowa'},{"test":"abc","value":38130,"label":'Wielkopolskie, Poznański, Dąbrówka'},{"test":"abc","value":52467,"label":'Podlaskie, Białostocki, Dąbrówki'},{"test":"abc","value":52226,"label":'Wielkopolskie, Poznański, Dachowa'},{"test":"abc","value":30437,"label":'Wielkopolskie, Poznański, Daszewice'},{"test":"abc","value":11799,"label":"Mazowieckie, Pruszkowski, Dawidy Bankowe"},{"test":"abc","value":52355,"label":'Mazowieckie, Miński, Długa Kościelna'},{"test":"abc","value":30054,"label":'Dolnośląskie, Wrocławski, Długołęka'},{"test":"abc","value":14376,"label":'Dolnośląskie, Wrocławski, Dobrzykowice'},{"test":"abc","value":33284,"label":'Dolnośląskie, Wrocławski, Domasław'},{"test":"abc","value":52348,"label":'Dolnośląskie, Wrocławski, Domaszczyn'},{"test":"abc","value":24393,"label":'Wielkopolskie, Poznański, Dopiewiec'},{"test":"abc","value":52296,"label":"Mazowieckie, Legionowski, Dosin"},{"test":"abc","value":40774,"label":'Wielkopolskie, Leszczyński, Drobnin'},{"test":"abc","value":29280,"label":"Mazowieckie, Warszawski Zachodni, Duchnice"},{"test":"abc","value":36176,"label":'Mazowieckie, Otwocki, Duchnów'},{"test":"abc","value":50552,"label":'Warmińsko-Mazurskie, Olsztyński, Dywity'},{"test":"abc","value":42908,"label":'Mazowieckie, Warszawski Zachodni, Dziekanów Leśny'},{"test":"abc","value":52346,"label":'Mazowieckie, Warszawski Zachodni, Dziekanów Polski'},{"test":"abc","value":25530,"label":'Pomorskie, Kartuski, Dzierżążno'},{"test":"abc","value":13379,"label":'Zachodniopomorskie, Kamieński, Dziwnówek'},{"test":"abc","value":52245,"label":"Pomorskie, Kartuski, Egiertowo"},{"test":"abc","value":32944,"label":'Mazowieckie, Pruszkowski, Falenty Duże'},{"test":"abc","value":32142,"label":"Mazowieckie, Pruszkowski, Falenty Nowe"},{"test":"abc","value":51660,"label":'Małopolskie, Nowosądecki, Florynka'},{"test":"abc","value":9080,"label":'Dolnośląskie, Wrocławski, Gądów'},{"test":"abc","value":52460,"label":'Małopolskie, Krakowski, Gaj'},{"test":"abc","value":9971,"label":'Łódzkie, Łódzki Wschodni, Gałków Duży'},{"test":"abc","value":28489,"label":'Mazowieckie, Radomski, Gębarzów'},{"test":"abc","value":52223,"label":'Małopolskie, Krakowski, Giebułtów'},{"test":"abc","value":22752,"label":'Śląskie, Gliwicki, Gierałtowice'},{"test":"abc","value":52244,"label":"Pomorskie, Kartuski, Glincz"},{"test":"abc","value":49033,"label":'Małopolskie, Myślenicki, Głogoczów'},{"test":"abc","value":31390,"label":'Wielkopolskie, Poznański, Głuchowo'},{"test":"abc","value":46998,"label":"Pomorskie, Wejherowski, Gniewino"},{"test":"abc","value":52240,"label":'Śląskie, Pszczyński, Goczałkowice-Zdrój'},{"test":"abc","value":52224,"label":'Wielkopolskie, Poznański, Gołuski'},{"test":"abc","value":52313,"label":'Mazowieckie, Otwocki, Góraszka'},{"test":"abc","value":12944,"label":'Pomorskie, Wejherowski, Gościcino'},{"test":"abc","value":52335,"label":'Śląskie, Mikołowski, Gostyń'},{"test":"abc","value":6220,"label":'Wielkopolskie, Poznański, Gowarzewo'},{"test":"abc","value":52549,"label":'Mazowieckie, Garwoliński, Goździk'},{"test":"abc","value":52409,"label":'Podlaskie, Białostocki, Grabówka'},{"test":"abc","value":31418,"label":'Dolnośląskie, Wrocławski, Groblice'},{"test":"abc","value":843,"label":"Mazowieckie, Nowodworski, Grochale"},{"test":"abc","value":32038,"label":'Małopolskie, Nowosądecki, Gródek Nad Dunajcem'},{"test":"abc","value":8498,"label":'Śląskie, Bielski, Grodziec'},{"test":"abc","value":52342,"label":'Łódzkie, Zgierski, Grotniki'},{"test":"abc","value":9565,"label":"Mazowieckie, Ciechanowski, Grudusk"},{"test":"abc","value":15024,"label":'Wielkopolskie, Poznański, Gruszczyn'},{"test":"abc","value":52337,"label":'Mazowieckie, Miński, Grzebowilk'},{"test":"abc","value":52308,"label":"Zachodniopomorskie, Policki, Grzepnica"},{"test":"abc","value":29781,"label":'Pomorskie, Kościerski, Grzybowo'},{"test":"abc","value":40396,"label":'Zachodniopomorskie, Kołobrzeski, Grzybowo'},{"test":"abc","value":4332,"label":'Warmińsko-Mazurskie, Olsztyński, Gutkowo'},{"test":"abc","value":7218,"label":'Mazowieckie, Wołomiński, Helenów'},{"test":"abc","value":19320,"label":'Małopolskie, Nowotarski, Huba'},{"test":"abc","value":29941,"label":'Podlaskie, Białostocki, Ignatki-Osiedle'},{"test":"abc","value":52379,"label":'Małopolskie, Krakowski, Iwanowice'},{"test":"abc","value":42100,"label":'Dolnośląskie, Wrocławski, Iwiny'},{"test":"abc","value":38339,"label":'Mazowieckie, Nowodworski, Izabelin-Dziekanówek'},{"test":"abc","value":28697,"label":'Mazowieckie, Legionowski, Jabłonna'},{"test":"abc","value":38176,"label":"Mazowieckie, Legionowski, Jadwisin"},{"test":"abc","value":52497,"label":'Dolnośląskie, Wrocławski, Jaksonów'},{"test":"abc","value":43812,"label":'Mazowieckie, Grodziski, Jaktorów-Kolonia'},{"test":"abc","value":52509,"label":"Lubuskie, Gorzowski, Janczewo"},{"test":"abc","value":52538,"label":"Mazowieckie, Pruszkowski, Janki"},{"test":"abc","value":39660,"label":'Pomorskie, Gdański, Jankowo Gdańskie'},{"test":"abc","value":52495,"label":"Pomorskie, Nowodworski, Jantar"},{"test":"abc","value":52443,"label":"Podkarpackie, Rzeszowski, Jasionka"},{"test":"abc","value":52415,"label":'Śląskie, Tarnogórski, Jaśkowice'},{"test":"abc","value":33634,"label":'Mazowieckie, Grodziski, Jastrzębnik'},{"test":"abc","value":52191,"label":'Dolnośląskie, Wrocławski, Jaszkotle'},{"test":"abc","value":36249,"label":'Małopolskie, Oświęcimski, Jawiszowice'},{"test":"abc","value":10222,"label":'Wielkopolskie, Poznański, Jelonek'},{"test":"abc","value":10760,"label":'Małopolskie, Krakowski, Jerzmanowice'},{"test":"abc","value":52425,"label":'Dolnośląskie, Wrocławski, Jeszkowice'},{"test":"abc","value":52397,"label":'Warmińsko-Mazurskie, Mrągowski, Jora Wielka'},{"test":"abc","value":32821,"label":'Mazowieckie, Piaseczyński, Józefosław'},{"test":"abc","value":18983,"label":'Mazowieckie, Żyrardowski, Józefów'},{"test":"abc","value":38694,"label":'Łódzkie, Łódzki Wschodni, Justynów'},{"test":"abc","value":52288,"label":'Pomorskie, Gdański, Juszkowo'},{"test":"abc","value":50415,"label":'Podlaskie, Białostocki, Juszkowy Gród'},{"test":"abc","value":52556,"label":"Mazowieckie, Pruszkowski, Kajetany"},{"test":"abc","value":35457,"label":'Wielkopolskie, Leszczyński, Kąkolewo'},{"test":"abc","value":52222,"label":'Lubelskie, Lubelski, Kalinówka'},{"test":"abc","value":52464,"label":'Wielkopolskie, Poznański, Kalwy'},{"test":"abc","value":41366,"label":'Dolnośląskie, Wrocławski, Kamień'},{"test":"abc","value":52235,"label":'Dolnośląskie, Wrocławski, Kamieniec Wrocławski'},{"test":"abc","value":52368,"label":'Dolnośląskie, Ząbkowicki, Kamieniec Ząbkowicki'},{"test":"abc","value":52820,"label":'Warmińsko-mazurskie, Szczycieński, Kamionek'},{"test":"abc","value":22002,"label":'Mazowieckie, Żyrardowski, Kamionka'},{"test":"abc","value":2934,"label":'Wielkopolskie, Poznański, Kamionki'},{"test":"abc","value":52428,"label":'Kujawsko-Pomorskie, Toruński, Kamionki Małe'},{"test":"abc","value":52416,"label":'Śląskie, Bielski, Kaniów'},{"test":"abc","value":7633,"label":'Pomorskie, Wejherowski, Kąpino'},{"test":"abc","value":39771,"label":"Mazowieckie, Warszawski Zachodni, Kaputy"},{"test":"abc","value":52317,"label":'Dolnośląskie, Wrocławski, Karwiany'},{"test":"abc","value":8542,"label":'Pomorskie, Nowodworski, Kąty Rybackie'},{"test":"abc","value":37644,"label":'Mazowieckie, Legionowski, Kąty Węgierskie'},{"test":"abc","value":10619,"label":'Wielkopolskie, Szamotulski, Kaźmierz'},{"test":"abc","value":52310,"label":'Pomorskie, Wejherowski, Kębłowo'},{"test":"abc","value":43000,"label":'Mazowieckie, Piaseczyński, Kędzierówka'},{"test":"abc","value":42497,"label":'Wielkopolskie, Poznański, Kiekrz'},{"test":"abc","value":50896,"label":'Dolnośląskie, Wrocławski, Kiełczów'},{"test":"abc","value":52354,"label":'Mazowieckie, Warszawski Zachodni, Kiełpin'},{"test":"abc","value":37907,"label":'Pomorskie, Kartuski, Kiełpino'},{"test":"abc","value":26602,"label":'Warmińsko-Mazurskie, Olsztyński, Kieźliny'},{"test":"abc","value":52452,"label":'Warmińsko-Mazurskie, Olsztyński, Klebark Wielki'},{"test":"abc","value":52498,"label":'Mazowieckie, Wołomiński, Klembów'},{"test":"abc","value":52417,"label":'Pomorskie, Gdański, Kleszczewko'},{"test":"abc","value":22651,"label":'Wielkopolskie, Poznański, Kliny'},{"test":"abc","value":40294,"label":'Dolnośląskie, Wrocławski, Kobierzyce'},{"test":"abc","value":36581,"label":'Wielkopolskie, Poznański, Kobylnica'},{"test":"abc","value":3964,"label":'Wielkopolskie, Poznański, Kobylniki'},{"test":"abc","value":12360,"label":"Mazowieckie, Warszawski Zachodni, Koczargi Stare"},{"test":"abc","value":37334,"label":'Pomorskie, Gdański, Kolbudy'},{"test":"abc","value":52829,"label":"Lubelskie, Lubelski, Kolonia Pliszczyn"},{"test":"abc","value":52503,"label":"Wielkopolskie, Kaliski, Kolonia Skarszewek"},{"test":"abc","value":9076,"label":'Wielkopolskie, Poznański, Komorniki'},{"test":"abc","value":26898,"label":'Warmińsko-Mazurskie, Działdowski, Komorniki'},{"test":"abc","value":39514,"label":'Mazowieckie, Pruszkowski, Komorów'},{"test":"abc","value":52316,"label":'Dolnośląskie, Świdnicki, Komorów'},{"test":"abc","value":35695,"label":'Dolnośląskie, Wrocławski, Komorowice'},{"test":"abc","value":52453,"label":'Wielkopolskie, Poznański, Konarskie'},{"test":"abc","value":46080,"label":'Wielkopolskie, Poznański, Koninko'},{"test":"abc","value":9532,"label":'Mazowieckie, Węgrowski, Korytnica'},{"test":"abc","value":22513,"label":'Mazowieckie, Piaseczyński, Korzeniówka'},{"test":"abc","value":52242,"label":'Małopolskie, Nowosądecki, Korzenna'},{"test":"abc","value":39282,"label":"Pomorskie, Pucki, Kosakowo"},{"test":"abc","value":7421,"label":'Małopolskie, Tatrzański, Kościelisko'},{"test":"abc","value":52227,"label":'Małopolskie, Tarnowski, Koszyce Wielkie'},{"test":"abc","value":52502,"label":'Opolskie, Opolski, Kotórz Wielki'},{"test":"abc","value":52501,"label":'Pomorskie, Gdański, Kowale'},{"test":"abc","value":12905,"label":'Wielkopolskie, Poznański, Koziegłowy'},{"test":"abc","value":11058,"label":'Wielkopolskie, Poznański, Krąplewo'},{"test":"abc","value":40626,"label":"Podkarpackie, Rzeszowski, Krasne"},{"test":"abc","value":9494,"label":'Mazowieckie, Warszawski Zachodni, Kręczki'},{"test":"abc","value":52828,"label":'Kujawsko-pomorskie, Toruński, Krobia'},{"test":"abc","value":44106,"label":'Małopolskie, Krakowski, Kryspinów'},{"test":"abc","value":44037,"label":'Mazowieckie, Żyrardowski, Krze Duże'},{"test":"abc","value":48950,"label":'Dolnośląskie, Wrocławski, Krzeptów'},{"test":"abc","value":36620,"label":'Wielkopolskie, Leszczyński, Krzycko Wielkie'},{"test":"abc","value":51455,"label":'Łódzkie, Zgierski, Krzywiec'},{"test":"abc","value":4996,"label":'Dolnośląskie, Trzebnicki, Krzyżanowice'},{"test":"abc","value":31125,"label":'Łódzkie, Pabianicki, Ksawerów'},{"test":"abc","value":35086,"label":'Mazowieckie, Grodziski, Książenice'},{"test":"abc","value":52389,"label":'Dolnośląskie, Legnicki, Kunice'},{"test":"abc","value":52422,"label":'Małopolskie, Wielicki, Kunice'},{"test":"abc","value":37952,"label":'Wielkopolskie, Międzychodzki, Kwilcz'},{"test":"abc","value":48860,"label":'Mazowieckie, Warszawski Zachodni, Kwirynów'},{"test":"abc","value":52275,"label":'Mazowieckie, Legionowski, Łajski'},{"test":"abc","value":52432,"label":'Śląskie, Pszczyński, Łąka'},{"test":"abc","value":34146,"label":'Mazowieckie, Piaseczyński, Łazy'},{"test":"abc","value":37135,"label":'Pomorskie, Pucki, Łebcz'},{"test":"abc","value":718,"label":'Małopolskie, Wielicki, Lednica Górna'},{"test":"abc","value":52277,"label":'Dolnośląskie, Legnicki, Legnickie Pole'},{"test":"abc","value":3947,"label":'Mazowieckie, Piaseczyński, Lesznowola'},{"test":"abc","value":36767,"label":'Mazowieckie, Grójecki, Lesznowola'},{"test":"abc","value":22066,"label":'Pomorskie, Kartuski, Leźno'},{"test":"abc","value":34647,"label":'Małopolskie, Krakowski, Libertów'},{"test":"abc","value":44885,"label":'Dolnośląskie, Trzebnicki, Ligota Piękna'},{"test":"abc","value":52821,"label":'Mazowieckie, Wołomiński, Lipinki'},{"test":"abc","value":12693,"label":'Mazowieckie, Warszawski Zachodni, Lipków'},{"test":"abc","value":6704,"label":"Mazowieckie, Otwocki, Lipowo"},{"test":"abc","value":52399,"label":'Małopolskie, Krakowski, Liszki'},{"test":"abc","value":52353,"label":'Mazowieckie, Węgrowski, Łochów'},{"test":"abc","value":52430,"label":'Kujawsko-Pomorskie, Bydgoski, Łochowo'},{"test":"abc","value":6883,"label":'Mazowieckie, Warszawski Zachodni, Łomianki Dolne'},{"test":"abc","value":8055,"label":'Wielkopolskie, Poznański, Łopuchowo'},{"test":"abc","value":52250,"label":'Małopolskie, Tarnowski, Łowczówek'},{"test":"abc","value":52806,"label":'Wielkopolskie, Poznański, Łowęcin'},{"test":"abc","value":38755,"label":'Dolnośląskie, Wrocławski, Łozina'},{"test":"abc","value":52375,"label":'Lubelskie, Lubartowski, Lubartów'},{"test":"abc","value":52514,"label":'Lubuskie, Nowosolski, Lubięcin'},{"test":"abc","value":52421,"label":"Pomorskie, Tczewski, Lubiszewo Tczewskie"},{"test":"abc","value":48993,"label":'Zachodniopomorskie, Kamieński, Łukęcin'},{"test":"abc","value":8482,"label":'Wielkopolskie, Poznański, Lusówko'},{"test":"abc","value":42643,"label":'Dolnośląskie, Średzki, Lutynia'},{"test":"abc","value":5710,"label":"Pomorskie, Wejherowski, Luzino"},{"test":"abc","value":4025,"label":'Mazowieckie, Piaseczyński, Magdalenka'},{"test":"abc","value":28635,"label":'Mazowieckie, Wołomiński, Majdan'},{"test":"abc","value":52395,"label":"Kujawsko-Pomorskie, Bydgoski, Maksymilianowo"},{"test":"abc","value":6439,"label":'Mazowieckie, Otwocki, Malcanów'},{"test":"abc","value":52544,"label":'Warmińsko-Mazurskie, Ostródzki, Małdyty'},{"test":"abc","value":29615,"label":'Mazowieckie, Nowodworski, Małocice'},{"test":"abc","value":52282,"label":'Opolskie, Opolski, Marszałki'},{"test":"abc","value":37810,"label":'Świętokrzyskie, Kielecki, Masłów Pierwszy'},{"test":"abc","value":52324,"label":"Pomorskie, Pucki, Mechelinki"},{"test":"abc","value":10668,"label":'Dolnośląskie, Wrocławski, Mędłów'},{"test":"abc","value":10332,"label":'Mazowieckie, Otwocki, Michałówek'},{"test":"abc","value":52376,"label":'Mazowieckie, Legionowski, Michałów-Grabina'},{"test":"abc","value":52225,"label":'Małopolskie, Krakowski, Michałowice'},{"test":"abc","value":6354,"label":'Mazowieckie, Pruszkowski, Michałowice-Wieś'},{"test":"abc","value":38052,"label":'Mazowieckie, Legionowski, Michałów-Reginów'},{"test":"abc","value":40170,"label":"Pomorskie, Kartuski, Miechucino"},{"test":"abc","value":34893,"label":'Zachodniopomorskie, Kamieński, Międzywodzie'},{"test":"abc","value":16057,"label":'Pomorskie, Słupski, Mielno'},{"test":"abc","value":24820,"label":'Zachodniopomorskie, Koszaliński, Mielno'},{"test":"abc","value":13611,"label":"Zachodniopomorskie, Policki, Mierzyn"},{"test":"abc","value":27600,"label":'Dolnośląskie, Wrocławski, Mirków'},{"test":"abc","value":15044,"label":'Mazowieckie, Pruszkowski, Młochów'},{"test":"abc","value":48601,"label":'Dolnośląskie, Wrocławski, Mnichowice'},{"test":"abc","value":23982,"label":'Małopolskie, Krakowski, Mników'},{"test":"abc","value":52003,"label":'Małopolskie, Krakowski, Modlnica'},{"test":"abc","value":31171,"label":'Małopolskie, Krakowski, Modlniczka'},{"test":"abc","value":30274,"label":'Małopolskie, Krakowski, Mogilany'},{"test":"abc","value":32614,"label":"Zachodniopomorskie, Stargardzki, Morzyczyn"},{"test":"abc","value":19040,"label":"Pomorskie, Pucki, Mosty"},{"test":"abc","value":30217,"label":"Lubelskie, Lubelski, Motycz"},{"test":"abc","value":3992,"label":'Wielkopolskie, Poznański, Mrowino'},{"test":"abc","value":40413,"label":'Mazowieckie, Miński, Mrozy'},{"test":"abc","value":19023,"label":'Zachodniopomorskie, Gryficki, Mrzeżyno'},{"test":"abc","value":52427,"label":'Podkarpackie, Jarosławski, Munina'},{"test":"abc","value":764,"label":'Mazowieckie, Piaseczyński, Mysiadło'},{"test":"abc","value":52554,"label":'Dolnośląskie, Jeleniogórski, Mysłakowice'},{"test":"abc","value":15839,"label":'Kujawsko-Pomorskie, Bydgoski, Myślęcinek'},{"test":"abc","value":19543,"label":"Mazowieckie, Pruszkowski, Nadarzyn"},{"test":"abc","value":4865,"label":'Mazowieckie, Wołomiński, Nadma'},{"test":"abc","value":6002,"label":'Dolnośląskie, Wrocławski, Nadolice Wielkie'},{"test":"abc","value":11650,"label":'Małopolskie, Krakowski, Narama'},{"test":"abc","value":52434,"label":'Warmińsko-Mazurskie, Olsztyński, Naterki'},{"test":"abc","value":52439,"label":'Śląskie, Gliwicki, Nieborowice'},{"test":"abc","value":22442,"label":"Zachodniopomorskie, Gryficki, Niechorze"},{"test":"abc","value":12266,"label":'Małopolskie, Tarnowski, Niedomice'},{"test":"abc","value":52230,"label":'Zachodniopomorskie, Kołobrzeski, Niekanin'},{"test":"abc","value":51206,"label":"Kujawsko-Pomorskie, Bydgoski, Niemcz"},{"test":"abc","value":25245,"label":'Mazowieckie, Legionowski, Nieporęt'},{"test":"abc","value":52291,"label":'Podlaskie, Białostocki, Niewodnica Korycka'},{"test":"abc","value":52405,"label":'Wielkopolskie, Śremski, Nochowo'},{"test":"abc","value":43998,"label":'Mazowieckie, Piaseczyński, Nowa Iwiczna'},{"test":"abc","value":37600,"label":'Mazowieckie, Piaseczyński, Nowa Wola'},{"test":"abc","value":52243,"label":"Pomorskie, Kartuski, Nowe Czaple"},{"test":"abc","value":52249,"label":"Mazowieckie, Siedlecki, Nowe Iganie"},{"test":"abc","value":27468,"label":'Mazowieckie, Wołomiński, Nowe Lipiny'},{"test":"abc","value":52553,"label":'Świętokrzyskie, Kielecki, Nowiny'},{"test":"abc","value":29580,"label":'Zachodniopomorskie, Myśliborski, Nowogródek Pomorski'},{"test":"abc","value":10959,"label":'Mazowieckie, Warszawski Zachodni, Nowy Dziekanów'},{"test":"abc","value":52531,"label":'Dolnośląskie, Lubiński, Obora'},{"test":"abc","value":52390,"label":'Kujawsko-Pomorskie, Toruński, Obrowo'},{"test":"abc","value":37970,"label":'Lubuskie, Zielonogórski, Ochla'},{"test":"abc","value":34992,"label":'Małopolskie, Wielicki, Ochmanów'},{"test":"abc","value":52507,"label":"Mazowieckie, Legionowski, Olszewnica Nowa"},{"test":"abc","value":52690,"label":"Mazowieckie, Legionowski, Olszewnica Stara"},{"test":"abc","value":13084,"label":"Mazowieckie, Pruszkowski, Opacz-Kolonia"},{"test":"abc","value":51821,"label":'Małopolskie, Proszowicki, Opatkowice'},{"test":"abc","value":20837,"label":"Pomorskie, Wejherowski, Orle"},{"test":"abc","value":52701,"label":'Śląskie, Mikołowski, Ornontowice'},{"test":"abc","value":42560,"label":"Kujawsko-Pomorskie, Bydgoski, Osielsko"},{"test":"abc","value":52373,"label":'Podlaskie, Białostocki, Osowicze'},{"test":"abc","value":34318,"label":'Mazowieckie, Pruszkowski, Otrębusy'},{"test":"abc","value":27677,"label":'Mazowieckie, Otwocki, Otwock Mały'},{"test":"abc","value":52298,"label":'Dolnośląskie, Wrocławski, Ozorzyce'},{"test":"abc","value":47059,"label":'Wielkopolskie, Poznański, Paczkowo'},{"test":"abc","value":44016,"label":'Wielkopolskie, Poznański, Palędzie'},{"test":"abc","value":46626,"label":"Mazowieckie, Pruszkowski, Parzniew"},{"test":"abc","value":25480,"label":'Śląskie, Pszczyński, Pawłowice'},{"test":"abc","value":13037,"label":'Mazowieckie, Pruszkowski, Pęcice Małe'},{"test":"abc","value":52290,"label":'Wielkopolskie, Poznański, Pecna'},{"test":"abc","value":45216,"label":'Wielkopolskie, Gostyński, Pępowo'},{"test":"abc","value":45599,"label":'Pomorskie, Kartuski, Pępowo'},{"test":"abc","value":4744,"label":'Małopolskie, Krakowski, Piekary'},{"test":"abc","value":20312,"label":'Dolnośląskie, Wrocławski, Pietrzykowice'},{"test":"abc","value":35553,"label":'Małopolskie, Chrzanowski, Piła Kościelecka'},{"test":"abc","value":52438,"label":'Śląskie, Gliwicki, Pilchowice'},{"test":"abc","value":11639,"label":"Pomorskie, Starogardzki, Pinczyn"},{"test":"abc","value":50508,"label":'Śląskie, Bielski, Pisarzowice'},{"test":"abc","value":52271,"label":'Dolnośląskie, Oleśnicki, Piszkawa'},{"test":"abc","value":30423,"label":'Wielkopolskie, Poznański, Plewiska'},{"test":"abc","value":52347,"label":'Mazowieckie, Pułtuski, Pobyłkowo Małe'},{"test":"abc","value":39906,"label":'Pomorskie, Słupski, Poddąbie'},{"test":"abc","value":43126,"label":'Pomorskie, Pucki, Pogórze'},{"test":"abc","value":25293,"label":'Zachodniopomorskie, Łobeski, Pogorzelica'},{"test":"abc","value":28369,"label":"Zachodniopomorskie, Gryficki, Pogorzelica"},{"test":"abc","value":52198,"label":'Kujawsko-Pomorskie, Brodnicki, Półko'},{"test":"abc","value":24694,"label":'Lubuskie, Zielonogórski, Pomorsko'},{"test":"abc","value":4863,"label":'Dolnośląskie, Oleśnicki, Poniatowice'},{"test":"abc","value":52551,"label":'Śląskie, Myszkowski, Poraj'},{"test":"abc","value":9000,"label":'Małopolskie, Tatrzański, Poronin'},{"test":"abc","value":2986,"label":'Mazowieckie, Piaseczyński, Prażmów'},{"test":"abc","value":52330,"label":'Dolnośląskie, Wrocławski, Pruszowice'},{"test":"abc","value":49540,"label":'Wielkopolskie, Poznański, Przeźmierowo'},{"test":"abc","value":52408,"label":'Mazowieckie, Piaseczyński, Przypki'},{"test":"abc","value":52435,"label":'Wielkopolskie, Śremski, Psarskie'},{"test":"abc","value":9616,"label":'Dolnośląskie, Trzebnicki, Psary'},{"test":"abc","value":42431,"label":'Dolnośląskie, Świdnicki, Pszenno'},{"test":"abc","value":37911,"label":"Zachodniopomorskie, Goleniowski, Pucice"},{"test":"abc","value":2797,"label":"Podkarpackie, Stalowowolski, Pysznica"},{"test":"abc","value":52394,"label":'Wielkopolskie, Poznański, Rabowice'},{"test":"abc","value":42060,"label":'Małopolskie, Krakowski, Raciborowice'},{"test":"abc","value":3291,"label":'Małopolskie, Miechowski, Racławice'},{"test":"abc","value":26411,"label":'Dolnośląskie, Wrocławski, Racławice Wielkie'},{"test":"abc","value":8184,"label":'Dolnośląskie, Wrocławski, Radomierzyce'},{"test":"abc","value":14233,"label":'Pomorskie, Gdański, Radunica'},{"test":"abc","value":37461,"label":'Dolnośląskie, Wrocławski, Radwanice'},{"test":"abc","value":5264,"label":'Mazowieckie, Żyrardowski, Radziejowice'},{"test":"abc","value":52319,"label":"Wielkopolskie, Szamotulski, Radzyny"},{"test":"abc","value":3525,"label":"Mazowieckie, Pruszkowski, Raszyn"},{"test":"abc","value":9898,"label":'Warmińsko-Mazurskie, Olsztyński, Redykajny'},{"test":"abc","value":29189,"label":'Mazowieckie, Pruszkowski, Reguły'},{"test":"abc","value":52338,"label":"Mazowieckie, Legionowski, Rembelszczyzna"},{"test":"abc","value":3482,"label":"Zachodniopomorskie, Gryficki, Rewal"},{"test":"abc","value":1209,"label":'Wielkopolskie, Pleszewski, Robaków'},{"test":"abc","value":22215,"label":'Wielkopolskie, Poznański, Robakowo'},{"test":"abc","value":17972,"label":'Wielkopolskie, Poznański, Rogalin'},{"test":"abc","value":42767,"label":"Zachodniopomorskie, Gryficki, Rogowo"},{"test":"abc","value":16717,"label":"Zachodniopomorskie, Stargardzki, Rogowo"},{"test":"abc","value":52512,"label":'Mazowieckie, Płocki, Rogozino'},{"test":"abc","value":48500,"label":'Wielkopolskie, Poznański, Rokietnica'},{"test":"abc","value":52384,"label":"Pomorskie, Tczewski, Rokitki"},{"test":"abc","value":23959,"label":'Pomorskie, Gdański, Rokitnica'},{"test":"abc","value":52704,"label":'Zachodniopomorskie, Koszaliński, Rosnowo'},{"test":"abc","value":52705,"label":'Wielkopolskie, Poznański, Rosnowo'},{"test":"abc","value":589,"label":'Pomorskie, Gdański, Rotmanka'},{"test":"abc","value":936,"label":'Pomorskie, Słupski, Rowy'},{"test":"abc","value":52429,"label":"Mazowieckie, Pruszkowski, Rozalin"},{"test":"abc","value":52295,"label":'Kujawsko-Pomorskie, Toruński, Rozgarty'},{"test":"abc","value":16881,"label":'Pomorskie, Gdański, Różyny'},{"test":"abc","value":21300,"label":'Małopolskie, Krakowski, Rudawa'},{"test":"abc","value":52465,"label":'Wielkopolskie, Poznański, Rumianek'},{"test":"abc","value":52300,"label":'Warmińsko-Mazurskie, Olsztyński, Ruś'},{"test":"abc","value":17967,"label":"Mazowieckie, Pruszkowski, Rusiec"},{"test":"abc","value":52496,"label":'Małopolskie, Krakowski, Rybna'},{"test":"abc","value":52393,"label":'Małopolskie, Wadowicki, Ryczów'},{"test":"abc","value":19992,"label":'Małopolskie, Krakowski, Rząska'},{"test":"abc","value":52789,"label":'Mazowieckie, Wyszkowski, Rząśnik'},{"test":"abc","value":52530,"label":'Mazowieckie, Ostrołęcki, Rzekuń'},{"test":"abc","value":34342,"label":"Mazowieckie, Grodziski, Sade Budy"},{"test":"abc","value":38585,"label":'Dolnośląskie, Wrocławski, Sadków'},{"test":"abc","value":27725,"label":"Mazowieckie, Warszawski Zachodni, Sadowa"},{"test":"abc","value":43506,"label":'Wielkopolskie, Poznański, Sady'},{"test":"abc","value":11359,"label":'Zachodniopomorskie, Koszaliński, Sarbinowo'},{"test":"abc","value":38155,"label":'Łódzkie, Łaski, Sędziejowice'},{"test":"abc","value":18184,"label":'Mazowieckie, Pruszkowski, Sękocin Nowy'},{"test":"abc","value":52431,"label":"Mazowieckie, Sochaczewski, Seroki-Parcela"},{"test":"abc","value":52221,"label":'Zachodniopomorskie, Policki, Siadło Dolne'},{"test":"abc","value":52402,"label":'Mazowieckie, Płoński, Siedlin'},{"test":"abc","value":51550,"label":'Pomorskie, Słupski, Siemianice'},{"test":"abc","value":10970,"label":'Dolnośląskie, Kłodzki, Sienna'},{"test":"abc","value":46611,"label":"Pomorskie, Kartuski, Sierakowice"},{"test":"abc","value":52463,"label":'Wielkopolskie, Poznański, Sierosław'},{"test":"abc","value":52411,"label":'Mazowieckie, Grodziski, Siestrzeń'},{"test":"abc","value":52213,"label":"Zachodniopomorskie, Szczecinecki, Silnowo"},{"test":"abc","value":24542,"label":"Opolskie, Brzeski, Skarbimierz"},{"test":"abc","value":52444,"label":"Zachodniopomorskie, Policki, Skarbimierzyce"},{"test":"abc","value":52356,"label":'Małopolskie, Krakowski, Skawina'},{"test":"abc","value":11676,"label":"Mazowieckie, Legionowski, Skierdy"},{"test":"abc","value":4215,"label":'Kujawsko-Pomorskie, Nakielski, Skórzewo'},{"test":"abc","value":2450,"label":'Wielkopolskie, Poznański, Skórzewo'},{"test":"abc","value":34270,"label":'Pomorskie, Gdański, Skowarcz'},{"test":"abc","value":32338,"label":"Mazowieckie, Legionowski, Skrzeszew"},{"test":"abc","value":13636,"label":'Mazowieckie, Grodziski, Skuły'},{"test":"abc","value":52305,"label":'Zachodniopomorskie, Koszaliński, Skwierzynka'},{"test":"abc","value":46478,"label":'Małopolskie, Wielicki, Śledziejowice'},{"test":"abc","value":4654,"label":'Dolnośląskie, Wrocławski, Ślęza'},{"test":"abc","value":11377,"label":'Mazowieckie, Pruszkowski, Słomin'},{"test":"abc","value":42993,"label":'Mazowieckie, Płocki, Słupno'},{"test":"abc","value":41596,"label":'Mazowieckie, Wołomiński, Słupno'},{"test":"abc","value":52357,"label":'Dolnośląskie, Wrocławski, Smolec'},{"test":"abc","value":28882,"label":"Mazowieckie, Otwocki, Sobienie Szlacheckie"},{"test":"abc","value":26262,"label":'Dolnośląskie, Lwówecki, Sobota'},{"test":"abc","value":49453,"label":'Mazowieckie, Piaseczyński, Solec'},{"test":"abc","value":52547,"label":'Wielkopolskie, Ostrowski, Sośnie'},{"test":"abc","value":52504,"label":'Dolnośląskie, Oleśnicki, Spalice'},{"test":"abc","value":52360,"label":'Mazowieckie, Legionowski, Stanisławów Drugi'},{"test":"abc","value":52350,"label":'Mazowieckie, Legionowski, Stanisławów Pierwszy'},{"test":"abc","value":52218,"label":'Dolnośląskie, Jeleniogórski, Staniszów'},{"test":"abc","value":37859,"label":'Mazowieckie, Piaseczyński, Stara Iwiczna'},{"test":"abc","value":52398,"label":'Mazowieckie, Pruszkowski, Stara Wieś'},{"test":"abc","value":21611,"label":"Mazowieckie, Warszawski Zachodni, Stare Babice"},{"test":"abc","value":52552,"label":"Mazowieckie, Nowodworski, Stare Grochale"},{"test":"abc","value":15424,"label":'Łódzkie, Łódzki Wschodni, Starowa Góra'},{"test":"abc","value":22561,"label":"Pomorskie, Nowodworski, Stegna"},{"test":"abc","value":49040,"label":'Mazowieckie, Miński, Stojadła'},{"test":"abc","value":39808,"label":'Pomorskie, Gdański, Straszyn'},{"test":"abc","value":52593,"label":'Mazowieckie, Płocki, Stróżewko'},{"test":"abc","value":20144,"label":'Małopolskie, Wielicki, Strumiany'},{"test":"abc","value":52345,"label":"Mazowieckie, Warszawski Zachodni, Strzykuly"},{"test":"abc","value":21888,"label":'Pomorskie, Pucki, Suchy Dwór'},{"test":"abc","value":16085,"label":'Wielkopolskie, Poznański, Suchy Las'},{"test":"abc","value":52351,"label":'Małopolskie, Wielicki, Sułków'},{"test":"abc","value":16272,"label":"Pomorskie, Pucki, Swarzewo"},{"test":"abc","value":52419,"label":'Śląskie, Tarnogórski, Świerklaniec'},{"test":"abc","value":6424,"label":'Dolnośląskie, Wrocławski, Święta Katarzyna'},{"test":"abc","value":35566,"label":'Podkarpackie, Rzeszowski, Świlcza'},{"test":"abc","value":52383,"label":'Mazowieckie, Grodziski, Szczęsne'},{"test":"abc","value":859,"label":"Wielkopolskie, Szamotulski, Szczuczyn"},{"test":"abc","value":52336,"label":'Wielkopolskie, Poznański, Szczytniki'},{"test":"abc","value":39179,"label":"Mazowieckie, Warszawski Zachodni, Szeligi"},{"test":"abc","value":32934,"label":"Pomorskie, Wejherowski, Szemud"},{"test":"abc","value":52340,"label":'Dolnośląskie, Lubiński, Szklary Górne'},{"test":"abc","value":52518,"label":"Pomorskie, Kartuski, Sznurki"},{"test":"abc","value":15233,"label":'Wielkopolskie, Poznański, Szreniawa'},{"test":"abc","value":46812,"label":"Pomorskie, Nowodworski, Sztutowo"},{"test":"abc","value":52426,"label":'Wielkopolskie, Pilski, Szydłowo'},{"test":"abc","value":52234,"label":"Pomorskie, Kartuski, Szymbark"},{"test":"abc","value":52823,"label":'Dolnośląskie, Trzebnicki, Taczów Wielki'},{"test":"abc","value":20502,"label":'Wielkopolskie, Poznański, Tarnowo Podgórne'},{"test":"abc","value":39907,"label":"Pomorskie, Kartuski, Tokary"},{"test":"abc","value":50027,"label":'Warmińsko-Mazurskie, Olsztyński, Tomaszkowo'},{"test":"abc","value":26253,"label":"Podkarpackie, Rzeszowski, Trzebownisko"},{"test":"abc","value":15812,"label":"Pomorskie, Kartuski, Tuchom"},{"test":"abc","value":32745,"label":'Wielkopolskie, Poznański, Tulce'},{"test":"abc","value":52231,"label":"Lubelskie, Lubelski, Turka"},{"test":"abc","value":29424,"label":'Dolnośląskie, Wrocławski, Tyniec Mały'},{"test":"abc","value":41680,"label":'Zachodniopomorskie, Koszaliński, Unieście'},{"test":"abc","value":13355,"label":'Mazowieckie, Piaseczyński, Ustanów'},{"test":"abc","value":34561,"label":'Zachodniopomorskie, Kołobrzeski, Ustronie Morskie'},{"test":"abc","value":52371,"label":'Wielkopolskie, Wągrowiecki, Wągrowiec'},{"test":"abc","value":50953,"label":'Mazowieckie, Pruszkowski, Walendów'},{"test":"abc","value":46852,"label":"Mazowieckie, Otwocki, Warszawice"},{"test":"abc","value":37521,"label":'Śląskie, Pszczyński, Warszowice'},{"test":"abc","value":44745,"label":"Zachodniopomorskie, Policki, Warzymice"},{"test":"abc","value":27803,"label":'Małopolskie, Krakowski, Węgrzce'},{"test":"abc","value":7529,"label":"Podkarpackie, Leski, Wetlina"},{"test":"abc","value":2743,"label":'Mazowieckie, Otwocki, Wiązowna'},{"test":"abc","value":47618,"label":'Małopolskie, Krakowski, Więckowice'},{"test":"abc","value":52359,"label":"Mazowieckie, Legionowski, Wieliszew"},{"test":"abc","value":52377,"label":'Małopolskie, Krakowski, Wielka Wieś'},{"test":"abc","value":52536,"label":'Śląskie, Częstochowski, Wierzchowisko'},{"test":"abc","value":52200,"label":"Kujawsko-Pomorskie, Bydgoski, Wilcze"},{"test":"abc","value":29203,"label":'Dolnośląskie, Wrocławski, Wilczyce'},{"test":"abc","value":52239,"label":'Dolnośląskie, Średzki, Wilkszyn'},{"test":"abc","value":29287,"label":'Wielkopolskie, Poznański, Wiry'},{"test":"abc","value":52315,"label":'Łódzkie, Łódzki Wschodni, Wiśniowa Góra'},{"test":"abc","value":13603,"label":'Dolnośląskie, Trzebnicki, Wisznia Mała'},{"test":"abc","value":46502,"label":'Mazowieckie, Piaseczyński, Władysławów'},{"test":"abc","value":6035,"label":'Małopolskie, Krakowski, Włosań'},{"test":"abc","value":52385,"label":'Dolnośląskie, Wrocławski, Wojkowice'},{"test":"abc","value":52220,"label":'Dolnośląskie, Wrocławski, Wojnowice'},{"test":"abc","value":14748,"label":'Mazowieckie, Piaseczyński, Wola Mrokowska'},{"test":"abc","value":6924,"label":'Zachodniopomorskie, Policki, Wołczkowo'},{"test":"abc","value":23803,"label":"Mazowieckie, Warszawski Zachodni, Wolica"},{"test":"abc","value":51237,"label":"Mazowieckie, Pruszkowski, Wolica"},{"test":"abc","value":44464,"label":'Mazowieckie, Piaseczyński, Wólka Kosowska'},{"test":"abc","value":47782,"label":'Mazowieckie, Miński, Wólka Mińska'},{"test":"abc","value":52442,"label":'Podkarpackie, Rzeszowski, Wólka Podleśna'},{"test":"abc","value":52537,"label":'Zachodniopomorskie, Kamieński, Wrzosowo'},{"test":"abc","value":15665,"label":'Wielkopolskie, Poznański, Wysogotowo'},{"test":"abc","value":14088,"label":'Dolnośląskie, Wrocławski, Wysoka'},{"test":"abc","value":52664,"label":'Podkarpackie, Wyżne'},{"test":"abc","value":52331,"label":'Małopolskie, Wielicki, Zabawa'},{"test":"abc","value":29492,"label":'Mazowieckie, Grodziski, Żabia Wola'},{"test":"abc","value":31832,"label":'Małopolskie, Krakowski, Zabierzów'},{"test":"abc","value":13351,"label":'Lubuskie, Zielonogórski, Zabór'},{"test":"abc","value":33346,"label":'Mazowieckie, Warszawski Zachodni, Zaborówek'},{"test":"abc","value":52280,"label":'Małopolskie, Wielicki, Zakrzowiec'},{"test":"abc","value":27018,"label":'Wielkopolskie, Poznański, Zalasewo'},{"test":"abc","value":17216,"label":'Mazowieckie, Piaseczyński, Zalesie Górne'},{"test":"abc","value":17703,"label":'Mazowieckie, Piaseczyński, Zamienie'},{"test":"abc","value":20796,"label":'Mazowieckie, Miński, Zamienie'},{"test":"abc","value":25518,"label":'Mazowieckie, Otwocki, Żanęcin'},{"test":"abc","value":26661,"label":'Wielkopolskie, Średzki, Zaniemyśl'},{"test":"abc","value":46889,"label":'Podlaskie, Białostocki, Zaścianki'},{"test":"abc","value":52685,"label":'Wielkopolskie, Śremski, Zbrudzewo'},{"test":"abc","value":16196,"label":'Zachodniopomorskie, Gryfiński, Żelewo'},{"test":"abc","value":52281,"label":'Małopolskie, Krakowski, Żerkowice'},{"test":"abc","value":11887,"label":'Dolnośląskie, Wrocławski, Żerniki Małe'},{"test":"abc","value":52369,"label":'Mazowieckie, Piaseczyński, Zgorzała'},{"test":"abc","value":52327,"label":"Kujawsko-Pomorskie, Bydgoski, Zielonka"},{"test":"abc","value":2350,"label":'Mazowieckie, Zwoleński, Zielonka Nowa'},{"test":"abc","value":876,"label":'Małopolskie, Krakowski, Zielonki'},{"test":"abc","value":42318,"label":'Wielkopolskie, Kaliski, Złotniki'},{"test":"abc","value":52325,"label":'Podkarpackie, Mielecki, Złotniki'},{"test":"abc","value":22698,"label":'Wielkopolskie, Poznański, Złotniki'},{"test":"abc","value":40262,"label":'Podlaskie, Białostocki, Złotniki'},{"test":"abc","value":34935,"label":'Dolnośląskie, Lubański, Złotniki Lubańskie'},{"test":"abc","value":45748,"label":'Mazowieckie, Pruszkowski, Żółwin'},{"test":"abc","value":52186,"label":'Pomorskie, Gdańsk, Aniołki'},{"test":"abc","value":52488,"label":'Pomorskie, Gdynia, Babie Doły'},{"test":"abc","value":52133,"label":'Łódzkie, Łódź, Bałuty'},{"test":"abc","value":38720,"label":"Mazowieckie, Warszawa, Bemowo"},{"test":"abc","value":42663,"label":'Mazowieckie, Warszawa, Białołęka'},{"test":"abc","value":28904,"label":"Mazowieckie, Warszawa, Bielany"},{"test":"abc","value":52201,"label":'Małopolskie, Kraków, Bieńczyce'},{"test":"abc","value":52137,"label":'Małopolskie, Kraków, Bieżanów-Prokocim'},{"test":"abc","value":52188,"label":'Pomorskie, Gdańsk, Brętowo'},{"test":"abc","value":52127,"label":'Małopolskie, Kraków, Bronowice'},{"test":"abc","value":52202,"label":'Pomorskie, Gdańsk, Brzeźno'},{"test":"abc","value":52114,"label":'Pomorskie, Gdańsk, Chełm I Gdańsk Południe'},{"test":"abc","value":52169,"label":"Pomorskie, Gdynia, Chwarzno-Wiczlino"},{"test":"abc","value":52184,"label":"Pomorskie, Gdynia, Chylonia"},{"test":"abc","value":52187,"label":"Pomorskie, Gdynia, Cisowa"},{"test":"abc","value":52138,"label":'Małopolskie, Kraków, Czyżyny'},{"test":"abc","value":52162,"label":'Pomorskie, Gdynia, Dąbrowa'},{"test":"abc","value":52124,"label":'Małopolskie, Kraków, Dębniki'},{"test":"abc","value":52179,"label":"Pomorskie, Sopot, Dolny Sopot"},{"test":"abc","value":52489,"label":'Pomorskie, Gdynia, Działki Leśne'},{"test":"abc","value":52122,"label":'Dolnośląskie, Wrocław, Fabryczna'},{"test":"abc","value":52167,"label":'Łódzkie, Łódź, Górna'},{"test":"abc","value":52183,"label":'Pomorskie, Sopot, Górny Sopot'},{"test":"abc","value":52180,"label":'Pomorskie, Gdynia, Grabówek'},{"test":"abc","value":52118,"label":'Wielkopolskie, Poznań, Grunwald'},{"test":"abc","value":52175,"label":'Małopolskie, Kraków, Grzegórzki'},{"test":"abc","value":52205,"label":'Pomorskie, Gdańsk, Jasień'},{"test":"abc","value":52119,"label":'Wielkopolskie, Poznań, Jeżyce'},{"test":"abc","value":52490,"label":'Pomorskie, Gdynia, Kamienna Góra'},{"test":"abc","value":52190,"label":"Pomorskie, Sopot, Karlikowo"},{"test":"abc","value":52328,"label":"Pomorskie, Gdynia, Karwiny"},{"test":"abc","value":52148,"label":'Pomorskie, Gdańsk, Kokoszki'},{"test":"abc","value":52476,"label":'Pomorskie, Gdańsk, Krakowiec-Górki Zachodnie'},{"test":"abc","value":52123,"label":'Małopolskie, Kraków, Krowodrza'},{"test":"abc","value":52121,"label":'Dolnośląskie, Wrocław, Krzyki'},{"test":"abc","value":52150,"label":'Małopolskie, Kraków, Łagiewniki'},{"test":"abc","value":52491,"label":"Pomorskie, Gdynia, Leszczynki"},{"test":"abc","value":52477,"label":'Pomorskie, Gdańsk, Letnica'},{"test":"abc","value":52134,"label":'Pomorskie, Gdynia, Mały Kack'},{"test":"abc","value":52173,"label":'Pomorskie, Gdańsk, Matarnia'},{"test":"abc","value":52141,"label":'Małopolskie, Kraków, Mistrzejowice'},{"test":"abc","value":52478,"label":'Pomorskie, Gdańsk, Młyniska'},{"test":"abc","value":20284,"label":'Mazowieckie, Warszawa, Mokotów'},{"test":"abc","value":52126,"label":'Małopolskie, Kraków, Nowa Huta'},{"test":"abc","value":52128,"label":'Wielkopolskie, Poznań, Nowe Miasto'},{"test":"abc","value":52479,"label":'Pomorskie, Gdańsk, Nowy Port'},{"test":"abc","value":52163,"label":'Pomorskie, Gdynia, Obłuże'},{"test":"abc","value":38687,"label":"Mazowieckie, Warszawa, Ochota"},{"test":"abc","value":52135,"label":"Pomorskie, Gdynia, Oksywie"},{"test":"abc","value":52181,"label":'Pomorskie, Gdańsk, Oliwa'},{"test":"abc","value":52480,"label":'Pomorskie, Gdańsk, Olszynka'},{"test":"abc","value":52182,"label":'Pomorskie, Gdynia, Orłowo'},{"test":"abc","value":52155,"label":'Pomorskie, Gdańsk, Orunia-Św. Wojciech-Lipce'},{"test":"abc","value":52115,"label":'Pomorskie, Gdańsk, Osowa'},{"test":"abc","value":52131,"label":'Pomorskie, Gdańsk, Piecki-Migowo'},{"test":"abc","value":52142,"label":'Małopolskie, Kraków, Podgórze'},{"test":"abc","value":52139,"label":'Małopolskie, Kraków, Podgórze Duchackie'},{"test":"abc","value":52160,"label":'Pomorskie, Gdynia, Pogórze'},{"test":"abc","value":52164,"label":'Łódzkie, Łódź, Polesie'},{"test":"abc","value":52147,"label":'Zachodniopomorskie, Szczecin, Północ'},{"test":"abc","value":52112,"label":'Małopolskie, Kraków, Prądnik Biały'},{"test":"abc","value":52130,"label":'Małopolskie, Kraków, Prądnik Czerwony'},{"test":"abc","value":36957,"label":'Mazowieckie, Warszawa, Praga-Północ'},{"test":"abc","value":51145,"label":'Mazowieckie, Warszawa, Praga-Południe'},{"test":"abc","value":52140,"label":'Zachodniopomorskie, Szczecin, Prawobrzeże'},{"test":"abc","value":52481,"label":'Pomorskie, Gdańsk, Przeróbka'},{"test":"abc","value":52185,"label":'Pomorskie, Gdańsk, Przymorze Małe'},{"test":"abc","value":52177,"label":'Pomorskie, Gdańsk, Przymorze Wielkie'},{"test":"abc","value":52156,"label":'Dolnośląskie, Wrocław, Psie Pole'},{"test":"abc","value":52270,"label":"Pomorskie, Gdynia, Pustki Cisowskie-Demptowo"},{"test":"abc","value":52178,"label":'Pomorskie, Gdynia, Redłowo'},{"test":"abc","value":22883,"label":'Mazowieckie, Warszawa, Rembertów'},{"test":"abc","value":52482,"label":'Pomorskie, Gdańsk, Rudniki'},{"test":"abc","value":52192,"label":'Pomorskie, Gdańsk, Siedlce'},{"test":"abc","value":50052,"label":'Mazowieckie, Warszawa, Śródmieście'},{"test":"abc","value":52158,"label":'Zachodniopomorskie, Szczecin, Śródmieście'},{"test":"abc","value":52157,"label":'Pomorskie, Gdynia, Śródmieście'},{"test":"abc","value":52174,"label":'Łódzkie, Łódź, Śródmieście'},{"test":"abc","value":52113,"label":'Dolnośląskie, Wrocław, Śródmieście'},{"test":"abc","value":52166,"label":'Pomorskie, Gdańsk, Śródmieście'},{"test":"abc","value":52116,"label":'Wielkopolskie, Poznań, Stare Miasto'},{"test":"abc","value":52111,"label":'Małopolskie, Kraków, Stare Miasto'},{"test":"abc","value":52129,"label":'Dolnośląskie, Wrocław, Stare Miasto'},{"test":"abc","value":52303,"label":'Pomorskie, Gdańsk, Stogi'},{"test":"abc","value":52483,"label":'Pomorskie, Gdańsk, Strzyża'},{"test":"abc","value":52189,"label":'Pomorskie, Gdańsk, Suchanino'},{"test":"abc","value":52171,"label":'Małopolskie, Kraków, Swoszowice'},{"test":"abc","value":32953,"label":'Mazowieckie, Warszawa, Targówek'},{"test":"abc","value":52484,"label":'Pomorskie, Gdańsk, Ujeścisko-Łostowice'},{"test":"abc","value":24305,"label":"Mazowieckie, Warszawa, Ursus"},{"test":"abc","value":3766,"label":'Mazowieckie, Warszawa, Ursynów'},{"test":"abc","value":52485,"label":'Pomorskie, Gdańsk, VII Dwór'},{"test":"abc","value":30707,"label":"Mazowieckie, Warszawa, Wawer"},{"test":"abc","value":37544,"label":'Mazowieckie, Warszawa, Wesoła'},{"test":"abc","value":52149,"label":'Łódzkie, Łódź, Widzew'},{"test":"abc","value":52132,"label":"Pomorskie, Gdynia, Wielki Kack"},{"test":"abc","value":1320,"label":'Mazowieckie, Warszawa, Wilanów'},{"test":"abc","value":52159,"label":'Wielkopolskie, Poznań, Wilda'},{"test":"abc","value":52492,"label":'Pomorskie, Gdynia, Witomino Leśniczówka'},{"test":"abc","value":52151,"label":"Pomorskie, Gdynia, Witomino-Radiostacja"},{"test":"abc","value":3645,"label":'Mazowieckie, Warszawa, Włochy'},{"test":"abc","value":32638,"label":"Mazowieckie, Warszawa, Wola"},{"test":"abc","value":52170,"label":'Pomorskie, Gdańsk, Wrzeszcz'},{"test":"abc","value":52486,"label":'Pomorskie, Gdańsk, Wyspa Sobieszewska'},{"test":"abc","value":52120,"label":'Małopolskie, Kraków, Wzgórza Krzesławickie'},{"test":"abc","value":52487,"label":'Pomorskie, Gdańsk, Wzgórze Mickiewicza'},{"test":"abc","value":52493,"label":'Pomorskie, Gdynia, Wzgórze Św. Maksymiliana'},{"test":"abc","value":52168,"label":'Pomorskie, Gdańsk, Żabianka-Wejhera-Jelitkowo-Tysiąclecia'},{"test":"abc","value":52136,"label":'Zachodniopomorskie, Szczecin, Zachód'},{"test":"abc","value":52165,"label":'Pomorskie, Gdańsk, Zaspa-Młyniec'},{"test":"abc","value":52154,"label":'Pomorskie, Gdańsk, Zaspa-Rozstaje'},{"test":"abc","value":52143,"label":'Śląskie, Katowice, Zespół Dzielnic Północnych'},{"test":"abc","value":52144,"label":'Śląskie, Katowice, Zespół Dzielnic Południowych'},{"test":"abc","value":52161,"label":'Śląskie, Katowice, Zespół Dzielnic Śródmiejskich'},{"test":"abc","value":52475,"label":'Śląskie, Katowice, Zespół Dzielnic Wschodnich'},{"test":"abc","value":52152,"label":'Śląskie, Katowice, Zespół Dzielnic Zachodnich'},{"test":"abc","value":36021,"label":'Mazowieckie, Warszawa, Żoliborz'},{"test":"abc","value":52117,"label":'Małopolskie, Kraków, Zwierzyniec'},{"test":"abc","value":52737,"label":'Mazowieckie, Warszawa, Aleksandrów'},{"test":"abc","value":52733,"label":"Mazowieckie, Warszawa, Anin"},{"test":"abc","value":52703,"label":'Wielkopolskie, Poznań, Antoninek-Zieliniec-Kobylepole'},{"test":"abc","value":52568,"label":'Mazowieckie, Warszawa, Augustówka'},{"test":"abc","value":52762,"label":'Dolnośląskie, Wrocław, Bartoszowice'},{"test":"abc","value":52663,"label":"Mazowieckie, Warszawa, Bemowo Lotnisko"},{"test":"abc","value":52691,"label":'Mazowieckie, Warszawa, Białołęka Dworska'},{"test":"abc","value":52763,"label":'Dolnośląskie, Wrocław, Bieńkowice'},{"test":"abc","value":52764,"label":'Dolnośląskie, Wrocław, Bierdzany'},{"test":"abc","value":52765,"label":'Dolnośląskie, Wrocław, Biskupin'},{"test":"abc","value":52727,"label":'Mazowieckie, Warszawa, Błonia Wilanowskie'},{"test":"abc","value":52660,"label":"Mazowieckie, Warszawa, Boernerowo"},{"test":"abc","value":52766,"label":'Dolnośląskie, Wrocław, Borek'},{"test":"abc","value":52767,"label":'Dolnośląskie, Wrocław, Brochów'},{"test":"abc","value":52597,"label":'Mazowieckie, Warszawa, Bródno'},{"test":"abc","value":52598,"label":'Mazowieckie, Warszawa, Bródno Podgrodzie'},{"test":"abc","value":52683,"label":"Mazowieckie, Warszawa, Brzeziny"},{"test":"abc","value":52630,"label":'Wielkopolskie, Poznań, Chartowo'},{"test":"abc","value":52613,"label":'Mazowieckie, Warszawa, Chomiczówka'},{"test":"abc","value":52676,"label":'Mazowieckie, Warszawa, Choszczówka'},{"test":"abc","value":52669,"label":'Mazowieckie, Warszawa, Chrzanów'},{"test":"abc","value":52696,"label":"Mazowieckie, Warszawa, Czechowice"},{"test":"abc","value":52565,"label":'Mazowieckie, Warszawa, Czerniaków'},{"test":"abc","value":52653,"label":"Mazowieckie, Warszawa, Czyste"},{"test":"abc","value":52768,"label":'Dolnośląskie, Wrocław, Dąbie'},{"test":"abc","value":52586,"label":'Mazowieckie, Warszawa, Dąbrówka'},{"test":"abc","value":52675,"label":'Mazowieckie, Warszawa, Dąbrówka Szlachecka'},{"test":"abc","value":52601,"label":'Mazowieckie, Warszawa, Elsnerów'},{"test":"abc","value":52619,"label":'Wielkopolskie, Poznań, Fabianowo-Kotowo'},{"test":"abc","value":52736,"label":"Mazowieckie, Warszawa, Falenica"},{"test":"abc","value":52572,"label":"Mazowieckie, Warszawa, Filtry"},{"test":"abc","value":52665,"label":"Mazowieckie, Warszawa, Fort Bema"},{"test":"abc","value":52661,"label":"Mazowieckie, Warszawa, Fort Radiowo"},{"test":"abc","value":52771,"label":'Dolnośląskie, Wrocław, Gądów Mały'},{"test":"abc","value":52769,"label":'Dolnośląskie, Wrocław, Gaj'},{"test":"abc","value":52770,"label":'Dolnośląskie, Wrocław, Gajowice'},{"test":"abc","value":52622,"label":'Wielkopolskie, Poznań, Główna'},{"test":"abc","value":52686,"label":'Wielkopolskie, Poznań, Głuszyna'},{"test":"abc","value":52714,"label":'Mazowieckie, Warszawa, Gocław'},{"test":"abc","value":52746,"label":'Mazowieckie, Warszawa, Gocławek'},{"test":"abc","value":52693,"label":'Mazowieckie, Warszawa, Gołąbki'},{"test":"abc","value":52666,"label":'Mazowieckie, Warszawa, Górce'},{"test":"abc","value":52631,"label":'Wielkopolskie, Poznań, Górczyn'},{"test":"abc","value":52583,"label":'Mazowieckie, Warszawa, Grabów'},{"test":"abc","value":52745,"label":'Mazowieckie, Warszawa, Grochów'},{"test":"abc","value":52692,"label":"Mazowieckie, Warszawa, Grodzisk"},{"test":"abc","value":52750,"label":'Mazowieckie, Warszawa, Groszówka'},{"test":"abc","value":52662,"label":"Mazowieckie, Warszawa, Groty"},{"test":"abc","value":52637,"label":'Wielkopolskie, Poznań, Grunwald Północ'},{"test":"abc","value":52639,"label":'Wielkopolskie, Poznań, Grunwald Południe'},{"test":"abc","value":52678,"label":'Mazowieckie, Warszawa, Henryków'},{"test":"abc","value":52772,"label":'Dolnośląskie, Wrocław, Huby'},{"test":"abc","value":52609,"label":"Mazowieckie, Warszawa, Huta"},{"test":"abc","value":52773,"label":'Dolnośląskie, Wrocław, Jagodno'},{"test":"abc","value":52706,"label":'Wielkopolskie, Poznań, Jana III Sobieskiego i Marysieńki'},{"test":"abc","value":52774,"label":'Dolnośląskie, Wrocław, Jarnołtów'},{"test":"abc","value":52667,"label":'Mazowieckie, Warszawa, Jelonki Północne'},{"test":"abc","value":52668,"label":'Mazowieckie, Warszawa, Jelonki Południowe'},{"test":"abc","value":52775,"label":'Dolnośląskie, Wrocław, Jerzmanowo'},{"test":"abc","value":52584,"label":'Mazowieckie, Warszawa, Jeziorki Północne'},{"test":"abc","value":52585,"label":'Mazowieckie, Warszawa, Jeziorki Południowe'},{"test":"abc","value":52629,"label":'Wielkopolskie, Poznań, Junikowo'},{"test":"abc","value":52594,"label":"Mazowieckie, Warszawa, Kabaty"},{"test":"abc","value":52713,"label":"Mazowieckie, Warszawa, Kamionek"},{"test":"abc","value":52776,"label":'Dolnośląskie, Wrocław, Karłowice'},{"test":"abc","value":52577,"label":'Mazowieckie, Warszawa, Kawęczyn-Wygoda'},{"test":"abc","value":52730,"label":'Mazowieckie, Warszawa, Kępa Zawadowska'},{"test":"abc","value":52604,"label":'Wielkopolskie, Poznań, Kiekrz'},{"test":"abc","value":52777,"label":'Dolnośląskie, Wrocław, Klecina'},{"test":"abc","value":52778,"label":'Dolnośląskie, Wrocław, Kleczków'},{"test":"abc","value":52779,"label":'Dolnośląskie, Wrocław, Kłokoczyce'},{"test":"abc","value":52684,"label":'Mazowieckie, Warszawa, Kobiałka'},{"test":"abc","value":52650,"label":'Mazowieckie, Warszawa, Koło'},{"test":"abc","value":52780,"label":'Dolnośląskie, Wrocław, Kowale'},{"test":"abc","value":52781,"label":'Dolnośląskie, Wrocław, Kozanów'},{"test":"abc","value":52709,"label":'Wielkopolskie, Poznań, Krzesiny-Pokrzywno-Garaszewo'},{"test":"abc","value":52610,"label":'Wielkopolskie, Poznań, Krzyżowniki-Smochowice'},{"test":"abc","value":52560,"label":'Mazowieckie, Warszawa, Ksawerów'},{"test":"abc","value":52783,"label":'Dolnośląskie, Wrocław, Księże Małe'},{"test":"abc","value":52784,"label":'Dolnośląskie, Wrocław, Księże Wielkie'},{"test":"abc","value":52785,"label":'Dolnośląskie, Wrocław, Kuźniki'},{"test":"abc","value":52623,"label":'Wielkopolskie, Poznań, Kwiatowe'},{"test":"abc","value":52786,"label":'Dolnośląskie, Wrocław, Lamowice Stare'},{"test":"abc","value":52740,"label":"Mazowieckie, Warszawa, Las"},{"test":"abc","value":52614,"label":'Mazowieckie, Warszawa, Las Bielański'},{"test":"abc","value":52595,"label":"Mazowieckie, Warszawa, Las Kabacki"},{"test":"abc","value":52615,"label":'Wielkopolskie, Poznań, Ławica'},{"test":"abc","value":52640,"label":'Wielkopolskie, Poznań, Łazarz'},{"test":"abc","value":52787,"label":'Dolnośląskie, Wrocław, Lesica'},{"test":"abc","value":52788,"label":'Dolnośląskie, Wrocław, Leśnica'},{"test":"abc","value":52790,"label":'Dolnośląskie, Wrocław, Lipa Piotrowska'},{"test":"abc","value":52658,"label":"Mazowieckie, Warszawa, Lotnisko"},{"test":"abc","value":52791,"label":'Dolnośląskie, Wrocław, Marszowice'},{"test":"abc","value":52634,"label":"Mazowieckie, Warszawa, Marymont Kaskada"},{"test":"abc","value":52700,"label":"Mazowieckie, Warszawa, Marymont-Potok"},{"test":"abc","value":52635,"label":"Mazowieckie, Warszawa, Marymont Ruda"},{"test":"abc","value":52743,"label":"Mazowieckie, Warszawa, Marysin Wawerski"},{"test":"abc","value":52792,"label":'Dolnośląskie, Wrocław, Maślice'},{"test":"abc","value":52732,"label":"Mazowieckie, Warszawa, Miedzeszyn"},{"test":"abc","value":52734,"label":'Mazowieckie, Warszawa, Międzylesie'},{"test":"abc","value":52657,"label":'Mazowieckie, Warszawa, Mirów'},{"test":"abc","value":52605,"label":'Mazowieckie, Warszawa, Młociny'},{"test":"abc","value":52654,"label":'Mazowieckie, Warszawa, Młynów'},{"test":"abc","value":52793,"label":'Dolnośląskie, Wrocław, Mokra'},{"test":"abc","value":52702,"label":'Wielkopolskie, Poznań, Morasko-Radojewo'},{"test":"abc","value":52794,"label":'Dolnośląskie, Wrocław, Muchobór Mały'},{"test":"abc","value":52642,"label":'Mazowieckie, Warszawa, Muranów'},{"test":"abc","value":52795,"label":'Dolnośląskie, Wrocław, Nadodrze'},{"test":"abc","value":52739,"label":'Mazowieckie, Warszawa, Nadwiśle'},{"test":"abc","value":52632,"label":'Wielkopolskie, Poznań, Naramowice'},{"test":"abc","value":52592,"label":"Mazowieckie, Warszawa, Natolin"},{"test":"abc","value":52695,"label":'Mazowieckie, Warszawa, Niedźwiadek'},{"test":"abc","value":52574,"label":"Mazowieckie, Warszawa, Nowa Praga"},{"test":"abc","value":52644,"label":"Mazowieckie, Warszawa, Nowe Miasto"},{"test":"abc","value":52688,"label":'Wielkopolskie, Poznań, Nowe Winogrady Północ'},{"test":"abc","value":52687,"label":'Wielkopolskie, Poznań, Nowe Winogrady Południe'},{"test":"abc","value":52689,"label":'Wielkopolskie, Poznań, Nowe Winogrady Wschód'},{"test":"abc","value":52716,"label":'Mazowieckie, Warszawa, Nowe Włochy'},{"test":"abc","value":52670,"label":"Mazowieckie, Warszawa, Nowodwory"},{"test":"abc","value":52656,"label":"Mazowieckie, Warszawa, Nowolipki"},{"test":"abc","value":52796,"label":'Dolnośląskie, Wrocław, Nowy Dwór'},{"test":"abc","value":52578,"label":'Mazowieckie, Warszawa, Nowy Rembertów'},{"test":"abc","value":52742,"label":"Mazowieckie, Warszawa, Nowy Wawer"},{"test":"abc","value":52652,"label":"Mazowieckie, Warszawa, Odolany"},{"test":"abc","value":52626,"label":'Wielkopolskie, Poznań, Ogrody'},{"test":"abc","value":52722,"label":'Mazowieckie, Warszawa, Okęcie'},{"test":"abc","value":52797,"label":'Dolnośląskie, Wrocław, Ołbin'},{"test":"abc","value":52744,"label":"Mazowieckie, Warszawa, Olszynka Grochowska"},{"test":"abc","value":52798,"label":'Dolnośląskie, Wrocław, Ołtaszyn'},{"test":"abc","value":52720,"label":"Mazowieckie, Warszawa, Opacz Wielka"},{"test":"abc","value":52799,"label":'Dolnośląskie, Wrocław, Opatowice'},{"test":"abc","value":52800,"label":'Dolnośląskie, Wrocław, Oporów'},{"test":"abc","value":52672,"label":'Wielkopolskie, Poznań, Osiedle Jeżyce'},{"test":"abc","value":52782,"label":'Dolnośląskie, Wrocław, Osiedle Krzyki'},{"test":"abc","value":52815,"label":'Dolnośląskie, Wrocław, Osiedle Psie Pole'},{"test":"abc","value":52671,"label":'Wielkopolskie, Poznań, Osiedle Stare Miasto'},{"test":"abc","value":52674,"label":'Wielkopolskie, Poznań, Osiedle Wilda'},{"test":"abc","value":52801,"label":'Dolnośląskie, Wrocław, Osobowice'},{"test":"abc","value":52753,"label":'Wielkopolskie, Poznań, Ostrów Tumski-Śródka-Zawady-Komandoria'},{"test":"abc","value":52723,"label":"Mazowieckie, Warszawa, Paluch"},{"test":"abc","value":52802,"label":'Dolnośląskie, Wrocław, Partynice'},{"test":"abc","value":52803,"label":'Dolnośląskie, Wrocław, Pawłowice'},{"test":"abc","value":52573,"label":"Mazowieckie, Warszawa, Pelcowizna"},{"test":"abc","value":52628,"label":"Mazowieckie, Warszawa, Piaski"},{"test":"abc","value":52618,"label":'Wielkopolskie, Poznań, Piątkowo'},{"test":"abc","value":52804,"label":'Dolnośląskie, Wrocław, Pilczyce'},{"test":"abc","value":52807,"label":'Dolnośląskie, Wrocław, Plac Grunwaldzki'},{"test":"abc","value":52607,"label":'Mazowieckie, Warszawa, Placówka'},{"test":"abc","value":52752,"label":"Mazowieckie, Warszawa, Plac Wojska Polskiego"},{"test":"abc","value":52616,"label":'Wielkopolskie, Poznań, Podolany'},{"test":"abc","value":52808,"label":'Dolnośląskie, Wrocław, Polanka'},{"test":"abc","value":52809,"label":'Dolnośląskie, Wrocław, Polanowice'},{"test":"abc","value":52810,"label":'Dolnośląskie, Wrocław, Południe'},{"test":"abc","value":52811,"label":'Dolnośląskie, Wrocław, Popowice'},{"test":"abc","value":52812,"label":'Dolnośląskie, Wrocław, Poświętne'},{"test":"abc","value":52655,"label":'Mazowieckie, Warszawa, Powązki'},{"test":"abc","value":52645,"label":'Mazowieckie, Warszawa, Powiśle'},{"test":"abc","value":52731,"label":"Mazowieckie, Warszawa, Powsin"},{"test":"abc","value":52728,"label":"Mazowieckie, Warszawa, Powsinek"},{"test":"abc","value":52813,"label":'Dolnośląskie, Wrocław, Pracze Odrzańskie'},{"test":"abc","value":52814,"label":'Dolnośląskie, Wrocław, Przedmieście Oławskie'},{"test":"abc","value":52587,"label":"Mazowieckie, Warszawa, Pyry"},{"test":"abc","value":52608,"label":"Mazowieckie, Warszawa, Radiowo"},{"test":"abc","value":52735,"label":'Mazowieckie, Warszawa, Radość'},{"test":"abc","value":52719,"label":'Mazowieckie, Warszawa, Raków'},{"test":"abc","value":52569,"label":"Mazowieckie, Warszawa, Rakowiec"},{"test":"abc","value":52816,"label":'Dolnośląskie, Wrocław, Rakowiec'},{"test":"abc","value":52620,"label":'Wielkopolskie, Poznań, Rataje'},{"test":"abc","value":52817,"label":'Dolnośląskie, Wrocław, Ratyń'},{"test":"abc","value":52824,"label":'Dolnośląskie, Wrocław, Rędzin'},{"test":"abc","value":52818,"label":'Dolnośląskie, Wrocław, Różanka'},{"test":"abc","value":52741,"label":"Mazowieckie, Warszawa, Sadul"},{"test":"abc","value":52566,"label":"Mazowieckie, Warszawa, Sadyba"},{"test":"abc","value":52698,"label":'Mazowieckie, Warszawa, Sady Żoliborskie'},{"test":"abc","value":52718,"label":"Mazowieckie, Warszawa, Salomea"},{"test":"abc","value":52715,"label":'Mazowieckie, Warszawa, Saska Kępa'},{"test":"abc","value":52819,"label":'Dolnośląskie, Wrocław, Sępolno'},{"test":"abc","value":52567,"label":"Mazowieckie, Warszawa, Siekierki"},{"test":"abc","value":52563,"label":"Mazowieckie, Warszawa, Sielce"},{"test":"abc","value":52596,"label":'Mazowieckie, Warszawa, Skarpa Powsińska'},{"test":"abc","value":52697,"label":"Mazowieckie, Warszawa, Skorosze"},{"test":"abc","value":52633,"label":'Mazowieckie, Warszawa, Słodowiec'},{"test":"abc","value":52559,"label":'Mazowieckie, Warszawa, Służew'},{"test":"abc","value":52558,"label":'Mazowieckie, Warszawa, Służewiec'},{"test":"abc","value":52624,"label":'Wielkopolskie, Poznań, Sołacz'},{"test":"abc","value":52641,"label":"Mazowieckie, Warszawa, Solec"},{"test":"abc","value":52825,"label":'Dolnośląskie, Wrocław, Sołtysowice'},{"test":"abc","value":52648,"label":'Mazowieckie, Warszawa, Śródmieście Północne'},{"test":"abc","value":52649,"label":'Mazowieckie, Warszawa, Śródmieście Południowe'},{"test":"abc","value":52826,"label":'Dolnośląskie, Wrocław, Stabłowice'},{"test":"abc","value":52751,"label":'Mazowieckie, Warszawa, Stara Miłosna'},{"test":"abc","value":52571,"label":"Mazowieckie, Warszawa, Stara Ochota"},{"test":"abc","value":52575,"label":"Mazowieckie, Warszawa, Stara Praga"},{"test":"abc","value":52627,"label":"Mazowieckie, Warszawa, Stare Bielany"},{"test":"abc","value":52643,"label":"Mazowieckie, Warszawa, Stare Miasto"},{"test":"abc","value":52673,"label":'Wielkopolskie, Poznań, Stare Winogrady'},{"test":"abc","value":52717,"label":'Mazowieckie, Warszawa, Stare Włochy'},{"test":"abc","value":52754,"label":'Wielkopolskie, Poznań, Starołęka-Minikowo-Marlewo'},{"test":"abc","value":52638,"label":'Wielkopolskie, Poznań, Stary Grunwald'},{"test":"abc","value":52580,"label":"Mazowieckie, Warszawa, Stary Imielin"},{"test":"abc","value":52562,"label":'Mazowieckie, Warszawa, Stary Mokotów'},{"test":"abc","value":52579,"label":'Mazowieckie, Warszawa, Stary Rembertów'},{"test":"abc","value":52588,"label":'Mazowieckie, Warszawa, Stary Służew'},{"test":"abc","value":52699,"label":'Mazowieckie, Warszawa, Stary Żoliborz'},{"test":"abc","value":52564,"label":"Mazowieckie, Warszawa, Stegny"},{"test":"abc","value":52827,"label":'Dolnośląskie, Wrocław, Strachocin'},{"test":"abc","value":52617,"label":'Wielkopolskie, Poznań, Strzeszyn'},{"test":"abc","value":52646,"label":'Wielkopolskie, Poznań, Świerczewo'},{"test":"abc","value":52831,"label":'Dolnośląskie, Wrocław, Świniary'},{"test":"abc","value":52679,"label":"Mazowieckie, Warszawa, Szamocin"},{"test":"abc","value":52694,"label":"Mazowieckie, Warszawa, Szamoty"},{"test":"abc","value":52755,"label":'Wielkopolskie, Poznań, Szczepankowo-Spławie-Krzesinki'},{"test":"abc","value":52830,"label":'Dolnośląskie, Wrocław, Szczepin'},{"test":"abc","value":52570,"label":'Mazowieckie, Warszawa, Szczęśliwice'},{"test":"abc","value":52576,"label":"Mazowieckie, Warszawa, Szmulowizna"},{"test":"abc","value":52677,"label":"Mazowieckie, Warszawa, Tarchomin"},{"test":"abc","value":52602,"label":'Mazowieckie, Warszawa, Targówek Fabryczny'},{"test":"abc","value":52600,"label":'Mazowieckie, Warszawa, Targówek Mieszkaniowy'},{"test":"abc","value":52832,"label":'Dolnośląskie, Wrocław, Tarnogaj'},{"test":"abc","value":52636,"label":'Mazowieckie, Warszawa, Ujazdów'},{"test":"abc","value":52651,"label":'Mazowieckie, Warszawa, Ulrychów'},{"test":"abc","value":52621,"label":'Wielkopolskie, Poznań, Umultowo'},{"test":"abc","value":52591,"label":'Mazowieckie, Warszawa, Ursynów Centrum'},{"test":"abc","value":52581,"label":'Mazowieckie, Warszawa, Ursynów Północny'},{"test":"abc","value":52603,"label":"Mazowieckie, Warszawa, Utrata"},{"test":"abc","value":52761,"label":'Wielkopolskie, Poznań, Warszawskie-Pomet-Maltańskie'},{"test":"abc","value":52612,"label":"Mazowieckie, Warszawa, Wawrzyszew"},{"test":"abc","value":52749,"label":'Mazowieckie, Warszawa, Wesoła-Centrum'},{"test":"abc","value":52833,"label":'Dolnośląskie, Wrocław, Widawa'},{"test":"abc","value":52561,"label":"Mazowieckie, Warszawa, Wierzbno"},{"test":"abc","value":52726,"label":'Mazowieckie, Warszawa, Wilanów Królewski'},{"test":"abc","value":52725,"label":'Mazowieckie, Warszawa, Wilanów Niski'},{"test":"abc","value":52724,"label":'Mazowieckie, Warszawa, Wilanów Wysoki'},{"test":"abc","value":52680,"label":'Wielkopolskie, Poznań, Winiary'},{"test":"abc","value":52625,"label":'Wielkopolskie, Poznań, Wola'},{"test":"abc","value":52748,"label":"Mazowieckie, Warszawa, Wola Grzybowska"},{"test":"abc","value":52606,"label":'Mazowieckie, Warszawa, Wólka Węglowa'},{"test":"abc","value":52611,"label":"Mazowieckie, Warszawa, Wrzeciono"},{"test":"abc","value":52582,"label":'Mazowieckie, Warszawa, Wyczółki'},{"test":"abc","value":52557,"label":'Mazowieckie, Warszawa, Wyględów'},{"test":"abc","value":52599,"label":"Mazowieckie, Warszawa, Zacisze"},{"test":"abc","value":52721,"label":'Mazowieckie, Warszawa, Załuski'},{"test":"abc","value":52729,"label":"Mazowieckie, Warszawa, Zawady"},{"test":"abc","value":52659,"label":'Wielkopolskie, Poznań, Żegrze'},{"test":"abc","value":52682,"label":'Mazowieckie, Warszawa, Żerań'},{"test":"abc","value":52738,"label":'Mazowieckie, Warszawa, Zerzeń'},{"test":"abc","value":52747,"label":"Mazowieckie, Warszawa, Zielona-Grzybowa"},{"test":"abc","value":52681,"label":'Wielkopolskie, Poznań, Zielony Dębiec'}];var Container=_react2['default'].createClass({displayName:'Container',getInitialState:function getInitialState(){return options[0];},updateValue1:function updateValue1(value1){this.setState({value1:value1});},updateValue2:function updateValue2(value2){this.setState({value2:value2});},updateValue3:function updateValue3(value3){this.setState({value3:value3});},loadOptions:function loadOptions(input,callback){console.log(input);callback(null,{options:options.sort(function(){return 0.5 - Math.random();}).slice(0,10)});},optionRenderer:function optionRenderer(option){return _react2['default'].createElement('div',null,_react2['default'].createElement('strong',null,option.label),_react2['default'].createElement('em',null,option.test));},render:function render(){var optgr=[{value:"",label:"Empty"},{name:"test",options:[{value:"a",label:"a"},{value:"b",label:"b"},{value:"c",label:"c"}]},{name:"test 2",options:[{value:"d",label:"d"},{value:"e",label:"e"},{value:"f",label:"f"}]},{name:"test 3",options:[{value:"e",label:"e"},{value:"f",label:"f"},{value:"g",label:"g"}]}];return _react2['default'].createElement('div',null,_react2['default'].createElement(_reactSelect2['default'],{required:false,searchable:false,options:optgr,optgroups:true}));}});_reactDom2['default'].render(_react2['default'].createElement(Container,null),document.getElementById('example'));
 
-},{"./components/Contributors":2,"./components/CustomComponents":3,"./components/CustomRender":4,"./components/Multiselect":5,"./components/NumericSelect":6,"./components/States":7,"lodash":15,"react":undefined,"react-dom":undefined,"react-select":undefined}],2:[function(require,module,exports){
+},{"./components/Contributors":2,"./components/CustomComponents":3,"./components/CustomRender":4,"./components/Multiselect":5,"./components/NumericSelect":6,"./components/States":7,"lodash":18,"react":undefined,"react-dom":undefined,"react-select":undefined}],2:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -256,7 +256,7 @@ var UsersField = _react2['default'].createClass({
 
 module.exports = UsersField;
 
-},{"../data/users":10,"react":undefined,"react-gravatar":19,"react-select":undefined}],4:[function(require,module,exports){
+},{"../data/users":10,"react":undefined,"react-gravatar":28,"react-select":undefined}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -837,10 +837,168 @@ module.exports = charenc;
 })();
 
 },{}],13:[function(require,module,exports){
+"use strict";
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
+},{}],14:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+'use strict';
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var validateFormat = function validateFormat(format) {};
+
+if (process.env.NODE_ENV !== 'production') {
+  validateFormat = function validateFormat(format) {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  };
+}
+
+function invariant(condition, format, a, b, c, d, e, f) {
+  validateFormat(format);
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(format.replace(/%s/g, function () {
+        return args[argIndex++];
+      }));
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+}
+
+module.exports = invariant;
+}).call(this,require('_process'))
+},{"_process":21}],15:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+'use strict';
+
+var emptyFunction = require('./emptyFunction');
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = emptyFunction;
+
+if (process.env.NODE_ENV !== 'production') {
+  var printWarning = function printWarning(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function warning(condition, format) {
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+module.exports = warning;
+}).call(this,require('_process'))
+},{"./emptyFunction":13,"_process":21}],16:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */
 
@@ -859,7 +1017,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],14:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function() {
   var mediaQuery;
   if (typeof window !== "undefined" && window !== null) {
@@ -874,12 +1032,12 @@ module.exports = function() {
   return false;
 };
 
-},{}],15:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 (function (global){
 /**
  * @license
- * lodash <https://lodash.com/>
- * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Lodash <https://lodash.com/>
+ * Copyright JS Foundation and other contributors <https://js.foundation/>
  * Released under MIT license <https://lodash.com/license>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -890,42 +1048,51 @@ module.exports = function() {
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.15.0';
+  var VERSION = '4.17.5';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
 
-  /** Used as the `TypeError` message for "Functions" methods. */
-  var FUNC_ERROR_TEXT = 'Expected a function';
+  /** Error message constants. */
+  var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://npms.io/search?q=ponyfill.',
+      FUNC_ERROR_TEXT = 'Expected a function';
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED = '__lodash_hash_undefined__';
 
+  /** Used as the maximum memoize cache size. */
+  var MAX_MEMOIZE_SIZE = 500;
+
   /** Used as the internal argument placeholder. */
   var PLACEHOLDER = '__lodash_placeholder__';
 
-  /** Used to compose bitmasks for function metadata. */
-  var BIND_FLAG = 1,
-      BIND_KEY_FLAG = 2,
-      CURRY_BOUND_FLAG = 4,
-      CURRY_FLAG = 8,
-      CURRY_RIGHT_FLAG = 16,
-      PARTIAL_FLAG = 32,
-      PARTIAL_RIGHT_FLAG = 64,
-      ARY_FLAG = 128,
-      REARG_FLAG = 256,
-      FLIP_FLAG = 512;
+  /** Used to compose bitmasks for cloning. */
+  var CLONE_DEEP_FLAG = 1,
+      CLONE_FLAT_FLAG = 2,
+      CLONE_SYMBOLS_FLAG = 4;
 
-  /** Used to compose bitmasks for comparison styles. */
-  var UNORDERED_COMPARE_FLAG = 1,
-      PARTIAL_COMPARE_FLAG = 2;
+  /** Used to compose bitmasks for value comparisons. */
+  var COMPARE_PARTIAL_FLAG = 1,
+      COMPARE_UNORDERED_FLAG = 2;
+
+  /** Used to compose bitmasks for function metadata. */
+  var WRAP_BIND_FLAG = 1,
+      WRAP_BIND_KEY_FLAG = 2,
+      WRAP_CURRY_BOUND_FLAG = 4,
+      WRAP_CURRY_FLAG = 8,
+      WRAP_CURRY_RIGHT_FLAG = 16,
+      WRAP_PARTIAL_FLAG = 32,
+      WRAP_PARTIAL_RIGHT_FLAG = 64,
+      WRAP_ARY_FLAG = 128,
+      WRAP_REARG_FLAG = 256,
+      WRAP_FLIP_FLAG = 512;
 
   /** Used as default options for `_.truncate`. */
   var DEFAULT_TRUNC_LENGTH = 30,
       DEFAULT_TRUNC_OMISSION = '...';
 
   /** Used to detect hot functions by number of calls within a span of milliseconds. */
-  var HOT_COUNT = 150,
+  var HOT_COUNT = 800,
       HOT_SPAN = 16;
 
   /** Used to indicate the type of lazy iteratees. */
@@ -946,33 +1113,38 @@ module.exports = function() {
 
   /** Used to associate wrap methods with their bit flags. */
   var wrapFlags = [
-    ['ary', ARY_FLAG],
-    ['bind', BIND_FLAG],
-    ['bindKey', BIND_KEY_FLAG],
-    ['curry', CURRY_FLAG],
-    ['curryRight', CURRY_RIGHT_FLAG],
-    ['flip', FLIP_FLAG],
-    ['partial', PARTIAL_FLAG],
-    ['partialRight', PARTIAL_RIGHT_FLAG],
-    ['rearg', REARG_FLAG]
+    ['ary', WRAP_ARY_FLAG],
+    ['bind', WRAP_BIND_FLAG],
+    ['bindKey', WRAP_BIND_KEY_FLAG],
+    ['curry', WRAP_CURRY_FLAG],
+    ['curryRight', WRAP_CURRY_RIGHT_FLAG],
+    ['flip', WRAP_FLIP_FLAG],
+    ['partial', WRAP_PARTIAL_FLAG],
+    ['partialRight', WRAP_PARTIAL_RIGHT_FLAG],
+    ['rearg', WRAP_REARG_FLAG]
   ];
 
   /** `Object#toString` result references. */
   var argsTag = '[object Arguments]',
       arrayTag = '[object Array]',
+      asyncTag = '[object AsyncFunction]',
       boolTag = '[object Boolean]',
       dateTag = '[object Date]',
+      domExcTag = '[object DOMException]',
       errorTag = '[object Error]',
       funcTag = '[object Function]',
       genTag = '[object GeneratorFunction]',
       mapTag = '[object Map]',
       numberTag = '[object Number]',
+      nullTag = '[object Null]',
       objectTag = '[object Object]',
       promiseTag = '[object Promise]',
+      proxyTag = '[object Proxy]',
       regexpTag = '[object RegExp]',
       setTag = '[object Set]',
       stringTag = '[object String]',
       symbolTag = '[object Symbol]',
+      undefinedTag = '[object Undefined]',
       weakMapTag = '[object WeakMap]',
       weakSetTag = '[object WeakSet]';
 
@@ -994,8 +1166,8 @@ module.exports = function() {
       reEmptyStringTrailing = /(__e\(.*?\)|\b__t\)) \+\n'';/g;
 
   /** Used to match HTML entities and HTML characters. */
-  var reEscapedHtml = /&(?:amp|lt|gt|quot|#39|#96);/g,
-      reUnescapedHtml = /[&<>"'`]/g,
+  var reEscapedHtml = /&(?:amp|lt|gt|quot|#39);/g,
+      reUnescapedHtml = /[&<>"']/g,
       reHasEscapedHtml = RegExp(reEscapedHtml.source),
       reHasUnescapedHtml = RegExp(reUnescapedHtml.source);
 
@@ -1007,7 +1179,6 @@ module.exports = function() {
   /** Used to match property names within property paths. */
   var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
       reIsPlainProp = /^\w*$/,
-      reLeadingDot = /^\./,
       rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
 
   /**
@@ -1042,9 +1213,6 @@ module.exports = function() {
   /** Used to match `RegExp` flags from their coerced string values. */
   var reFlags = /\w*$/;
 
-  /** Used to detect hexadecimal string values. */
-  var reHasHexPrefix = /^0x/i;
-
   /** Used to detect bad signed hexadecimal string values. */
   var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
 
@@ -1071,8 +1239,10 @@ module.exports = function() {
 
   /** Used to compose unicode character classes. */
   var rsAstralRange = '\\ud800-\\udfff',
-      rsComboMarksRange = '\\u0300-\\u036f\\ufe20-\\ufe23',
-      rsComboSymbolsRange = '\\u20d0-\\u20f0',
+      rsComboMarksRange = '\\u0300-\\u036f',
+      reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+      rsComboSymbolsRange = '\\u20d0-\\u20ff',
+      rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange,
       rsDingbatRange = '\\u2700-\\u27bf',
       rsLowerRange = 'a-z\\xdf-\\xf6\\xf8-\\xff',
       rsMathOpRange = '\\xac\\xb1\\xd7\\xf7',
@@ -1087,7 +1257,7 @@ module.exports = function() {
   var rsApos = "['\u2019]",
       rsAstral = '[' + rsAstralRange + ']',
       rsBreak = '[' + rsBreakRange + ']',
-      rsCombo = '[' + rsComboMarksRange + rsComboSymbolsRange + ']',
+      rsCombo = '[' + rsComboRange + ']',
       rsDigits = '\\d+',
       rsDingbat = '[' + rsDingbatRange + ']',
       rsLower = '[' + rsLowerRange + ']',
@@ -1101,13 +1271,15 @@ module.exports = function() {
       rsZWJ = '\\u200d';
 
   /** Used to compose unicode regexes. */
-  var rsLowerMisc = '(?:' + rsLower + '|' + rsMisc + ')',
-      rsUpperMisc = '(?:' + rsUpper + '|' + rsMisc + ')',
-      rsOptLowerContr = '(?:' + rsApos + '(?:d|ll|m|re|s|t|ve))?',
-      rsOptUpperContr = '(?:' + rsApos + '(?:D|LL|M|RE|S|T|VE))?',
+  var rsMiscLower = '(?:' + rsLower + '|' + rsMisc + ')',
+      rsMiscUpper = '(?:' + rsUpper + '|' + rsMisc + ')',
+      rsOptContrLower = '(?:' + rsApos + '(?:d|ll|m|re|s|t|ve))?',
+      rsOptContrUpper = '(?:' + rsApos + '(?:D|LL|M|RE|S|T|VE))?',
       reOptMod = rsModifier + '?',
       rsOptVar = '[' + rsVarRange + ']?',
       rsOptJoin = '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
+      rsOrdLower = '\\d*(?:1st|2nd|3rd|(?![123])\\dth)(?=\\b|[A-Z_])',
+      rsOrdUpper = '\\d*(?:1ST|2ND|3RD|(?![123])\\dTH)(?=\\b|[a-z_])',
       rsSeq = rsOptVar + reOptMod + rsOptJoin,
       rsEmoji = '(?:' + [rsDingbat, rsRegional, rsSurrPair].join('|') + ')' + rsSeq,
       rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
@@ -1126,16 +1298,18 @@ module.exports = function() {
 
   /** Used to match complex or compound words. */
   var reUnicodeWord = RegExp([
-    rsUpper + '?' + rsLower + '+' + rsOptLowerContr + '(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',
-    rsUpperMisc + '+' + rsOptUpperContr + '(?=' + [rsBreak, rsUpper + rsLowerMisc, '$'].join('|') + ')',
-    rsUpper + '?' + rsLowerMisc + '+' + rsOptLowerContr,
-    rsUpper + '+' + rsOptUpperContr,
+    rsUpper + '?' + rsLower + '+' + rsOptContrLower + '(?=' + [rsBreak, rsUpper, '$'].join('|') + ')',
+    rsMiscUpper + '+' + rsOptContrUpper + '(?=' + [rsBreak, rsUpper + rsMiscLower, '$'].join('|') + ')',
+    rsUpper + '?' + rsMiscLower + '+' + rsOptContrLower,
+    rsUpper + '+' + rsOptContrUpper,
+    rsOrdUpper,
+    rsOrdLower,
     rsDigits,
     rsEmoji
   ].join('|'), 'g');
 
   /** Used to detect strings with [zero-width joiners or code points from the astral planes](http://eev.ee/blog/2015/09/12/dark-corners-of-unicode/). */
-  var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboMarksRange + rsComboSymbolsRange + rsVarRange + ']');
+  var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRange + ']');
 
   /** Used to detect strings that need a more robust regexp to match words. */
   var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
@@ -1239,7 +1413,7 @@ module.exports = function() {
     '\u017a': 'z',  '\u017c': 'z', '\u017e': 'z',
     '\u0132': 'IJ', '\u0133': 'ij',
     '\u0152': 'Oe', '\u0153': 'oe',
-    '\u0149': "'n", '\u017f': 'ss'
+    '\u0149': "'n", '\u017f': 's'
   };
 
   /** Used to map characters to HTML entities. */
@@ -1248,8 +1422,7 @@ module.exports = function() {
     '<': '&lt;',
     '>': '&gt;',
     '"': '&quot;',
-    "'": '&#39;',
-    '`': '&#96;'
+    "'": '&#39;'
   };
 
   /** Used to map HTML entities to characters. */
@@ -1258,8 +1431,7 @@ module.exports = function() {
     '&lt;': '<',
     '&gt;': '>',
     '&quot;': '"',
-    '&#39;': "'",
-    '&#96;': '`'
+    '&#39;': "'"
   };
 
   /** Used to escape characters for inclusion in compiled string literals. */
@@ -1300,7 +1472,7 @@ module.exports = function() {
   /** Used to access faster Node.js helpers. */
   var nodeUtil = (function() {
     try {
-      return freeProcess && freeProcess.binding('util');
+      return freeProcess && freeProcess.binding && freeProcess.binding('util');
     } catch (e) {}
   }());
 
@@ -1313,34 +1485,6 @@ module.exports = function() {
       nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
 
   /*--------------------------------------------------------------------------*/
-
-  /**
-   * Adds the key-value `pair` to `map`.
-   *
-   * @private
-   * @param {Object} map The map to modify.
-   * @param {Array} pair The key-value pair to add.
-   * @returns {Object} Returns `map`.
-   */
-  function addMapEntry(map, pair) {
-    // Don't return `map.set` because it's not chainable in IE 11.
-    map.set(pair[0], pair[1]);
-    return map;
-  }
-
-  /**
-   * Adds `value` to `set`.
-   *
-   * @private
-   * @param {Object} set The set to modify.
-   * @param {*} value The value to add.
-   * @returns {Object} Returns `set`.
-   */
-  function addSetEntry(set, value) {
-    // Don't return `set.add` because it's not chainable in IE 11.
-    set.add(value);
-    return set;
-  }
 
   /**
    * A faster alternative to `Function#apply`, this function invokes `func`
@@ -1374,7 +1518,7 @@ module.exports = function() {
    */
   function arrayAggregator(array, setter, iteratee, accumulator) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array == null ? 0 : array.length;
 
     while (++index < length) {
       var value = array[index];
@@ -1394,7 +1538,7 @@ module.exports = function() {
    */
   function arrayEach(array, iteratee) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array == null ? 0 : array.length;
 
     while (++index < length) {
       if (iteratee(array[index], index, array) === false) {
@@ -1414,7 +1558,7 @@ module.exports = function() {
    * @returns {Array} Returns `array`.
    */
   function arrayEachRight(array, iteratee) {
-    var length = array ? array.length : 0;
+    var length = array == null ? 0 : array.length;
 
     while (length--) {
       if (iteratee(array[length], length, array) === false) {
@@ -1436,7 +1580,7 @@ module.exports = function() {
    */
   function arrayEvery(array, predicate) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array == null ? 0 : array.length;
 
     while (++index < length) {
       if (!predicate(array[index], index, array)) {
@@ -1457,7 +1601,7 @@ module.exports = function() {
    */
   function arrayFilter(array, predicate) {
     var index = -1,
-        length = array ? array.length : 0,
+        length = array == null ? 0 : array.length,
         resIndex = 0,
         result = [];
 
@@ -1480,7 +1624,7 @@ module.exports = function() {
    * @returns {boolean} Returns `true` if `target` is found, else `false`.
    */
   function arrayIncludes(array, value) {
-    var length = array ? array.length : 0;
+    var length = array == null ? 0 : array.length;
     return !!length && baseIndexOf(array, value, 0) > -1;
   }
 
@@ -1495,7 +1639,7 @@ module.exports = function() {
    */
   function arrayIncludesWith(array, value, comparator) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array == null ? 0 : array.length;
 
     while (++index < length) {
       if (comparator(value, array[index])) {
@@ -1516,7 +1660,7 @@ module.exports = function() {
    */
   function arrayMap(array, iteratee) {
     var index = -1,
-        length = array ? array.length : 0,
+        length = array == null ? 0 : array.length,
         result = Array(length);
 
     while (++index < length) {
@@ -1558,7 +1702,7 @@ module.exports = function() {
    */
   function arrayReduce(array, iteratee, accumulator, initAccum) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array == null ? 0 : array.length;
 
     if (initAccum && length) {
       accumulator = array[++index];
@@ -1582,7 +1726,7 @@ module.exports = function() {
    * @returns {*} Returns the accumulated value.
    */
   function arrayReduceRight(array, iteratee, accumulator, initAccum) {
-    var length = array ? array.length : 0;
+    var length = array == null ? 0 : array.length;
     if (initAccum && length) {
       accumulator = array[--length];
     }
@@ -1604,7 +1748,7 @@ module.exports = function() {
    */
   function arraySome(array, predicate) {
     var index = -1,
-        length = array ? array.length : 0;
+        length = array == null ? 0 : array.length;
 
     while (++index < length) {
       if (predicate(array[index], index, array)) {
@@ -1700,18 +1844,9 @@ module.exports = function() {
    * @returns {number} Returns the index of the matched value, else `-1`.
    */
   function baseIndexOf(array, value, fromIndex) {
-    if (value !== value) {
-      return baseFindIndex(array, baseIsNaN, fromIndex);
-    }
-    var index = fromIndex - 1,
-        length = array.length;
-
-    while (++index < length) {
-      if (array[index] === value) {
-        return index;
-      }
-    }
-    return -1;
+    return value === value
+      ? strictIndexOf(array, value, fromIndex)
+      : baseFindIndex(array, baseIsNaN, fromIndex);
   }
 
   /**
@@ -1757,7 +1892,7 @@ module.exports = function() {
    * @returns {number} Returns the mean.
    */
   function baseMean(array, iteratee) {
-    var length = array ? array.length : 0;
+    var length = array == null ? 0 : array.length;
     return length ? (baseSum(array, iteratee) / length) : NAN;
   }
 
@@ -1916,7 +2051,7 @@ module.exports = function() {
   }
 
   /**
-   * Checks if a cache value for `key` exists.
+   * Checks if a `cache` value for `key` exists.
    *
    * @private
    * @param {Object} cache The cache to query.
@@ -1974,7 +2109,7 @@ module.exports = function() {
 
     while (length--) {
       if (array[length] === placeholder) {
-        result++;
+        ++result;
       }
     }
     return result;
@@ -2042,25 +2177,6 @@ module.exports = function() {
    */
   function hasUnicodeWord(string) {
     return reHasUnicodeWord.test(string);
-  }
-
-  /**
-   * Checks if `value` is a host object in IE < 9.
-   *
-   * @private
-   * @param {*} value The value to check.
-   * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
-   */
-  function isHostObject(value) {
-    // Many host objects are `Object` objects that can coerce to strings
-    // despite having improperly defined `toString` methods.
-    var result = false;
-    if (value != null && typeof value.toString != 'function') {
-      try {
-        result = !!(value + '');
-      } catch (e) {}
-    }
-    return result;
   }
 
   /**
@@ -2137,6 +2253,20 @@ module.exports = function() {
   }
 
   /**
+   * Gets the value at `key`, unless `key` is "__proto__".
+   *
+   * @private
+   * @param {Object} object The object to query.
+   * @param {string} key The key of the property to get.
+   * @returns {*} Returns the property value.
+   */
+  function safeGet(object, key) {
+    return key == '__proto__'
+      ? undefined
+      : object[key];
+  }
+
+  /**
    * Converts `set` to an array of its values.
    *
    * @private
@@ -2168,6 +2298,48 @@ module.exports = function() {
       result[++index] = [value, value];
     });
     return result;
+  }
+
+  /**
+   * A specialized version of `_.indexOf` which performs strict equality
+   * comparisons of values, i.e. `===`.
+   *
+   * @private
+   * @param {Array} array The array to inspect.
+   * @param {*} value The value to search for.
+   * @param {number} fromIndex The index to search from.
+   * @returns {number} Returns the index of the matched value, else `-1`.
+   */
+  function strictIndexOf(array, value, fromIndex) {
+    var index = fromIndex - 1,
+        length = array.length;
+
+    while (++index < length) {
+      if (array[index] === value) {
+        return index;
+      }
+    }
+    return -1;
+  }
+
+  /**
+   * A specialized version of `_.lastIndexOf` which performs strict equality
+   * comparisons of values, i.e. `===`.
+   *
+   * @private
+   * @param {Array} array The array to inspect.
+   * @param {*} value The value to search for.
+   * @param {number} fromIndex The index to search from.
+   * @returns {number} Returns the index of the matched value, else `-1`.
+   */
+  function strictLastIndexOf(array, value, fromIndex) {
+    var index = fromIndex + 1;
+    while (index--) {
+      if (array[index] === value) {
+        return index;
+      }
+    }
+    return index;
   }
 
   /**
@@ -2215,7 +2387,7 @@ module.exports = function() {
   function unicodeSize(string) {
     var result = reUnicode.lastIndex = 0;
     while (reUnicode.test(string)) {
-      result++;
+      ++result;
     }
     return result;
   }
@@ -2270,18 +2442,11 @@ module.exports = function() {
    * lodash.isFunction(lodash.bar);
    * // => true
    *
-   * // Use `context` to stub `Date#getTime` use in `_.now`.
-   * var stubbed = _.runInContext({
-   *   'Date': function() {
-   *     return { 'getTime': stubGetTime };
-   *   }
-   * });
-   *
    * // Create a suped-up `defer` in Node.js.
    * var defer = _.runInContext({ 'setTimeout': setImmediate }).defer;
    */
-  function runInContext(context) {
-    context = context ? _.defaults(root.Object(), context, _.pick(root, contextProps)) : root;
+  var runInContext = (function runInContext(context) {
+    context = context == null ? root : _.defaults(root.Object(), context, _.pick(root, contextProps));
 
     /** Built-in constructor references. */
     var Array = context.Array,
@@ -2302,12 +2467,6 @@ module.exports = function() {
     /** Used to detect overreaching core-js shims. */
     var coreJsData = context['__core-js_shared__'];
 
-    /** Used to detect methods masquerading as native. */
-    var maskSrcKey = (function() {
-      var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
-      return uid ? ('Symbol(src)_1.' + uid) : '';
-    }());
-
     /** Used to resolve the decompiled source of functions. */
     var funcToString = funcProto.toString;
 
@@ -2317,15 +2476,21 @@ module.exports = function() {
     /** Used to generate unique IDs. */
     var idCounter = 0;
 
-    /** Used to infer the `Object` constructor. */
-    var objectCtorString = funcToString.call(Object);
+    /** Used to detect methods masquerading as native. */
+    var maskSrcKey = (function() {
+      var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
+      return uid ? ('Symbol(src)_1.' + uid) : '';
+    }());
 
     /**
      * Used to resolve the
      * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
      * of values.
      */
-    var objectToString = objectProto.toString;
+    var nativeObjectToString = objectProto.toString;
+
+    /** Used to infer the `Object` constructor. */
+    var objectCtorString = funcToString.call(Object);
 
     /** Used to restore the original `_` reference in `_.noConflict`. */
     var oldDash = root._;
@@ -2340,12 +2505,22 @@ module.exports = function() {
     var Buffer = moduleExports ? context.Buffer : undefined,
         Symbol = context.Symbol,
         Uint8Array = context.Uint8Array,
+        allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined,
         getPrototype = overArg(Object.getPrototypeOf, Object),
-        iteratorSymbol = Symbol ? Symbol.iterator : undefined,
         objectCreate = Object.create,
         propertyIsEnumerable = objectProto.propertyIsEnumerable,
         splice = arrayProto.splice,
-        spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined;
+        spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined,
+        symIterator = Symbol ? Symbol.iterator : undefined,
+        symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+    var defineProperty = (function() {
+      try {
+        var func = getNative(Object, 'defineProperty');
+        func({}, '', {});
+        return func;
+      } catch (e) {}
+    }());
 
     /** Mocked built-ins. */
     var ctxClearTimeout = context.clearTimeout !== root.clearTimeout && context.clearTimeout,
@@ -2362,6 +2537,7 @@ module.exports = function() {
         nativeKeys = overArg(Object.keys, Object),
         nativeMax = Math.max,
         nativeMin = Math.min,
+        nativeNow = Date.now,
         nativeParseInt = context.parseInt,
         nativeRandom = Math.random,
         nativeReverse = arrayProto.reverse;
@@ -2374,19 +2550,8 @@ module.exports = function() {
         WeakMap = getNative(context, 'WeakMap'),
         nativeCreate = getNative(Object, 'create');
 
-    /* Used to set `toString` methods. */
-    var defineProperty = (function() {
-      var func = getNative(Object, 'defineProperty'),
-          name = getNative.name;
-
-      return (name && name.length > 2) ? func : undefined;
-    }());
-
     /** Used to store function metadata. */
     var metaMap = WeakMap && new WeakMap;
-
-    /** Detect if properties shadowing those on `Object.prototype` are non-enumerable. */
-    var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
 
     /** Used to lookup unminified function names. */
     var realNames = {};
@@ -2423,9 +2588,9 @@ module.exports = function() {
      * Shortcut fusion is an optimization to merge iteratee calls; this avoids
      * the creation of intermediate arrays and can greatly reduce the number of
      * iteratee executions. Sections of a chain sequence qualify for shortcut
-     * fusion if the section is applied to an array of at least `200` elements
-     * and any iteratees accept only one argument. The heuristic for whether a
-     * section qualifies for shortcut fusion is subject to change.
+     * fusion if the section is applied to an array and iteratees accept only
+     * one argument. The heuristic for whether a section qualifies for shortcut
+     * fusion is subject to change.
      *
      * Chaining is supported in custom builds as long as the `_#value` method is
      * directly or indirectly included in the build.
@@ -2535,6 +2700,30 @@ module.exports = function() {
     }
 
     /**
+     * The base implementation of `_.create` without support for assigning
+     * properties to the created object.
+     *
+     * @private
+     * @param {Object} proto The object to inherit from.
+     * @returns {Object} Returns the new object.
+     */
+    var baseCreate = (function() {
+      function object() {}
+      return function(proto) {
+        if (!isObject(proto)) {
+          return {};
+        }
+        if (objectCreate) {
+          return objectCreate(proto);
+        }
+        object.prototype = proto;
+        var result = new object;
+        object.prototype = undefined;
+        return result;
+      };
+    }());
+
+    /**
      * The function whose prototype chain sequence wrappers inherit from.
      *
      * @private
@@ -2560,8 +2749,8 @@ module.exports = function() {
 
     /**
      * By default, the template delimiters used by lodash are like those in
-     * embedded Ruby (ERB). Change the following template settings to use
-     * alternative delimiters.
+     * embedded Ruby (ERB) as well as ES2015 template strings. Change the
+     * following template settings to use alternative delimiters.
      *
      * @static
      * @memberOf _
@@ -2708,8 +2897,7 @@ module.exports = function() {
           resIndex = 0,
           takeCount = nativeMin(length, this.__takeCount__);
 
-      if (!isArr || arrLength < LARGE_ARRAY_SIZE ||
-          (arrLength == length && takeCount == length)) {
+      if (!isArr || (!isRight && arrLength == length && takeCount == length)) {
         return baseWrapperValue(array, this.__actions__);
       }
       var result = [];
@@ -2757,7 +2945,7 @@ module.exports = function() {
      */
     function Hash(entries) {
       var index = -1,
-          length = entries ? entries.length : 0;
+          length = entries == null ? 0 : entries.length;
 
       this.clear();
       while (++index < length) {
@@ -2775,6 +2963,7 @@ module.exports = function() {
      */
     function hashClear() {
       this.__data__ = nativeCreate ? nativeCreate(null) : {};
+      this.size = 0;
     }
 
     /**
@@ -2788,7 +2977,9 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
     function hashDelete(key) {
-      return this.has(key) && delete this.__data__[key];
+      var result = this.has(key) && delete this.__data__[key];
+      this.size -= result ? 1 : 0;
+      return result;
     }
 
     /**
@@ -2820,7 +3011,7 @@ module.exports = function() {
      */
     function hashHas(key) {
       var data = this.__data__;
-      return nativeCreate ? data[key] !== undefined : hasOwnProperty.call(data, key);
+      return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);
     }
 
     /**
@@ -2835,6 +3026,7 @@ module.exports = function() {
      */
     function hashSet(key, value) {
       var data = this.__data__;
+      this.size += this.has(key) ? 0 : 1;
       data[key] = (nativeCreate && value === undefined) ? HASH_UNDEFINED : value;
       return this;
     }
@@ -2857,7 +3049,7 @@ module.exports = function() {
      */
     function ListCache(entries) {
       var index = -1,
-          length = entries ? entries.length : 0;
+          length = entries == null ? 0 : entries.length;
 
       this.clear();
       while (++index < length) {
@@ -2875,6 +3067,7 @@ module.exports = function() {
      */
     function listCacheClear() {
       this.__data__ = [];
+      this.size = 0;
     }
 
     /**
@@ -2899,6 +3092,7 @@ module.exports = function() {
       } else {
         splice.call(data, index, 1);
       }
+      --this.size;
       return true;
     }
 
@@ -2946,6 +3140,7 @@ module.exports = function() {
           index = assocIndexOf(data, key);
 
       if (index < 0) {
+        ++this.size;
         data.push([key, value]);
       } else {
         data[index][1] = value;
@@ -2971,7 +3166,7 @@ module.exports = function() {
      */
     function MapCache(entries) {
       var index = -1,
-          length = entries ? entries.length : 0;
+          length = entries == null ? 0 : entries.length;
 
       this.clear();
       while (++index < length) {
@@ -2988,6 +3183,7 @@ module.exports = function() {
      * @memberOf MapCache
      */
     function mapCacheClear() {
+      this.size = 0;
       this.__data__ = {
         'hash': new Hash,
         'map': new (Map || ListCache),
@@ -3005,7 +3201,9 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
     function mapCacheDelete(key) {
-      return getMapData(this, key)['delete'](key);
+      var result = getMapData(this, key)['delete'](key);
+      this.size -= result ? 1 : 0;
+      return result;
     }
 
     /**
@@ -3045,7 +3243,11 @@ module.exports = function() {
      * @returns {Object} Returns the map cache instance.
      */
     function mapCacheSet(key, value) {
-      getMapData(this, key).set(key, value);
+      var data = getMapData(this, key),
+          size = data.size;
+
+      data.set(key, value);
+      this.size += data.size == size ? 0 : 1;
       return this;
     }
 
@@ -3068,7 +3270,7 @@ module.exports = function() {
      */
     function SetCache(values) {
       var index = -1,
-          length = values ? values.length : 0;
+          length = values == null ? 0 : values.length;
 
       this.__data__ = new MapCache;
       while (++index < length) {
@@ -3118,7 +3320,8 @@ module.exports = function() {
      * @param {Array} [entries] The key-value pairs to cache.
      */
     function Stack(entries) {
-      this.__data__ = new ListCache(entries);
+      var data = this.__data__ = new ListCache(entries);
+      this.size = data.size;
     }
 
     /**
@@ -3130,6 +3333,7 @@ module.exports = function() {
      */
     function stackClear() {
       this.__data__ = new ListCache;
+      this.size = 0;
     }
 
     /**
@@ -3142,7 +3346,11 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if the entry was removed, else `false`.
      */
     function stackDelete(key) {
-      return this.__data__['delete'](key);
+      var data = this.__data__,
+          result = data['delete'](key);
+
+      this.size = data.size;
+      return result;
     }
 
     /**
@@ -3182,16 +3390,18 @@ module.exports = function() {
      * @returns {Object} Returns the stack cache instance.
      */
     function stackSet(key, value) {
-      var cache = this.__data__;
-      if (cache instanceof ListCache) {
-        var pairs = cache.__data__;
+      var data = this.__data__;
+      if (data instanceof ListCache) {
+        var pairs = data.__data__;
         if (!Map || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
           pairs.push([key, value]);
+          this.size = ++data.size;
           return this;
         }
-        cache = this.__data__ = new MapCache(pairs);
+        data = this.__data__ = new MapCache(pairs);
       }
-      cache.set(key, value);
+      data.set(key, value);
+      this.size = data.size;
       return this;
     }
 
@@ -3213,18 +3423,26 @@ module.exports = function() {
      * @returns {Array} Returns the array of property names.
      */
     function arrayLikeKeys(value, inherited) {
-      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-      // Safari 9 makes `arguments.length` enumerable in strict mode.
-      var result = (isArray(value) || isArguments(value))
-        ? baseTimes(value.length, String)
-        : [];
-
-      var length = result.length,
-          skipIndexes = !!length;
+      var isArr = isArray(value),
+          isArg = !isArr && isArguments(value),
+          isBuff = !isArr && !isArg && isBuffer(value),
+          isType = !isArr && !isArg && !isBuff && isTypedArray(value),
+          skipIndexes = isArr || isArg || isBuff || isType,
+          result = skipIndexes ? baseTimes(value.length, String) : [],
+          length = result.length;
 
       for (var key in value) {
         if ((inherited || hasOwnProperty.call(value, key)) &&
-            !(skipIndexes && (key == 'length' || isIndex(key, length)))) {
+            !(skipIndexes && (
+               // Safari 9 has enumerable `arguments.length` in strict mode.
+               key == 'length' ||
+               // Node.js 0.10 has enumerable non-index properties on buffers.
+               (isBuff && (key == 'offset' || key == 'parent')) ||
+               // PhantomJS 2 has enumerable non-index properties on typed arrays.
+               (isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset')) ||
+               // Skip index properties.
+               isIndex(key, length)
+            ))) {
           result.push(key);
         }
       }
@@ -3232,21 +3450,38 @@ module.exports = function() {
     }
 
     /**
-     * Used by `_.defaults` to customize its `_.assignIn` use.
+     * A specialized version of `_.sample` for arrays.
      *
      * @private
-     * @param {*} objValue The destination value.
-     * @param {*} srcValue The source value.
-     * @param {string} key The key of the property to assign.
-     * @param {Object} object The parent object of `objValue`.
-     * @returns {*} Returns the value to assign.
+     * @param {Array} array The array to sample.
+     * @returns {*} Returns the random element.
      */
-    function assignInDefaults(objValue, srcValue, key, object) {
-      if (objValue === undefined ||
-          (eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key))) {
-        return srcValue;
-      }
-      return objValue;
+    function arraySample(array) {
+      var length = array.length;
+      return length ? array[baseRandom(0, length - 1)] : undefined;
+    }
+
+    /**
+     * A specialized version of `_.sampleSize` for arrays.
+     *
+     * @private
+     * @param {Array} array The array to sample.
+     * @param {number} n The number of elements to sample.
+     * @returns {Array} Returns the random elements.
+     */
+    function arraySampleSize(array, n) {
+      return shuffleSelf(copyArray(array), baseClamp(n, 0, array.length));
+    }
+
+    /**
+     * A specialized version of `_.shuffle` for arrays.
+     *
+     * @private
+     * @param {Array} array The array to shuffle.
+     * @returns {Array} Returns the new shuffled array.
+     */
+    function arrayShuffle(array) {
+      return shuffleSelf(copyArray(array));
     }
 
     /**
@@ -3260,8 +3495,8 @@ module.exports = function() {
      */
     function assignMergeValue(object, key, value) {
       if ((value !== undefined && !eq(object[key], value)) ||
-          (typeof key == 'number' && value === undefined && !(key in object))) {
-        object[key] = value;
+          (value === undefined && !(key in object))) {
+        baseAssignValue(object, key, value);
       }
     }
 
@@ -3279,7 +3514,7 @@ module.exports = function() {
       var objValue = object[key];
       if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
           (value === undefined && !(key in object))) {
-        object[key] = value;
+        baseAssignValue(object, key, value);
       }
     }
 
@@ -3333,21 +3568,56 @@ module.exports = function() {
     }
 
     /**
+     * The base implementation of `_.assignIn` without support for multiple sources
+     * or `customizer` functions.
+     *
+     * @private
+     * @param {Object} object The destination object.
+     * @param {Object} source The source object.
+     * @returns {Object} Returns `object`.
+     */
+    function baseAssignIn(object, source) {
+      return object && copyObject(source, keysIn(source), object);
+    }
+
+    /**
+     * The base implementation of `assignValue` and `assignMergeValue` without
+     * value checks.
+     *
+     * @private
+     * @param {Object} object The object to modify.
+     * @param {string} key The key of the property to assign.
+     * @param {*} value The value to assign.
+     */
+    function baseAssignValue(object, key, value) {
+      if (key == '__proto__' && defineProperty) {
+        defineProperty(object, key, {
+          'configurable': true,
+          'enumerable': true,
+          'value': value,
+          'writable': true
+        });
+      } else {
+        object[key] = value;
+      }
+    }
+
+    /**
      * The base implementation of `_.at` without support for individual paths.
      *
      * @private
      * @param {Object} object The object to iterate over.
-     * @param {string[]} paths The property paths of elements to pick.
+     * @param {string[]} paths The property paths to pick.
      * @returns {Array} Returns the picked elements.
      */
     function baseAt(object, paths) {
       var index = -1,
-          isNil = object == null,
           length = paths.length,
-          result = Array(length);
+          result = Array(length),
+          skip = object == null;
 
       while (++index < length) {
-        result[index] = isNil ? undefined : get(object, paths[index]);
+        result[index] = skip ? undefined : get(object, paths[index]);
       }
       return result;
     }
@@ -3379,16 +3649,22 @@ module.exports = function() {
      *
      * @private
      * @param {*} value The value to clone.
-     * @param {boolean} [isDeep] Specify a deep clone.
-     * @param {boolean} [isFull] Specify a clone including symbols.
+     * @param {boolean} bitmask The bitmask flags.
+     *  1 - Deep clone
+     *  2 - Flatten inherited properties
+     *  4 - Clone symbols
      * @param {Function} [customizer] The function to customize cloning.
      * @param {string} [key] The key of `value`.
      * @param {Object} [object] The parent object of `value`.
      * @param {Object} [stack] Tracks traversed objects and their clone counterparts.
      * @returns {*} Returns the cloned value.
      */
-    function baseClone(value, isDeep, isFull, customizer, key, object, stack) {
-      var result;
+    function baseClone(value, bitmask, customizer, key, object, stack) {
+      var result,
+          isDeep = bitmask & CLONE_DEEP_FLAG,
+          isFlat = bitmask & CLONE_FLAT_FLAG,
+          isFull = bitmask & CLONE_SYMBOLS_FLAG;
+
       if (customizer) {
         result = object ? customizer(value, key, object, stack) : customizer(value);
       }
@@ -3412,18 +3688,17 @@ module.exports = function() {
           return cloneBuffer(value, isDeep);
         }
         if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
-          if (isHostObject(value)) {
-            return object ? value : {};
-          }
-          result = initCloneObject(isFunc ? {} : value);
+          result = (isFlat || isFunc) ? {} : initCloneObject(value);
           if (!isDeep) {
-            return copySymbols(value, baseAssign(result, value));
+            return isFlat
+              ? copySymbolsIn(value, baseAssignIn(result, value))
+              : copySymbols(value, baseAssign(result, value));
           }
         } else {
           if (!cloneableTags[tag]) {
             return object ? value : {};
           }
-          result = initCloneByTag(value, tag, baseClone, isDeep);
+          result = initCloneByTag(value, tag, isDeep);
         }
       }
       // Check for circular references and return its corresponding clone.
@@ -3434,16 +3709,34 @@ module.exports = function() {
       }
       stack.set(value, result);
 
-      if (!isArr) {
-        var props = isFull ? getAllKeys(value) : keys(value);
+      if (isSet(value)) {
+        value.forEach(function(subValue) {
+          result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
+        });
+
+        return result;
       }
+
+      if (isMap(value)) {
+        value.forEach(function(subValue, key) {
+          result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
+        });
+
+        return result;
+      }
+
+      var keysFunc = isFull
+        ? (isFlat ? getAllKeysIn : getAllKeys)
+        : (isFlat ? keysIn : keys);
+
+      var props = isArr ? undefined : keysFunc(value);
       arrayEach(props || value, function(subValue, key) {
         if (props) {
           key = subValue;
           subValue = value[key];
         }
         // Recursively populate clone (susceptible to call stack limits).
-        assignValue(result, key, baseClone(subValue, isDeep, isFull, customizer, key, value, stack));
+        assignValue(result, key, baseClone(subValue, bitmask, customizer, key, value, stack));
       });
       return result;
     }
@@ -3486,18 +3779,6 @@ module.exports = function() {
         }
       }
       return true;
-    }
-
-    /**
-     * The base implementation of `_.create` without support for assigning
-     * properties to the created object.
-     *
-     * @private
-     * @param {Object} prototype The object to inherit from.
-     * @returns {Object} Returns the new object.
-     */
-    function baseCreate(proto) {
-      return isObject(proto) ? objectCreate(proto) : {};
     }
 
     /**
@@ -3554,7 +3835,7 @@ module.exports = function() {
       outer:
       while (++index < length) {
         var value = array[index],
-            computed = iteratee ? iteratee(value) : value;
+            computed = iteratee == null ? value : iteratee(value);
 
         value = (comparator || value !== 0) ? value : 0;
         if (isCommon && computed === computed) {
@@ -3793,7 +4074,7 @@ module.exports = function() {
      * @returns {*} Returns the resolved value.
      */
     function baseGet(object, path) {
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = castPath(path, object);
 
       var index = 0,
           length = path.length;
@@ -3821,14 +4102,19 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of `getTag`.
+     * The base implementation of `getTag` without fallbacks for buggy environments.
      *
      * @private
      * @param {*} value The value to query.
      * @returns {string} Returns the `toStringTag`.
      */
     function baseGetTag(value) {
-      return objectToString.call(value);
+      if (value == null) {
+        return value === undefined ? undefinedTag : nullTag;
+      }
+      return (symToStringTag && symToStringTag in Object(value))
+        ? getRawTag(value)
+        : objectToString(value);
     }
 
     /**
@@ -3973,13 +4259,21 @@ module.exports = function() {
      * @returns {*} Returns the result of the invoked method.
      */
     function baseInvoke(object, path, args) {
-      if (!isKey(path, object)) {
-        path = castPath(path);
-        object = parent(object, path);
-        path = last(path);
-      }
-      var func = object == null ? object : object[toKey(path)];
+      path = castPath(path, object);
+      object = parent(object, path);
+      var func = object == null ? object : object[toKey(last(path))];
       return func == null ? undefined : apply(func, object, args);
+    }
+
+    /**
+     * The base implementation of `_.isArguments`.
+     *
+     * @private
+     * @param {*} value The value to check.
+     * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+     */
+    function baseIsArguments(value) {
+      return isObjectLike(value) && baseGetTag(value) == argsTag;
     }
 
     /**
@@ -3990,7 +4284,7 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `value` is an array buffer, else `false`.
      */
     function baseIsArrayBuffer(value) {
-      return isObjectLike(value) && objectToString.call(value) == arrayBufferTag;
+      return isObjectLike(value) && baseGetTag(value) == arrayBufferTag;
     }
 
     /**
@@ -4001,7 +4295,7 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `value` is a date object, else `false`.
      */
     function baseIsDate(value) {
-      return isObjectLike(value) && objectToString.call(value) == dateTag;
+      return isObjectLike(value) && baseGetTag(value) == dateTag;
     }
 
     /**
@@ -4011,22 +4305,21 @@ module.exports = function() {
      * @private
      * @param {*} value The value to compare.
      * @param {*} other The other value to compare.
+     * @param {boolean} bitmask The bitmask flags.
+     *  1 - Unordered comparison
+     *  2 - Partial comparison
      * @param {Function} [customizer] The function to customize comparisons.
-     * @param {boolean} [bitmask] The bitmask of comparison flags.
-     *  The bitmask may be composed of the following flags:
-     *     1 - Unordered comparison
-     *     2 - Partial comparison
      * @param {Object} [stack] Tracks traversed `value` and `other` objects.
      * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
      */
-    function baseIsEqual(value, other, customizer, bitmask, stack) {
+    function baseIsEqual(value, other, bitmask, customizer, stack) {
       if (value === other) {
         return true;
       }
-      if (value == null || other == null || (!isObject(value) && !isObjectLike(other))) {
+      if (value == null || other == null || (!isObjectLike(value) && !isObjectLike(other))) {
         return value !== value && other !== other;
       }
-      return baseIsEqualDeep(value, other, baseIsEqual, customizer, bitmask, stack);
+      return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual, stack);
     }
 
     /**
@@ -4037,38 +4330,39 @@ module.exports = function() {
      * @private
      * @param {Object} object The object to compare.
      * @param {Object} other The other object to compare.
+     * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
+     * @param {Function} customizer The function to customize comparisons.
      * @param {Function} equalFunc The function to determine equivalents of values.
-     * @param {Function} [customizer] The function to customize comparisons.
-     * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
      * @param {Object} [stack] Tracks traversed `object` and `other` objects.
      * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
      */
-    function baseIsEqualDeep(object, other, equalFunc, customizer, bitmask, stack) {
+    function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
       var objIsArr = isArray(object),
           othIsArr = isArray(other),
-          objTag = arrayTag,
-          othTag = arrayTag;
+          objTag = objIsArr ? arrayTag : getTag(object),
+          othTag = othIsArr ? arrayTag : getTag(other);
 
-      if (!objIsArr) {
-        objTag = getTag(object);
-        objTag = objTag == argsTag ? objectTag : objTag;
-      }
-      if (!othIsArr) {
-        othTag = getTag(other);
-        othTag = othTag == argsTag ? objectTag : othTag;
-      }
-      var objIsObj = objTag == objectTag && !isHostObject(object),
-          othIsObj = othTag == objectTag && !isHostObject(other),
+      objTag = objTag == argsTag ? objectTag : objTag;
+      othTag = othTag == argsTag ? objectTag : othTag;
+
+      var objIsObj = objTag == objectTag,
+          othIsObj = othTag == objectTag,
           isSameTag = objTag == othTag;
 
+      if (isSameTag && isBuffer(object)) {
+        if (!isBuffer(other)) {
+          return false;
+        }
+        objIsArr = true;
+        objIsObj = false;
+      }
       if (isSameTag && !objIsObj) {
         stack || (stack = new Stack);
         return (objIsArr || isTypedArray(object))
-          ? equalArrays(object, other, equalFunc, customizer, bitmask, stack)
-          : equalByTag(object, other, objTag, equalFunc, customizer, bitmask, stack);
+          ? equalArrays(object, other, bitmask, customizer, equalFunc, stack)
+          : equalByTag(object, other, objTag, bitmask, customizer, equalFunc, stack);
       }
-      if (!(bitmask & PARTIAL_COMPARE_FLAG)) {
+      if (!(bitmask & COMPARE_PARTIAL_FLAG)) {
         var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
             othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
 
@@ -4077,14 +4371,14 @@ module.exports = function() {
               othUnwrapped = othIsWrapped ? other.value() : other;
 
           stack || (stack = new Stack);
-          return equalFunc(objUnwrapped, othUnwrapped, customizer, bitmask, stack);
+          return equalFunc(objUnwrapped, othUnwrapped, bitmask, customizer, stack);
         }
       }
       if (!isSameTag) {
         return false;
       }
       stack || (stack = new Stack);
-      return equalObjects(object, other, equalFunc, customizer, bitmask, stack);
+      return equalObjects(object, other, bitmask, customizer, equalFunc, stack);
     }
 
     /**
@@ -4142,7 +4436,7 @@ module.exports = function() {
             var result = customizer(objValue, srcValue, key, object, source, stack);
           }
           if (!(result === undefined
-                ? baseIsEqual(srcValue, objValue, customizer, UNORDERED_COMPARE_FLAG | PARTIAL_COMPARE_FLAG, stack)
+                ? baseIsEqual(srcValue, objValue, COMPARE_PARTIAL_FLAG | COMPARE_UNORDERED_FLAG, customizer, stack)
                 : result
               )) {
             return false;
@@ -4164,7 +4458,7 @@ module.exports = function() {
       if (!isObject(value) || isMasked(value)) {
         return false;
       }
-      var pattern = (isFunction(value) || isHostObject(value)) ? reIsNative : reIsHostCtor;
+      var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
       return pattern.test(toSource(value));
     }
 
@@ -4176,7 +4470,7 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `value` is a regexp, else `false`.
      */
     function baseIsRegExp(value) {
-      return isObject(value) && objectToString.call(value) == regexpTag;
+      return isObjectLike(value) && baseGetTag(value) == regexpTag;
     }
 
     /**
@@ -4199,7 +4493,7 @@ module.exports = function() {
      */
     function baseIsTypedArray(value) {
       return isObjectLike(value) &&
-        isLength(value.length) && !!typedArrayTags[objectToString.call(value)];
+        isLength(value.length) && !!typedArrayTags[baseGetTag(value)];
     }
 
     /**
@@ -4332,7 +4626,7 @@ module.exports = function() {
         var objValue = get(object, path);
         return (objValue === undefined && objValue === srcValue)
           ? hasIn(object, path)
-          : baseIsEqual(srcValue, objValue, undefined, UNORDERED_COMPARE_FLAG | PARTIAL_COMPARE_FLAG);
+          : baseIsEqual(srcValue, objValue, COMPARE_PARTIAL_FLAG | COMPARE_UNORDERED_FLAG);
       };
     }
 
@@ -4351,21 +4645,14 @@ module.exports = function() {
       if (object === source) {
         return;
       }
-      if (!(isArray(source) || isTypedArray(source))) {
-        var props = baseKeysIn(source);
-      }
-      arrayEach(props || source, function(srcValue, key) {
-        if (props) {
-          key = srcValue;
-          srcValue = source[key];
-        }
+      baseFor(source, function(srcValue, key) {
         if (isObject(srcValue)) {
           stack || (stack = new Stack);
           baseMergeDeep(object, source, key, srcIndex, baseMerge, customizer, stack);
         }
         else {
           var newValue = customizer
-            ? customizer(object[key], srcValue, (key + ''), object, source, stack)
+            ? customizer(safeGet(object, key), srcValue, (key + ''), object, source, stack)
             : undefined;
 
           if (newValue === undefined) {
@@ -4373,7 +4660,7 @@ module.exports = function() {
           }
           assignMergeValue(object, key, newValue);
         }
-      });
+      }, keysIn);
     }
 
     /**
@@ -4392,8 +4679,8 @@ module.exports = function() {
      *  counterparts.
      */
     function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, stack) {
-      var objValue = object[key],
-          srcValue = source[key],
+      var objValue = safeGet(object, key),
+          srcValue = safeGet(source, key),
           stacked = stack.get(srcValue);
 
       if (stacked) {
@@ -4407,29 +4694,37 @@ module.exports = function() {
       var isCommon = newValue === undefined;
 
       if (isCommon) {
+        var isArr = isArray(srcValue),
+            isBuff = !isArr && isBuffer(srcValue),
+            isTyped = !isArr && !isBuff && isTypedArray(srcValue);
+
         newValue = srcValue;
-        if (isArray(srcValue) || isTypedArray(srcValue)) {
+        if (isArr || isBuff || isTyped) {
           if (isArray(objValue)) {
             newValue = objValue;
           }
           else if (isArrayLikeObject(objValue)) {
             newValue = copyArray(objValue);
           }
-          else {
+          else if (isBuff) {
             isCommon = false;
-            newValue = baseClone(srcValue, true);
+            newValue = cloneBuffer(srcValue, true);
+          }
+          else if (isTyped) {
+            isCommon = false;
+            newValue = cloneTypedArray(srcValue, true);
+          }
+          else {
+            newValue = [];
           }
         }
         else if (isPlainObject(srcValue) || isArguments(srcValue)) {
+          newValue = objValue;
           if (isArguments(objValue)) {
             newValue = toPlainObject(objValue);
           }
           else if (!isObject(objValue) || (srcIndex && isFunction(objValue))) {
-            isCommon = false;
-            newValue = baseClone(srcValue, true);
-          }
-          else {
-            newValue = objValue;
+            newValue = initCloneObject(srcValue);
           }
         }
         else {
@@ -4493,13 +4788,12 @@ module.exports = function() {
      *
      * @private
      * @param {Object} object The source object.
-     * @param {string[]} props The property identifiers to pick.
+     * @param {string[]} paths The property paths to pick.
      * @returns {Object} Returns the new object.
      */
-    function basePick(object, props) {
-      object = Object(object);
-      return basePickBy(object, props, function(value, key) {
-        return key in object;
+    function basePick(object, paths) {
+      return basePickBy(object, paths, function(value, path) {
+        return hasIn(object, path);
       });
     }
 
@@ -4508,21 +4802,21 @@ module.exports = function() {
      *
      * @private
      * @param {Object} object The source object.
-     * @param {string[]} props The property identifiers to pick from.
+     * @param {string[]} paths The property paths to pick.
      * @param {Function} predicate The function invoked per property.
      * @returns {Object} Returns the new object.
      */
-    function basePickBy(object, props, predicate) {
+    function basePickBy(object, paths, predicate) {
       var index = -1,
-          length = props.length,
+          length = paths.length,
           result = {};
 
       while (++index < length) {
-        var key = props[index],
-            value = object[key];
+        var path = paths[index],
+            value = baseGet(object, path);
 
-        if (predicate(value, key)) {
-          result[key] = value;
+        if (predicate(value, path)) {
+          baseSet(result, castPath(path, object), value);
         }
       }
       return result;
@@ -4598,17 +4892,8 @@ module.exports = function() {
           var previous = index;
           if (isIndex(index)) {
             splice.call(array, index, 1);
-          }
-          else if (!isKey(index, array)) {
-            var path = castPath(index),
-                object = parent(array, path);
-
-            if (object != null) {
-              delete object[toKey(last(path))];
-            }
-          }
-          else {
-            delete array[toKey(index)];
+          } else {
+            baseUnset(array, index);
           }
         }
       }
@@ -4688,24 +4973,31 @@ module.exports = function() {
      * @returns {Function} Returns the new function.
      */
     function baseRest(func, start) {
-      start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
-      return function() {
-        var args = arguments,
-            index = -1,
-            length = nativeMax(args.length - start, 0),
-            array = Array(length);
+      return setToString(overRest(func, start, identity), func + '');
+    }
 
-        while (++index < length) {
-          array[index] = args[start + index];
-        }
-        index = -1;
-        var otherArgs = Array(start + 1);
-        while (++index < start) {
-          otherArgs[index] = args[index];
-        }
-        otherArgs[start] = array;
-        return apply(func, this, otherArgs);
-      };
+    /**
+     * The base implementation of `_.sample`.
+     *
+     * @private
+     * @param {Array|Object} collection The collection to sample.
+     * @returns {*} Returns the random element.
+     */
+    function baseSample(collection) {
+      return arraySample(values(collection));
+    }
+
+    /**
+     * The base implementation of `_.sampleSize` without param guards.
+     *
+     * @private
+     * @param {Array|Object} collection The collection to sample.
+     * @param {number} n The number of elements to sample.
+     * @returns {Array} Returns the random elements.
+     */
+    function baseSampleSize(collection, n) {
+      var array = values(collection);
+      return shuffleSelf(array, baseClamp(n, 0, array.length));
     }
 
     /**
@@ -4722,7 +5014,7 @@ module.exports = function() {
       if (!isObject(object)) {
         return object;
       }
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = castPath(path, object);
 
       var index = -1,
           length = path.length,
@@ -4749,7 +5041,7 @@ module.exports = function() {
     }
 
     /**
-     * The base implementation of `setData` without support for hot loop detection.
+     * The base implementation of `setData` without support for hot loop shorting.
      *
      * @private
      * @param {Function} func The function to associate metadata with.
@@ -4760,6 +5052,34 @@ module.exports = function() {
       metaMap.set(func, data);
       return func;
     };
+
+    /**
+     * The base implementation of `setToString` without support for hot loop shorting.
+     *
+     * @private
+     * @param {Function} func The function to modify.
+     * @param {Function} string The `toString` result.
+     * @returns {Function} Returns `func`.
+     */
+    var baseSetToString = !defineProperty ? identity : function(func, string) {
+      return defineProperty(func, 'toString', {
+        'configurable': true,
+        'enumerable': false,
+        'value': constant(string),
+        'writable': true
+      });
+    };
+
+    /**
+     * The base implementation of `_.shuffle`.
+     *
+     * @private
+     * @param {Array|Object} collection The collection to shuffle.
+     * @returns {Array} Returns the new shuffled array.
+     */
+    function baseShuffle(collection) {
+      return shuffleSelf(values(collection));
+    }
 
     /**
      * The base implementation of `_.slice` without an iteratee call guard.
@@ -4824,7 +5144,7 @@ module.exports = function() {
      */
     function baseSortedIndex(array, value, retHighest) {
       var low = 0,
-          high = array ? array.length : low;
+          high = array == null ? low : array.length;
 
       if (typeof value == 'number' && value === value && high <= HALF_MAX_ARRAY_LENGTH) {
         while (low < high) {
@@ -4860,7 +5180,7 @@ module.exports = function() {
       value = iteratee(value);
 
       var low = 0,
-          high = array ? array.length : 0,
+          high = array == null ? 0 : array.length,
           valIsNaN = value !== value,
           valIsNull = value === null,
           valIsSymbol = isSymbol(value),
@@ -4954,6 +5274,10 @@ module.exports = function() {
       if (typeof value == 'string') {
         return value;
       }
+      if (isArray(value)) {
+        // Recursively convert values (susceptible to call stack limits).
+        return arrayMap(value, baseToString) + '';
+      }
       if (isSymbol(value)) {
         return symbolToString ? symbolToString.call(value) : '';
       }
@@ -5027,15 +5351,13 @@ module.exports = function() {
      *
      * @private
      * @param {Object} object The object to modify.
-     * @param {Array|string} path The path of the property to unset.
+     * @param {Array|string} path The property path to unset.
      * @returns {boolean} Returns `true` if the property is deleted, else `false`.
      */
     function baseUnset(object, path) {
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = castPath(path, object);
       object = parent(object, path);
-
-      var key = toKey(last(path));
-      return !(object != null && hasOwnProperty.call(object, key)) || delete object[key];
+      return object == null || delete object[toKey(last(path))];
     }
 
     /**
@@ -5106,18 +5428,24 @@ module.exports = function() {
      * @returns {Array} Returns the new array of values.
      */
     function baseXor(arrays, iteratee, comparator) {
+      var length = arrays.length;
+      if (length < 2) {
+        return length ? baseUniq(arrays[0]) : [];
+      }
       var index = -1,
-          length = arrays.length;
+          result = Array(length);
 
       while (++index < length) {
-        var result = result
-          ? arrayPush(
-              baseDifference(result, arrays[index], iteratee, comparator),
-              baseDifference(arrays[index], result, iteratee, comparator)
-            )
-          : arrays[index];
+        var array = arrays[index],
+            othIndex = -1;
+
+        while (++othIndex < length) {
+          if (othIndex != index) {
+            result[index] = baseDifference(result[index] || array, arrays[othIndex], iteratee, comparator);
+          }
+        }
       }
-      return (result && result.length) ? baseUniq(result, iteratee, comparator) : [];
+      return baseUniq(baseFlatten(result, 1), iteratee, comparator);
     }
 
     /**
@@ -5169,11 +5497,26 @@ module.exports = function() {
      *
      * @private
      * @param {*} value The value to inspect.
+     * @param {Object} [object] The object to query keys on.
      * @returns {Array} Returns the cast property path array.
      */
-    function castPath(value) {
-      return isArray(value) ? value : stringToPath(value);
+    function castPath(value, object) {
+      if (isArray(value)) {
+        return value;
+      }
+      return isKey(value, object) ? [value] : stringToPath(toString(value));
     }
+
+    /**
+     * A `baseRest` alias which can be replaced with `identity` by module
+     * replacement plugins.
+     *
+     * @private
+     * @type {Function}
+     * @param {Function} func The function to apply a rest parameter to.
+     * @returns {Function} Returns the new function.
+     */
+    var castRest = baseRest;
 
     /**
      * Casts `array` to a slice if it's needed.
@@ -5212,7 +5555,9 @@ module.exports = function() {
       if (isDeep) {
         return buffer.slice();
       }
-      var result = new buffer.constructor(buffer.length);
+      var length = buffer.length,
+          result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+
       buffer.copy(result);
       return result;
     }
@@ -5244,20 +5589,6 @@ module.exports = function() {
     }
 
     /**
-     * Creates a clone of `map`.
-     *
-     * @private
-     * @param {Object} map The map to clone.
-     * @param {Function} cloneFunc The function to clone values.
-     * @param {boolean} [isDeep] Specify a deep clone.
-     * @returns {Object} Returns the cloned map.
-     */
-    function cloneMap(map, isDeep, cloneFunc) {
-      var array = isDeep ? cloneFunc(mapToArray(map), true) : mapToArray(map);
-      return arrayReduce(array, addMapEntry, new map.constructor);
-    }
-
-    /**
      * Creates a clone of `regexp`.
      *
      * @private
@@ -5268,20 +5599,6 @@ module.exports = function() {
       var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
       result.lastIndex = regexp.lastIndex;
       return result;
-    }
-
-    /**
-     * Creates a clone of `set`.
-     *
-     * @private
-     * @param {Object} set The set to clone.
-     * @param {Function} cloneFunc The function to clone values.
-     * @param {boolean} [isDeep] Specify a deep clone.
-     * @returns {Object} Returns the cloned set.
-     */
-    function cloneSet(set, isDeep, cloneFunc) {
-      var array = isDeep ? cloneFunc(setToArray(set), true) : setToArray(set);
-      return arrayReduce(array, addSetEntry, new set.constructor);
     }
 
     /**
@@ -5489,6 +5806,7 @@ module.exports = function() {
      * @returns {Object} Returns `object`.
      */
     function copyObject(source, props, object, customizer) {
+      var isNew = !object;
       object || (object = {});
 
       var index = -1,
@@ -5501,13 +5819,20 @@ module.exports = function() {
           ? customizer(object[key], source[key], key, object, source)
           : undefined;
 
-        assignValue(object, key, newValue === undefined ? source[key] : newValue);
+        if (newValue === undefined) {
+          newValue = source[key];
+        }
+        if (isNew) {
+          baseAssignValue(object, key, newValue);
+        } else {
+          assignValue(object, key, newValue);
+        }
       }
       return object;
     }
 
     /**
-     * Copies own symbol properties of `source` to `object`.
+     * Copies own symbols of `source` to `object`.
      *
      * @private
      * @param {Object} source The object to copy symbols from.
@@ -5516,6 +5841,18 @@ module.exports = function() {
      */
     function copySymbols(source, object) {
       return copyObject(source, getSymbols(source), object);
+    }
+
+    /**
+     * Copies own and inherited symbols of `source` to `object`.
+     *
+     * @private
+     * @param {Object} source The object to copy symbols from.
+     * @param {Object} [object={}] The object to copy symbols to.
+     * @returns {Object} Returns `object`.
+     */
+    function copySymbolsIn(source, object) {
+      return copyObject(source, getSymbolsIn(source), object);
     }
 
     /**
@@ -5632,7 +5969,7 @@ module.exports = function() {
      * @returns {Function} Returns the new wrapped function.
      */
     function createBind(func, bitmask, thisArg) {
-      var isBind = bitmask & BIND_FLAG,
+      var isBind = bitmask & WRAP_BIND_FLAG,
           Ctor = createCtor(func);
 
       function wrapper() {
@@ -5780,9 +6117,7 @@ module.exports = function() {
      * @returns {Function} Returns the new flow function.
      */
     function createFlow(fromRight) {
-      return baseRest(function(funcs) {
-        funcs = baseFlatten(funcs, 1);
-
+      return flatRest(function(funcs) {
         var length = funcs.length,
             index = length,
             prereq = LodashWrapper.prototype.thru;
@@ -5807,7 +6142,7 @@ module.exports = function() {
               data = funcName == 'wrapper' ? getData(func) : undefined;
 
           if (data && isLaziable(data[0]) &&
-                data[1] == (ARY_FLAG | CURRY_FLAG | PARTIAL_FLAG | REARG_FLAG) &&
+                data[1] == (WRAP_ARY_FLAG | WRAP_CURRY_FLAG | WRAP_PARTIAL_FLAG | WRAP_REARG_FLAG) &&
                 !data[4].length && data[9] == 1
               ) {
             wrapper = wrapper[getFuncName(data[0])].apply(wrapper, data[3]);
@@ -5821,8 +6156,7 @@ module.exports = function() {
           var args = arguments,
               value = args[0];
 
-          if (wrapper && args.length == 1 &&
-              isArray(value) && value.length >= LARGE_ARRAY_SIZE) {
+          if (wrapper && args.length == 1 && isArray(value)) {
             return wrapper.plant(value).value();
           }
           var index = 0,
@@ -5856,11 +6190,11 @@ module.exports = function() {
      * @returns {Function} Returns the new wrapped function.
      */
     function createHybrid(func, bitmask, thisArg, partials, holders, partialsRight, holdersRight, argPos, ary, arity) {
-      var isAry = bitmask & ARY_FLAG,
-          isBind = bitmask & BIND_FLAG,
-          isBindKey = bitmask & BIND_KEY_FLAG,
-          isCurried = bitmask & (CURRY_FLAG | CURRY_RIGHT_FLAG),
-          isFlip = bitmask & FLIP_FLAG,
+      var isAry = bitmask & WRAP_ARY_FLAG,
+          isBind = bitmask & WRAP_BIND_FLAG,
+          isBindKey = bitmask & WRAP_BIND_KEY_FLAG,
+          isCurried = bitmask & (WRAP_CURRY_FLAG | WRAP_CURRY_RIGHT_FLAG),
+          isFlip = bitmask & WRAP_FLIP_FLAG,
           Ctor = isBindKey ? undefined : createCtor(func);
 
       function wrapper() {
@@ -5965,11 +6299,8 @@ module.exports = function() {
      * @returns {Function} Returns the new over function.
      */
     function createOver(arrayFunc) {
-      return baseRest(function(iteratees) {
-        iteratees = (iteratees.length == 1 && isArray(iteratees[0]))
-          ? arrayMap(iteratees[0], baseUnary(getIteratee()))
-          : arrayMap(baseFlatten(iteratees, 1), baseUnary(getIteratee()));
-
+      return flatRest(function(iteratees) {
+        iteratees = arrayMap(iteratees, baseUnary(getIteratee()));
         return baseRest(function(args) {
           var thisArg = this;
           return arrayFunc(iteratees, function(iteratee) {
@@ -6014,7 +6345,7 @@ module.exports = function() {
      * @returns {Function} Returns the new wrapped function.
      */
     function createPartial(func, bitmask, thisArg, partials) {
-      var isBind = bitmask & BIND_FLAG,
+      var isBind = bitmask & WRAP_BIND_FLAG,
           Ctor = createCtor(func);
 
       function wrapper() {
@@ -6096,17 +6427,17 @@ module.exports = function() {
      * @returns {Function} Returns the new wrapped function.
      */
     function createRecurry(func, bitmask, wrapFunc, placeholder, thisArg, partials, holders, argPos, ary, arity) {
-      var isCurry = bitmask & CURRY_FLAG,
+      var isCurry = bitmask & WRAP_CURRY_FLAG,
           newHolders = isCurry ? holders : undefined,
           newHoldersRight = isCurry ? undefined : holders,
           newPartials = isCurry ? partials : undefined,
           newPartialsRight = isCurry ? undefined : partials;
 
-      bitmask |= (isCurry ? PARTIAL_FLAG : PARTIAL_RIGHT_FLAG);
-      bitmask &= ~(isCurry ? PARTIAL_RIGHT_FLAG : PARTIAL_FLAG);
+      bitmask |= (isCurry ? WRAP_PARTIAL_FLAG : WRAP_PARTIAL_RIGHT_FLAG);
+      bitmask &= ~(isCurry ? WRAP_PARTIAL_RIGHT_FLAG : WRAP_PARTIAL_FLAG);
 
-      if (!(bitmask & CURRY_BOUND_FLAG)) {
-        bitmask &= ~(BIND_FLAG | BIND_KEY_FLAG);
+      if (!(bitmask & WRAP_CURRY_BOUND_FLAG)) {
+        bitmask &= ~(WRAP_BIND_FLAG | WRAP_BIND_KEY_FLAG);
       }
       var newData = [
         func, bitmask, thisArg, newPartials, newHolders, newPartialsRight,
@@ -6132,7 +6463,7 @@ module.exports = function() {
       var func = Math[methodName];
       return function(number, precision) {
         number = toNumber(number);
-        precision = nativeMin(toInteger(precision), 292);
+        precision = precision == null ? 0 : nativeMin(toInteger(precision), 292);
         if (precision) {
           // Shift with exponential notation to avoid floating-point issues.
           // See [MDN](https://mdn.io/round#Examples) for more details.
@@ -6184,17 +6515,16 @@ module.exports = function() {
      * @private
      * @param {Function|string} func The function or method name to wrap.
      * @param {number} bitmask The bitmask flags.
-     *  The bitmask may be composed of the following flags:
-     *     1 - `_.bind`
-     *     2 - `_.bindKey`
-     *     4 - `_.curry` or `_.curryRight` of a bound function
-     *     8 - `_.curry`
-     *    16 - `_.curryRight`
-     *    32 - `_.partial`
-     *    64 - `_.partialRight`
-     *   128 - `_.rearg`
-     *   256 - `_.ary`
-     *   512 - `_.flip`
+     *    1 - `_.bind`
+     *    2 - `_.bindKey`
+     *    4 - `_.curry` or `_.curryRight` of a bound function
+     *    8 - `_.curry`
+     *   16 - `_.curryRight`
+     *   32 - `_.partial`
+     *   64 - `_.partialRight`
+     *  128 - `_.rearg`
+     *  256 - `_.ary`
+     *  512 - `_.flip`
      * @param {*} [thisArg] The `this` binding of `func`.
      * @param {Array} [partials] The arguments to be partially applied.
      * @param {Array} [holders] The `partials` placeholder indexes.
@@ -6204,20 +6534,20 @@ module.exports = function() {
      * @returns {Function} Returns the new wrapped function.
      */
     function createWrap(func, bitmask, thisArg, partials, holders, argPos, ary, arity) {
-      var isBindKey = bitmask & BIND_KEY_FLAG;
+      var isBindKey = bitmask & WRAP_BIND_KEY_FLAG;
       if (!isBindKey && typeof func != 'function') {
         throw new TypeError(FUNC_ERROR_TEXT);
       }
       var length = partials ? partials.length : 0;
       if (!length) {
-        bitmask &= ~(PARTIAL_FLAG | PARTIAL_RIGHT_FLAG);
+        bitmask &= ~(WRAP_PARTIAL_FLAG | WRAP_PARTIAL_RIGHT_FLAG);
         partials = holders = undefined;
       }
       ary = ary === undefined ? ary : nativeMax(toInteger(ary), 0);
       arity = arity === undefined ? arity : toInteger(arity);
       length -= holders ? holders.length : 0;
 
-      if (bitmask & PARTIAL_RIGHT_FLAG) {
+      if (bitmask & WRAP_PARTIAL_RIGHT_FLAG) {
         var partialsRight = partials,
             holdersRight = holders;
 
@@ -6238,18 +6568,18 @@ module.exports = function() {
       thisArg = newData[2];
       partials = newData[3];
       holders = newData[4];
-      arity = newData[9] = newData[9] == null
+      arity = newData[9] = newData[9] === undefined
         ? (isBindKey ? 0 : func.length)
         : nativeMax(newData[9] - length, 0);
 
-      if (!arity && bitmask & (CURRY_FLAG | CURRY_RIGHT_FLAG)) {
-        bitmask &= ~(CURRY_FLAG | CURRY_RIGHT_FLAG);
+      if (!arity && bitmask & (WRAP_CURRY_FLAG | WRAP_CURRY_RIGHT_FLAG)) {
+        bitmask &= ~(WRAP_CURRY_FLAG | WRAP_CURRY_RIGHT_FLAG);
       }
-      if (!bitmask || bitmask == BIND_FLAG) {
+      if (!bitmask || bitmask == WRAP_BIND_FLAG) {
         var result = createBind(func, bitmask, thisArg);
-      } else if (bitmask == CURRY_FLAG || bitmask == CURRY_RIGHT_FLAG) {
+      } else if (bitmask == WRAP_CURRY_FLAG || bitmask == WRAP_CURRY_RIGHT_FLAG) {
         result = createCurry(func, bitmask, arity);
-      } else if ((bitmask == PARTIAL_FLAG || bitmask == (BIND_FLAG | PARTIAL_FLAG)) && !holders.length) {
+      } else if ((bitmask == WRAP_PARTIAL_FLAG || bitmask == (WRAP_BIND_FLAG | WRAP_PARTIAL_FLAG)) && !holders.length) {
         result = createPartial(func, bitmask, thisArg, partials);
       } else {
         result = createHybrid.apply(undefined, newData);
@@ -6259,21 +6589,77 @@ module.exports = function() {
     }
 
     /**
+     * Used by `_.defaults` to customize its `_.assignIn` use to assign properties
+     * of source objects to the destination object for all destination properties
+     * that resolve to `undefined`.
+     *
+     * @private
+     * @param {*} objValue The destination value.
+     * @param {*} srcValue The source value.
+     * @param {string} key The key of the property to assign.
+     * @param {Object} object The parent object of `objValue`.
+     * @returns {*} Returns the value to assign.
+     */
+    function customDefaultsAssignIn(objValue, srcValue, key, object) {
+      if (objValue === undefined ||
+          (eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key))) {
+        return srcValue;
+      }
+      return objValue;
+    }
+
+    /**
+     * Used by `_.defaultsDeep` to customize its `_.merge` use to merge source
+     * objects into destination objects that are passed thru.
+     *
+     * @private
+     * @param {*} objValue The destination value.
+     * @param {*} srcValue The source value.
+     * @param {string} key The key of the property to merge.
+     * @param {Object} object The parent object of `objValue`.
+     * @param {Object} source The parent object of `srcValue`.
+     * @param {Object} [stack] Tracks traversed source values and their merged
+     *  counterparts.
+     * @returns {*} Returns the value to assign.
+     */
+    function customDefaultsMerge(objValue, srcValue, key, object, source, stack) {
+      if (isObject(objValue) && isObject(srcValue)) {
+        // Recursively merge objects and arrays (susceptible to call stack limits).
+        stack.set(srcValue, objValue);
+        baseMerge(objValue, srcValue, undefined, customDefaultsMerge, stack);
+        stack['delete'](srcValue);
+      }
+      return objValue;
+    }
+
+    /**
+     * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
+     * objects.
+     *
+     * @private
+     * @param {*} value The value to inspect.
+     * @param {string} key The key of the property to inspect.
+     * @returns {*} Returns the uncloned value or `undefined` to defer cloning to `_.cloneDeep`.
+     */
+    function customOmitClone(value) {
+      return isPlainObject(value) ? undefined : value;
+    }
+
+    /**
      * A specialized version of `baseIsEqualDeep` for arrays with support for
      * partial deep comparisons.
      *
      * @private
      * @param {Array} array The array to compare.
      * @param {Array} other The other array to compare.
-     * @param {Function} equalFunc The function to determine equivalents of values.
+     * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
      * @param {Function} customizer The function to customize comparisons.
-     * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
+     * @param {Function} equalFunc The function to determine equivalents of values.
      * @param {Object} stack Tracks traversed `array` and `other` objects.
      * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
      */
-    function equalArrays(array, other, equalFunc, customizer, bitmask, stack) {
-      var isPartial = bitmask & PARTIAL_COMPARE_FLAG,
+    function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {
+      var isPartial = bitmask & COMPARE_PARTIAL_FLAG,
           arrLength = array.length,
           othLength = other.length;
 
@@ -6287,7 +6673,7 @@ module.exports = function() {
       }
       var index = -1,
           result = true,
-          seen = (bitmask & UNORDERED_COMPARE_FLAG) ? new SetCache : undefined;
+          seen = (bitmask & COMPARE_UNORDERED_FLAG) ? new SetCache : undefined;
 
       stack.set(array, other);
       stack.set(other, array);
@@ -6312,9 +6698,9 @@ module.exports = function() {
         // Recursively compare arrays (susceptible to call stack limits).
         if (seen) {
           if (!arraySome(other, function(othValue, othIndex) {
-                if (!seen.has(othIndex) &&
-                    (arrValue === othValue || equalFunc(arrValue, othValue, customizer, bitmask, stack))) {
-                  return seen.add(othIndex);
+                if (!cacheHas(seen, othIndex) &&
+                    (arrValue === othValue || equalFunc(arrValue, othValue, bitmask, customizer, stack))) {
+                  return seen.push(othIndex);
                 }
               })) {
             result = false;
@@ -6322,7 +6708,7 @@ module.exports = function() {
           }
         } else if (!(
               arrValue === othValue ||
-                equalFunc(arrValue, othValue, customizer, bitmask, stack)
+                equalFunc(arrValue, othValue, bitmask, customizer, stack)
             )) {
           result = false;
           break;
@@ -6344,14 +6730,13 @@ module.exports = function() {
      * @param {Object} object The object to compare.
      * @param {Object} other The other object to compare.
      * @param {string} tag The `toStringTag` of the objects to compare.
-     * @param {Function} equalFunc The function to determine equivalents of values.
+     * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
      * @param {Function} customizer The function to customize comparisons.
-     * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
+     * @param {Function} equalFunc The function to determine equivalents of values.
      * @param {Object} stack Tracks traversed `object` and `other` objects.
      * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
      */
-    function equalByTag(object, other, tag, equalFunc, customizer, bitmask, stack) {
+    function equalByTag(object, other, tag, bitmask, customizer, equalFunc, stack) {
       switch (tag) {
         case dataViewTag:
           if ((object.byteLength != other.byteLength) ||
@@ -6389,7 +6774,7 @@ module.exports = function() {
           var convert = mapToArray;
 
         case setTag:
-          var isPartial = bitmask & PARTIAL_COMPARE_FLAG;
+          var isPartial = bitmask & COMPARE_PARTIAL_FLAG;
           convert || (convert = setToArray);
 
           if (object.size != other.size && !isPartial) {
@@ -6400,11 +6785,11 @@ module.exports = function() {
           if (stacked) {
             return stacked == other;
           }
-          bitmask |= UNORDERED_COMPARE_FLAG;
+          bitmask |= COMPARE_UNORDERED_FLAG;
 
           // Recursively compare objects (susceptible to call stack limits).
           stack.set(object, other);
-          var result = equalArrays(convert(object), convert(other), equalFunc, customizer, bitmask, stack);
+          var result = equalArrays(convert(object), convert(other), bitmask, customizer, equalFunc, stack);
           stack['delete'](object);
           return result;
 
@@ -6423,18 +6808,17 @@ module.exports = function() {
      * @private
      * @param {Object} object The object to compare.
      * @param {Object} other The other object to compare.
-     * @param {Function} equalFunc The function to determine equivalents of values.
+     * @param {number} bitmask The bitmask flags. See `baseIsEqual` for more details.
      * @param {Function} customizer The function to customize comparisons.
-     * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
-     *  for more details.
+     * @param {Function} equalFunc The function to determine equivalents of values.
      * @param {Object} stack Tracks traversed `object` and `other` objects.
      * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
      */
-    function equalObjects(object, other, equalFunc, customizer, bitmask, stack) {
-      var isPartial = bitmask & PARTIAL_COMPARE_FLAG,
-          objProps = keys(object),
+    function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
+      var isPartial = bitmask & COMPARE_PARTIAL_FLAG,
+          objProps = getAllKeys(object),
           objLength = objProps.length,
-          othProps = keys(other),
+          othProps = getAllKeys(other),
           othLength = othProps.length;
 
       if (objLength != othLength && !isPartial) {
@@ -6469,7 +6853,7 @@ module.exports = function() {
         }
         // Recursively compare objects (susceptible to call stack limits).
         if (!(compared === undefined
-              ? (objValue === othValue || equalFunc(objValue, othValue, customizer, bitmask, stack))
+              ? (objValue === othValue || equalFunc(objValue, othValue, bitmask, customizer, stack))
               : compared
             )) {
           result = false;
@@ -6492,6 +6876,17 @@ module.exports = function() {
       stack['delete'](object);
       stack['delete'](other);
       return result;
+    }
+
+    /**
+     * A specialized version of `baseRest` which flattens the rest array.
+     *
+     * @private
+     * @param {Function} func The function to apply a rest parameter to.
+     * @returns {Function} Returns the new function.
+     */
+    function flatRest(func) {
+      return setToString(overRest(func, undefined, flatten), func + '');
     }
 
     /**
@@ -6628,17 +7023,51 @@ module.exports = function() {
     }
 
     /**
-     * Creates an array of the own enumerable symbol properties of `object`.
+     * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+     *
+     * @private
+     * @param {*} value The value to query.
+     * @returns {string} Returns the raw `toStringTag`.
+     */
+    function getRawTag(value) {
+      var isOwn = hasOwnProperty.call(value, symToStringTag),
+          tag = value[symToStringTag];
+
+      try {
+        value[symToStringTag] = undefined;
+        var unmasked = true;
+      } catch (e) {}
+
+      var result = nativeObjectToString.call(value);
+      if (unmasked) {
+        if (isOwn) {
+          value[symToStringTag] = tag;
+        } else {
+          delete value[symToStringTag];
+        }
+      }
+      return result;
+    }
+
+    /**
+     * Creates an array of the own enumerable symbols of `object`.
      *
      * @private
      * @param {Object} object The object to query.
      * @returns {Array} Returns the array of symbols.
      */
-    var getSymbols = nativeGetSymbols ? overArg(nativeGetSymbols, Object) : stubArray;
+    var getSymbols = !nativeGetSymbols ? stubArray : function(object) {
+      if (object == null) {
+        return [];
+      }
+      object = Object(object);
+      return arrayFilter(nativeGetSymbols(object), function(symbol) {
+        return propertyIsEnumerable.call(object, symbol);
+      });
+    };
 
     /**
-     * Creates an array of the own and inherited enumerable symbol properties
-     * of `object`.
+     * Creates an array of the own and inherited enumerable symbols of `object`.
      *
      * @private
      * @param {Object} object The object to query.
@@ -6662,17 +7091,16 @@ module.exports = function() {
      */
     var getTag = baseGetTag;
 
-    // Fallback for data views, maps, sets, and weak maps in IE 11,
-    // for data views in Edge < 14, and promises in Node.js.
+    // Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
     if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
         (Map && getTag(new Map) != mapTag) ||
         (Promise && getTag(Promise.resolve()) != promiseTag) ||
         (Set && getTag(new Set) != setTag) ||
         (WeakMap && getTag(new WeakMap) != weakMapTag)) {
       getTag = function(value) {
-        var result = objectToString.call(value),
+        var result = baseGetTag(value),
             Ctor = result == objectTag ? value.constructor : undefined,
-            ctorString = Ctor ? toSource(Ctor) : undefined;
+            ctorString = Ctor ? toSource(Ctor) : '';
 
         if (ctorString) {
           switch (ctorString) {
@@ -6737,11 +7165,11 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `path` exists, else `false`.
      */
     function hasPath(object, path, hasFunc) {
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = castPath(path, object);
 
-      var result,
-          index = -1,
-          length = path.length;
+      var index = -1,
+          length = path.length,
+          result = false;
 
       while (++index < length) {
         var key = toKey(path[index]);
@@ -6750,10 +7178,10 @@ module.exports = function() {
         }
         object = object[key];
       }
-      if (result) {
+      if (result || ++index != length) {
         return result;
       }
-      var length = object ? object.length : 0;
+      length = object == null ? 0 : object.length;
       return !!length && isLength(length) && isIndex(key, length) &&
         (isArray(object) || isArguments(object));
     }
@@ -6767,7 +7195,7 @@ module.exports = function() {
      */
     function initCloneArray(array) {
       var length = array.length,
-          result = array.constructor(length);
+          result = new array.constructor(length);
 
       // Add properties assigned by `RegExp#exec`.
       if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
@@ -6794,16 +7222,15 @@ module.exports = function() {
      * Initializes an object clone based on its `toStringTag`.
      *
      * **Note:** This function only supports cloning values with tags of
-     * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
+     * `Boolean`, `Date`, `Error`, `Map`, `Number`, `RegExp`, `Set`, or `String`.
      *
      * @private
      * @param {Object} object The object to clone.
      * @param {string} tag The `toStringTag` of the object to clone.
-     * @param {Function} cloneFunc The function to clone values.
      * @param {boolean} [isDeep] Specify a deep clone.
      * @returns {Object} Returns the initialized clone.
      */
-    function initCloneByTag(object, tag, cloneFunc, isDeep) {
+    function initCloneByTag(object, tag, isDeep) {
       var Ctor = object.constructor;
       switch (tag) {
         case arrayBufferTag:
@@ -6822,7 +7249,7 @@ module.exports = function() {
           return cloneTypedArray(object, isDeep);
 
         case mapTag:
-          return cloneMap(object, isDeep, cloneFunc);
+          return new Ctor;
 
         case numberTag:
         case stringTag:
@@ -6832,7 +7259,7 @@ module.exports = function() {
           return cloneRegExp(object);
 
         case setTag:
-          return cloneSet(object, isDeep, cloneFunc);
+          return new Ctor;
 
         case symbolTag:
           return cloneSymbol(object);
@@ -6848,9 +7275,11 @@ module.exports = function() {
      * @returns {string} Returns the modified source.
      */
     function insertWrapDetails(source, details) {
-      var length = details.length,
-          lastIndex = length - 1;
-
+      var length = details.length;
+      if (!length) {
+        return source;
+      }
+      var lastIndex = length - 1;
       details[lastIndex] = (length > 1 ? '& ' : '') + details[lastIndex];
       details = details.join(length > 2 ? ', ' : ' ');
       return source.replace(reWrapComment, '{\n/* [wrapped with ' + details + '] */\n');
@@ -6877,10 +7306,13 @@ module.exports = function() {
      * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
      */
     function isIndex(value, length) {
+      var type = typeof value;
       length = length == null ? MAX_SAFE_INTEGER : length;
+
       return !!length &&
-        (typeof value == 'number' || reIsUint.test(value)) &&
-        (value > -1 && value % 1 == 0 && value < length);
+        (type == 'number' ||
+          (type != 'symbol' && reIsUint.test(value))) &&
+            (value > -1 && value % 1 == 0 && value < length);
     }
 
     /**
@@ -7030,6 +7462,26 @@ module.exports = function() {
     }
 
     /**
+     * A specialized version of `_.memoize` which clears the memoized function's
+     * cache when it exceeds `MAX_MEMOIZE_SIZE`.
+     *
+     * @private
+     * @param {Function} func The function to have its output memoized.
+     * @returns {Function} Returns the new memoized function.
+     */
+    function memoizeCapped(func) {
+      var result = memoize(func, function(key) {
+        if (cache.size === MAX_MEMOIZE_SIZE) {
+          cache.clear();
+        }
+        return key;
+      });
+
+      var cache = result.cache;
+      return result;
+    }
+
+    /**
      * Merges the function metadata of `source` into `data`.
      *
      * Merging metadata reduces the number of wrappers used to invoke a function.
@@ -7049,22 +7501,22 @@ module.exports = function() {
       var bitmask = data[1],
           srcBitmask = source[1],
           newBitmask = bitmask | srcBitmask,
-          isCommon = newBitmask < (BIND_FLAG | BIND_KEY_FLAG | ARY_FLAG);
+          isCommon = newBitmask < (WRAP_BIND_FLAG | WRAP_BIND_KEY_FLAG | WRAP_ARY_FLAG);
 
       var isCombo =
-        ((srcBitmask == ARY_FLAG) && (bitmask == CURRY_FLAG)) ||
-        ((srcBitmask == ARY_FLAG) && (bitmask == REARG_FLAG) && (data[7].length <= source[8])) ||
-        ((srcBitmask == (ARY_FLAG | REARG_FLAG)) && (source[7].length <= source[8]) && (bitmask == CURRY_FLAG));
+        ((srcBitmask == WRAP_ARY_FLAG) && (bitmask == WRAP_CURRY_FLAG)) ||
+        ((srcBitmask == WRAP_ARY_FLAG) && (bitmask == WRAP_REARG_FLAG) && (data[7].length <= source[8])) ||
+        ((srcBitmask == (WRAP_ARY_FLAG | WRAP_REARG_FLAG)) && (source[7].length <= source[8]) && (bitmask == WRAP_CURRY_FLAG));
 
       // Exit early if metadata can't be merged.
       if (!(isCommon || isCombo)) {
         return data;
       }
       // Use source `thisArg` if available.
-      if (srcBitmask & BIND_FLAG) {
+      if (srcBitmask & WRAP_BIND_FLAG) {
         data[2] = source[2];
         // Set when currying a bound function.
-        newBitmask |= bitmask & BIND_FLAG ? 0 : CURRY_BOUND_FLAG;
+        newBitmask |= bitmask & WRAP_BIND_FLAG ? 0 : WRAP_CURRY_BOUND_FLAG;
       }
       // Compose partial arguments.
       var value = source[3];
@@ -7086,7 +7538,7 @@ module.exports = function() {
         data[7] = value;
       }
       // Use source `ary` if it's smaller.
-      if (srcBitmask & ARY_FLAG) {
+      if (srcBitmask & WRAP_ARY_FLAG) {
         data[8] = data[8] == null ? source[8] : nativeMin(data[8], source[8]);
       }
       // Use source `arity` if one is not provided.
@@ -7098,29 +7550,6 @@ module.exports = function() {
       data[1] = newBitmask;
 
       return data;
-    }
-
-    /**
-     * Used by `_.defaultsDeep` to customize its `_.merge` use.
-     *
-     * @private
-     * @param {*} objValue The destination value.
-     * @param {*} srcValue The source value.
-     * @param {string} key The key of the property to merge.
-     * @param {Object} object The parent object of `objValue`.
-     * @param {Object} source The parent object of `srcValue`.
-     * @param {Object} [stack] Tracks traversed source values and their merged
-     *  counterparts.
-     * @returns {*} Returns the value to assign.
-     */
-    function mergeDefaults(objValue, srcValue, key, object, source, stack) {
-      if (isObject(objValue) && isObject(srcValue)) {
-        // Recursively merge objects and arrays (susceptible to call stack limits).
-        stack.set(srcValue, objValue);
-        baseMerge(objValue, srcValue, undefined, mergeDefaults, stack);
-        stack['delete'](srcValue);
-      }
-      return objValue;
     }
 
     /**
@@ -7143,6 +7572,47 @@ module.exports = function() {
     }
 
     /**
+     * Converts `value` to a string using `Object.prototype.toString`.
+     *
+     * @private
+     * @param {*} value The value to convert.
+     * @returns {string} Returns the converted string.
+     */
+    function objectToString(value) {
+      return nativeObjectToString.call(value);
+    }
+
+    /**
+     * A specialized version of `baseRest` which transforms the rest array.
+     *
+     * @private
+     * @param {Function} func The function to apply a rest parameter to.
+     * @param {number} [start=func.length-1] The start position of the rest parameter.
+     * @param {Function} transform The rest array transform.
+     * @returns {Function} Returns the new function.
+     */
+    function overRest(func, start, transform) {
+      start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+      return function() {
+        var args = arguments,
+            index = -1,
+            length = nativeMax(args.length - start, 0),
+            array = Array(length);
+
+        while (++index < length) {
+          array[index] = args[start + index];
+        }
+        index = -1;
+        var otherArgs = Array(start + 1);
+        while (++index < start) {
+          otherArgs[index] = args[index];
+        }
+        otherArgs[start] = transform(array);
+        return apply(func, this, otherArgs);
+      };
+    }
+
+    /**
      * Gets the parent value at `path` of `object`.
      *
      * @private
@@ -7151,7 +7621,7 @@ module.exports = function() {
      * @returns {*} Returns the parent value.
      */
     function parent(object, path) {
-      return path.length == 1 ? object : baseGet(object, baseSlice(path, 0, -1));
+      return path.length < 2 ? object : baseGet(object, baseSlice(path, 0, -1));
     }
 
     /**
@@ -7190,25 +7660,7 @@ module.exports = function() {
      * @param {*} data The metadata.
      * @returns {Function} Returns `func`.
      */
-    var setData = (function() {
-      var count = 0,
-          lastCalled = 0;
-
-      return function(key, value) {
-        var stamp = now(),
-            remaining = HOT_SPAN - (stamp - lastCalled);
-
-        lastCalled = stamp;
-        if (remaining > 0) {
-          if (++count >= HOT_COUNT) {
-            return key;
-          }
-        } else {
-          count = 0;
-        }
-        return baseSetData(key, value);
-      };
-    }());
+    var setData = shortOut(baseSetData);
 
     /**
      * A simple wrapper around the global [`setTimeout`](https://mdn.io/setTimeout).
@@ -7223,6 +7675,16 @@ module.exports = function() {
     };
 
     /**
+     * Sets the `toString` method of `func` to return `string`.
+     *
+     * @private
+     * @param {Function} func The function to modify.
+     * @param {Function} string The `toString` result.
+     * @returns {Function} Returns `func`.
+     */
+    var setToString = shortOut(baseSetToString);
+
+    /**
      * Sets the `toString` method of `wrapper` to mimic the source of `reference`
      * with wrapper details in a comment at the top of the source body.
      *
@@ -7232,14 +7694,64 @@ module.exports = function() {
      * @param {number} bitmask The bitmask flags. See `createWrap` for more details.
      * @returns {Function} Returns `wrapper`.
      */
-    var setWrapToString = !defineProperty ? identity : function(wrapper, reference, bitmask) {
+    function setWrapToString(wrapper, reference, bitmask) {
       var source = (reference + '');
-      return defineProperty(wrapper, 'toString', {
-        'configurable': true,
-        'enumerable': false,
-        'value': constant(insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)))
-      });
-    };
+      return setToString(wrapper, insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)));
+    }
+
+    /**
+     * Creates a function that'll short out and invoke `identity` instead
+     * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+     * milliseconds.
+     *
+     * @private
+     * @param {Function} func The function to restrict.
+     * @returns {Function} Returns the new shortable function.
+     */
+    function shortOut(func) {
+      var count = 0,
+          lastCalled = 0;
+
+      return function() {
+        var stamp = nativeNow(),
+            remaining = HOT_SPAN - (stamp - lastCalled);
+
+        lastCalled = stamp;
+        if (remaining > 0) {
+          if (++count >= HOT_COUNT) {
+            return arguments[0];
+          }
+        } else {
+          count = 0;
+        }
+        return func.apply(undefined, arguments);
+      };
+    }
+
+    /**
+     * A specialized version of `_.shuffle` which mutates and sets the size of `array`.
+     *
+     * @private
+     * @param {Array} array The array to shuffle.
+     * @param {number} [size=array.length] The size of `array`.
+     * @returns {Array} Returns `array`.
+     */
+    function shuffleSelf(array, size) {
+      var index = -1,
+          length = array.length,
+          lastIndex = length - 1;
+
+      size = size === undefined ? length : size;
+      while (++index < size) {
+        var rand = baseRandom(index, lastIndex),
+            value = array[rand];
+
+        array[rand] = array[index];
+        array[index] = value;
+      }
+      array.length = size;
+      return array;
+    }
 
     /**
      * Converts `string` to a property path array.
@@ -7248,15 +7760,13 @@ module.exports = function() {
      * @param {string} string The string to convert.
      * @returns {Array} Returns the property path array.
      */
-    var stringToPath = memoize(function(string) {
-      string = toString(string);
-
+    var stringToPath = memoizeCapped(function(string) {
       var result = [];
-      if (reLeadingDot.test(string)) {
+      if (string.charCodeAt(0) === 46 /* . */) {
         result.push('');
       }
-      string.replace(rePropName, function(match, number, quote, string) {
-        result.push(quote ? string.replace(reEscapeChar, '$1') : (number || match));
+      string.replace(rePropName, function(match, number, quote, subString) {
+        result.push(quote ? subString.replace(reEscapeChar, '$1') : (number || match));
       });
       return result;
     });
@@ -7280,7 +7790,7 @@ module.exports = function() {
      * Converts `func` to its source code.
      *
      * @private
-     * @param {Function} func The function to process.
+     * @param {Function} func The function to convert.
      * @returns {string} Returns the source code.
      */
     function toSource(func) {
@@ -7360,7 +7870,7 @@ module.exports = function() {
       } else {
         size = nativeMax(toInteger(size), 0);
       }
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length || size < 1) {
         return [];
       }
@@ -7391,7 +7901,7 @@ module.exports = function() {
      */
     function compact(array) {
       var index = -1,
-          length = array ? array.length : 0,
+          length = array == null ? 0 : array.length,
           resIndex = 0,
           result = [];
 
@@ -7427,24 +7937,25 @@ module.exports = function() {
      * // => [1]
      */
     function concat() {
-      var length = arguments.length,
-          args = Array(length ? length - 1 : 0),
+      var length = arguments.length;
+      if (!length) {
+        return [];
+      }
+      var args = Array(length - 1),
           array = arguments[0],
           index = length;
 
       while (index--) {
         args[index - 1] = arguments[index];
       }
-      return length
-        ? arrayPush(isArray(array) ? copyArray(array) : [array], baseFlatten(args, 1))
-        : [];
+      return arrayPush(isArray(array) ? copyArray(array) : [array], baseFlatten(args, 1));
     }
 
     /**
      * Creates an array of `array` values not included in the other given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The order of result values is determined by the
-     * order they occur in the first array.
+     * for equality comparisons. The order and references of result values are
+     * determined by the first array.
      *
      * **Note:** Unlike `_.pullAll`, this method returns a new array.
      *
@@ -7470,8 +7981,9 @@ module.exports = function() {
     /**
      * This method is like `_.difference` except that it accepts `iteratee` which
      * is invoked for each element of `array` and `values` to generate the criterion
-     * by which they're compared. Result values are chosen from the first array.
-     * The iteratee is invoked with one argument: (value).
+     * by which they're compared. The order and references of result values are
+     * determined by the first array. The iteratee is invoked with one argument:
+     * (value).
      *
      * **Note:** Unlike `_.pullAllBy`, this method returns a new array.
      *
@@ -7504,9 +8016,9 @@ module.exports = function() {
 
     /**
      * This method is like `_.difference` except that it accepts `comparator`
-     * which is invoked to compare elements of `array` to `values`. Result values
-     * are chosen from the first array. The comparator is invoked with two arguments:
-     * (arrVal, othVal).
+     * which is invoked to compare elements of `array` to `values`. The order and
+     * references of result values are determined by the first array. The comparator
+     * is invoked with two arguments: (arrVal, othVal).
      *
      * **Note:** Unlike `_.pullAllWith`, this method returns a new array.
      *
@@ -7561,7 +8073,7 @@ module.exports = function() {
      * // => [1, 2, 3]
      */
     function drop(array, n, guard) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return [];
       }
@@ -7595,7 +8107,7 @@ module.exports = function() {
      * // => [1, 2, 3]
      */
     function dropRight(array, n, guard) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return [];
       }
@@ -7655,8 +8167,7 @@ module.exports = function() {
      * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -7717,7 +8228,7 @@ module.exports = function() {
      * // => [4, '*', '*', 10]
      */
     function fill(array, value, start, end) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return [];
       }
@@ -7737,8 +8248,7 @@ module.exports = function() {
      * @since 1.1.0
      * @category Array
      * @param {Array} array The array to inspect.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @param {number} [fromIndex=0] The index to search from.
      * @returns {number} Returns the index of the found element, else `-1`.
      * @example
@@ -7765,7 +8275,7 @@ module.exports = function() {
      * // => 2
      */
     function findIndex(array, predicate, fromIndex) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return -1;
       }
@@ -7785,8 +8295,7 @@ module.exports = function() {
      * @since 2.0.0
      * @category Array
      * @param {Array} array The array to inspect.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @param {number} [fromIndex=array.length-1] The index to search from.
      * @returns {number} Returns the index of the found element, else `-1`.
      * @example
@@ -7813,7 +8322,7 @@ module.exports = function() {
      * // => 0
      */
     function findLastIndex(array, predicate, fromIndex) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return -1;
       }
@@ -7842,7 +8351,7 @@ module.exports = function() {
      * // => [1, 2, [3, [4]], 5]
      */
     function flatten(array) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       return length ? baseFlatten(array, 1) : [];
     }
 
@@ -7861,7 +8370,7 @@ module.exports = function() {
      * // => [1, 2, 3, 4, 5]
      */
     function flattenDeep(array) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       return length ? baseFlatten(array, INFINITY) : [];
     }
 
@@ -7886,7 +8395,7 @@ module.exports = function() {
      * // => [1, 2, 3, [4], 5]
      */
     function flattenDepth(array, depth) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return [];
       }
@@ -7911,7 +8420,7 @@ module.exports = function() {
      */
     function fromPairs(pairs) {
       var index = -1,
-          length = pairs ? pairs.length : 0,
+          length = pairs == null ? 0 : pairs.length,
           result = {};
 
       while (++index < length) {
@@ -7967,7 +8476,7 @@ module.exports = function() {
      * // => 3
      */
     function indexOf(array, value, fromIndex) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return -1;
       }
@@ -7993,15 +8502,15 @@ module.exports = function() {
      * // => [1, 2]
      */
     function initial(array) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       return length ? baseSlice(array, 0, -1) : [];
     }
 
     /**
      * Creates an array of unique values that are included in all given arrays
      * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons. The order of result values is determined by the
-     * order they occur in the first array.
+     * for equality comparisons. The order and references of result values are
+     * determined by the first array.
      *
      * @static
      * @memberOf _
@@ -8024,8 +8533,9 @@ module.exports = function() {
     /**
      * This method is like `_.intersection` except that it accepts `iteratee`
      * which is invoked for each element of each `arrays` to generate the criterion
-     * by which they're compared. Result values are chosen from the first array.
-     * The iteratee is invoked with one argument: (value).
+     * by which they're compared. The order and references of result values are
+     * determined by the first array. The iteratee is invoked with one argument:
+     * (value).
      *
      * @static
      * @memberOf _
@@ -8059,9 +8569,9 @@ module.exports = function() {
 
     /**
      * This method is like `_.intersection` except that it accepts `comparator`
-     * which is invoked to compare elements of `arrays`. Result values are chosen
-     * from the first array. The comparator is invoked with two arguments:
-     * (arrVal, othVal).
+     * which is invoked to compare elements of `arrays`. The order and references
+     * of result values are determined by the first array. The comparator is
+     * invoked with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
@@ -8082,9 +8592,8 @@ module.exports = function() {
       var comparator = last(arrays),
           mapped = arrayMap(arrays, castArrayLikeObject);
 
-      if (comparator === last(mapped)) {
-        comparator = undefined;
-      } else {
+      comparator = typeof comparator == 'function' ? comparator : undefined;
+      if (comparator) {
         mapped.pop();
       }
       return (mapped.length && mapped[0] === arrays[0])
@@ -8108,7 +8617,7 @@ module.exports = function() {
      * // => 'a~b~c'
      */
     function join(array, separator) {
-      return array ? nativeJoin.call(array, separator) : '';
+      return array == null ? '' : nativeJoin.call(array, separator);
     }
 
     /**
@@ -8126,7 +8635,7 @@ module.exports = function() {
      * // => 3
      */
     function last(array) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       return length ? array[length - 1] : undefined;
     }
 
@@ -8152,28 +8661,18 @@ module.exports = function() {
      * // => 1
      */
     function lastIndexOf(array, value, fromIndex) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return -1;
       }
       var index = length;
       if (fromIndex !== undefined) {
         index = toInteger(fromIndex);
-        index = (
-          index < 0
-            ? nativeMax(length + index, 0)
-            : nativeMin(index, length - 1)
-        ) + 1;
+        index = index < 0 ? nativeMax(length + index, 0) : nativeMin(index, length - 1);
       }
-      if (value !== value) {
-        return baseFindIndex(array, baseIsNaN, index - 1, true);
-      }
-      while (index--) {
-        if (array[index] === value) {
-          return index;
-        }
-      }
-      return -1;
+      return value === value
+        ? strictLastIndexOf(array, value, index)
+        : baseFindIndex(array, baseIsNaN, index, true);
     }
 
     /**
@@ -8265,8 +8764,7 @@ module.exports = function() {
      * @category Array
      * @param {Array} array The array to modify.
      * @param {Array} values The values to remove.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns `array`.
      * @example
      *
@@ -8335,10 +8833,8 @@ module.exports = function() {
      * console.log(pulled);
      * // => ['b', 'd']
      */
-    var pullAt = baseRest(function(array, indexes) {
-      indexes = baseFlatten(indexes, 1);
-
-      var length = array ? array.length : 0,
+    var pullAt = flatRest(function(array, indexes) {
+      var length = array == null ? 0 : array.length,
           result = baseAt(array, indexes);
 
       basePullAt(array, arrayMap(indexes, function(index) {
@@ -8361,8 +8857,7 @@ module.exports = function() {
      * @since 2.0.0
      * @category Array
      * @param {Array} array The array to modify.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new array of removed elements.
      * @example
      *
@@ -8422,7 +8917,7 @@ module.exports = function() {
      * // => [3, 2, 1]
      */
     function reverse(array) {
-      return array ? nativeReverse.call(array) : array;
+      return array == null ? array : nativeReverse.call(array);
     }
 
     /**
@@ -8442,7 +8937,7 @@ module.exports = function() {
      * @returns {Array} Returns the slice of `array`.
      */
     function slice(array, start, end) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return [];
       }
@@ -8489,8 +8984,7 @@ module.exports = function() {
      * @category Array
      * @param {Array} array The sorted array to inspect.
      * @param {*} value The value to evaluate.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {number} Returns the index at which `value` should be inserted
      *  into `array`.
      * @example
@@ -8525,7 +9019,7 @@ module.exports = function() {
      * // => 1
      */
     function sortedIndexOf(array, value) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (length) {
         var index = baseSortedIndex(array, value);
         if (index < length && eq(array[index], value)) {
@@ -8568,8 +9062,7 @@ module.exports = function() {
      * @category Array
      * @param {Array} array The sorted array to inspect.
      * @param {*} value The value to evaluate.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {number} Returns the index at which `value` should be inserted
      *  into `array`.
      * @example
@@ -8604,7 +9097,7 @@ module.exports = function() {
      * // => 3
      */
     function sortedLastIndexOf(array, value) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (length) {
         var index = baseSortedIndex(array, value, true) - 1;
         if (eq(array[index], value)) {
@@ -8672,7 +9165,7 @@ module.exports = function() {
      * // => [2, 3]
      */
     function tail(array) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       return length ? baseSlice(array, 1, length) : [];
     }
 
@@ -8735,7 +9228,7 @@ module.exports = function() {
      * // => []
      */
     function takeRight(array, n, guard) {
-      var length = array ? array.length : 0;
+      var length = array == null ? 0 : array.length;
       if (!length) {
         return [];
       }
@@ -8754,8 +9247,7 @@ module.exports = function() {
      * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
@@ -8796,14 +9288,13 @@ module.exports = function() {
      * @since 3.0.0
      * @category Array
      * @param {Array} array The array to query.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the slice of `array`.
      * @example
      *
      * var users = [
      *   { 'user': 'barney',  'active': false },
-     *   { 'user': 'fred',    'active': false},
+     *   { 'user': 'fred',    'active': false },
      *   { 'user': 'pebbles', 'active': true }
      * ];
      *
@@ -8860,8 +9351,7 @@ module.exports = function() {
      * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns the new array of combined values.
      * @example
      *
@@ -8903,17 +9393,16 @@ module.exports = function() {
      */
     var unionWith = baseRest(function(arrays) {
       var comparator = last(arrays);
-      if (isArrayLikeObject(comparator)) {
-        comparator = undefined;
-      }
+      comparator = typeof comparator == 'function' ? comparator : undefined;
       return baseUniq(baseFlatten(arrays, 1, isArrayLikeObject, true), undefined, comparator);
     });
 
     /**
      * Creates a duplicate-free version of an array, using
      * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
-     * for equality comparisons, in which only the first occurrence of each
-     * element is kept.
+     * for equality comparisons, in which only the first occurrence of each element
+     * is kept. The order of result values is determined by the order they occur
+     * in the array.
      *
      * @static
      * @memberOf _
@@ -8927,23 +9416,22 @@ module.exports = function() {
      * // => [2, 1]
      */
     function uniq(array) {
-      return (array && array.length)
-        ? baseUniq(array)
-        : [];
+      return (array && array.length) ? baseUniq(array) : [];
     }
 
     /**
      * This method is like `_.uniq` except that it accepts `iteratee` which is
      * invoked for each element in `array` to generate the criterion by which
-     * uniqueness is computed. The iteratee is invoked with one argument: (value).
+     * uniqueness is computed. The order of result values is determined by the
+     * order they occur in the array. The iteratee is invoked with one argument:
+     * (value).
      *
      * @static
      * @memberOf _
      * @since 4.0.0
      * @category Array
      * @param {Array} array The array to inspect.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns the new duplicate free array.
      * @example
      *
@@ -8955,15 +9443,14 @@ module.exports = function() {
      * // => [{ 'x': 1 }, { 'x': 2 }]
      */
     function uniqBy(array, iteratee) {
-      return (array && array.length)
-        ? baseUniq(array, getIteratee(iteratee, 2))
-        : [];
+      return (array && array.length) ? baseUniq(array, getIteratee(iteratee, 2)) : [];
     }
 
     /**
      * This method is like `_.uniq` except that it accepts `comparator` which
-     * is invoked to compare elements of `array`. The comparator is invoked with
-     * two arguments: (arrVal, othVal).
+     * is invoked to compare elements of `array`. The order of result values is
+     * determined by the order they occur in the array.The comparator is invoked
+     * with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
@@ -8980,9 +9467,8 @@ module.exports = function() {
      * // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
      */
     function uniqWith(array, comparator) {
-      return (array && array.length)
-        ? baseUniq(array, undefined, comparator)
-        : [];
+      comparator = typeof comparator == 'function' ? comparator : undefined;
+      return (array && array.length) ? baseUniq(array, undefined, comparator) : [];
     }
 
     /**
@@ -9105,16 +9591,16 @@ module.exports = function() {
     /**
      * This method is like `_.xor` except that it accepts `iteratee` which is
      * invoked for each element of each `arrays` to generate the criterion by
-     * which by which they're compared. The iteratee is invoked with one argument:
-     * (value).
+     * which by which they're compared. The order of result values is determined
+     * by the order they occur in the arrays. The iteratee is invoked with one
+     * argument: (value).
      *
      * @static
      * @memberOf _
      * @since 4.0.0
      * @category Array
      * @param {...Array} [arrays] The arrays to inspect.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee invoked per element.
+     * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
      * @returns {Array} Returns the new array of filtered values.
      * @example
      *
@@ -9135,8 +9621,9 @@ module.exports = function() {
 
     /**
      * This method is like `_.xor` except that it accepts `comparator` which is
-     * invoked to compare elements of `arrays`. The comparator is invoked with
-     * two arguments: (arrVal, othVal).
+     * invoked to compare elements of `arrays`. The order of result values is
+     * determined by the order they occur in the arrays. The comparator is invoked
+     * with two arguments: (arrVal, othVal).
      *
      * @static
      * @memberOf _
@@ -9155,9 +9642,7 @@ module.exports = function() {
      */
     var xorWith = baseRest(function(arrays) {
       var comparator = last(arrays);
-      if (isArrayLikeObject(comparator)) {
-        comparator = undefined;
-      }
+      comparator = typeof comparator == 'function' ? comparator : undefined;
       return baseXor(arrayFilter(arrays, isArrayLikeObject), undefined, comparator);
     });
 
@@ -9228,7 +9713,8 @@ module.exports = function() {
      * @since 3.8.0
      * @category Array
      * @param {...Array} [arrays] The arrays to process.
-     * @param {Function} [iteratee=_.identity] The function to combine grouped values.
+     * @param {Function} [iteratee=_.identity] The function to combine
+     *  grouped values.
      * @returns {Array} Returns the new array of grouped elements.
      * @example
      *
@@ -9344,7 +9830,7 @@ module.exports = function() {
      * @memberOf _
      * @since 1.0.0
      * @category Seq
-     * @param {...(string|string[])} [paths] The property paths of elements to pick.
+     * @param {...(string|string[])} [paths] The property paths to pick.
      * @returns {Object} Returns the new `lodash` wrapper instance.
      * @example
      *
@@ -9353,8 +9839,7 @@ module.exports = function() {
      * _(object).at(['a[0].b.c', 'a[1]']).value();
      * // => [3, 4]
      */
-    var wrapperAt = baseRest(function(paths) {
-      paths = baseFlatten(paths, 1);
+    var wrapperAt = flatRest(function(paths) {
       var length = paths.length,
           start = length ? paths[0] : 0,
           value = this.__wrapped__,
@@ -9606,8 +10091,7 @@ module.exports = function() {
      * @since 0.5.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee to transform keys.
+     * @param {Function} [iteratee=_.identity] The iteratee to transform keys.
      * @returns {Object} Returns the composed aggregate object.
      * @example
      *
@@ -9619,7 +10103,11 @@ module.exports = function() {
      * // => { '3': 2, '5': 1 }
      */
     var countBy = createAggregator(function(result, value, key) {
-      hasOwnProperty.call(result, key) ? ++result[key] : (result[key] = 1);
+      if (hasOwnProperty.call(result, key)) {
+        ++result[key];
+      } else {
+        baseAssignValue(result, key, 1);
+      }
     });
 
     /**
@@ -9637,8 +10125,7 @@ module.exports = function() {
      * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
      * @returns {boolean} Returns `true` if all elements pass the predicate check,
      *  else `false`.
@@ -9684,8 +10171,7 @@ module.exports = function() {
      * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new filtered array.
      * @see _.reject
      * @example
@@ -9725,8 +10211,7 @@ module.exports = function() {
      * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to inspect.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @param {number} [fromIndex=0] The index to search from.
      * @returns {*} Returns the matched element, else `undefined`.
      * @example
@@ -9763,8 +10248,7 @@ module.exports = function() {
      * @since 2.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to inspect.
-     * @param {Function} [predicate=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [predicate=_.identity] The function invoked per iteration.
      * @param {number} [fromIndex=collection.length-1] The index to search from.
      * @returns {*} Returns the matched element, else `undefined`.
      * @example
@@ -9786,8 +10270,7 @@ module.exports = function() {
      * @since 4.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [iteratee=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new flattened array.
      * @example
      *
@@ -9811,8 +10294,7 @@ module.exports = function() {
      * @since 4.7.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [iteratee=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @returns {Array} Returns the new flattened array.
      * @example
      *
@@ -9836,8 +10318,7 @@ module.exports = function() {
      * @since 4.7.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [iteratee=_.identity]
-     *  The function invoked per iteration.
+     * @param {Function} [iteratee=_.identity] The function invoked per iteration.
      * @param {number} [depth=1] The maximum recursion depth.
      * @returns {Array} Returns the new flattened array.
      * @example
@@ -9874,7 +10355,7 @@ module.exports = function() {
      * @see _.forEachRight
      * @example
      *
-     * _([1, 2]).forEach(function(value) {
+     * _.forEach([1, 2], function(value) {
      *   console.log(value);
      * });
      * // => Logs `1` then `2`.
@@ -9926,8 +10407,7 @@ module.exports = function() {
      * @since 0.1.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee to transform keys.
+     * @param {Function} [iteratee=_.identity] The iteratee to transform keys.
      * @returns {Object} Returns the composed aggregate object.
      * @example
      *
@@ -9942,7 +10422,7 @@ module.exports = function() {
       if (hasOwnProperty.call(result, key)) {
         result[key].push(value);
       } else {
-        result[key] = [value];
+        baseAssignValue(result, key, [value]);
       }
     });
 
@@ -10015,12 +10495,10 @@ module.exports = function() {
     var invokeMap = baseRest(function(collection, path, args) {
       var index = -1,
           isFunc = typeof path == 'function',
-          isProp = isKey(path),
           result = isArrayLike(collection) ? Array(collection.length) : [];
 
       baseEach(collection, function(value) {
-        var func = isFunc ? path : ((isProp && value != null) ? value[path] : undefined);
-        result[++index] = func ? apply(func, value, args) : baseInvoke(value, path, args);
+        result[++index] = isFunc ? apply(path, value, args) : baseInvoke(value, path, args);
       });
       return result;
     });
@@ -10036,8 +10514,7 @@ module.exports = function() {
      * @since 4.0.0
      * @category Collection
      * @param {Array|Object} collection The collection to iterate over.
-     * @param {Function} [iteratee=_.identity]
-     *  The iteratee to transform keys.
+     * @param {Function} [iteratee=_.identity] The iteratee to transform keys.
      * @returns {Object} Returns the composed aggregate object.
      * @example
      *
@@ -10055,7 +10532,7 @@ module.exports = function() {
      * // => { 'left': { 'dir': 'left', 'code': 97 }, 'right': { 'dir': 'right', 'code': 100 } }
      */
     var keyBy = createAggregator(function(result, value, key) {
-      result[key] = value;
+      baseAssignValue(result, key, value);
     });
 
     /**
@@ -10315,10 +10792,8 @@ module.exports = function() {
      * // => 2
      */
     function sample(collection) {
-      var array = isArrayLike(collection) ? collection : values(collection),
-          length = array.length;
-
-      return length > 0 ? array[baseRandom(0, length - 1)] : undefined;
+      var func = isArray(collection) ? arraySample : baseSample;
+      return func(collection);
     }
 
     /**
@@ -10342,25 +10817,13 @@ module.exports = function() {
      * // => [2, 3, 1]
      */
     function sampleSize(collection, n, guard) {
-      var index = -1,
-          result = toArray(collection),
-          length = result.length,
-          lastIndex = length - 1;
-
       if ((guard ? isIterateeCall(collection, n, guard) : n === undefined)) {
         n = 1;
       } else {
-        n = baseClamp(toInteger(n), 0, length);
+        n = toInteger(n);
       }
-      while (++index < n) {
-        var rand = baseRandom(index, lastIndex),
-            value = result[rand];
-
-        result[rand] = result[index];
-        result[index] = value;
-      }
-      result.length = n;
-      return result;
+      var func = isArray(collection) ? arraySampleSize : baseSampleSize;
+      return func(collection, n);
     }
 
     /**
@@ -10379,7 +10842,8 @@ module.exports = function() {
      * // => [4, 1, 3, 2]
      */
     function shuffle(collection) {
-      return sampleSize(collection, MAX_ARRAY_LENGTH);
+      var func = isArray(collection) ? arrayShuffle : baseShuffle;
+      return func(collection);
     }
 
     /**
@@ -10484,16 +10948,11 @@ module.exports = function() {
      *   { 'user': 'barney', 'age': 34 }
      * ];
      *
-     * _.sortBy(users, function(o) { return o.user; });
+     * _.sortBy(users, [function(o) { return o.user; }]);
      * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
      *
      * _.sortBy(users, ['user', 'age']);
      * // => objects for [['barney', 34], ['barney', 36], ['fred', 40], ['fred', 48]]
-     *
-     * _.sortBy(users, 'user', function(o) {
-     *   return Math.floor(o.age / 10);
-     * });
-     * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
      */
     var sortBy = baseRest(function(collection, iteratees) {
       if (collection == null) {
@@ -10588,7 +11047,7 @@ module.exports = function() {
     function ary(func, n, guard) {
       n = guard ? undefined : n;
       n = (func && n == null) ? func.length : n;
-      return createWrap(func, ARY_FLAG, undefined, undefined, undefined, undefined, n);
+      return createWrap(func, WRAP_ARY_FLAG, undefined, undefined, undefined, undefined, n);
     }
 
     /**
@@ -10661,10 +11120,10 @@ module.exports = function() {
      * // => 'hi fred!'
      */
     var bind = baseRest(function(func, thisArg, partials) {
-      var bitmask = BIND_FLAG;
+      var bitmask = WRAP_BIND_FLAG;
       if (partials.length) {
         var holders = replaceHolders(partials, getHolder(bind));
-        bitmask |= PARTIAL_FLAG;
+        bitmask |= WRAP_PARTIAL_FLAG;
       }
       return createWrap(func, bitmask, thisArg, partials, holders);
     });
@@ -10715,10 +11174,10 @@ module.exports = function() {
      * // => 'hiya fred!'
      */
     var bindKey = baseRest(function(object, key, partials) {
-      var bitmask = BIND_FLAG | BIND_KEY_FLAG;
+      var bitmask = WRAP_BIND_FLAG | WRAP_BIND_KEY_FLAG;
       if (partials.length) {
         var holders = replaceHolders(partials, getHolder(bindKey));
-        bitmask |= PARTIAL_FLAG;
+        bitmask |= WRAP_PARTIAL_FLAG;
       }
       return createWrap(key, bitmask, object, partials, holders);
     });
@@ -10766,7 +11225,7 @@ module.exports = function() {
      */
     function curry(func, arity, guard) {
       arity = guard ? undefined : arity;
-      var result = createWrap(func, CURRY_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
+      var result = createWrap(func, WRAP_CURRY_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
       result.placeholder = curry.placeholder;
       return result;
     }
@@ -10811,7 +11270,7 @@ module.exports = function() {
      */
     function curryRight(func, arity, guard) {
       arity = guard ? undefined : arity;
-      var result = createWrap(func, CURRY_RIGHT_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
+      var result = createWrap(func, WRAP_CURRY_RIGHT_FLAG, undefined, undefined, undefined, undefined, undefined, arity);
       result.placeholder = curryRight.placeholder;
       return result;
     }
@@ -10915,9 +11374,11 @@ module.exports = function() {
       function remainingWait(time) {
         var timeSinceLastCall = time - lastCallTime,
             timeSinceLastInvoke = time - lastInvokeTime,
-            result = wait - timeSinceLastCall;
+            timeWaiting = wait - timeSinceLastCall;
 
-        return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
+        return maxing
+          ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke)
+          : timeWaiting;
       }
 
       function shouldInvoke(time) {
@@ -11008,7 +11469,7 @@ module.exports = function() {
      * _.defer(function(text) {
      *   console.log(text);
      * }, 'deferred');
-     * // => Logs 'deferred' after one or more milliseconds.
+     * // => Logs 'deferred' after one millisecond.
      */
     var defer = baseRest(function(func, args) {
       return baseDelay(func, 1, args);
@@ -11056,7 +11517,7 @@ module.exports = function() {
      * // => ['d', 'c', 'b', 'a']
      */
     function flip(func) {
-      return createWrap(func, FLIP_FLAG);
+      return createWrap(func, WRAP_FLIP_FLAG);
     }
 
     /**
@@ -11070,7 +11531,7 @@ module.exports = function() {
      * function. Its creation may be customized by replacing the `_.memoize.Cache`
      * constructor with one whose instances implement the
      * [`Map`](http://ecma-international.org/ecma-262/7.0/#sec-properties-of-the-map-prototype-object)
-     * method interface of `delete`, `get`, `has`, and `set`.
+     * method interface of `clear`, `delete`, `get`, `has`, and `set`.
      *
      * @static
      * @memberOf _
@@ -11104,7 +11565,7 @@ module.exports = function() {
      * _.memoize.Cache = WeakMap;
      */
     function memoize(func, resolver) {
-      if (typeof func != 'function' || (resolver && typeof resolver != 'function')) {
+      if (typeof func != 'function' || (resolver != null && typeof resolver != 'function')) {
         throw new TypeError(FUNC_ERROR_TEXT);
       }
       var memoized = function() {
@@ -11116,14 +11577,14 @@ module.exports = function() {
           return cache.get(key);
         }
         var result = func.apply(this, args);
-        memoized.cache = cache.set(key, result);
+        memoized.cache = cache.set(key, result) || cache;
         return result;
       };
       memoized.cache = new (memoize.Cache || MapCache);
       return memoized;
     }
 
-    // Assign cache to `_.memoize`.
+    // Expose `MapCache`.
     memoize.Cache = MapCache;
 
     /**
@@ -11215,7 +11676,7 @@ module.exports = function() {
      * func(10, 5);
      * // => [100, 10]
      */
-    var overArgs = baseRest(function(func, transforms) {
+    var overArgs = castRest(function(func, transforms) {
       transforms = (transforms.length == 1 && isArray(transforms[0]))
         ? arrayMap(transforms[0], baseUnary(getIteratee()))
         : arrayMap(baseFlatten(transforms, 1), baseUnary(getIteratee()));
@@ -11267,7 +11728,7 @@ module.exports = function() {
      */
     var partial = baseRest(function(func, partials) {
       var holders = replaceHolders(partials, getHolder(partial));
-      return createWrap(func, PARTIAL_FLAG, undefined, partials, holders);
+      return createWrap(func, WRAP_PARTIAL_FLAG, undefined, partials, holders);
     });
 
     /**
@@ -11304,7 +11765,7 @@ module.exports = function() {
      */
     var partialRight = baseRest(function(func, partials) {
       var holders = replaceHolders(partials, getHolder(partialRight));
-      return createWrap(func, PARTIAL_RIGHT_FLAG, undefined, partials, holders);
+      return createWrap(func, WRAP_PARTIAL_RIGHT_FLAG, undefined, partials, holders);
     });
 
     /**
@@ -11329,8 +11790,8 @@ module.exports = function() {
      * rearged('b', 'c', 'a')
      * // => ['a', 'b', 'c']
      */
-    var rearg = baseRest(function(func, indexes) {
-      return createWrap(func, REARG_FLAG, undefined, undefined, undefined, baseFlatten(indexes, 1));
+    var rearg = flatRest(function(func, indexes) {
+      return createWrap(func, WRAP_REARG_FLAG, undefined, undefined, undefined, indexes);
     });
 
     /**
@@ -11404,7 +11865,7 @@ module.exports = function() {
       if (typeof func != 'function') {
         throw new TypeError(FUNC_ERROR_TEXT);
       }
-      start = start === undefined ? 0 : nativeMax(toInteger(start), 0);
+      start = start == null ? 0 : nativeMax(toInteger(start), 0);
       return baseRest(function(args) {
         var array = args[start],
             otherArgs = castSlice(args, 0, start);
@@ -11520,8 +11981,7 @@ module.exports = function() {
      * // => '<p>fred, barney, &amp; pebbles</p>'
      */
     function wrap(value, wrapper) {
-      wrapper = wrapper == null ? identity : wrapper;
-      return partial(wrapper, value);
+      return partial(castFunction(wrapper), value);
     }
 
     /*------------------------------------------------------------------------*/
@@ -11594,7 +12054,7 @@ module.exports = function() {
      * // => true
      */
     function clone(value) {
-      return baseClone(value, false, true);
+      return baseClone(value, CLONE_SYMBOLS_FLAG);
     }
 
     /**
@@ -11629,7 +12089,8 @@ module.exports = function() {
      * // => 0
      */
     function cloneWith(value, customizer) {
-      return baseClone(value, false, true, customizer);
+      customizer = typeof customizer == 'function' ? customizer : undefined;
+      return baseClone(value, CLONE_SYMBOLS_FLAG, customizer);
     }
 
     /**
@@ -11651,7 +12112,7 @@ module.exports = function() {
      * // => false
      */
     function cloneDeep(value) {
-      return baseClone(value, true, true);
+      return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
     }
 
     /**
@@ -11683,7 +12144,8 @@ module.exports = function() {
      * // => 20
      */
     function cloneDeepWith(value, customizer) {
-      return baseClone(value, true, true, customizer);
+      customizer = typeof customizer == 'function' ? customizer : undefined;
+      return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG, customizer);
     }
 
     /**
@@ -11820,11 +12282,10 @@ module.exports = function() {
      * _.isArguments([1, 2, 3]);
      * // => false
      */
-    function isArguments(value) {
-      // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-      return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
-        (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
-    }
+    var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
+      return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
+        !propertyIsEnumerable.call(value, 'callee');
+    };
 
     /**
      * Checks if `value` is classified as an `Array` object.
@@ -11947,7 +12408,7 @@ module.exports = function() {
      */
     function isBoolean(value) {
       return value === true || value === false ||
-        (isObjectLike(value) && objectToString.call(value) == boolTag);
+        (isObjectLike(value) && baseGetTag(value) == boolTag);
     }
 
     /**
@@ -12006,7 +12467,7 @@ module.exports = function() {
      * // => false
      */
     function isElement(value) {
-      return !!value && value.nodeType === 1 && isObjectLike(value) && !isPlainObject(value);
+      return isObjectLike(value) && value.nodeType === 1 && !isPlainObject(value);
     }
 
     /**
@@ -12043,17 +12504,20 @@ module.exports = function() {
      * // => false
      */
     function isEmpty(value) {
+      if (value == null) {
+        return true;
+      }
       if (isArrayLike(value) &&
-          (isArray(value) || typeof value == 'string' ||
-            typeof value.splice == 'function' || isBuffer(value) || isArguments(value))) {
+          (isArray(value) || typeof value == 'string' || typeof value.splice == 'function' ||
+            isBuffer(value) || isTypedArray(value) || isArguments(value))) {
         return !value.length;
       }
       var tag = getTag(value);
       if (tag == mapTag || tag == setTag) {
         return !value.size;
       }
-      if (nonEnumShadows || isPrototype(value)) {
-        return !nativeKeys(value).length;
+      if (isPrototype(value)) {
+        return !baseKeys(value).length;
       }
       for (var key in value) {
         if (hasOwnProperty.call(value, key)) {
@@ -12071,7 +12535,7 @@ module.exports = function() {
      * date objects, error objects, maps, numbers, `Object` objects, regexes,
      * sets, strings, symbols, and typed arrays. `Object` objects are compared
      * by their own, not inherited, enumerable properties. Functions and DOM
-     * nodes are **not** supported.
+     * nodes are compared by strict equality, i.e. `===`.
      *
      * @static
      * @memberOf _
@@ -12130,7 +12594,7 @@ module.exports = function() {
     function isEqualWith(value, other, customizer) {
       customizer = typeof customizer == 'function' ? customizer : undefined;
       var result = customizer ? customizer(value, other) : undefined;
-      return result === undefined ? baseIsEqual(value, other, customizer) : !!result;
+      return result === undefined ? baseIsEqual(value, other, undefined, customizer) : !!result;
     }
 
     /**
@@ -12155,8 +12619,9 @@ module.exports = function() {
       if (!isObjectLike(value)) {
         return false;
       }
-      return (objectToString.call(value) == errorTag) ||
-        (typeof value.message == 'string' && typeof value.name == 'string');
+      var tag = baseGetTag(value);
+      return tag == errorTag || tag == domExcTag ||
+        (typeof value.message == 'string' && typeof value.name == 'string' && !isPlainObject(value));
     }
 
     /**
@@ -12207,10 +12672,13 @@ module.exports = function() {
      * // => false
      */
     function isFunction(value) {
+      if (!isObject(value)) {
+        return false;
+      }
       // The use of `Object#toString` avoids issues with the `typeof` operator
-      // in Safari 8-9 which returns 'object' for typed array and other constructors.
-      var tag = isObject(value) ? objectToString.call(value) : '';
-      return tag == funcTag || tag == genTag;
+      // in Safari 9 which returns 'object' for typed arrays and other constructors.
+      var tag = baseGetTag(value);
+      return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
     }
 
     /**
@@ -12301,7 +12769,7 @@ module.exports = function() {
      */
     function isObject(value) {
       var type = typeof value;
-      return !!value && (type == 'object' || type == 'function');
+      return value != null && (type == 'object' || type == 'function');
     }
 
     /**
@@ -12329,7 +12797,7 @@ module.exports = function() {
      * // => false
      */
     function isObjectLike(value) {
-      return !!value && typeof value == 'object';
+      return value != null && typeof value == 'object';
     }
 
     /**
@@ -12483,7 +12951,7 @@ module.exports = function() {
      */
     function isNative(value) {
       if (isMaskable(value)) {
-        throw new Error('This method is not supported with core-js. Try https://github.com/es-shims.');
+        throw new Error(CORE_ERROR_TEXT);
       }
       return baseIsNative(value);
     }
@@ -12561,7 +13029,7 @@ module.exports = function() {
      */
     function isNumber(value) {
       return typeof value == 'number' ||
-        (isObjectLike(value) && objectToString.call(value) == numberTag);
+        (isObjectLike(value) && baseGetTag(value) == numberTag);
     }
 
     /**
@@ -12593,8 +13061,7 @@ module.exports = function() {
      * // => true
      */
     function isPlainObject(value) {
-      if (!isObjectLike(value) ||
-          objectToString.call(value) != objectTag || isHostObject(value)) {
+      if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
         return false;
       }
       var proto = getPrototype(value);
@@ -12602,8 +13069,8 @@ module.exports = function() {
         return true;
       }
       var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-      return (typeof Ctor == 'function' &&
-        Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString);
+      return typeof Ctor == 'function' && Ctor instanceof Ctor &&
+        funcToString.call(Ctor) == objectCtorString;
     }
 
     /**
@@ -12694,7 +13161,7 @@ module.exports = function() {
      */
     function isString(value) {
       return typeof value == 'string' ||
-        (!isArray(value) && isObjectLike(value) && objectToString.call(value) == stringTag);
+        (!isArray(value) && isObjectLike(value) && baseGetTag(value) == stringTag);
     }
 
     /**
@@ -12716,7 +13183,7 @@ module.exports = function() {
      */
     function isSymbol(value) {
       return typeof value == 'symbol' ||
-        (isObjectLike(value) && objectToString.call(value) == symbolTag);
+        (isObjectLike(value) && baseGetTag(value) == symbolTag);
     }
 
     /**
@@ -12798,7 +13265,7 @@ module.exports = function() {
      * // => false
      */
     function isWeakSet(value) {
-      return isObjectLike(value) && objectToString.call(value) == weakSetTag;
+      return isObjectLike(value) && baseGetTag(value) == weakSetTag;
     }
 
     /**
@@ -12883,8 +13350,8 @@ module.exports = function() {
       if (isArrayLike(value)) {
         return isString(value) ? stringToArray(value) : copyArray(value);
       }
-      if (iteratorSymbol && value[iteratorSymbol]) {
-        return iteratorToArray(value[iteratorSymbol]());
+      if (symIterator && value[symIterator]) {
+        return iteratorToArray(value[symIterator]());
       }
       var tag = getTag(value),
           func = tag == mapTag ? mapToArray : (tag == setTag ? setToArray : values);
@@ -13088,7 +13555,9 @@ module.exports = function() {
      * // => 3
      */
     function toSafeInteger(value) {
-      return baseClamp(toInteger(value), -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER);
+      return value
+        ? baseClamp(toInteger(value), -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER)
+        : (value === 0 ? value : 0);
     }
 
     /**
@@ -13099,8 +13568,8 @@ module.exports = function() {
      * @memberOf _
      * @since 4.0.0
      * @category Lang
-     * @param {*} value The value to process.
-     * @returns {string} Returns the string.
+     * @param {*} value The value to convert.
+     * @returns {string} Returns the converted string.
      * @example
      *
      * _.toString(null);
@@ -13151,7 +13620,7 @@ module.exports = function() {
      * // => { 'a': 1, 'c': 3 }
      */
     var assign = createAssigner(function(object, source) {
-      if (nonEnumShadows || isPrototype(source) || isArrayLike(source)) {
+      if (isPrototype(source) || isArrayLike(source)) {
         copyObject(source, keys(source), object);
         return;
       }
@@ -13270,7 +13739,7 @@ module.exports = function() {
      * @since 1.0.0
      * @category Object
      * @param {Object} object The object to iterate over.
-     * @param {...(string|string[])} [paths] The property paths of elements to pick.
+     * @param {...(string|string[])} [paths] The property paths to pick.
      * @returns {Array} Returns the picked values.
      * @example
      *
@@ -13279,9 +13748,7 @@ module.exports = function() {
      * _.at(object, ['a[0].b.c', 'a[1]']);
      * // => [3, 4]
      */
-    var at = baseRest(function(object, paths) {
-      return baseAt(object, baseFlatten(paths, 1));
-    });
+    var at = flatRest(baseAt);
 
     /**
      * Creates an object that inherits from the `prototype` object. If a
@@ -13319,7 +13786,7 @@ module.exports = function() {
      */
     function create(prototype, properties) {
       var result = baseCreate(prototype);
-      return properties ? baseAssign(result, properties) : result;
+      return properties == null ? result : baseAssign(result, properties);
     }
 
     /**
@@ -13343,9 +13810,35 @@ module.exports = function() {
      * _.defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
      * // => { 'a': 1, 'b': 2 }
      */
-    var defaults = baseRest(function(args) {
-      args.push(undefined, assignInDefaults);
-      return apply(assignInWith, undefined, args);
+    var defaults = baseRest(function(object, sources) {
+      object = Object(object);
+
+      var index = -1;
+      var length = sources.length;
+      var guard = length > 2 ? sources[2] : undefined;
+
+      if (guard && isIterateeCall(sources[0], sources[1], guard)) {
+        length = 1;
+      }
+
+      while (++index < length) {
+        var source = sources[index];
+        var props = keysIn(source);
+        var propsIndex = -1;
+        var propsLength = props.length;
+
+        while (++propsIndex < propsLength) {
+          var key = props[propsIndex];
+          var value = object[key];
+
+          if (value === undefined ||
+              (eq(value, objectProto[key]) && !hasOwnProperty.call(object, key))) {
+            object[key] = source[key];
+          }
+        }
+      }
+
+      return object;
     });
 
     /**
@@ -13368,7 +13861,7 @@ module.exports = function() {
      * // => { 'a': { 'b': 2, 'c': 3 } }
      */
     var defaultsDeep = baseRest(function(args) {
-      args.push(undefined, mergeDefaults);
+      args.push(undefined, customDefaultsMerge);
       return apply(mergeWith, undefined, args);
     });
 
@@ -13742,6 +14235,11 @@ module.exports = function() {
      * // => { '1': 'c', '2': 'b' }
      */
     var invert = createInverter(function(result, value, key) {
+      if (value != null &&
+          typeof value.toString != 'function') {
+        value = nativeObjectToString.call(value);
+      }
+
       result[value] = key;
     }, constant(identity));
 
@@ -13772,6 +14270,11 @@ module.exports = function() {
      * // => { 'group1': ['a', 'c'], 'group2': ['b'] }
      */
     var invertBy = createInverter(function(result, value, key) {
+      if (value != null &&
+          typeof value.toString != 'function') {
+        value = nativeObjectToString.call(value);
+      }
+
       if (hasOwnProperty.call(result, value)) {
         result[value].push(key);
       } else {
@@ -13884,7 +14387,7 @@ module.exports = function() {
       iteratee = getIteratee(iteratee, 3);
 
       baseForOwn(object, function(value, key, object) {
-        result[iteratee(value, key, object)] = value;
+        baseAssignValue(result, iteratee(value, key, object), value);
       });
       return result;
     }
@@ -13922,7 +14425,7 @@ module.exports = function() {
       iteratee = getIteratee(iteratee, 3);
 
       baseForOwn(object, function(value, key, object) {
-        result[key] = iteratee(value, key, object);
+        baseAssignValue(result, key, iteratee(value, key, object));
       });
       return result;
     }
@@ -13966,7 +14469,7 @@ module.exports = function() {
      * This method is like `_.merge` except that it accepts `customizer` which
      * is invoked to produce the merged values of the destination and source
      * properties. If `customizer` returns `undefined`, merging is handled by the
-     * method instead. The `customizer` is invoked with seven arguments:
+     * method instead. The `customizer` is invoked with six arguments:
      * (objValue, srcValue, key, object, source, stack).
      *
      * **Note:** This method mutates `object`.
@@ -13999,15 +14502,16 @@ module.exports = function() {
 
     /**
      * The opposite of `_.pick`; this method creates an object composed of the
-     * own and inherited enumerable string keyed properties of `object` that are
-     * not omitted.
+     * own and inherited enumerable property paths of `object` that are not omitted.
+     *
+     * **Note:** This method is considerably slower than `_.pick`.
      *
      * @static
      * @since 0.1.0
      * @memberOf _
      * @category Object
      * @param {Object} object The source object.
-     * @param {...(string|string[])} [props] The property identifiers to omit.
+     * @param {...(string|string[])} [paths] The property paths to omit.
      * @returns {Object} Returns the new object.
      * @example
      *
@@ -14016,12 +14520,26 @@ module.exports = function() {
      * _.omit(object, ['a', 'c']);
      * // => { 'b': '2' }
      */
-    var omit = baseRest(function(object, props) {
+    var omit = flatRest(function(object, paths) {
+      var result = {};
       if (object == null) {
-        return {};
+        return result;
       }
-      props = arrayMap(baseFlatten(props, 1), toKey);
-      return basePick(object, baseDifference(getAllKeysIn(object), props));
+      var isDeep = false;
+      paths = arrayMap(paths, function(path) {
+        path = castPath(path, object);
+        isDeep || (isDeep = path.length > 1);
+        return path;
+      });
+      copyObject(object, getAllKeysIn(object), result);
+      if (isDeep) {
+        result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);
+      }
+      var length = paths.length;
+      while (length--) {
+        baseUnset(result, paths[length]);
+      }
+      return result;
     });
 
     /**
@@ -14056,7 +14574,7 @@ module.exports = function() {
      * @memberOf _
      * @category Object
      * @param {Object} object The source object.
-     * @param {...(string|string[])} [props] The property identifiers to pick.
+     * @param {...(string|string[])} [paths] The property paths to pick.
      * @returns {Object} Returns the new object.
      * @example
      *
@@ -14065,8 +14583,8 @@ module.exports = function() {
      * _.pick(object, ['a', 'c']);
      * // => { 'a': 1, 'c': 3 }
      */
-    var pick = baseRest(function(object, props) {
-      return object == null ? {} : basePick(object, arrayMap(baseFlatten(props, 1), toKey));
+    var pick = flatRest(function(object, paths) {
+      return object == null ? {} : basePick(object, paths);
     });
 
     /**
@@ -14088,7 +14606,16 @@ module.exports = function() {
      * // => { 'a': 1, 'c': 3 }
      */
     function pickBy(object, predicate) {
-      return object == null ? {} : basePickBy(object, getAllKeysIn(object), getIteratee(predicate));
+      if (object == null) {
+        return {};
+      }
+      var props = arrayMap(getAllKeysIn(object), function(prop) {
+        return [prop];
+      });
+      predicate = getIteratee(predicate);
+      return basePickBy(object, props, function(value, path) {
+        return predicate(value, path[0]);
+      });
     }
 
     /**
@@ -14121,15 +14648,15 @@ module.exports = function() {
      * // => 'default'
      */
     function result(object, path, defaultValue) {
-      path = isKey(path, object) ? [path] : castPath(path);
+      path = castPath(path, object);
 
       var index = -1,
           length = path.length;
 
       // Ensure the loop is entered when path is empty.
       if (!length) {
-        object = undefined;
         length = 1;
+        object = undefined;
       }
       while (++index < length) {
         var value = object == null ? undefined : object[toKey(path[index])];
@@ -14286,22 +14813,23 @@ module.exports = function() {
      * // => { '1': ['a', 'c'], '2': ['b'] }
      */
     function transform(object, iteratee, accumulator) {
-      var isArr = isArray(object) || isTypedArray(object);
-      iteratee = getIteratee(iteratee, 4);
+      var isArr = isArray(object),
+          isArrLike = isArr || isBuffer(object) || isTypedArray(object);
 
+      iteratee = getIteratee(iteratee, 4);
       if (accumulator == null) {
-        if (isArr || isObject(object)) {
-          var Ctor = object.constructor;
-          if (isArr) {
-            accumulator = isArray(object) ? new Ctor : [];
-          } else {
-            accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {};
-          }
-        } else {
+        var Ctor = object && object.constructor;
+        if (isArrLike) {
+          accumulator = isArr ? new Ctor : [];
+        }
+        else if (isObject(object)) {
+          accumulator = isFunction(Ctor) ? baseCreate(getPrototype(object)) : {};
+        }
+        else {
           accumulator = {};
         }
       }
-      (isArr ? arrayEach : baseForOwn)(object, function(value, index, object) {
+      (isArrLike ? arrayEach : baseForOwn)(object, function(value, index, object) {
         return iteratee(accumulator, value, index, object);
       });
       return accumulator;
@@ -14425,7 +14953,7 @@ module.exports = function() {
      * // => ['h', 'i']
      */
     function values(object) {
-      return object ? baseValues(object, keys(object)) : [];
+      return object == null ? [] : baseValues(object, keys(object));
     }
 
     /**
@@ -14720,8 +15248,8 @@ module.exports = function() {
     }
 
     /**
-     * Converts the characters "&", "<", ">", '"', "'", and "\`" in `string` to
-     * their corresponding HTML entities.
+     * Converts the characters "&", "<", ">", '"', and "'" in `string` to their
+     * corresponding HTML entities.
      *
      * **Note:** No other characters are escaped. To escape additional
      * characters use a third-party library like [_he_](https://mths.be/he).
@@ -14731,12 +15259,6 @@ module.exports = function() {
      * unless they're part of a tag or unquoted attribute value. See
      * [Mathias Bynens's article](https://mathiasbynens.be/notes/ambiguous-ampersands)
      * (under "semi-related fun fact") for more details.
-     *
-     * Backticks are escaped because in IE < 9, they can break out of
-     * attribute values or HTML comments. See [#59](https://html5sec.org/#59),
-     * [#102](https://html5sec.org/#102), [#108](https://html5sec.org/#108), and
-     * [#133](https://html5sec.org/#133) of the
-     * [HTML5 Security Cheatsheet](https://html5sec.org/) for more details.
      *
      * When working with HTML you should always
      * [quote attribute values](http://wonko.com/post/html-escaping) to reduce
@@ -14980,15 +15502,12 @@ module.exports = function() {
      * // => [6, 8, 10]
      */
     function parseInt(string, radix, guard) {
-      // Chrome fails to trim leading <BOM> whitespace characters.
-      // See https://bugs.chromium.org/p/v8/issues/detail?id=3109 for more details.
       if (guard || radix == null) {
         radix = 0;
       } else if (radix) {
         radix = +radix;
       }
-      string = toString(string).replace(reTrim, '');
-      return nativeParseInt(string, radix || (reHasHexPrefix.test(string) ? 16 : 10));
+      return nativeParseInt(toString(string).replace(reTrimStart, ''), radix || 0);
     }
 
     /**
@@ -15163,7 +15682,10 @@ module.exports = function() {
      */
     function startsWith(string, target, position) {
       string = toString(string);
-      position = baseClamp(toInteger(position), 0, string.length);
+      position = position == null
+        ? 0
+        : baseClamp(toInteger(position), 0, string.length);
+
       target = baseToString(target);
       return string.slice(position, position + target.length) == target;
     }
@@ -15227,7 +15749,8 @@ module.exports = function() {
      * compiled({ 'user': 'barney' });
      * // => 'hello barney!'
      *
-     * // Use the ES delimiter as an alternative to the default "interpolate" delimiter.
+     * // Use the ES template literal delimiter as an "interpolate" delimiter.
+     * // Disable support by replacing the "interpolate" delimiter.
      * var compiled = _.template('hello ${ user }!');
      * compiled({ 'user': 'pebbles' });
      * // => 'hello pebbles!'
@@ -15281,9 +15804,9 @@ module.exports = function() {
         options = undefined;
       }
       string = toString(string);
-      options = assignInWith({}, options, settings, assignInDefaults);
+      options = assignInWith({}, options, settings, customDefaultsAssignIn);
 
-      var imports = assignInWith({}, options.imports, settings.imports, assignInDefaults),
+      var imports = assignInWith({}, options.imports, settings.imports, customDefaultsAssignIn),
           importsKeys = keys(imports),
           importsValues = baseValues(imports, importsKeys);
 
@@ -15628,7 +16151,7 @@ module.exports = function() {
 
     /**
      * The inverse of `_.escape`; this method converts the HTML entities
-     * `&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#39;`, and `&#96;` in `string` to
+     * `&amp;`, `&lt;`, `&gt;`, `&quot;`, and `&#39;` in `string` to
      * their corresponding characters.
      *
      * **Note:** No other HTML entities are unescaped. To unescape additional
@@ -15782,10 +16305,10 @@ module.exports = function() {
      * jQuery(element).on('click', view.click);
      * // => Logs 'clicked docs' when clicked.
      */
-    var bindAll = baseRest(function(object, methodNames) {
-      arrayEach(baseFlatten(methodNames, 1), function(key) {
+    var bindAll = flatRest(function(object, methodNames) {
+      arrayEach(methodNames, function(key) {
         key = toKey(key);
-        object[key] = bind(object[key], object);
+        baseAssignValue(object, key, bind(object[key], object));
       });
       return object;
     });
@@ -15820,7 +16343,7 @@ module.exports = function() {
      * // => 'no match'
      */
     function cond(pairs) {
-      var length = pairs ? pairs.length : 0,
+      var length = pairs == null ? 0 : pairs.length,
           toIteratee = getIteratee();
 
       pairs = !length ? [] : arrayMap(pairs, function(pair) {
@@ -15866,7 +16389,7 @@ module.exports = function() {
      * // => [{ 'a': 1, 'b': 2 }]
      */
     function conforms(source) {
-      return baseConforms(baseClone(source, true));
+      return baseConforms(baseClone(source, CLONE_DEEP_FLAG));
     }
 
     /**
@@ -16028,7 +16551,7 @@ module.exports = function() {
      * // => ['def']
      */
     function iteratee(func) {
-      return baseIteratee(typeof func == 'function' ? func : baseClone(func, true));
+      return baseIteratee(typeof func == 'function' ? func : baseClone(func, CLONE_DEEP_FLAG));
     }
 
     /**
@@ -16060,7 +16583,7 @@ module.exports = function() {
      * // => [{ 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matches(source) {
-      return baseMatches(baseClone(source, true));
+      return baseMatches(baseClone(source, CLONE_DEEP_FLAG));
     }
 
     /**
@@ -16090,7 +16613,7 @@ module.exports = function() {
      * // => { 'a': 4, 'b': 5, 'c': 6 }
      */
     function matchesProperty(path, srcValue) {
-      return baseMatchesProperty(path, baseClone(srcValue, true));
+      return baseMatchesProperty(path, baseClone(srcValue, CLONE_DEEP_FLAG));
     }
 
     /**
@@ -16646,7 +17169,7 @@ module.exports = function() {
       if (isArray(value)) {
         return arrayMap(value, toKey);
       }
-      return isSymbol(value) ? [value] : copyArray(stringToPath(value));
+      return isSymbol(value) ? [value] : copyArray(stringToPath(toString(value)));
     }
 
     /**
@@ -17367,14 +17890,13 @@ module.exports = function() {
     // Add `LazyWrapper` methods for `_.drop` and `_.take` variants.
     arrayEach(['drop', 'take'], function(methodName, index) {
       LazyWrapper.prototype[methodName] = function(n) {
-        var filtered = this.__filtered__;
-        if (filtered && !index) {
-          return new LazyWrapper(this);
-        }
         n = n === undefined ? 1 : nativeMax(toInteger(n), 0);
 
-        var result = this.clone();
-        if (filtered) {
+        var result = (this.__filtered__ && !index)
+          ? new LazyWrapper(this)
+          : this.clone();
+
+        if (result.__filtered__) {
           result.__takeCount__ = nativeMin(n, result.__takeCount__);
         } else {
           result.__views__.push({
@@ -17550,7 +18072,7 @@ module.exports = function() {
       }
     });
 
-    realNames[createHybrid(undefined, BIND_KEY_FLAG).name] = [{
+    realNames[createHybrid(undefined, WRAP_BIND_KEY_FLAG).name] = [{
       'name': 'wrapper',
       'func': undefined
     }];
@@ -17572,11 +18094,11 @@ module.exports = function() {
     // Add lazy aliases.
     lodash.prototype.first = lodash.prototype.head;
 
-    if (iteratorSymbol) {
-      lodash.prototype[iteratorSymbol] = wrapperToIterator;
+    if (symIterator) {
+      lodash.prototype[symIterator] = wrapperToIterator;
     }
     return lodash;
-  }
+  });
 
   /*--------------------------------------------------------------------------*/
 
@@ -17611,7 +18133,7 @@ module.exports = function() {
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],16:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 (function(){
   var crypt = require('crypt'),
       utf8 = require('charenc').utf8,
@@ -17762,8 +18284,8 @@ module.exports = function() {
   md5._digestsize = 16;
 
   module.exports = function (message, options) {
-    if(typeof message == 'undefined')
-      return;
+    if (message === undefined || message === null)
+      throw new Error('Illegal argument ' + message);
 
     var digestbytes = crypt.wordsToBytes(md5(message, options));
     return options && options.asBytes ? digestbytes :
@@ -17773,9 +18295,16 @@ module.exports = function() {
 
 })();
 
-},{"charenc":11,"crypt":12,"is-buffer":13}],17:[function(require,module,exports){
+},{"charenc":11,"crypt":12,"is-buffer":16}],20:[function(require,module,exports){
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
 'use strict';
 /* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -17796,7 +18325,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -17825,7 +18354,7 @@ function shouldUseNative() {
 		}
 
 		return true;
-	} catch (e) {
+	} catch (err) {
 		// We don't expect any of the above to throw, but better to be safe.
 		return false;
 	}
@@ -17845,8 +18374,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 			}
 		}
 
-		if (Object.getOwnPropertySymbols) {
-			symbols = Object.getOwnPropertySymbols(from);
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
 			for (var i = 0; i < symbols.length; i++) {
 				if (propIsEnumerable.call(from, symbols[i])) {
 					to[symbols[i]] = from[symbols[i]];
@@ -17858,10 +18387,999 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+},{}],22:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+if (process.env.NODE_ENV !== 'production') {
+  var invariant = require('fbjs/lib/invariant');
+  var warning = require('fbjs/lib/warning');
+  var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+  var loggedTypeFailures = {};
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (process.env.NODE_ENV !== 'production') {
+    for (var typeSpecName in typeSpecs) {
+      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+        }
+      }
+    }
+  }
+}
+
+module.exports = checkPropTypes;
+
+}).call(this,require('_process'))
+},{"./lib/ReactPropTypesSecret":26,"_process":21,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],23:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+var emptyFunction = require('fbjs/lib/emptyFunction');
+var invariant = require('fbjs/lib/invariant');
+var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+
+module.exports = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
+    invariant(
+      false,
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+  };
+  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  };
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim
+  };
+
+  ReactPropTypes.checkPropTypes = emptyFunction;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+},{"./lib/ReactPropTypesSecret":26,"fbjs/lib/emptyFunction":13,"fbjs/lib/invariant":14}],24:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+var emptyFunction = require('fbjs/lib/emptyFunction');
+var invariant = require('fbjs/lib/invariant');
+var warning = require('fbjs/lib/warning');
+var assign = require('object-assign');
+
+var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+var checkPropTypes = require('./checkPropTypes');
+
+module.exports = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if (process.env.NODE_ENV !== 'production') {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          invariant(
+            false,
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            warning(
+              false,
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `%s` prop on `%s`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
+              propFullName,
+              componentName
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues);
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (propValue.hasOwnProperty(key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        warning(
+          false,
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'received %s at index %s.',
+          getPostfixForTypeWarning(checker),
+          i
+        );
+        return emptyFunction.thatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from
+      // props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+}).call(this,require('_process'))
+},{"./checkPropTypes":22,"./lib/ReactPropTypesSecret":26,"_process":21,"fbjs/lib/emptyFunction":13,"fbjs/lib/invariant":14,"fbjs/lib/warning":15,"object-assign":20}],25:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = require('./factoryWithThrowingShims')();
+}
+
+}).call(this,require('_process'))
+},{"./factoryWithThrowingShims":23,"./factoryWithTypeCheckers":24,"_process":21}],26:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+},{}],27:[function(require,module,exports){
 'use strict';
 var strictUriEncode = require('strict-uri-encode');
 var objectAssign = require('object-assign');
+
+function encoderForArrayFormat(opts) {
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, index) {
+				return value === null ? [
+					encode(key, opts),
+					'[',
+					index,
+					']'
+				].join('') : [
+					encode(key, opts),
+					'[',
+					encode(index, opts),
+					']=',
+					encode(value, opts)
+				].join('');
+			};
+
+		case 'bracket':
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'[]=',
+					encode(value, opts)
+				].join('');
+			};
+
+		default:
+			return function (key, value) {
+				return value === null ? encode(key, opts) : [
+					encode(key, opts),
+					'=',
+					encode(value, opts)
+				].join('');
+			};
+	}
+}
+
+function parserForArrayFormat(opts) {
+	var result;
+
+	switch (opts.arrayFormat) {
+		case 'index':
+			return function (key, value, accumulator) {
+				result = /\[(\d*)\]$/.exec(key);
+
+				key = key.replace(/\[\d*\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				}
+
+				if (accumulator[key] === undefined) {
+					accumulator[key] = {};
+				}
+
+				accumulator[key][result[1]] = value;
+			};
+
+		case 'bracket':
+			return function (key, value, accumulator) {
+				result = /(\[\])$/.exec(key);
+				key = key.replace(/\[\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				} else if (accumulator[key] === undefined) {
+					accumulator[key] = [value];
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+
+		default:
+			return function (key, value, accumulator) {
+				if (accumulator[key] === undefined) {
+					accumulator[key] = value;
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+	}
+}
 
 function encode(value, opts) {
 	if (opts.encode) {
@@ -17871,11 +19389,29 @@ function encode(value, opts) {
 	return value;
 }
 
+function keysSorter(input) {
+	if (Array.isArray(input)) {
+		return input.sort();
+	} else if (typeof input === 'object') {
+		return keysSorter(Object.keys(input)).sort(function (a, b) {
+			return Number(a) - Number(b);
+		}).map(function (key) {
+			return input[key];
+		});
+	}
+
+	return input;
+}
+
 exports.extract = function (str) {
 	return str.split('?')[1] || '';
 };
 
-exports.parse = function (str) {
+exports.parse = function (str, opts) {
+	opts = objectAssign({arrayFormat: 'none'}, opts);
+
+	var formatter = parserForArrayFormat(opts);
+
 	// Create an object with no prototype
 	// https://github.com/sindresorhus/query-string/issues/47
 	var ret = Object.create(null);
@@ -17897,31 +19433,36 @@ exports.parse = function (str) {
 		var key = parts.shift();
 		var val = parts.length > 0 ? parts.join('=') : undefined;
 
-		key = decodeURIComponent(key);
-
 		// missing `=` should be `null`:
 		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
 		val = val === undefined ? null : decodeURIComponent(val);
 
-		if (ret[key] === undefined) {
-			ret[key] = val;
-		} else if (Array.isArray(ret[key])) {
-			ret[key].push(val);
-		} else {
-			ret[key] = [ret[key], val];
-		}
+		formatter(decodeURIComponent(key), val, ret);
 	});
 
-	return ret;
+	return Object.keys(ret).sort().reduce(function (result, key) {
+		var val = ret[key];
+		if (Boolean(val) && typeof val === 'object' && !Array.isArray(val)) {
+			// Sort object keys, not values
+			result[key] = keysSorter(val);
+		} else {
+			result[key] = val;
+		}
+
+		return result;
+	}, Object.create(null));
 };
 
 exports.stringify = function (obj, opts) {
 	var defaults = {
 		encode: true,
-		strict: true
+		strict: true,
+		arrayFormat: 'none'
 	};
 
 	opts = objectAssign(defaults, opts);
+
+	var formatter = encoderForArrayFormat(opts);
 
 	return obj ? Object.keys(obj).sort().map(function (key) {
 		var val = obj[key];
@@ -17942,11 +19483,7 @@ exports.stringify = function (obj, opts) {
 					return;
 				}
 
-				if (val2 === null) {
-					result.push(encode(key, opts));
-				} else {
-					result.push(encode(key, opts) + '=' + encode(val2, opts));
-				}
+				result.push(formatter(key, val2, result.length));
 			});
 
 			return result.join('&');
@@ -17958,7 +19495,7 @@ exports.stringify = function (obj, opts) {
 	}).join('&') : '';
 };
 
-},{"object-assign":17,"strict-uri-encode":20}],19:[function(require,module,exports){
+},{"object-assign":20,"strict-uri-encode":29}],28:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -17981,6 +19518,10 @@ var _isRetina = require('is-retina');
 
 var _isRetina2 = _interopRequireDefault(_isRetina);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -17997,18 +19538,13 @@ var Gravatar = function (_React$Component) {
   function Gravatar() {
     _classCallCheck(this, Gravatar);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Gravatar).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Gravatar.__proto__ || Object.getPrototypeOf(Gravatar)).apply(this, arguments));
   }
 
   _createClass(Gravatar, [{
     key: 'render',
     value: function render() {
-      var base = void 0;
-      if (this.props.https) {
-        base = 'https://secure.gravatar.com/avatar/';
-      } else {
-        base = 'http://www.gravatar.com/avatar/';
-      }
+      var base = this.props.protocol + 'www.gravatar.com/avatar/';
 
       var query = _queryString2.default.stringify({
         s: this.props.size,
@@ -18022,11 +19558,14 @@ var Gravatar = function (_React$Component) {
         d: this.props.default
       });
 
+      // Gravatar service currently trims and lowercases all registered emails
+      var formattedEmail = ('' + this.props.email).trim().toLowerCase();
+
       var hash = void 0;
       if (this.props.md5) {
         hash = this.props.md5;
-      } else if (this.props.email) {
-        hash = (0, _md2.default)(this.props.email);
+      } else if (typeof this.props.email === 'string') {
+        hash = (0, _md2.default)(formattedEmail, { encoding: "binary" });
       } else {
         console.warn('Gravatar image can not be fetched. Either the "email" or "md5" prop must be specified.');
         return _react2.default.createElement('script', null);
@@ -18052,9 +19591,9 @@ var Gravatar = function (_React$Component) {
 
       var rest = _objectWithoutProperties(this.props, []);
 
-      delete rest.https;
       delete rest.md5;
       delete rest.email;
+      delete rest.protocol;
       delete rest.rating;
       delete rest.size;
       delete rest.style;
@@ -18062,7 +19601,7 @@ var Gravatar = function (_React$Component) {
       delete rest.default;
       if (!modernBrowser && (0, _isRetina2.default)()) {
         return _react2.default.createElement('img', _extends({
-          alt: 'Gravatar for ' + this.props.email,
+          alt: 'Gravatar for ' + formattedEmail,
           style: this.props.style,
           src: retinaSrc,
           height: this.props.size,
@@ -18072,7 +19611,7 @@ var Gravatar = function (_React$Component) {
         }));
       }
       return _react2.default.createElement('img', _extends({
-        alt: 'Gravatar for ' + this.props.email,
+        alt: 'Gravatar for ' + formattedEmail,
         style: this.props.style,
         src: src,
         srcSet: retinaSrc + ' 2x',
@@ -18089,25 +19628,25 @@ var Gravatar = function (_React$Component) {
 
 Gravatar.displayName = 'Gravatar';
 Gravatar.propTypes = {
-  email: _react2.default.PropTypes.string,
-  md5: _react2.default.PropTypes.string,
-  size: _react2.default.PropTypes.number,
-  rating: _react2.default.PropTypes.string,
-  https: _react2.default.PropTypes.bool,
-  default: _react2.default.PropTypes.string,
-  className: _react2.default.PropTypes.string,
-  style: _react2.default.PropTypes.object
+  email: _propTypes2.default.string,
+  md5: _propTypes2.default.string,
+  size: _propTypes2.default.number,
+  rating: _propTypes2.default.string,
+  default: _propTypes2.default.string,
+  className: _propTypes2.default.string,
+  protocol: _propTypes2.default.string,
+  style: _propTypes2.default.object
 };
 Gravatar.defaultProps = {
   size: 50,
   rating: 'g',
-  https: false,
-  default: 'retro'
+  default: 'retro',
+  protocol: '//'
 };
 
 
 module.exports = Gravatar;
-},{"is-retina":14,"md5":16,"query-string":18,"react":undefined}],20:[function(require,module,exports){
+},{"is-retina":17,"md5":19,"prop-types":25,"query-string":27,"react":undefined}],29:[function(require,module,exports){
 'use strict';
 module.exports = function (str) {
 	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
