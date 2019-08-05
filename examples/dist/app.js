@@ -1,7 +1,7 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /* eslint react/prop-types: 0 */'use strict';function _interopRequireWildcard(obj){if(obj && obj.__esModule){return obj;}else {var newObj={};if(obj != null){for(var key in obj) {if(Object.prototype.hasOwnProperty.call(obj,key))newObj[key] = obj[key];}}newObj['default'] = obj;return newObj;}}function _interopRequireDefault(obj){return obj && obj.__esModule?obj:{'default':obj};}var _react=require('react');var _react2=_interopRequireDefault(_react);var _reactDom=require('react-dom');var _reactDom2=_interopRequireDefault(_reactDom);var _reactSelect=require('react-select');var _reactSelect2=_interopRequireDefault(_reactSelect);var _lodash=require("lodash");var _=_interopRequireWildcard(_lodash);var _componentsContributors=require('./components/Contributors');var _componentsContributors2=_interopRequireDefault(_componentsContributors);var _componentsCustomComponents=require('./components/CustomComponents');var _componentsCustomComponents2=_interopRequireDefault(_componentsCustomComponents);var _componentsCustomRender=require('./components/CustomRender');var _componentsCustomRender2=_interopRequireDefault(_componentsCustomRender);var _componentsMultiselect=require('./components/Multiselect');var _componentsMultiselect2=_interopRequireDefault(_componentsMultiselect);var _componentsNumericSelect=require('./components/NumericSelect');var _componentsNumericSelect2=_interopRequireDefault(_componentsNumericSelect);var _componentsStates=require('./components/States');var _componentsStates2=_interopRequireDefault(_componentsStates);var options=[{"test":"abc","value":1,"label":'Dolnośląskie'},{"test":"abc","value":31,"label":"Kujawsko-pomorskie"},{"test":"abc","value":95,"label":'Łódzkie'},{"test":"abc","value":55,"label":"Lubelskie"},{"test":"abc","value":80,"label":"Lubuskie"},{"test":"abc","value":120,"label":'Małopolskie'},{"test":"abc","value":143,"label":"Mazowieckie"},{"test":"abc","value":186,"label":"Opolskie"},{"test":"abc","value":199,"label":"Podkarpackie"},{"test":"abc","value":225,"label":"Podlaskie"},{"test":"abc","value":243,"label":"Pomorskie"},{"test":"abc","value":264,"label":'Śląskie'},{"test":"abc","value":301,"label":'Świętokrzyskie'},{"test":"abc","value":316,"label":'Warmińsko-mazurskie'},{"test":"abc","value":338,"label":"Wielkopolskie"},{"test":"abc","value":374,"label":"Zachodniopomorskie"},{"test":"abc","value":52362,"label":"Kujawsko-Pomorskie, Bydgoszcz i okolice"},{"test":"abc","value":52261,"label":'Śląskie, Katowice i okolice'},{"test":"abc","value":52258,"label":'Małopolskie, Kraków i okolice'},{"test":"abc","value":52259,"label":'Łódzkie, Łódź i okolice'},{"test":"abc","value":52366,"label":"Lubelskie, Lublin i okolice"},{"test":"abc","value":52363,"label":"Kujawsko-Pomorskie, okolice Bydgoszczy"},{"test":"abc","value":52269,"label":'Śląskie, okolice Katowic'},{"test":"abc","value":52265,"label":'Małopolskie, okolice Krakowa'},{"test":"abc","value":52267,"label":'Łódzkie, okolice Łodzi'},{"test":"abc","value":52367,"label":"Lubelskie, okolice Lublina"},{"test":"abc","value":52365,"label":'Warmińsko-Mazurskie, okolice Olsztyna'},{"test":"abc","value":52263,"label":"Wielkopolskie, okolice Poznania"},{"test":"abc","value":52268,"label":"Zachodniopomorskie, okolice Szczecina"},{"test":"abc","value":52264,"label":'Pomorskie, okolice Trójmiasta'},{"test":"abc","value":52262,"label":"Mazowieckie, okolice Warszawy"},{"test":"abc","value":52266,"label":'Dolnośląskie, okolice Wrocławia'},{"test":"abc","value":52364,"label":'Warmińsko-Mazurskie, Olsztyn i okolice'},{"test":"abc","value":52254,"label":'Wielkopolskie, Poznań i okolice'},{"test":"abc","value":52260,"label":"Zachodniopomorskie, Szczecin i okolice"},{"test":"abc","value":52255,"label":'Pomorskie, Trójmiasto'},{"test":"abc","value":52256,"label":'Pomorskie, Trójmiasto i okolice'},{"test":"abc","value":52253,"label":"Mazowieckie, Warszawa i okolice"},{"test":"abc","value":52257,"label":'Dolnośląskie, Wrocław i okolice'},{"test":"abc","value":52380,"label":"Kujawsko-Pomorskie, Aleksandrowski"},{"test":"abc","value":52412,"label":"Podlaskie, Augustowski"},{"test":"abc","value":265,"label":'Śląskie, Będziński'},{"test":"abc","value":96,"label":'Łódzkie, Bełchatowski'},{"test":"abc","value":144,"label":'Mazowieckie, Białobrzeski'},{"test":"abc","value":227,"label":'Podlaskie, Białostocki'},{"test":"abc","value":266,"label":'Śląskie, Bielski'},{"test":"abc","value":228,"label":"Podlaskie, Bielski"},{"test":"abc","value":57,"label":'Lubelskie, Biłgorajski'},{"test":"abc","value":121,"label":'Małopolskie, Bocheński'},{"test":"abc","value":52423,"label":'Dolnośląskie, Bolesławiecki'},{"test":"abc","value":33,"label":"Kujawsko-Pomorskie, Brodnicki"},{"test":"abc","value":187,"label":"Opolskie, Brzeski"},{"test":"abc","value":122,"label":'Małopolskie, Brzeski'},{"test":"abc","value":116,"label":'Łódzkie, Brzeziński'},{"test":"abc","value":52589,"label":'Świętokrzyskie, Buski'},{"test":"abc","value":34,"label":"Kujawsko-Pomorskie, Bydgoski"},{"test":"abc","value":244,"label":"Pomorskie, Bytowski"},{"test":"abc","value":52332,"label":'Kujawsko-Pomorskie, Chełmiński'},{"test":"abc","value":52292,"label":'Lubelskie, Chełmski'},{"test":"abc","value":245,"label":"Pomorskie, Chojnicki"},{"test":"abc","value":123,"label":'Małopolskie, Chrzanowski'},{"test":"abc","value":145,"label":"Mazowieckie, Ciechanowski"},{"test":"abc","value":267,"label":'Śląskie, Cieszyński'},{"test":"abc","value":340,"label":"Wielkopolskie, Czarnkowsko-Trzcianecki"},{"test":"abc","value":52535,"label":'Śląskie, Częstochowski'},{"test":"abc","value":319,"label":'Warmińsko-Mazurskie, Działdowski'},{"test":"abc","value":52278,"label":'Dolnośląskie, Dzierżoniowski'},{"test":"abc","value":321,"label":'Warmińsko-Mazurskie, Ełcki'},{"test":"abc","value":146,"label":'Mazowieckie, Garwoliński'},{"test":"abc","value":247,"label":'Pomorskie, Gdański'},{"test":"abc","value":322,"label":'Warmińsko-Mazurskie, Giżycki'},{"test":"abc","value":269,"label":'Śląskie, Gliwicki'},{"test":"abc","value":4,"label":'Dolnośląskie, Głogowski'},{"test":"abc","value":341,"label":'Wielkopolskie, Gnieźnieński'},{"test":"abc","value":334,"label":'Warmińsko-Mazurskie, Gołdapski'},{"test":"abc","value":378,"label":"Zachodniopomorskie, Goleniowski"},{"test":"abc","value":36,"label":'Kujawsko-Pomorskie, Golubsko-Dobrzyński'},{"test":"abc","value":52471,"label":"Lubuskie, Gorzowski"},{"test":"abc","value":52386,"label":'Mazowieckie, Gostyniński'},{"test":"abc","value":342,"label":'Wielkopolskie, Gostyński'},{"test":"abc","value":148,"label":"Mazowieckie, Grodziski"},{"test":"abc","value":343,"label":"Wielkopolskie, Grodziski"},{"test":"abc","value":149,"label":'Mazowieckie, Grójecki'},{"test":"abc","value":379,"label":"Zachodniopomorskie, Gryficki"},{"test":"abc","value":380,"label":'Zachodniopomorskie, Gryfiński'},{"test":"abc","value":230,"label":"Podlaskie, Hajnowski"},{"test":"abc","value":323,"label":'Warmińsko-Mazurskie, Iławski'},{"test":"abc","value":38,"label":'Kujawsko-Pomorskie, Inowrocławski'},{"test":"abc","value":52403,"label":"Lubelskie, Janowski"},{"test":"abc","value":344,"label":'Wielkopolskie, Jarociński'},{"test":"abc","value":203,"label":'Podkarpackie, Jarosławski'},{"test":"abc","value":52283,"label":"Podkarpackie, Jasielski"},{"test":"abc","value":6,"label":'Dolnośląskie, Jaworski'},{"test":"abc","value":7,"label":'Dolnośląskie, Jeleniogórski'},{"test":"abc","value":345,"label":"Wielkopolskie, Kaliski"},{"test":"abc","value":381,"label":'Zachodniopomorskie, Kamieński'},{"test":"abc","value":248,"label":"Pomorskie, Kartuski"},{"test":"abc","value":52519,"label":'Warmińsko-Mazurskie, Kętrzyński'},{"test":"abc","value":305,"label":'Świętokrzyskie, Kielecki'},{"test":"abc","value":52541,"label":'Śląskie, Kłobucki'},{"test":"abc","value":9,"label":'Dolnośląskie, Kłodzki'},{"test":"abc","value":382,"label":'Zachodniopomorskie, Kołobrzeski'},{"test":"abc","value":349,"label":'Wielkopolskie, Kościański'},{"test":"abc","value":249,"label":'Pomorskie, Kościerski'},{"test":"abc","value":383,"label":'Zachodniopomorskie, Koszaliński'},{"test":"abc","value":150,"label":"Mazowieckie, Kozienicki"},{"test":"abc","value":126,"label":'Małopolskie, Krakowski'},{"test":"abc","value":191,"label":"Opolskie, Krapkowicki"},{"test":"abc","value":52333,"label":'Lubelskie, Kraśnicki'},{"test":"abc","value":52473,"label":'Wielkopolskie, Krotoszyński'},{"test":"abc","value":97,"label":'Łódzkie, Kutnowski'},{"test":"abc","value":98,"label":'Łódzkie, Łaski'},{"test":"abc","value":251,"label":'Pomorskie, Lęborski'},{"test":"abc","value":52458,"label":'Lubelskie, Łęczyński'},{"test":"abc","value":151,"label":"Mazowieckie, Legionowski"},{"test":"abc","value":52276,"label":'Dolnośląskie, Legnicki'},{"test":"abc","value":220,"label":"Podkarpackie, Leski"},{"test":"abc","value":351,"label":'Wielkopolskie, Leszczyński'},{"test":"abc","value":52309,"label":'Warmińsko-Mazurskie, Lidzbarski'},{"test":"abc","value":392,"label":'Zachodniopomorskie, Łobeski'},{"test":"abc","value":101,"label":'Łódzkie, Łódzki Wschodni'},{"test":"abc","value":11,"label":'Dolnośląskie, Lubański'},{"test":"abc","value":52469,"label":"Lubelskie, Lubartowski"},{"test":"abc","value":64,"label":"Lubelskie, Lubelski"},{"test":"abc","value":12,"label":'Dolnośląskie, Lubiński'},{"test":"abc","value":66,"label":'Lubelskie, Łukowski'},{"test":"abc","value":13,"label":'Dolnośląskie, Lwówecki'},{"test":"abc","value":52539,"label":"Mazowieckie, Makowski"},{"test":"abc","value":252,"label":"Pomorskie, Malborski"},{"test":"abc","value":128,"label":'Małopolskie, Miechowski'},{"test":"abc","value":352,"label":'Wielkopolskie, Międzychodzki'},{"test":"abc","value":210,"label":"Podkarpackie, Mielecki"},{"test":"abc","value":272,"label":'Śląskie, Mikołowski'},{"test":"abc","value":155,"label":'Mazowieckie, Miński'},{"test":"abc","value":156,"label":'Mazowieckie, Mławski'},{"test":"abc","value":326,"label":'Warmińsko-Mazurskie, Mrągowski'},{"test":"abc","value":129,"label":'Małopolskie, Myślenicki'},{"test":"abc","value":384,"label":'Zachodniopomorskie, Myśliborski'},{"test":"abc","value":52550,"label":'Śląskie, Myszkowski'},{"test":"abc","value":41,"label":"Kujawsko-Pomorskie, Nakielski"},{"test":"abc","value":192,"label":'Opolskie, Namysłowski'},{"test":"abc","value":52406,"label":'Warmińsko-Mazurskie, Nidzicki'},{"test":"abc","value":157,"label":"Mazowieckie, Nowodworski"},{"test":"abc","value":253,"label":"Pomorskie, Nowodworski"},{"test":"abc","value":130,"label":'Małopolskie, Nowosądecki'},{"test":"abc","value":84,"label":"Lubuskie, Nowosolski"},{"test":"abc","value":131,"label":'Małopolskie, Nowotarski'},{"test":"abc","value":353,"label":"Wielkopolskie, Nowotomyski"},{"test":"abc","value":52454,"label":"Opolskie, Nyski"},{"test":"abc","value":354,"label":"Wielkopolskie, Obornicki"},{"test":"abc","value":16,"label":'Dolnośląskie, Oławski'},{"test":"abc","value":329,"label":'Warmińsko-Mazurskie, Olecki'},{"test":"abc","value":15,"label":'Dolnośląskie, Oleśnicki'},{"test":"abc","value":132,"label":'Małopolskie, Olkuski'},{"test":"abc","value":330,"label":'Warmińsko-Mazurskie, Olsztyński'},{"test":"abc","value":307,"label":'Świętokrzyskie, Opatowski'},{"test":"abc","value":67,"label":"Lubelskie, Opolski"},{"test":"abc","value":195,"label":"Opolskie, Opolski"},{"test":"abc","value":331,"label":'Warmińsko-Mazurskie, Ostródzki'},{"test":"abc","value":52529,"label":'Mazowieckie, Ostrołęcki'},{"test":"abc","value":308,"label":'Świętokrzyskie, Ostrowiecki'},{"test":"abc","value":355,"label":"Wielkopolskie, Ostrowski"},{"test":"abc","value":52306,"label":"Wielkopolskie, Ostrzeszowski"},{"test":"abc","value":133,"label":'Małopolskie, Oświęcimski'},{"test":"abc","value":160,"label":"Mazowieckie, Otwocki"},{"test":"abc","value":103,"label":'Łódzkie, Pabianicki'},{"test":"abc","value":161,"label":'Mazowieckie, Piaseczyński'},{"test":"abc","value":357,"label":"Wielkopolskie, Pilski"},{"test":"abc","value":332,"label":'Warmińsko-Mazurskie, Piski'},{"test":"abc","value":358,"label":"Wielkopolskie, Pleszewski"},{"test":"abc","value":162,"label":'Mazowieckie, Płocki'},{"test":"abc","value":163,"label":'Mazowieckie, Płoński'},{"test":"abc","value":385,"label":"Zachodniopomorskie, Policki"},{"test":"abc","value":17,"label":'Dolnośląskie, Polkowicki'},{"test":"abc","value":359,"label":'Wielkopolskie, Poznański'},{"test":"abc","value":134,"label":'Małopolskie, Proszowicki'},{"test":"abc","value":164,"label":"Mazowieckie, Pruszkowski"},{"test":"abc","value":165,"label":"Mazowieckie, Przasnyski"},{"test":"abc","value":213,"label":"Podkarpackie, Przeworski"},{"test":"abc","value":274,"label":'Śląskie, Pszczyński'},{"test":"abc","value":254,"label":"Pomorskie, Pucki"},{"test":"abc","value":69,"label":'Lubelskie, Puławski'},{"test":"abc","value":167,"label":'Mazowieckie, Pułtuski'},{"test":"abc","value":386,"label":"Zachodniopomorskie, Pyrzycki"},{"test":"abc","value":275,"label":'Śląskie, Raciborski'},{"test":"abc","value":168,"label":"Mazowieckie, Radomski"},{"test":"abc","value":107,"label":'Łódzkie, Radomszczański'},{"test":"abc","value":52515,"label":'Lubelskie, Radzyński'},{"test":"abc","value":360,"label":"Wielkopolskie, Rawicki"},{"test":"abc","value":108,"label":'Łódzkie, Rawski'},{"test":"abc","value":215,"label":"Podkarpackie, Rzeszowski"},{"test":"abc","value":216,"label":"Podkarpackie, Sanocki"},{"test":"abc","value":44,"label":'Kujawsko-Pomorskie, Sępoleński'},{"test":"abc","value":52248,"label":"Mazowieckie, Siedlecki"},{"test":"abc","value":52521,"label":'Łódzkie, Sieradzki'},{"test":"abc","value":311,"label":'Świętokrzyskie, Skarżyski'},{"test":"abc","value":110,"label":'Łódzkie, Skierniewicki'},{"test":"abc","value":387,"label":'Zachodniopomorskie, Sławieński'},{"test":"abc","value":52215,"label":'Lubuskie, Słubicki'},{"test":"abc","value":361,"label":'Wielkopolskie, Słupecki'},{"test":"abc","value":255,"label":'Pomorskie, Słupski'},{"test":"abc","value":171,"label":"Mazowieckie, Sochaczewski"},{"test":"abc","value":52527,"label":'Mazowieckie, Sokołowski'},{"test":"abc","value":363,"label":'Wielkopolskie, Średzki'},{"test":"abc","value":19,"label":'Dolnośląskie, Średzki'},{"test":"abc","value":364,"label":'Wielkopolskie, Śremski'},{"test":"abc","value":217,"label":"Podkarpackie, Stalowowolski"},{"test":"abc","value":312,"label":'Świętokrzyskie, Starachowicki'},{"test":"abc","value":388,"label":"Zachodniopomorskie, Stargardzki"},{"test":"abc","value":256,"label":"Pomorskie, Starogardzki"},{"test":"abc","value":197,"label":"Opolskie, Strzelecki"},{"test":"abc","value":52523,"label":"Lubuskie, Strzelecko-Drezdenecki"},{"test":"abc","value":18,"label":'Dolnośląskie, Strzeliński'},{"test":"abc","value":218,"label":'Podkarpackie, Strzyżowski'},{"test":"abc","value":52446,"label":'Lubuskie, Sulęciński'},{"test":"abc","value":135,"label":'Małopolskie, Suski'},{"test":"abc","value":72,"label":'Lubelskie, Świdnicki'},{"test":"abc","value":20,"label":'Dolnośląskie, Świdnicki'},{"test":"abc","value":52285,"label":'Zachodniopomorskie, Świdwiński'},{"test":"abc","value":362,"label":"Wielkopolskie, Szamotulski"},{"test":"abc","value":389,"label":"Zachodniopomorskie, Szczecinecki"},{"test":"abc","value":333,"label":'Warmińsko-Mazurskie, Szczycieński'},{"test":"abc","value":52505,"label":'Mazowieckie, Szydłowiecki'},{"test":"abc","value":277,"label":'Śląskie, Tarnogórski'},{"test":"abc","value":136,"label":'Małopolskie, Tarnowski'},{"test":"abc","value":137,"label":'Małopolskie, Tatrzański'},{"test":"abc","value":257,"label":"Pomorskie, Tczewski"},{"test":"abc","value":111,"label":'Łódzkie, Tomaszowski'},{"test":"abc","value":73,"label":"Lubelskie, Tomaszowski"},{"test":"abc","value":46,"label":'Kujawsko-Pomorskie, Toruński'},{"test":"abc","value":21,"label":'Dolnośląskie, Trzebnicki'},{"test":"abc","value":52343,"label":'Małopolskie, Wadowicki'},{"test":"abc","value":52370,"label":'Wielkopolskie, Wągrowiecki'},{"test":"abc","value":22,"label":'Dolnośląskie, Wałbrzyski'},{"test":"abc","value":174,"label":"Mazowieckie, Warszawski Zachodni"},{"test":"abc","value":335,"label":'Warmińsko-Mazurskie, Węgorzewski'},{"test":"abc","value":175,"label":'Mazowieckie, Węgrowski'},{"test":"abc","value":258,"label":"Pomorskie, Wejherowski"},{"test":"abc","value":139,"label":'Małopolskie, Wielicki'},{"test":"abc","value":52320,"label":'Łódzkie, Wieruszowski'},{"test":"abc","value":49,"label":'Kujawsko-Pomorskie, Włocławski'},{"test":"abc","value":74,"label":'Lubelskie, Włodawski'},{"test":"abc","value":176,"label":'Mazowieckie, Wołomiński'},{"test":"abc","value":23,"label":'Dolnośląskie, Wołowski'},{"test":"abc","value":367,"label":'Wielkopolskie, Wolsztyński'},{"test":"abc","value":24,"label":'Dolnośląskie, Wrocławski'},{"test":"abc","value":368,"label":'Wielkopolskie, Wrzesiński'},{"test":"abc","value":52436,"label":"Lubuskie, Wschowski"},{"test":"abc","value":177,"label":"Mazowieckie, Wyszkowski"},{"test":"abc","value":52450,"label":'Dolnośląskie, Ząbkowicki'},{"test":"abc","value":52334,"label":'Lubuskie, Żagański'},{"test":"abc","value":75,"label":"Lubelskie, Zamojski"},{"test":"abc","value":91,"label":'Lubuskie, Żarski'},{"test":"abc","value":280,"label":'Śląskie, Zawierciański'},{"test":"abc","value":115,"label":'Łódzkie, Zgierski'},{"test":"abc","value":26,"label":'Dolnośląskie, Zgorzelecki'},{"test":"abc","value":89,"label":'Lubuskie, Zielonogórski'},{"test":"abc","value":369,"label":'Wielkopolskie, Złotowski'},{"test":"abc","value":178,"label":'Mazowieckie, Zwoleński'},{"test":"abc","value":180,"label":'Mazowieckie, Żyrardowski'},{"test":"abc","value":52511,"label":'Kujawsko-Pomorskie, Aleksandrowski, Aleksandrów Kujawski'},{"test":"abc","value":14762,"label":'Łódzkie, Zgierski, Aleksandrów Łódzki'},{"test":"abc","value":52461,"label":'Małopolskie, Chrzanowski, Alwernia'},{"test":"abc","value":52344,"label":'Małopolskie, Wadowicki, Andrychów'},{"test":"abc","value":52413,"label":'Podlaskie, Augustowski, Augustów'},{"test":"abc","value":52756,"label":"Kujawsko-pomorskie, Barcin"},{"test":"abc","value":52272,"label":'Warmińsko-Mazurskie, Olsztyński, Barczewo'},{"test":"abc","value":13435,"label":'Zachodniopomorskie, Myśliborski, Barlinek'},{"test":"abc","value":15056,"label":'Śląskie, Będziński, Będzin'},{"test":"abc","value":8510,"label":'Łódzkie, Bełchatowski, Bełchatów'},{"test":"abc","value":24220,"label":'Lubelskie, Biała Podlaska'},{"test":"abc","value":26641,"label":'Mazowieckie, Białobrzeski, Białobrzegi'},{"test":"abc","value":9692,"label":'Podlaskie, Białystok'},{"test":"abc","value":52279,"label":'Dolnośląskie, Dzierżoniowski, Bielawa'},{"test":"abc","value":13414,"label":'Śląskie, Bielsko-Biała'},{"test":"abc","value":3739,"label":"Podlaskie, Bielski, Bielsk Podlaski"},{"test":"abc","value":33494,"label":'Dolnośląskie, Oleśnicki, Bierutów'},{"test":"abc","value":52545,"label":'Warmińsko-Mazurskie, Olsztyński, Biskupiec'},{"test":"abc","value":2396,"label":'Mazowieckie, Warszawski Zachodni, Błonie'},{"test":"abc","value":36034,"label":'Małopolskie, Bocheński, Bochnia'},{"test":"abc","value":52424,"label":'Dolnośląskie, Bolesławiecki, Bolesławiec'},{"test":"abc","value":22811,"label":'Dolnośląskie, Jaworski, Bolków'},{"test":"abc","value":34065,"label":"Zachodniopomorskie, Szczecinecki, Borne Sulinowo"},{"test":"abc","value":21231,"label":"Kujawsko-Pomorskie, Brodnicki, Brodnica"},{"test":"abc","value":37359,"label":'Mazowieckie, Pruszkowski, Brwinów'},{"test":"abc","value":10425,"label":"Opolskie, Brzeski, Brzeg"},{"test":"abc","value":35561,"label":'Dolnośląskie, Wołowski, Brzeg Dolny'},{"test":"abc","value":39392,"label":'Małopolskie, Brzeski, Brzesko'},{"test":"abc","value":32853,"label":'Łódzkie, Brzeziński, Brzeziny'},{"test":"abc","value":52590,"label":'Świętokrzyskie, Buski, Busko-Zdrój'},{"test":"abc","value":22550,"label":"Kujawsko-Pomorskie, Bydgoszcz"},{"test":"abc","value":34871,"label":'Śląskie, Bytom'},{"test":"abc","value":12539,"label":'Pomorskie, Bytowski, Bytów'},{"test":"abc","value":52293,"label":'Lubelskie, Chełmski, Chełm'},{"test":"abc","value":52219,"label":'Małopolskie, Oświęcimski, Chełmek'},{"test":"abc","value":52238,"label":'Kujawsko-Pomorskie, Chełmiński, Chełmno'},{"test":"abc","value":46761,"label":"Pomorskie, Chojnicki, Chojnice"},{"test":"abc","value":19219,"label":'Śląskie, Chorzów'},{"test":"abc","value":52251,"label":'Małopolskie, Chrzanowski, Chrzanów'},{"test":"abc","value":6296,"label":'Mazowieckie, Ciechanowski, Ciechanów'},{"test":"abc","value":52381,"label":"Kujawsko-Pomorskie, Aleksandrowski, Ciechocinek"},{"test":"abc","value":16000,"label":'Śląskie, Cieszyński, Cieszyn'},{"test":"abc","value":52441,"label":'Podlaskie, Białostocki, Czarna Białostocka'},{"test":"abc","value":52410,"label":'Wielkopolskie, Czarnkowsko-Trzcianecki, Czarnków'},{"test":"abc","value":52513,"label":'Śląskie, Bielski, Czechowice-Dziedzice'},{"test":"abc","value":30668,"label":'Śląskie, Częstochowa'},{"test":"abc","value":16293,"label":'Śląskie, Dąbrowa Górnicza'},{"test":"abc","value":35342,"label":'Zachodniopomorskie, Sławieński, Darłowo'},{"test":"abc","value":52524,"label":"Lubuskie, Strzelecko-Drezdenecki, Drezdenko"},{"test":"abc","value":24294,"label":'Warmińsko-Mazurskie, Działdowski, Działdowo'},{"test":"abc","value":22546,"label":'Zachodniopomorskie, Kamieński, Dziwnów'},{"test":"abc","value":25289,"label":'Warmińsko-mazurskie, Elbląg'},{"test":"abc","value":51050,"label":'Warmińsko-mazurskie, Ełcki, Ełk'},{"test":"abc","value":50491,"label":'Mazowieckie, Garwoliński, Garwolin'},{"test":"abc","value":46083,"label":'Pomorskie, Gdańsk'},{"test":"abc","value":6196,"label":"Pomorskie, Gdynia"},{"test":"abc","value":11016,"label":'Warmińsko-mazurskie, Giżycki, Giżycko'},{"test":"abc","value":31825,"label":'Śląskie, Gliwice'},{"test":"abc","value":11592,"label":'Dolnośląskie, Głogowski, Głogów'},{"test":"abc","value":20423,"label":'Podkarpackie, Rzeszowski, Głogów Małopolski'},{"test":"abc","value":28203,"label":'Wielkopolskie, Gnieźnieński, Gniezno'},{"test":"abc","value":4455,"label":"Opolskie, Krapkowicki, Gogolin"},{"test":"abc","value":31788,"label":'Warmińsko-Mazurskie, Gołdapski, Gołdap'},{"test":"abc","value":28905,"label":'Zachodniopomorskie, Goleniowski, Goleniów'},{"test":"abc","value":21549,"label":'Mazowieckie, Piaseczyński, Góra Kalwaria'},{"test":"abc","value":37058,"label":'Lubuskie, Gorzów Wielkopolski'},{"test":"abc","value":52822,"label":'Zachodniopomorskie, Kołobrzeski, Gościno'},{"test":"abc","value":52287,"label":'Wielkopolskie, Gostyński, Gostyń'},{"test":"abc","value":52387,"label":'Mazowieckie, Gostyniński, Gostynin'},{"test":"abc","value":36132,"label":"Mazowieckie, Grodziski, Grodzisk Mazowiecki"},{"test":"abc","value":45812,"label":"Wielkopolskie, Grodziski, Grodzisk Wielkopolski"},{"test":"abc","value":1642,"label":'Mazowieckie, Grójecki, Grójec'},{"test":"abc","value":13077,"label":'Kujawsko-Pomorskie, Grudziądz'},{"test":"abc","value":52322,"label":"Zachodniopomorskie, Gryficki, Gryfice"},{"test":"abc","value":47110,"label":'Zachodniopomorskie, Gryfiński, Gryfino'},{"test":"abc","value":20511,"label":'Podlaskie, Hajnowski, Hajnówka'},{"test":"abc","value":52499,"label":'Mazowieckie, Miński, Halinów'},{"test":"abc","value":45344,"label":"Pomorskie, Pucki, Hel"},{"test":"abc","value":9385,"label":'Warmińsko-Mazurskie, Iławski, Iława'},{"test":"abc","value":35739,"label":'Kujawsko-Pomorskie, Inowrocławski, Inowrocław'},{"test":"abc","value":52445,"label":'Zachodniopomorskie, Stargardzki, Ińsko'},{"test":"abc","value":52404,"label":'Lubelskie, Janowski, Janów Lubelski'},{"test":"abc","value":47119,"label":'Wielkopolskie, Jarociński, Jarocin'},{"test":"abc","value":52284,"label":'Podkarpackie, Jasielski, Jasło'},{"test":"abc","value":13032,"label":"Pomorskie, Pucki, Jastarnia"},{"test":"abc","value":52433,"label":'Wielkopolskie, Złotowski, Jastrowie'},{"test":"abc","value":23134,"label":'Śląskie, Jastrzębie-Zdrój'},{"test":"abc","value":52457,"label":'Śląskie, Jaworzno'},{"test":"abc","value":52314,"label":'Dolnośląskie, Świdnicki, Jaworzyna Śląska'},{"test":"abc","value":4661,"label":'Dolnośląskie, Oławski, Jelcz-Laskowice'},{"test":"abc","value":51619,"label":'Dolnośląskie, Jelenia Góra'},{"test":"abc","value":7727,"label":'Mazowieckie, Otwocki, Józefów'},{"test":"abc","value":18767,"label":"Wielkopolskie, Kalisz"},{"test":"abc","value":52546,"label":'Mazowieckie, Miński, Kałuszyn'},{"test":"abc","value":37976,"label":'Dolnośląskie, Jeleniogórski, Karpacz'},{"test":"abc","value":1737,"label":"Pomorskie, Kartuski, Kartuzy"},{"test":"abc","value":31600,"label":'Śląskie, Katowice'},{"test":"abc","value":39252,"label":'Dolnośląskie, Wrocławski, Kąty Wrocławskie'},{"test":"abc","value":52520,"label":'Warmińsko-Mazurskie, Kętrzyński, Kętrzyn'},{"test":"abc","value":36190,"label":'Świętokrzyskie, Kielce'},{"test":"abc","value":52542,"label":'Śląskie, Kłobucki, Kłobuck'},{"test":"abc","value":18264,"label":'Dolnośląskie, Kłodzki, Kłodzko'},{"test":"abc","value":27502,"label":'Śląskie, Gliwicki, Knurów'},{"test":"abc","value":9913,"label":'Mazowieckie, Wołomiński, Kobyłka'},{"test":"abc","value":14102,"label":'Zachodniopomorskie, Kołobrzeski, Kołobrzeg'},{"test":"abc","value":39772,"label":'Łódzkie, Łódzki Wschodni, Koluszki'},{"test":"abc","value":2067,"label":"Wielkopolskie, Konin"},{"test":"abc","value":8437,"label":'Mazowieckie, Piaseczyński, Konstancin-Jeziorna'},{"test":"abc","value":12010,"label":'Łódzkie, Pabianicki, Konstantynów Łódzki'},{"test":"abc","value":2436,"label":'Wielkopolskie, Poznański, Kórnik'},{"test":"abc","value":871,"label":'Wielkopolskie, Kościański, Kościan'},{"test":"abc","value":4395,"label":'Pomorskie, Kościerski, Kościerzyna'},{"test":"abc","value":38447,"label":'Wielkopolskie, Poznański, Kostrzyn'},{"test":"abc","value":52472,"label":'Lubuskie, Gorzowski, Kostrzyn nad Odrą'},{"test":"abc","value":48606,"label":"Zachodniopomorskie, Koszalin"},{"test":"abc","value":44124,"label":'Kujawsko-Pomorskie, Golubsko-Dobrzyński, Kowalewo Pomorskie'},{"test":"abc","value":41196,"label":"Mazowieckie, Kozienicki, Kozienice"},{"test":"abc","value":11158,"label":'Małopolskie, Kraków'},{"test":"abc","value":22482,"label":"Opolskie, Krapkowicki, Krapkowice"},{"test":"abc","value":52237,"label":'Lubelskie, Kraśnicki, Kraśnik'},{"test":"abc","value":36014,"label":"Podkarpackie, Krosno"},{"test":"abc","value":52474,"label":'Wielkopolskie, Krotoszyński, Krotoszyn'},{"test":"abc","value":35022,"label":"Pomorskie, Nowodworski, Krynica Morska"},{"test":"abc","value":11328,"label":'Małopolskie, Nowosądecki, Krynica-Zdrój'},{"test":"abc","value":30868,"label":'Małopolskie, Krakowski, Krzeszowice'},{"test":"abc","value":52534,"label":'Wielkopolskie, Kościański, Krzywiń'},{"test":"abc","value":52525,"label":'Wielkopolskie, Czarnkowsko-Trzcianecki, Krzyż Wielkopolski'},{"test":"abc","value":49787,"label":'Łódzkie, Kutnowski, Kutno'},{"test":"abc","value":52388,"label":'Podkarpackie, Łańcut'},{"test":"abc","value":52382,"label":'Podlaskie, Białostocki, Łapy'},{"test":"abc","value":8769,"label":'Śląskie, Mikołowski, Łaziska Górne'},{"test":"abc","value":41675,"label":'Pomorskie, Lęborski, Łeba'},{"test":"abc","value":52805,"label":'Pomorskie, Lębork'},{"test":"abc","value":52459,"label":'Lubelskie, łęczyński, Łęczna'},{"test":"abc","value":52418,"label":'Śląskie, Lędziny'},{"test":"abc","value":47675,"label":"Mazowieckie, Legionowski, Legionowo"},{"test":"abc","value":40444,"label":'Dolnośląskie, Legnica'},{"test":"abc","value":32749,"label":'Opolskie, Strzelecki, Leśnica'},{"test":"abc","value":12259,"label":"Wielkopolskie, Leszno"},{"test":"abc","value":11303,"label":'Małopolskie, Chrzanowski, Libiąż'},{"test":"abc","value":16187,"label":'Łódzkie, Łódź'},{"test":"abc","value":51541,"label":'Mazowieckie, Warszawski Zachodni, Łomianki'},{"test":"abc","value":23038,"label":'Podlaskie, Łomża'},{"test":"abc","value":30988,"label":'Dolnośląskie, Lubiński, Lubin'},{"test":"abc","value":13220,"label":"Lubelskie, Lublin"},{"test":"abc","value":20203,"label":'Wielkopolskie, Poznański, Luboń'},{"test":"abc","value":19526,"label":'Lubelskie, Łukowski, Łuków'},{"test":"abc","value":52540,"label":'Mazowieckie, Makowski, Maków Mazowiecki'},{"test":"abc","value":44923,"label":"Pomorskie, Malborski, Malbork"},{"test":"abc","value":41324,"label":'Mazowieckie, Wołomiński, Marki'},{"test":"abc","value":28812,"label":'Dolnośląskie, Kłodzki, Międzylesie'},{"test":"abc","value":52760,"label":'Lubuskie, Międzyrzecz'},{"test":"abc","value":33992,"label":'Zachodniopomorskie, Kamieński, Międzyzdroje'},{"test":"abc","value":32591,"label":"Podkarpackie, Mielecki, Mielec"},{"test":"abc","value":16048,"label":'Warmińsko-Mazurskie, Mrągowski, Mikołajki'},{"test":"abc","value":13580,"label":'Śląskie, Mikołowski, Mikołów'},{"test":"abc","value":44298,"label":'Mazowieckie, Grodziski, Milanówek'},{"test":"abc","value":52420,"label":'Dolnośląskie, Milicz'},{"test":"abc","value":43897,"label":'Mazowieckie, Miński, Mińsk Mazowiecki'},{"test":"abc","value":37733,"label":'Mazowieckie, Mławski, Mława'},{"test":"abc","value":49117,"label":'Wielkopolskie, Poznański, Mosina'},{"test":"abc","value":48654,"label":'Warmińsko-Mazurskie, Mrągowski, Mrągowo'},{"test":"abc","value":52323,"label":'Mazowieckie, Żyrardowski, Mszczonów'},{"test":"abc","value":29754,"label":'Wielkopolskie, Poznański, Murowana Goślina'},{"test":"abc","value":47901,"label":'Małopolskie, Myślenicki, Myślenice'},{"test":"abc","value":8955,"label":'Śląskie, Mysłowice'},{"test":"abc","value":25809,"label":'Lubelskie, Puławski, Nałęczów'},{"test":"abc","value":29372,"label":'Opolskie, Namysłowski, Namysłów'},{"test":"abc","value":14321,"label":"Mazowieckie, Nowodworski, Nasielsk"},{"test":"abc","value":36712,"label":'Wielkopolskie, Wrzesiński, Nekla'},{"test":"abc","value":52548,"label":'Warmińsko-Mazurskie, Nidzicki, Nidzica'},{"test":"abc","value":36397,"label":'Małopolskie, Wielicki, Niepołomice'},{"test":"abc","value":10117,"label":'Lubuskie, Nowosolski, Nowa Sól'},{"test":"abc","value":52543,"label":"Zachodniopomorskie, Goleniowski, Nowogard"},{"test":"abc","value":7572,"label":'Mazowieckie, Nowodworski, Nowy Dwór Mazowiecki'},{"test":"abc","value":52247,"label":'Małopolskie, Nowy Sącz'},{"test":"abc","value":1899,"label":'Małopolskie, Nowotarski, Nowy Targ'},{"test":"abc","value":52533,"label":'Wielkopolskie, Nowotomyski, Nowy Tomyśl'},{"test":"abc","value":52455,"label":"Opolskie, Nyski, Nysa"},{"test":"abc","value":21343,"label":"Wielkopolskie, Obornicki, Oborniki"},{"test":"abc","value":32620,"label":'Dolnośląskie, Trzebnicki, Oborniki Śląskie'},{"test":"abc","value":14663,"label":'Dolnośląskie, Oławski, Oława'},{"test":"abc","value":51671,"label":'Warmińsko-Mazurskie, Olecki, Olecko'},{"test":"abc","value":34312,"label":'Dolnośląskie, Oleśnicki, Oleśnica'},{"test":"abc","value":31391,"label":'Małopolskie, Olkuski, Olkusz'},{"test":"abc","value":26804,"label":'Warmińsko-Mazurskie, Olsztyn'},{"test":"abc","value":20064,"label":'Warmińsko-Mazurskie, Olsztyński, Olsztynek'},{"test":"abc","value":52233,"label":"Wielkopolskie, Nowotomyski, Opalenica"},{"test":"abc","value":12168,"label":"Opolskie, Opole"},{"test":"abc","value":19975,"label":"Lubelskie, Opolski, Opole Lubelskie"},{"test":"abc","value":52494,"label":'Warmińsko-Mazurskie, Piski, Orzysz'},{"test":"abc","value":30635,"label":'Warmińsko-Mazurskie, Ostródzki, Ostróda'},{"test":"abc","value":19025,"label":'Mazowieckie, Ostrołęka'},{"test":"abc","value":28917,"label":'Świętokrzyskie, Ostrowiecki, Ostrowiec Świętokrzyski'},{"test":"abc","value":34136,"label":'Wielkopolskie, Ostrowski, Ostrów Wielkopolski'},{"test":"abc","value":52307,"label":'Wielkopolskie, Ostrzeszowski, Ostrzeszów'},{"test":"abc","value":52252,"label":'Małopolskie, Oświęcimski, Oświęcim'},{"test":"abc","value":12955,"label":"Mazowieckie, Otwocki, Otwock"},{"test":"abc","value":24508,"label":'Świętokrzyskie, Opatowski, Ożarów'},{"test":"abc","value":37871,"label":'Mazowieckie, Warszawski Zachodni, Ożarów Mazowiecki'},{"test":"abc","value":19008,"label":'Łódzkie, Zgierski, Ozorków'},{"test":"abc","value":9195,"label":'Łódzkie, Pabianicki, Pabianice'},{"test":"abc","value":28307,"label":'Mazowieckie, Piaseczyński, Piaseczno'},{"test":"abc","value":5414,"label":'Mazowieckie, Pruszkowski, Piastów'},{"test":"abc","value":9467,"label":'Śląskie, Piekary Śląskie'},{"test":"abc","value":36816,"label":'Wielkopolskie, Pilski, Piła'},{"test":"abc","value":52326,"label":'Łódzkie, Piotrków Trybunalski'},{"test":"abc","value":50016,"label":'Warmińsko-Mazurskie, Piski, Pisz'},{"test":"abc","value":52532,"label":'Małopolskie, Nowosądecki, Piwniczna-Zdrój'},{"test":"abc","value":30792,"label":'Mazowieckie, Płocki, Płock'},{"test":"abc","value":42177,"label":'Mazowieckie, Płoński, Płońsk'},{"test":"abc","value":52396,"label":"Wielkopolskie, Szamotulski, Pniewy"},{"test":"abc","value":52510,"label":'Wielkopolskie, Poznański, Pobiedziska'},{"test":"abc","value":2375,"label":'Dolnośląskie, Kłodzki, Polanica-Zdrój'},{"test":"abc","value":52286,"label":'Zachodniopomorskie, Świdwiński, Połczyn-Zdrój'},{"test":"abc","value":28779,"label":"Zachodniopomorskie, Policki, Police"},{"test":"abc","value":16956,"label":'Dolnośląskie, Polkowicki, Polkowice'},{"test":"abc","value":9905,"label":"Lubelskie, Opolski, Poniatowa"},{"test":"abc","value":30892,"label":'Wielkopolskie, Poznań'},{"test":"abc","value":49550,"label":'Pomorskie, Gdański, Pruszcz Gdański'},{"test":"abc","value":10399,"label":'Mazowieckie, Pruszkowski, Pruszków'},{"test":"abc","value":1236,"label":"Mazowieckie, Przasnyski, Przasnysz"},{"test":"abc","value":52374,"label":'Podkarpackie, Przemyśl'},{"test":"abc","value":39791,"label":"Podkarpackie, Przeworski, Przeworsk"},{"test":"abc","value":49952,"label":'Śląskie, Pszczyński, Pszczyna'},{"test":"abc","value":36584,"label":"Pomorskie, Pucki, Puck"},{"test":"abc","value":51827,"label":'Lubelskie, Puławski, Puławy'},{"test":"abc","value":25679,"label":'Mazowieckie, Pułtuski, Pułtusk'},{"test":"abc","value":51217,"label":'Wielkopolskie, Poznański, Puszczykowo'},{"test":"abc","value":52414,"label":'Śląskie, Gliwicki, Pyskowice'},{"test":"abc","value":52392,"label":'Małopolskie, Nowotarski, Rabka-Zdrój'},{"test":"abc","value":14537,"label":'Śląskie, Raciborski, Racibórz'},{"test":"abc","value":21988,"label":'Małopolskie, Tarnowski, Radłów'},{"test":"abc","value":33423,"label":"Mazowieckie, Radom"},{"test":"abc","value":35114,"label":'Łódzkie, Radomszczański, Radomsko'},{"test":"abc","value":2829,"label":'Mazowieckie, Wołomiński, Radzymin'},{"test":"abc","value":52516,"label":'Lubelskie, Radzyński, Radzyń Podlaski'},{"test":"abc","value":15600,"label":'Łódzkie, Rawski, Rawa Mazowiecka'},{"test":"abc","value":25977,"label":"Wielkopolskie, Rawicki, Rawicz"},{"test":"abc","value":23029,"label":"Pomorskie, Wejherowski, Reda"},{"test":"abc","value":52712,"label":"Podkarpackie, Ropczyce"},{"test":"abc","value":8857,"label":'Śląskie, Ruda Śląska'},{"test":"abc","value":18709,"label":"Pomorskie, Wejherowski, Rumia"},{"test":"abc","value":19648,"label":'Śląskie, Rybnik'},{"test":"abc","value":33659,"label":'Podkarpackie, Rzeszów'},{"test":"abc","value":51977,"label":'Łódzkie, Łódzki Wschodni, Rzgów'},{"test":"abc","value":25168,"label":"Podkarpackie, Sanocki, Sanok"},{"test":"abc","value":21267,"label":'Kujawsko-Pomorskie, Sępoleński, Sępólno Krajeńskie'},{"test":"abc","value":52241,"label":"Mazowieckie, Legionowski, Serock"},{"test":"abc","value":3910,"label":'Dolnośląskie, Wrocławski, Siechnice'},{"test":"abc","value":49690,"label":"Mazowieckie, Siedlce"},{"test":"abc","value":49528,"label":'Śląskie, Siemianowice Śląskie'},{"test":"abc","value":52341,"label":"Podlaskie, Siemiatycze"},{"test":"abc","value":52522,"label":'Łódzkie, Sieradzki, Sieradz'},{"test":"abc","value":52339,"label":'Śląskie, Będziński, Siewierz'},{"test":"abc","value":29950,"label":'Świętokrzyskie, Skarżyski, Skarżysko-Kamienna'},{"test":"abc","value":42472,"label":'Łódzkie, Skierniewice'},{"test":"abc","value":29464,"label":'Zachodniopomorskie, Sławieński, Sławno'},{"test":"abc","value":52217,"label":'Lubuskie, Słubicki, Słubice'},{"test":"abc","value":2435,"label":'Wielkopolskie, Słupecki, Słupca'},{"test":"abc","value":15753,"label":'Pomorskie, Słupsk'},{"test":"abc","value":15168,"label":'Dolnośląskie, Wrocławski, Sobótka'},{"test":"abc","value":42582,"label":"Mazowieckie, Sochaczewski, Sochaczew"},{"test":"abc","value":52528,"label":'Mazowieckie, Sokołowski, Sokołów Podlaski'},{"test":"abc","value":52352,"label":"Kujawsko-Pomorskie, Bydgoski, Solec Kujawski"},{"test":"abc","value":10847,"label":"Pomorskie, Sopot"},{"test":"abc","value":43947,"label":'Śląskie, Sosnowiec'},{"test":"abc","value":23503,"label":'Wielkopolskie, Śremski, Śrem'},{"test":"abc","value":17556,"label":'Dolnośląskie, Średzki, Środa Śląska'},{"test":"abc","value":10183,"label":'Wielkopolskie, Średzki, Środa Wielkopolska'},{"test":"abc","value":46169,"label":'Świętokrzyskie, Starachowicki, Starachowice'},{"test":"abc","value":38840,"label":'Zachodniopomorskie, Stargardzki, Stargard Szczeciński'},{"test":"abc","value":32224,"label":'Pomorskie, Starogardzki, Starogard Gdański'},{"test":"abc","value":17501,"label":'Wielkopolskie, Poznański, Stęszew'},{"test":"abc","value":33825,"label":'Śląskie, Cieszyński, Strumień'},{"test":"abc","value":12292,"label":'Łódzkie, Zgierski, Stryków'},{"test":"abc","value":18777,"label":'Dolnośląskie, Strzeliński, Strzelin'},{"test":"abc","value":29050,"label":'Podkarpackie, Strzyżowski, Strzyżów'},{"test":"abc","value":51813,"label":'Małopolskie, Suski, Sucha Beskidzka'},{"test":"abc","value":52447,"label":'Lubuskie, Sulęciński, Sulęcin'},{"test":"abc","value":26213,"label":'Mazowieckie, Miński, Sulejówek'},{"test":"abc","value":42309,"label":'Podlaskie, Suwałki'},{"test":"abc","value":46908,"label":'Wielkopolskie, Poznański, Swarzędz'},{"test":"abc","value":47866,"label":'Dolnośląskie, Świdnicki, Świdnica'},{"test":"abc","value":19804,"label":'Lubelskie, Świdnicki, Świdnik'},{"test":"abc","value":22934,"label":'Dolnośląskie, Świdnicki, Świebodzice'},{"test":"abc","value":52759,"label":'Kujawsko-pomorskie, Świecie'},{"test":"abc","value":52232,"label":'Dolnośląskie, Lubański, Świeradów Zdrój'},{"test":"abc","value":5229,"label":'Śląskie, Świętochłowice'},{"test":"abc","value":28754,"label":'Zachodniopomorskie, Świnoujście'},{"test":"abc","value":52758,"label":'Dolnośląskie, Syców'},{"test":"abc","value":625,"label":'Wielkopolskie, Szamotulski, Szamotuły'},{"test":"abc","value":2151,"label":'Dolnośląskie, Wałbrzyski, Szczawno-Zdrój'},{"test":"abc","value":32657,"label":"Zachodniopomorskie, Szczecin"},{"test":"abc","value":4435,"label":"Zachodniopomorskie, Szczecinecki, Szczecinek"},{"test":"abc","value":52555,"label":'Śląskie, Bielski, Szczyrk'},{"test":"abc","value":36606,"label":'Warmińsko-Mazurskie, Szczycieński, Szczytno'},{"test":"abc","value":49967,"label":'Dolnośląskie, Jeleniogórski, Szklarska Poręba'},{"test":"abc","value":20836,"label":"Kujawsko-Pomorskie, Nakielski, Szubin"},{"test":"abc","value":52506,"label":'Mazowieckie, Szydłowiecki, Szydłowiec'},{"test":"abc","value":52228,"label":'Małopolskie, Tarnów'},{"test":"abc","value":41348,"label":'Śląskie, Tarnogórski, Tarnowskie Góry'},{"test":"abc","value":52273,"label":'Śląskie, Tarnowskie Góry'},{"test":"abc","value":29078,"label":"Pomorskie, Tczewski, Tczew"},{"test":"abc","value":52647,"label":'Mazowieckie, Wołomiński, Tłuszcz'},{"test":"abc","value":52517,"label":'Lubelskie, Tomaszowski, Tomaszów Lubelski'},{"test":"abc","value":42140,"label":'Łódzkie, Tomaszowski, Tomaszów Mazowiecki'},{"test":"abc","value":19894,"label":'Kujawsko-Pomorskie, Toruń'},{"test":"abc","value":8588,"label":"Wielkopolskie, Czarnkowsko-Trzcianecki, Trzcianka"},{"test":"abc","value":32972,"label":'Dolnośląskie, Trzebnicki, Trzebnica'},{"test":"abc","value":12932,"label":'Wielkopolskie, Gnieźnieński, Trzemeszno'},{"test":"abc","value":52707,"label":"Wielkopolskie, Turek"},{"test":"abc","value":39949,"label":'Śląskie, Tychy'},{"test":"abc","value":17318,"label":'Wielkopolskie, Pilski, Ujście'},{"test":"abc","value":20905,"label":'Pomorskie, Słupski, Ustka'},{"test":"abc","value":42904,"label":'Śląskie, Cieszyński, Ustroń'},{"test":"abc","value":52304,"label":'Małopolskie, Wadowice'},{"test":"abc","value":52236,"label":'Dolnośląskie, Wałbrzych'},{"test":"abc","value":52214,"label":'Mazowieckie, Grójecki, Warka'},{"test":"abc","value":8647,"label":"Mazowieckie, Warszawa"},{"test":"abc","value":1786,"label":'Podlaskie, Białostocki, Wasilków'},{"test":"abc","value":35729,"label":'Warmińsko-mazurskie, Węgorzewski, Węgorzewo'},{"test":"abc","value":19240,"label":"Pomorskie, Wejherowski, Wejherowo"},{"test":"abc","value":49238,"label":'Małopolskie, Wielicki, Wieliczka'},{"test":"abc","value":52321,"label":'Łódzkie, Wieruszowski, Wieruszów'},{"test":"abc","value":52294,"label":'Śląskie, Cieszyński, Wisła'},{"test":"abc","value":49596,"label":'Pomorskie, Pucki, Władysławowo'},{"test":"abc","value":44391,"label":'Kujawsko-Pomorskie, Włocławek'},{"test":"abc","value":29786,"label":'Lubelskie, Włodawski, Włodawa'},{"test":"abc","value":16576,"label":'Zachodniopomorskie, Kamieński, Wolin'},{"test":"abc","value":34586,"label":'Mazowieckie, Wołomiński, Wołomin'},{"test":"abc","value":4237,"label":'Dolnośląskie, Wołowski, Wołów'},{"test":"abc","value":50574,"label":'Wielkopolskie, Wolsztyński, Wolsztyn'},{"test":"abc","value":26955,"label":'Dolnośląskie, Wrocław'},{"test":"abc","value":49639,"label":'Wielkopolskie, Wrzesiński, Września'},{"test":"abc","value":52437,"label":"Lubuskie, Wschowski, Wschowa"},{"test":"abc","value":33411,"label":"Wielkopolskie, Pilski, Wyrzysk"},{"test":"abc","value":37260,"label":'Mazowieckie, Wyszkowski, Wyszków'},{"test":"abc","value":23007,"label":'Mazowieckie, Wołomiński, Ząbki'},{"test":"abc","value":52711,"label":'Dolnośląskie, Ząbkowicki, Ząbkowice Śląskie'},{"test":"abc","value":1945,"label":'Śląskie, Zabrze'},{"test":"abc","value":52246,"label":'Lubuskie, Żagański, Żagań'},{"test":"abc","value":24848,"label":'Małopolskie, Tatrzański, Zakopane'},{"test":"abc","value":52401,"label":'Lubelskie, Zamość'},{"test":"abc","value":52468,"label":'Dolnośląskie, Świdnicki, Żarów'},{"test":"abc","value":8848,"label":'Lubuskie, Żarski, Żary'},{"test":"abc","value":40517,"label":'Śląskie, Zawierciański, Zawiercie'},{"test":"abc","value":1136,"label":'Łódzkie, Zgierski, Zgierz'},{"test":"abc","value":49163,"label":'Dolnośląskie, Zgorzelecki, Zgorzelec'},{"test":"abc","value":52451,"label":'Dolnośląskie, Ząbkowicki, Ziębice'},{"test":"abc","value":48806,"label":'Lubuskie, Zielona Góra'},{"test":"abc","value":43707,"label":'Mazowieckie, Wołomiński, Zielonka'},{"test":"abc","value":24706,"label":'Wielkopolskie, Złotowski, Złotów'},{"test":"abc","value":52462,"label":'Dolnośląskie, Trzebnicki, Żmigród'},{"test":"abc","value":52297,"label":'Śląskie, Żory'},{"test":"abc","value":39454,"label":'Pomorskie, Kartuski, Żukowo'},{"test":"abc","value":11917,"label":"Lubelskie, Zamojski, Zwierzyniec"},{"test":"abc","value":19760,"label":'Mazowieckie, Żyrardowski, Żyrardów'},{"test":"abc","value":47604,"label":'Dolnośląskie, Wołowski, Aleksandrowice'},{"test":"abc","value":27903,"label":'Małopolskie, Chrzanowski, Babice'},{"test":"abc","value":22914,"label":"Pomorskie, Kartuski, Banino"},{"test":"abc","value":6771,"label":'Wielkopolskie, Poznański, Baranowo'},{"test":"abc","value":52407,"label":'Warmińsko-Mazurskie, Nidzicki, Bartoszki'},{"test":"abc","value":6766,"label":'Mazowieckie, Piaseczyński, Baszkówka'},{"test":"abc","value":2598,"label":"Zachodniopomorskie, Policki, Bezrzecze"},{"test":"abc","value":52378,"label":'Łódzkie, Zgierski, Biała'},{"test":"abc","value":52349,"label":'Mazowieckie, Legionowski, Białobrzegi'},{"test":"abc","value":8419,"label":'Dolnośląskie, Głogowski, Białołęka'},{"test":"abc","value":27497,"label":'Małopolskie, Krakowski, Bibice'},{"test":"abc","value":38313,"label":'Wielkopolskie, Poznański, Biedrusko'},{"test":"abc","value":17812,"label":'Dolnośląskie, Wrocławski, Bielany Wrocławskie'},{"test":"abc","value":23356,"label":"Mazowieckie, Warszawski Zachodni, Bieniewice"},{"test":"abc","value":52372,"label":'Lubelskie, Biłgorajski, Biłgoraj'},{"test":"abc","value":31477,"label":'Mazowieckie, Nowodworski, Błędowo'},{"test":"abc","value":52470,"label":'Dolnośląskie, Wrocławski, Blizanowice'},{"test":"abc","value":52500,"label":'Mazowieckie, Warszawski Zachodni, Blizne Jasińskiego'},{"test":"abc","value":52203,"label":'Wielkopolskie, Poznański, Bnin'},{"test":"abc","value":48318,"label":'Mazowieckie, Piaseczyński, Bobrowiec'},{"test":"abc","value":52329,"label":'Świętokrzyskie, Ostrowiecki, Bodzechów'},{"test":"abc","value":8304,"label":"Wielkopolskie, Obornicki, Bogdanowo"},{"test":"abc","value":52311,"label":'Dolnośląskie, Oleśnicki, Boguszyce'},{"test":"abc","value":27562,"label":"Pomorskie, Wejherowski, Bojano"},{"test":"abc","value":39699,"label":'Małopolskie, Krakowski, Bolechowice'},{"test":"abc","value":52289,"label":'Mazowieckie, Otwocki, Bolesławów'},{"test":"abc","value":17403,"label":'Łódzkie, Skierniewicki, Bolimów'},{"test":"abc","value":9336,"label":"Pomorskie, Wejherowski, Bolszewo"},{"test":"abc","value":26167,"label":"Pomorskie, Kartuski, Borcz"},{"test":"abc","value":2230,"label":'Pomorskie, Gdański, Borkowo'},{"test":"abc","value":27495,"label":'Wielkopolskie, Poznański, Borówiec'},{"test":"abc","value":52302,"label":'Łódzkie, Zgierski, Bratoszewice'},{"test":"abc","value":3578,"label":'Wielkopolskie, Średzki, Brodowo'},{"test":"abc","value":52526,"label":'Dolnośląskie, Wrocławski, Brzezia Łąka'},{"test":"abc","value":38115,"label":"Opolskie, Opolski, Brzezie"},{"test":"abc","value":6684,"label":'Małopolskie, Krakowski, Brzezie'},{"test":"abc","value":25972,"label":'Dolnośląskie, Średzki, Brzezina'},{"test":"abc","value":52710,"label":'Małopolskie, Krakowski, Brzozówka'},{"test":"abc","value":48736,"label":'Wielkopolskie, Poznański, Bugaj'},{"test":"abc","value":7431,"label":'Łódzkie, Pabianicki, Bychlew'},{"test":"abc","value":52301,"label":'Pomorskie, Słupski, Bydlino'},{"test":"abc","value":52229,"label":'Zachodniopomorskie, Kołobrzeski, Byszewo'},{"test":"abc","value":27525,"label":'Mazowieckie, Legionowski, Chotomów'},{"test":"abc","value":17941,"label":'Dolnośląskie, Wrocławski, Chrząstawa Wielka'},{"test":"abc","value":49279,"label":"Pomorskie, Kartuski, Chwaszczyno"},{"test":"abc","value":6338,"label":'Mazowieckie, Piaseczyński, Chylice'},{"test":"abc","value":31995,"label":'Mazowieckie, Piaseczyński, Chyliczki'},{"test":"abc","value":52299,"label":'Kujawsko-Pomorskie, Toruński, Cierpice'},{"test":"abc","value":52757,"label":'Mazowieckie, Nowodworski, Cybulice Małe'},{"test":"abc","value":32830,"label":"Pomorskie, Kartuski, Czaple"},{"test":"abc","value":16583,"label":'Wielkopolskie, Poznański, Czapury'},{"test":"abc","value":31177,"label":'Małopolskie, Tatrzański, Czarna Góra'},{"test":"abc","value":34679,"label":'Małopolskie, Wielicki, Czarnochowice'},{"test":"abc","value":52312,"label":'Kujawsko-Pomorskie, Toruński, Czernikowo'},{"test":"abc","value":19840,"label":'Wielkopolskie, Poznański, Czmoń'},{"test":"abc","value":52400,"label":'Wielkopolskie, Poznański, Dąbrowa'},{"test":"abc","value":52708,"label":'Świętokrzyskie, Kielecki, Dąbrowa'},{"test":"abc","value":52508,"label":'Mazowieckie, Legionowski, Dąbrowa Chotomowska'},{"test":"abc","value":39467,"label":'Wielkopolskie, Nowotomyski, Dąbrowa Nowa'},{"test":"abc","value":38130,"label":'Wielkopolskie, Poznański, Dąbrówka'},{"test":"abc","value":52467,"label":'Podlaskie, Białostocki, Dąbrówki'},{"test":"abc","value":52226,"label":'Wielkopolskie, Poznański, Dachowa'},{"test":"abc","value":30437,"label":'Wielkopolskie, Poznański, Daszewice'},{"test":"abc","value":11799,"label":"Mazowieckie, Pruszkowski, Dawidy Bankowe"},{"test":"abc","value":52355,"label":'Mazowieckie, Miński, Długa Kościelna'},{"test":"abc","value":30054,"label":'Dolnośląskie, Wrocławski, Długołęka'},{"test":"abc","value":14376,"label":'Dolnośląskie, Wrocławski, Dobrzykowice'},{"test":"abc","value":33284,"label":'Dolnośląskie, Wrocławski, Domasław'},{"test":"abc","value":52348,"label":'Dolnośląskie, Wrocławski, Domaszczyn'},{"test":"abc","value":24393,"label":'Wielkopolskie, Poznański, Dopiewiec'},{"test":"abc","value":52296,"label":"Mazowieckie, Legionowski, Dosin"},{"test":"abc","value":40774,"label":'Wielkopolskie, Leszczyński, Drobnin'},{"test":"abc","value":29280,"label":"Mazowieckie, Warszawski Zachodni, Duchnice"},{"test":"abc","value":36176,"label":'Mazowieckie, Otwocki, Duchnów'},{"test":"abc","value":50552,"label":'Warmińsko-Mazurskie, Olsztyński, Dywity'},{"test":"abc","value":42908,"label":'Mazowieckie, Warszawski Zachodni, Dziekanów Leśny'},{"test":"abc","value":52346,"label":'Mazowieckie, Warszawski Zachodni, Dziekanów Polski'},{"test":"abc","value":25530,"label":'Pomorskie, Kartuski, Dzierżążno'},{"test":"abc","value":13379,"label":'Zachodniopomorskie, Kamieński, Dziwnówek'},{"test":"abc","value":52245,"label":"Pomorskie, Kartuski, Egiertowo"},{"test":"abc","value":32944,"label":'Mazowieckie, Pruszkowski, Falenty Duże'},{"test":"abc","value":32142,"label":"Mazowieckie, Pruszkowski, Falenty Nowe"},{"test":"abc","value":51660,"label":'Małopolskie, Nowosądecki, Florynka'},{"test":"abc","value":9080,"label":'Dolnośląskie, Wrocławski, Gądów'},{"test":"abc","value":52460,"label":'Małopolskie, Krakowski, Gaj'},{"test":"abc","value":9971,"label":'Łódzkie, Łódzki Wschodni, Gałków Duży'},{"test":"abc","value":28489,"label":'Mazowieckie, Radomski, Gębarzów'},{"test":"abc","value":52223,"label":'Małopolskie, Krakowski, Giebułtów'},{"test":"abc","value":22752,"label":'Śląskie, Gliwicki, Gierałtowice'},{"test":"abc","value":52244,"label":"Pomorskie, Kartuski, Glincz"},{"test":"abc","value":49033,"label":'Małopolskie, Myślenicki, Głogoczów'},{"test":"abc","value":31390,"label":'Wielkopolskie, Poznański, Głuchowo'},{"test":"abc","value":46998,"label":"Pomorskie, Wejherowski, Gniewino"},{"test":"abc","value":52240,"label":'Śląskie, Pszczyński, Goczałkowice-Zdrój'},{"test":"abc","value":52224,"label":'Wielkopolskie, Poznański, Gołuski'},{"test":"abc","value":52313,"label":'Mazowieckie, Otwocki, Góraszka'},{"test":"abc","value":12944,"label":'Pomorskie, Wejherowski, Gościcino'},{"test":"abc","value":52335,"label":'Śląskie, Mikołowski, Gostyń'},{"test":"abc","value":6220,"label":'Wielkopolskie, Poznański, Gowarzewo'},{"test":"abc","value":52549,"label":'Mazowieckie, Garwoliński, Goździk'},{"test":"abc","value":52409,"label":'Podlaskie, Białostocki, Grabówka'},{"test":"abc","value":31418,"label":'Dolnośląskie, Wrocławski, Groblice'},{"test":"abc","value":843,"label":"Mazowieckie, Nowodworski, Grochale"},{"test":"abc","value":32038,"label":'Małopolskie, Nowosądecki, Gródek Nad Dunajcem'},{"test":"abc","value":8498,"label":'Śląskie, Bielski, Grodziec'},{"test":"abc","value":52342,"label":'Łódzkie, Zgierski, Grotniki'},{"test":"abc","value":9565,"label":"Mazowieckie, Ciechanowski, Grudusk"},{"test":"abc","value":15024,"label":'Wielkopolskie, Poznański, Gruszczyn'},{"test":"abc","value":52337,"label":'Mazowieckie, Miński, Grzebowilk'},{"test":"abc","value":52308,"label":"Zachodniopomorskie, Policki, Grzepnica"},{"test":"abc","value":29781,"label":'Pomorskie, Kościerski, Grzybowo'},{"test":"abc","value":40396,"label":'Zachodniopomorskie, Kołobrzeski, Grzybowo'},{"test":"abc","value":4332,"label":'Warmińsko-Mazurskie, Olsztyński, Gutkowo'},{"test":"abc","value":7218,"label":'Mazowieckie, Wołomiński, Helenów'},{"test":"abc","value":19320,"label":'Małopolskie, Nowotarski, Huba'},{"test":"abc","value":29941,"label":'Podlaskie, Białostocki, Ignatki-Osiedle'},{"test":"abc","value":52379,"label":'Małopolskie, Krakowski, Iwanowice'},{"test":"abc","value":42100,"label":'Dolnośląskie, Wrocławski, Iwiny'},{"test":"abc","value":38339,"label":'Mazowieckie, Nowodworski, Izabelin-Dziekanówek'},{"test":"abc","value":28697,"label":'Mazowieckie, Legionowski, Jabłonna'},{"test":"abc","value":38176,"label":"Mazowieckie, Legionowski, Jadwisin"},{"test":"abc","value":52497,"label":'Dolnośląskie, Wrocławski, Jaksonów'},{"test":"abc","value":43812,"label":'Mazowieckie, Grodziski, Jaktorów-Kolonia'},{"test":"abc","value":52509,"label":"Lubuskie, Gorzowski, Janczewo"},{"test":"abc","value":52538,"label":"Mazowieckie, Pruszkowski, Janki"},{"test":"abc","value":39660,"label":'Pomorskie, Gdański, Jankowo Gdańskie'},{"test":"abc","value":52495,"label":"Pomorskie, Nowodworski, Jantar"},{"test":"abc","value":52443,"label":"Podkarpackie, Rzeszowski, Jasionka"},{"test":"abc","value":52415,"label":'Śląskie, Tarnogórski, Jaśkowice'},{"test":"abc","value":33634,"label":'Mazowieckie, Grodziski, Jastrzębnik'},{"test":"abc","value":52191,"label":'Dolnośląskie, Wrocławski, Jaszkotle'},{"test":"abc","value":36249,"label":'Małopolskie, Oświęcimski, Jawiszowice'},{"test":"abc","value":10222,"label":'Wielkopolskie, Poznański, Jelonek'},{"test":"abc","value":10760,"label":'Małopolskie, Krakowski, Jerzmanowice'},{"test":"abc","value":52425,"label":'Dolnośląskie, Wrocławski, Jeszkowice'},{"test":"abc","value":52397,"label":'Warmińsko-Mazurskie, Mrągowski, Jora Wielka'},{"test":"abc","value":32821,"label":'Mazowieckie, Piaseczyński, Józefosław'},{"test":"abc","value":18983,"label":'Mazowieckie, Żyrardowski, Józefów'},{"test":"abc","value":38694,"label":'Łódzkie, Łódzki Wschodni, Justynów'},{"test":"abc","value":52288,"label":'Pomorskie, Gdański, Juszkowo'},{"test":"abc","value":50415,"label":'Podlaskie, Białostocki, Juszkowy Gród'},{"test":"abc","value":52556,"label":"Mazowieckie, Pruszkowski, Kajetany"},{"test":"abc","value":35457,"label":'Wielkopolskie, Leszczyński, Kąkolewo'},{"test":"abc","value":52222,"label":'Lubelskie, Lubelski, Kalinówka'},{"test":"abc","value":52464,"label":'Wielkopolskie, Poznański, Kalwy'},{"test":"abc","value":41366,"label":'Dolnośląskie, Wrocławski, Kamień'},{"test":"abc","value":52235,"label":'Dolnośląskie, Wrocławski, Kamieniec Wrocławski'},{"test":"abc","value":52368,"label":'Dolnośląskie, Ząbkowicki, Kamieniec Ząbkowicki'},{"test":"abc","value":52820,"label":'Warmińsko-mazurskie, Szczycieński, Kamionek'},{"test":"abc","value":22002,"label":'Mazowieckie, Żyrardowski, Kamionka'},{"test":"abc","value":2934,"label":'Wielkopolskie, Poznański, Kamionki'},{"test":"abc","value":52428,"label":'Kujawsko-Pomorskie, Toruński, Kamionki Małe'},{"test":"abc","value":52416,"label":'Śląskie, Bielski, Kaniów'},{"test":"abc","value":7633,"label":'Pomorskie, Wejherowski, Kąpino'},{"test":"abc","value":39771,"label":"Mazowieckie, Warszawski Zachodni, Kaputy"},{"test":"abc","value":52317,"label":'Dolnośląskie, Wrocławski, Karwiany'},{"test":"abc","value":8542,"label":'Pomorskie, Nowodworski, Kąty Rybackie'},{"test":"abc","value":37644,"label":'Mazowieckie, Legionowski, Kąty Węgierskie'},{"test":"abc","value":10619,"label":'Wielkopolskie, Szamotulski, Kaźmierz'},{"test":"abc","value":52310,"label":'Pomorskie, Wejherowski, Kębłowo'},{"test":"abc","value":43000,"label":'Mazowieckie, Piaseczyński, Kędzierówka'},{"test":"abc","value":42497,"label":'Wielkopolskie, Poznański, Kiekrz'},{"test":"abc","value":50896,"label":'Dolnośląskie, Wrocławski, Kiełczów'},{"test":"abc","value":52354,"label":'Mazowieckie, Warszawski Zachodni, Kiełpin'},{"test":"abc","value":37907,"label":'Pomorskie, Kartuski, Kiełpino'},{"test":"abc","value":26602,"label":'Warmińsko-Mazurskie, Olsztyński, Kieźliny'},{"test":"abc","value":52452,"label":'Warmińsko-Mazurskie, Olsztyński, Klebark Wielki'},{"test":"abc","value":52498,"label":'Mazowieckie, Wołomiński, Klembów'},{"test":"abc","value":52417,"label":'Pomorskie, Gdański, Kleszczewko'},{"test":"abc","value":22651,"label":'Wielkopolskie, Poznański, Kliny'},{"test":"abc","value":40294,"label":'Dolnośląskie, Wrocławski, Kobierzyce'},{"test":"abc","value":36581,"label":'Wielkopolskie, Poznański, Kobylnica'},{"test":"abc","value":3964,"label":'Wielkopolskie, Poznański, Kobylniki'},{"test":"abc","value":12360,"label":"Mazowieckie, Warszawski Zachodni, Koczargi Stare"},{"test":"abc","value":37334,"label":'Pomorskie, Gdański, Kolbudy'},{"test":"abc","value":52829,"label":"Lubelskie, Lubelski, Kolonia Pliszczyn"},{"test":"abc","value":52503,"label":"Wielkopolskie, Kaliski, Kolonia Skarszewek"},{"test":"abc","value":9076,"label":'Wielkopolskie, Poznański, Komorniki'},{"test":"abc","value":26898,"label":'Warmińsko-Mazurskie, Działdowski, Komorniki'},{"test":"abc","value":39514,"label":'Mazowieckie, Pruszkowski, Komorów'},{"test":"abc","value":52316,"label":'Dolnośląskie, Świdnicki, Komorów'},{"test":"abc","value":35695,"label":'Dolnośląskie, Wrocławski, Komorowice'},{"test":"abc","value":52453,"label":'Wielkopolskie, Poznański, Konarskie'},{"test":"abc","value":46080,"label":'Wielkopolskie, Poznański, Koninko'},{"test":"abc","value":9532,"label":'Mazowieckie, Węgrowski, Korytnica'},{"test":"abc","value":22513,"label":'Mazowieckie, Piaseczyński, Korzeniówka'},{"test":"abc","value":52242,"label":'Małopolskie, Nowosądecki, Korzenna'},{"test":"abc","value":39282,"label":"Pomorskie, Pucki, Kosakowo"},{"test":"abc","value":7421,"label":'Małopolskie, Tatrzański, Kościelisko'},{"test":"abc","value":52227,"label":'Małopolskie, Tarnowski, Koszyce Wielkie'},{"test":"abc","value":52502,"label":'Opolskie, Opolski, Kotórz Wielki'},{"test":"abc","value":52501,"label":'Pomorskie, Gdański, Kowale'},{"test":"abc","value":12905,"label":'Wielkopolskie, Poznański, Koziegłowy'},{"test":"abc","value":11058,"label":'Wielkopolskie, Poznański, Krąplewo'},{"test":"abc","value":40626,"label":"Podkarpackie, Rzeszowski, Krasne"},{"test":"abc","value":9494,"label":'Mazowieckie, Warszawski Zachodni, Kręczki'},{"test":"abc","value":52828,"label":'Kujawsko-pomorskie, Toruński, Krobia'},{"test":"abc","value":44106,"label":'Małopolskie, Krakowski, Kryspinów'},{"test":"abc","value":44037,"label":'Mazowieckie, Żyrardowski, Krze Duże'},{"test":"abc","value":48950,"label":'Dolnośląskie, Wrocławski, Krzeptów'},{"test":"abc","value":36620,"label":'Wielkopolskie, Leszczyński, Krzycko Wielkie'},{"test":"abc","value":51455,"label":'Łódzkie, Zgierski, Krzywiec'},{"test":"abc","value":4996,"label":'Dolnośląskie, Trzebnicki, Krzyżanowice'},{"test":"abc","value":31125,"label":'Łódzkie, Pabianicki, Ksawerów'},{"test":"abc","value":35086,"label":'Mazowieckie, Grodziski, Książenice'},{"test":"abc","value":52389,"label":'Dolnośląskie, Legnicki, Kunice'},{"test":"abc","value":52422,"label":'Małopolskie, Wielicki, Kunice'},{"test":"abc","value":37952,"label":'Wielkopolskie, Międzychodzki, Kwilcz'},{"test":"abc","value":48860,"label":'Mazowieckie, Warszawski Zachodni, Kwirynów'},{"test":"abc","value":52275,"label":'Mazowieckie, Legionowski, Łajski'},{"test":"abc","value":52432,"label":'Śląskie, Pszczyński, Łąka'},{"test":"abc","value":34146,"label":'Mazowieckie, Piaseczyński, Łazy'},{"test":"abc","value":37135,"label":'Pomorskie, Pucki, Łebcz'},{"test":"abc","value":718,"label":'Małopolskie, Wielicki, Lednica Górna'},{"test":"abc","value":52277,"label":'Dolnośląskie, Legnicki, Legnickie Pole'},{"test":"abc","value":3947,"label":'Mazowieckie, Piaseczyński, Lesznowola'},{"test":"abc","value":36767,"label":'Mazowieckie, Grójecki, Lesznowola'},{"test":"abc","value":22066,"label":'Pomorskie, Kartuski, Leźno'},{"test":"abc","value":34647,"label":'Małopolskie, Krakowski, Libertów'},{"test":"abc","value":44885,"label":'Dolnośląskie, Trzebnicki, Ligota Piękna'},{"test":"abc","value":52821,"label":'Mazowieckie, Wołomiński, Lipinki'},{"test":"abc","value":12693,"label":'Mazowieckie, Warszawski Zachodni, Lipków'},{"test":"abc","value":6704,"label":"Mazowieckie, Otwocki, Lipowo"},{"test":"abc","value":52399,"label":'Małopolskie, Krakowski, Liszki'},{"test":"abc","value":52353,"label":'Mazowieckie, Węgrowski, Łochów'},{"test":"abc","value":52430,"label":'Kujawsko-Pomorskie, Bydgoski, Łochowo'},{"test":"abc","value":6883,"label":'Mazowieckie, Warszawski Zachodni, Łomianki Dolne'},{"test":"abc","value":8055,"label":'Wielkopolskie, Poznański, Łopuchowo'},{"test":"abc","value":52250,"label":'Małopolskie, Tarnowski, Łowczówek'},{"test":"abc","value":52806,"label":'Wielkopolskie, Poznański, Łowęcin'},{"test":"abc","value":38755,"label":'Dolnośląskie, Wrocławski, Łozina'},{"test":"abc","value":52375,"label":'Lubelskie, Lubartowski, Lubartów'},{"test":"abc","value":52514,"label":'Lubuskie, Nowosolski, Lubięcin'},{"test":"abc","value":52421,"label":"Pomorskie, Tczewski, Lubiszewo Tczewskie"},{"test":"abc","value":48993,"label":'Zachodniopomorskie, Kamieński, Łukęcin'},{"test":"abc","value":8482,"label":'Wielkopolskie, Poznański, Lusówko'},{"test":"abc","value":42643,"label":'Dolnośląskie, Średzki, Lutynia'},{"test":"abc","value":5710,"label":"Pomorskie, Wejherowski, Luzino"},{"test":"abc","value":4025,"label":'Mazowieckie, Piaseczyński, Magdalenka'},{"test":"abc","value":28635,"label":'Mazowieckie, Wołomiński, Majdan'},{"test":"abc","value":52395,"label":"Kujawsko-Pomorskie, Bydgoski, Maksymilianowo"},{"test":"abc","value":6439,"label":'Mazowieckie, Otwocki, Malcanów'},{"test":"abc","value":52544,"label":'Warmińsko-Mazurskie, Ostródzki, Małdyty'},{"test":"abc","value":29615,"label":'Mazowieckie, Nowodworski, Małocice'},{"test":"abc","value":52282,"label":'Opolskie, Opolski, Marszałki'},{"test":"abc","value":37810,"label":'Świętokrzyskie, Kielecki, Masłów Pierwszy'},{"test":"abc","value":52324,"label":"Pomorskie, Pucki, Mechelinki"},{"test":"abc","value":10668,"label":'Dolnośląskie, Wrocławski, Mędłów'},{"test":"abc","value":10332,"label":'Mazowieckie, Otwocki, Michałówek'},{"test":"abc","value":52376,"label":'Mazowieckie, Legionowski, Michałów-Grabina'},{"test":"abc","value":52225,"label":'Małopolskie, Krakowski, Michałowice'},{"test":"abc","value":6354,"label":'Mazowieckie, Pruszkowski, Michałowice-Wieś'},{"test":"abc","value":38052,"label":'Mazowieckie, Legionowski, Michałów-Reginów'},{"test":"abc","value":40170,"label":"Pomorskie, Kartuski, Miechucino"},{"test":"abc","value":34893,"label":'Zachodniopomorskie, Kamieński, Międzywodzie'},{"test":"abc","value":16057,"label":'Pomorskie, Słupski, Mielno'},{"test":"abc","value":24820,"label":'Zachodniopomorskie, Koszaliński, Mielno'},{"test":"abc","value":13611,"label":"Zachodniopomorskie, Policki, Mierzyn"},{"test":"abc","value":27600,"label":'Dolnośląskie, Wrocławski, Mirków'},{"test":"abc","value":15044,"label":'Mazowieckie, Pruszkowski, Młochów'},{"test":"abc","value":48601,"label":'Dolnośląskie, Wrocławski, Mnichowice'},{"test":"abc","value":23982,"label":'Małopolskie, Krakowski, Mników'},{"test":"abc","value":52003,"label":'Małopolskie, Krakowski, Modlnica'},{"test":"abc","value":31171,"label":'Małopolskie, Krakowski, Modlniczka'},{"test":"abc","value":30274,"label":'Małopolskie, Krakowski, Mogilany'},{"test":"abc","value":32614,"label":"Zachodniopomorskie, Stargardzki, Morzyczyn"},{"test":"abc","value":19040,"label":"Pomorskie, Pucki, Mosty"},{"test":"abc","value":30217,"label":"Lubelskie, Lubelski, Motycz"},{"test":"abc","value":3992,"label":'Wielkopolskie, Poznański, Mrowino'},{"test":"abc","value":40413,"label":'Mazowieckie, Miński, Mrozy'},{"test":"abc","value":19023,"label":'Zachodniopomorskie, Gryficki, Mrzeżyno'},{"test":"abc","value":52427,"label":'Podkarpackie, Jarosławski, Munina'},{"test":"abc","value":764,"label":'Mazowieckie, Piaseczyński, Mysiadło'},{"test":"abc","value":52554,"label":'Dolnośląskie, Jeleniogórski, Mysłakowice'},{"test":"abc","value":15839,"label":'Kujawsko-Pomorskie, Bydgoski, Myślęcinek'},{"test":"abc","value":19543,"label":"Mazowieckie, Pruszkowski, Nadarzyn"},{"test":"abc","value":4865,"label":'Mazowieckie, Wołomiński, Nadma'},{"test":"abc","value":6002,"label":'Dolnośląskie, Wrocławski, Nadolice Wielkie'},{"test":"abc","value":11650,"label":'Małopolskie, Krakowski, Narama'},{"test":"abc","value":52434,"label":'Warmińsko-Mazurskie, Olsztyński, Naterki'},{"test":"abc","value":52439,"label":'Śląskie, Gliwicki, Nieborowice'},{"test":"abc","value":22442,"label":"Zachodniopomorskie, Gryficki, Niechorze"},{"test":"abc","value":12266,"label":'Małopolskie, Tarnowski, Niedomice'},{"test":"abc","value":52230,"label":'Zachodniopomorskie, Kołobrzeski, Niekanin'},{"test":"abc","value":51206,"label":"Kujawsko-Pomorskie, Bydgoski, Niemcz"},{"test":"abc","value":25245,"label":'Mazowieckie, Legionowski, Nieporęt'},{"test":"abc","value":52291,"label":'Podlaskie, Białostocki, Niewodnica Korycka'},{"test":"abc","value":52405,"label":'Wielkopolskie, Śremski, Nochowo'},{"test":"abc","value":43998,"label":'Mazowieckie, Piaseczyński, Nowa Iwiczna'},{"test":"abc","value":37600,"label":'Mazowieckie, Piaseczyński, Nowa Wola'},{"test":"abc","value":52243,"label":"Pomorskie, Kartuski, Nowe Czaple"},{"test":"abc","value":52249,"label":"Mazowieckie, Siedlecki, Nowe Iganie"},{"test":"abc","value":27468,"label":'Mazowieckie, Wołomiński, Nowe Lipiny'},{"test":"abc","value":52553,"label":'Świętokrzyskie, Kielecki, Nowiny'},{"test":"abc","value":29580,"label":'Zachodniopomorskie, Myśliborski, Nowogródek Pomorski'},{"test":"abc","value":10959,"label":'Mazowieckie, Warszawski Zachodni, Nowy Dziekanów'},{"test":"abc","value":52531,"label":'Dolnośląskie, Lubiński, Obora'},{"test":"abc","value":52390,"label":'Kujawsko-Pomorskie, Toruński, Obrowo'},{"test":"abc","value":37970,"label":'Lubuskie, Zielonogórski, Ochla'},{"test":"abc","value":34992,"label":'Małopolskie, Wielicki, Ochmanów'},{"test":"abc","value":52507,"label":"Mazowieckie, Legionowski, Olszewnica Nowa"},{"test":"abc","value":52690,"label":"Mazowieckie, Legionowski, Olszewnica Stara"},{"test":"abc","value":13084,"label":"Mazowieckie, Pruszkowski, Opacz-Kolonia"},{"test":"abc","value":51821,"label":'Małopolskie, Proszowicki, Opatkowice'},{"test":"abc","value":20837,"label":"Pomorskie, Wejherowski, Orle"},{"test":"abc","value":52701,"label":'Śląskie, Mikołowski, Ornontowice'},{"test":"abc","value":42560,"label":"Kujawsko-Pomorskie, Bydgoski, Osielsko"},{"test":"abc","value":52373,"label":'Podlaskie, Białostocki, Osowicze'},{"test":"abc","value":34318,"label":'Mazowieckie, Pruszkowski, Otrębusy'},{"test":"abc","value":27677,"label":'Mazowieckie, Otwocki, Otwock Mały'},{"test":"abc","value":52298,"label":'Dolnośląskie, Wrocławski, Ozorzyce'},{"test":"abc","value":47059,"label":'Wielkopolskie, Poznański, Paczkowo'},{"test":"abc","value":44016,"label":'Wielkopolskie, Poznański, Palędzie'},{"test":"abc","value":46626,"label":"Mazowieckie, Pruszkowski, Parzniew"},{"test":"abc","value":25480,"label":'Śląskie, Pszczyński, Pawłowice'},{"test":"abc","value":13037,"label":'Mazowieckie, Pruszkowski, Pęcice Małe'},{"test":"abc","value":52290,"label":'Wielkopolskie, Poznański, Pecna'},{"test":"abc","value":45216,"label":'Wielkopolskie, Gostyński, Pępowo'},{"test":"abc","value":45599,"label":'Pomorskie, Kartuski, Pępowo'},{"test":"abc","value":4744,"label":'Małopolskie, Krakowski, Piekary'},{"test":"abc","value":20312,"label":'Dolnośląskie, Wrocławski, Pietrzykowice'},{"test":"abc","value":35553,"label":'Małopolskie, Chrzanowski, Piła Kościelecka'},{"test":"abc","value":52438,"label":'Śląskie, Gliwicki, Pilchowice'},{"test":"abc","value":11639,"label":"Pomorskie, Starogardzki, Pinczyn"},{"test":"abc","value":50508,"label":'Śląskie, Bielski, Pisarzowice'},{"test":"abc","value":52271,"label":'Dolnośląskie, Oleśnicki, Piszkawa'},{"test":"abc","value":30423,"label":'Wielkopolskie, Poznański, Plewiska'},{"test":"abc","value":52347,"label":'Mazowieckie, Pułtuski, Pobyłkowo Małe'},{"test":"abc","value":39906,"label":'Pomorskie, Słupski, Poddąbie'},{"test":"abc","value":43126,"label":'Pomorskie, Pucki, Pogórze'},{"test":"abc","value":25293,"label":'Zachodniopomorskie, Łobeski, Pogorzelica'},{"test":"abc","value":28369,"label":"Zachodniopomorskie, Gryficki, Pogorzelica"},{"test":"abc","value":52198,"label":'Kujawsko-Pomorskie, Brodnicki, Półko'},{"test":"abc","value":24694,"label":'Lubuskie, Zielonogórski, Pomorsko'},{"test":"abc","value":4863,"label":'Dolnośląskie, Oleśnicki, Poniatowice'},{"test":"abc","value":52551,"label":'Śląskie, Myszkowski, Poraj'},{"test":"abc","value":9000,"label":'Małopolskie, Tatrzański, Poronin'},{"test":"abc","value":2986,"label":'Mazowieckie, Piaseczyński, Prażmów'},{"test":"abc","value":52330,"label":'Dolnośląskie, Wrocławski, Pruszowice'},{"test":"abc","value":49540,"label":'Wielkopolskie, Poznański, Przeźmierowo'},{"test":"abc","value":52408,"label":'Mazowieckie, Piaseczyński, Przypki'},{"test":"abc","value":52435,"label":'Wielkopolskie, Śremski, Psarskie'},{"test":"abc","value":9616,"label":'Dolnośląskie, Trzebnicki, Psary'},{"test":"abc","value":42431,"label":'Dolnośląskie, Świdnicki, Pszenno'},{"test":"abc","value":37911,"label":"Zachodniopomorskie, Goleniowski, Pucice"},{"test":"abc","value":2797,"label":"Podkarpackie, Stalowowolski, Pysznica"},{"test":"abc","value":52394,"label":'Wielkopolskie, Poznański, Rabowice'},{"test":"abc","value":42060,"label":'Małopolskie, Krakowski, Raciborowice'},{"test":"abc","value":3291,"label":'Małopolskie, Miechowski, Racławice'},{"test":"abc","value":26411,"label":'Dolnośląskie, Wrocławski, Racławice Wielkie'},{"test":"abc","value":8184,"label":'Dolnośląskie, Wrocławski, Radomierzyce'},{"test":"abc","value":14233,"label":'Pomorskie, Gdański, Radunica'},{"test":"abc","value":37461,"label":'Dolnośląskie, Wrocławski, Radwanice'},{"test":"abc","value":5264,"label":'Mazowieckie, Żyrardowski, Radziejowice'},{"test":"abc","value":52319,"label":"Wielkopolskie, Szamotulski, Radzyny"},{"test":"abc","value":3525,"label":"Mazowieckie, Pruszkowski, Raszyn"},{"test":"abc","value":9898,"label":'Warmińsko-Mazurskie, Olsztyński, Redykajny'},{"test":"abc","value":29189,"label":'Mazowieckie, Pruszkowski, Reguły'},{"test":"abc","value":52338,"label":"Mazowieckie, Legionowski, Rembelszczyzna"},{"test":"abc","value":3482,"label":"Zachodniopomorskie, Gryficki, Rewal"},{"test":"abc","value":1209,"label":'Wielkopolskie, Pleszewski, Robaków'},{"test":"abc","value":22215,"label":'Wielkopolskie, Poznański, Robakowo'},{"test":"abc","value":17972,"label":'Wielkopolskie, Poznański, Rogalin'},{"test":"abc","value":42767,"label":"Zachodniopomorskie, Gryficki, Rogowo"},{"test":"abc","value":16717,"label":"Zachodniopomorskie, Stargardzki, Rogowo"},{"test":"abc","value":52512,"label":'Mazowieckie, Płocki, Rogozino'},{"test":"abc","value":48500,"label":'Wielkopolskie, Poznański, Rokietnica'},{"test":"abc","value":52384,"label":"Pomorskie, Tczewski, Rokitki"},{"test":"abc","value":23959,"label":'Pomorskie, Gdański, Rokitnica'},{"test":"abc","value":52704,"label":'Zachodniopomorskie, Koszaliński, Rosnowo'},{"test":"abc","value":52705,"label":'Wielkopolskie, Poznański, Rosnowo'},{"test":"abc","value":589,"label":'Pomorskie, Gdański, Rotmanka'},{"test":"abc","value":936,"label":'Pomorskie, Słupski, Rowy'},{"test":"abc","value":52429,"label":"Mazowieckie, Pruszkowski, Rozalin"},{"test":"abc","value":52295,"label":'Kujawsko-Pomorskie, Toruński, Rozgarty'},{"test":"abc","value":16881,"label":'Pomorskie, Gdański, Różyny'},{"test":"abc","value":21300,"label":'Małopolskie, Krakowski, Rudawa'},{"test":"abc","value":52465,"label":'Wielkopolskie, Poznański, Rumianek'},{"test":"abc","value":52300,"label":'Warmińsko-Mazurskie, Olsztyński, Ruś'},{"test":"abc","value":17967,"label":"Mazowieckie, Pruszkowski, Rusiec"},{"test":"abc","value":52496,"label":'Małopolskie, Krakowski, Rybna'},{"test":"abc","value":52393,"label":'Małopolskie, Wadowicki, Ryczów'},{"test":"abc","value":19992,"label":'Małopolskie, Krakowski, Rząska'},{"test":"abc","value":52789,"label":'Mazowieckie, Wyszkowski, Rząśnik'},{"test":"abc","value":52530,"label":'Mazowieckie, Ostrołęcki, Rzekuń'},{"test":"abc","value":34342,"label":"Mazowieckie, Grodziski, Sade Budy"},{"test":"abc","value":38585,"label":'Dolnośląskie, Wrocławski, Sadków'},{"test":"abc","value":27725,"label":"Mazowieckie, Warszawski Zachodni, Sadowa"},{"test":"abc","value":43506,"label":'Wielkopolskie, Poznański, Sady'},{"test":"abc","value":11359,"label":'Zachodniopomorskie, Koszaliński, Sarbinowo'},{"test":"abc","value":38155,"label":'Łódzkie, Łaski, Sędziejowice'},{"test":"abc","value":18184,"label":'Mazowieckie, Pruszkowski, Sękocin Nowy'},{"test":"abc","value":52431,"label":"Mazowieckie, Sochaczewski, Seroki-Parcela"},{"test":"abc","value":52221,"label":'Zachodniopomorskie, Policki, Siadło Dolne'},{"test":"abc","value":52402,"label":'Mazowieckie, Płoński, Siedlin'},{"test":"abc","value":51550,"label":'Pomorskie, Słupski, Siemianice'},{"test":"abc","value":10970,"label":'Dolnośląskie, Kłodzki, Sienna'},{"test":"abc","value":46611,"label":"Pomorskie, Kartuski, Sierakowice"},{"test":"abc","value":52463,"label":'Wielkopolskie, Poznański, Sierosław'},{"test":"abc","value":52411,"label":'Mazowieckie, Grodziski, Siestrzeń'},{"test":"abc","value":52213,"label":"Zachodniopomorskie, Szczecinecki, Silnowo"},{"test":"abc","value":24542,"label":"Opolskie, Brzeski, Skarbimierz"},{"test":"abc","value":52444,"label":"Zachodniopomorskie, Policki, Skarbimierzyce"},{"test":"abc","value":52356,"label":'Małopolskie, Krakowski, Skawina'},{"test":"abc","value":11676,"label":"Mazowieckie, Legionowski, Skierdy"},{"test":"abc","value":4215,"label":'Kujawsko-Pomorskie, Nakielski, Skórzewo'},{"test":"abc","value":2450,"label":'Wielkopolskie, Poznański, Skórzewo'},{"test":"abc","value":34270,"label":'Pomorskie, Gdański, Skowarcz'},{"test":"abc","value":32338,"label":"Mazowieckie, Legionowski, Skrzeszew"},{"test":"abc","value":13636,"label":'Mazowieckie, Grodziski, Skuły'},{"test":"abc","value":52305,"label":'Zachodniopomorskie, Koszaliński, Skwierzynka'},{"test":"abc","value":46478,"label":'Małopolskie, Wielicki, Śledziejowice'},{"test":"abc","value":4654,"label":'Dolnośląskie, Wrocławski, Ślęza'},{"test":"abc","value":11377,"label":'Mazowieckie, Pruszkowski, Słomin'},{"test":"abc","value":42993,"label":'Mazowieckie, Płocki, Słupno'},{"test":"abc","value":41596,"label":'Mazowieckie, Wołomiński, Słupno'},{"test":"abc","value":52357,"label":'Dolnośląskie, Wrocławski, Smolec'},{"test":"abc","value":28882,"label":"Mazowieckie, Otwocki, Sobienie Szlacheckie"},{"test":"abc","value":26262,"label":'Dolnośląskie, Lwówecki, Sobota'},{"test":"abc","value":49453,"label":'Mazowieckie, Piaseczyński, Solec'},{"test":"abc","value":52547,"label":'Wielkopolskie, Ostrowski, Sośnie'},{"test":"abc","value":52504,"label":'Dolnośląskie, Oleśnicki, Spalice'},{"test":"abc","value":52360,"label":'Mazowieckie, Legionowski, Stanisławów Drugi'},{"test":"abc","value":52350,"label":'Mazowieckie, Legionowski, Stanisławów Pierwszy'},{"test":"abc","value":52218,"label":'Dolnośląskie, Jeleniogórski, Staniszów'},{"test":"abc","value":37859,"label":'Mazowieckie, Piaseczyński, Stara Iwiczna'},{"test":"abc","value":52398,"label":'Mazowieckie, Pruszkowski, Stara Wieś'},{"test":"abc","value":21611,"label":"Mazowieckie, Warszawski Zachodni, Stare Babice"},{"test":"abc","value":52552,"label":"Mazowieckie, Nowodworski, Stare Grochale"},{"test":"abc","value":15424,"label":'Łódzkie, Łódzki Wschodni, Starowa Góra'},{"test":"abc","value":22561,"label":"Pomorskie, Nowodworski, Stegna"},{"test":"abc","value":49040,"label":'Mazowieckie, Miński, Stojadła'},{"test":"abc","value":39808,"label":'Pomorskie, Gdański, Straszyn'},{"test":"abc","value":52593,"label":'Mazowieckie, Płocki, Stróżewko'},{"test":"abc","value":20144,"label":'Małopolskie, Wielicki, Strumiany'},{"test":"abc","value":52345,"label":"Mazowieckie, Warszawski Zachodni, Strzykuly"},{"test":"abc","value":21888,"label":'Pomorskie, Pucki, Suchy Dwór'},{"test":"abc","value":16085,"label":'Wielkopolskie, Poznański, Suchy Las'},{"test":"abc","value":52351,"label":'Małopolskie, Wielicki, Sułków'},{"test":"abc","value":16272,"label":"Pomorskie, Pucki, Swarzewo"},{"test":"abc","value":52419,"label":'Śląskie, Tarnogórski, Świerklaniec'},{"test":"abc","value":6424,"label":'Dolnośląskie, Wrocławski, Święta Katarzyna'},{"test":"abc","value":35566,"label":'Podkarpackie, Rzeszowski, Świlcza'},{"test":"abc","value":52383,"label":'Mazowieckie, Grodziski, Szczęsne'},{"test":"abc","value":859,"label":"Wielkopolskie, Szamotulski, Szczuczyn"},{"test":"abc","value":52336,"label":'Wielkopolskie, Poznański, Szczytniki'},{"test":"abc","value":39179,"label":"Mazowieckie, Warszawski Zachodni, Szeligi"},{"test":"abc","value":32934,"label":"Pomorskie, Wejherowski, Szemud"},{"test":"abc","value":52340,"label":'Dolnośląskie, Lubiński, Szklary Górne'},{"test":"abc","value":52518,"label":"Pomorskie, Kartuski, Sznurki"},{"test":"abc","value":15233,"label":'Wielkopolskie, Poznański, Szreniawa'},{"test":"abc","value":46812,"label":"Pomorskie, Nowodworski, Sztutowo"},{"test":"abc","value":52426,"label":'Wielkopolskie, Pilski, Szydłowo'},{"test":"abc","value":52234,"label":"Pomorskie, Kartuski, Szymbark"},{"test":"abc","value":52823,"label":'Dolnośląskie, Trzebnicki, Taczów Wielki'},{"test":"abc","value":20502,"label":'Wielkopolskie, Poznański, Tarnowo Podgórne'},{"test":"abc","value":39907,"label":"Pomorskie, Kartuski, Tokary"},{"test":"abc","value":50027,"label":'Warmińsko-Mazurskie, Olsztyński, Tomaszkowo'},{"test":"abc","value":26253,"label":"Podkarpackie, Rzeszowski, Trzebownisko"},{"test":"abc","value":15812,"label":"Pomorskie, Kartuski, Tuchom"},{"test":"abc","value":32745,"label":'Wielkopolskie, Poznański, Tulce'},{"test":"abc","value":52231,"label":"Lubelskie, Lubelski, Turka"},{"test":"abc","value":29424,"label":'Dolnośląskie, Wrocławski, Tyniec Mały'},{"test":"abc","value":41680,"label":'Zachodniopomorskie, Koszaliński, Unieście'},{"test":"abc","value":13355,"label":'Mazowieckie, Piaseczyński, Ustanów'},{"test":"abc","value":34561,"label":'Zachodniopomorskie, Kołobrzeski, Ustronie Morskie'},{"test":"abc","value":52371,"label":'Wielkopolskie, Wągrowiecki, Wągrowiec'},{"test":"abc","value":50953,"label":'Mazowieckie, Pruszkowski, Walendów'},{"test":"abc","value":46852,"label":"Mazowieckie, Otwocki, Warszawice"},{"test":"abc","value":37521,"label":'Śląskie, Pszczyński, Warszowice'},{"test":"abc","value":44745,"label":"Zachodniopomorskie, Policki, Warzymice"},{"test":"abc","value":27803,"label":'Małopolskie, Krakowski, Węgrzce'},{"test":"abc","value":7529,"label":"Podkarpackie, Leski, Wetlina"},{"test":"abc","value":2743,"label":'Mazowieckie, Otwocki, Wiązowna'},{"test":"abc","value":47618,"label":'Małopolskie, Krakowski, Więckowice'},{"test":"abc","value":52359,"label":"Mazowieckie, Legionowski, Wieliszew"},{"test":"abc","value":52377,"label":'Małopolskie, Krakowski, Wielka Wieś'},{"test":"abc","value":52536,"label":'Śląskie, Częstochowski, Wierzchowisko'},{"test":"abc","value":52200,"label":"Kujawsko-Pomorskie, Bydgoski, Wilcze"},{"test":"abc","value":29203,"label":'Dolnośląskie, Wrocławski, Wilczyce'},{"test":"abc","value":52239,"label":'Dolnośląskie, Średzki, Wilkszyn'},{"test":"abc","value":29287,"label":'Wielkopolskie, Poznański, Wiry'},{"test":"abc","value":52315,"label":'Łódzkie, Łódzki Wschodni, Wiśniowa Góra'},{"test":"abc","value":13603,"label":'Dolnośląskie, Trzebnicki, Wisznia Mała'},{"test":"abc","value":46502,"label":'Mazowieckie, Piaseczyński, Władysławów'},{"test":"abc","value":6035,"label":'Małopolskie, Krakowski, Włosań'},{"test":"abc","value":52385,"label":'Dolnośląskie, Wrocławski, Wojkowice'},{"test":"abc","value":52220,"label":'Dolnośląskie, Wrocławski, Wojnowice'},{"test":"abc","value":14748,"label":'Mazowieckie, Piaseczyński, Wola Mrokowska'},{"test":"abc","value":6924,"label":'Zachodniopomorskie, Policki, Wołczkowo'},{"test":"abc","value":23803,"label":"Mazowieckie, Warszawski Zachodni, Wolica"},{"test":"abc","value":51237,"label":"Mazowieckie, Pruszkowski, Wolica"},{"test":"abc","value":44464,"label":'Mazowieckie, Piaseczyński, Wólka Kosowska'},{"test":"abc","value":47782,"label":'Mazowieckie, Miński, Wólka Mińska'},{"test":"abc","value":52442,"label":'Podkarpackie, Rzeszowski, Wólka Podleśna'},{"test":"abc","value":52537,"label":'Zachodniopomorskie, Kamieński, Wrzosowo'},{"test":"abc","value":15665,"label":'Wielkopolskie, Poznański, Wysogotowo'},{"test":"abc","value":14088,"label":'Dolnośląskie, Wrocławski, Wysoka'},{"test":"abc","value":52664,"label":'Podkarpackie, Wyżne'},{"test":"abc","value":52331,"label":'Małopolskie, Wielicki, Zabawa'},{"test":"abc","value":29492,"label":'Mazowieckie, Grodziski, Żabia Wola'},{"test":"abc","value":31832,"label":'Małopolskie, Krakowski, Zabierzów'},{"test":"abc","value":13351,"label":'Lubuskie, Zielonogórski, Zabór'},{"test":"abc","value":33346,"label":'Mazowieckie, Warszawski Zachodni, Zaborówek'},{"test":"abc","value":52280,"label":'Małopolskie, Wielicki, Zakrzowiec'},{"test":"abc","value":27018,"label":'Wielkopolskie, Poznański, Zalasewo'},{"test":"abc","value":17216,"label":'Mazowieckie, Piaseczyński, Zalesie Górne'},{"test":"abc","value":17703,"label":'Mazowieckie, Piaseczyński, Zamienie'},{"test":"abc","value":20796,"label":'Mazowieckie, Miński, Zamienie'},{"test":"abc","value":25518,"label":'Mazowieckie, Otwocki, Żanęcin'},{"test":"abc","value":26661,"label":'Wielkopolskie, Średzki, Zaniemyśl'},{"test":"abc","value":46889,"label":'Podlaskie, Białostocki, Zaścianki'},{"test":"abc","value":52685,"label":'Wielkopolskie, Śremski, Zbrudzewo'},{"test":"abc","value":16196,"label":'Zachodniopomorskie, Gryfiński, Żelewo'},{"test":"abc","value":52281,"label":'Małopolskie, Krakowski, Żerkowice'},{"test":"abc","value":11887,"label":'Dolnośląskie, Wrocławski, Żerniki Małe'},{"test":"abc","value":52369,"label":'Mazowieckie, Piaseczyński, Zgorzała'},{"test":"abc","value":52327,"label":"Kujawsko-Pomorskie, Bydgoski, Zielonka"},{"test":"abc","value":2350,"label":'Mazowieckie, Zwoleński, Zielonka Nowa'},{"test":"abc","value":876,"label":'Małopolskie, Krakowski, Zielonki'},{"test":"abc","value":42318,"label":'Wielkopolskie, Kaliski, Złotniki'},{"test":"abc","value":52325,"label":'Podkarpackie, Mielecki, Złotniki'},{"test":"abc","value":22698,"label":'Wielkopolskie, Poznański, Złotniki'},{"test":"abc","value":40262,"label":'Podlaskie, Białostocki, Złotniki'},{"test":"abc","value":34935,"label":'Dolnośląskie, Lubański, Złotniki Lubańskie'},{"test":"abc","value":45748,"label":'Mazowieckie, Pruszkowski, Żółwin'},{"test":"abc","value":52186,"label":'Pomorskie, Gdańsk, Aniołki'},{"test":"abc","value":52488,"label":'Pomorskie, Gdynia, Babie Doły'},{"test":"abc","value":52133,"label":'Łódzkie, Łódź, Bałuty'},{"test":"abc","value":38720,"label":"Mazowieckie, Warszawa, Bemowo"},{"test":"abc","value":42663,"label":'Mazowieckie, Warszawa, Białołęka'},{"test":"abc","value":28904,"label":"Mazowieckie, Warszawa, Bielany"},{"test":"abc","value":52201,"label":'Małopolskie, Kraków, Bieńczyce'},{"test":"abc","value":52137,"label":'Małopolskie, Kraków, Bieżanów-Prokocim'},{"test":"abc","value":52188,"label":'Pomorskie, Gdańsk, Brętowo'},{"test":"abc","value":52127,"label":'Małopolskie, Kraków, Bronowice'},{"test":"abc","value":52202,"label":'Pomorskie, Gdańsk, Brzeźno'},{"test":"abc","value":52114,"label":'Pomorskie, Gdańsk, Chełm I Gdańsk Południe'},{"test":"abc","value":52169,"label":"Pomorskie, Gdynia, Chwarzno-Wiczlino"},{"test":"abc","value":52184,"label":"Pomorskie, Gdynia, Chylonia"},{"test":"abc","value":52187,"label":"Pomorskie, Gdynia, Cisowa"},{"test":"abc","value":52138,"label":'Małopolskie, Kraków, Czyżyny'},{"test":"abc","value":52162,"label":'Pomorskie, Gdynia, Dąbrowa'},{"test":"abc","value":52124,"label":'Małopolskie, Kraków, Dębniki'},{"test":"abc","value":52179,"label":"Pomorskie, Sopot, Dolny Sopot"},{"test":"abc","value":52489,"label":'Pomorskie, Gdynia, Działki Leśne'},{"test":"abc","value":52122,"label":'Dolnośląskie, Wrocław, Fabryczna'},{"test":"abc","value":52167,"label":'Łódzkie, Łódź, Górna'},{"test":"abc","value":52183,"label":'Pomorskie, Sopot, Górny Sopot'},{"test":"abc","value":52180,"label":'Pomorskie, Gdynia, Grabówek'},{"test":"abc","value":52118,"label":'Wielkopolskie, Poznań, Grunwald'},{"test":"abc","value":52175,"label":'Małopolskie, Kraków, Grzegórzki'},{"test":"abc","value":52205,"label":'Pomorskie, Gdańsk, Jasień'},{"test":"abc","value":52119,"label":'Wielkopolskie, Poznań, Jeżyce'},{"test":"abc","value":52490,"label":'Pomorskie, Gdynia, Kamienna Góra'},{"test":"abc","value":52190,"label":"Pomorskie, Sopot, Karlikowo"},{"test":"abc","value":52328,"label":"Pomorskie, Gdynia, Karwiny"},{"test":"abc","value":52148,"label":'Pomorskie, Gdańsk, Kokoszki'},{"test":"abc","value":52476,"label":'Pomorskie, Gdańsk, Krakowiec-Górki Zachodnie'},{"test":"abc","value":52123,"label":'Małopolskie, Kraków, Krowodrza'},{"test":"abc","value":52121,"label":'Dolnośląskie, Wrocław, Krzyki'},{"test":"abc","value":52150,"label":'Małopolskie, Kraków, Łagiewniki'},{"test":"abc","value":52491,"label":"Pomorskie, Gdynia, Leszczynki"},{"test":"abc","value":52477,"label":'Pomorskie, Gdańsk, Letnica'},{"test":"abc","value":52134,"label":'Pomorskie, Gdynia, Mały Kack'},{"test":"abc","value":52173,"label":'Pomorskie, Gdańsk, Matarnia'},{"test":"abc","value":52141,"label":'Małopolskie, Kraków, Mistrzejowice'},{"test":"abc","value":52478,"label":'Pomorskie, Gdańsk, Młyniska'},{"test":"abc","value":20284,"label":'Mazowieckie, Warszawa, Mokotów'},{"test":"abc","value":52126,"label":'Małopolskie, Kraków, Nowa Huta'},{"test":"abc","value":52128,"label":'Wielkopolskie, Poznań, Nowe Miasto'},{"test":"abc","value":52479,"label":'Pomorskie, Gdańsk, Nowy Port'},{"test":"abc","value":52163,"label":'Pomorskie, Gdynia, Obłuże'},{"test":"abc","value":38687,"label":"Mazowieckie, Warszawa, Ochota"},{"test":"abc","value":52135,"label":"Pomorskie, Gdynia, Oksywie"},{"test":"abc","value":52181,"label":'Pomorskie, Gdańsk, Oliwa'},{"test":"abc","value":52480,"label":'Pomorskie, Gdańsk, Olszynka'},{"test":"abc","value":52182,"label":'Pomorskie, Gdynia, Orłowo'},{"test":"abc","value":52155,"label":'Pomorskie, Gdańsk, Orunia-Św. Wojciech-Lipce'},{"test":"abc","value":52115,"label":'Pomorskie, Gdańsk, Osowa'},{"test":"abc","value":52131,"label":'Pomorskie, Gdańsk, Piecki-Migowo'},{"test":"abc","value":52142,"label":'Małopolskie, Kraków, Podgórze'},{"test":"abc","value":52139,"label":'Małopolskie, Kraków, Podgórze Duchackie'},{"test":"abc","value":52160,"label":'Pomorskie, Gdynia, Pogórze'},{"test":"abc","value":52164,"label":'Łódzkie, Łódź, Polesie'},{"test":"abc","value":52147,"label":'Zachodniopomorskie, Szczecin, Północ'},{"test":"abc","value":52112,"label":'Małopolskie, Kraków, Prądnik Biały'},{"test":"abc","value":52130,"label":'Małopolskie, Kraków, Prądnik Czerwony'},{"test":"abc","value":36957,"label":'Mazowieckie, Warszawa, Praga-Północ'},{"test":"abc","value":51145,"label":'Mazowieckie, Warszawa, Praga-Południe'},{"test":"abc","value":52140,"label":'Zachodniopomorskie, Szczecin, Prawobrzeże'},{"test":"abc","value":52481,"label":'Pomorskie, Gdańsk, Przeróbka'},{"test":"abc","value":52185,"label":'Pomorskie, Gdańsk, Przymorze Małe'},{"test":"abc","value":52177,"label":'Pomorskie, Gdańsk, Przymorze Wielkie'},{"test":"abc","value":52156,"label":'Dolnośląskie, Wrocław, Psie Pole'},{"test":"abc","value":52270,"label":"Pomorskie, Gdynia, Pustki Cisowskie-Demptowo"},{"test":"abc","value":52178,"label":'Pomorskie, Gdynia, Redłowo'},{"test":"abc","value":22883,"label":'Mazowieckie, Warszawa, Rembertów'},{"test":"abc","value":52482,"label":'Pomorskie, Gdańsk, Rudniki'},{"test":"abc","value":52192,"label":'Pomorskie, Gdańsk, Siedlce'},{"test":"abc","value":50052,"label":'Mazowieckie, Warszawa, Śródmieście'},{"test":"abc","value":52158,"label":'Zachodniopomorskie, Szczecin, Śródmieście'},{"test":"abc","value":52157,"label":'Pomorskie, Gdynia, Śródmieście'},{"test":"abc","value":52174,"label":'Łódzkie, Łódź, Śródmieście'},{"test":"abc","value":52113,"label":'Dolnośląskie, Wrocław, Śródmieście'},{"test":"abc","value":52166,"label":'Pomorskie, Gdańsk, Śródmieście'},{"test":"abc","value":52116,"label":'Wielkopolskie, Poznań, Stare Miasto'},{"test":"abc","value":52111,"label":'Małopolskie, Kraków, Stare Miasto'},{"test":"abc","value":52129,"label":'Dolnośląskie, Wrocław, Stare Miasto'},{"test":"abc","value":52303,"label":'Pomorskie, Gdańsk, Stogi'},{"test":"abc","value":52483,"label":'Pomorskie, Gdańsk, Strzyża'},{"test":"abc","value":52189,"label":'Pomorskie, Gdańsk, Suchanino'},{"test":"abc","value":52171,"label":'Małopolskie, Kraków, Swoszowice'},{"test":"abc","value":32953,"label":'Mazowieckie, Warszawa, Targówek'},{"test":"abc","value":52484,"label":'Pomorskie, Gdańsk, Ujeścisko-Łostowice'},{"test":"abc","value":24305,"label":"Mazowieckie, Warszawa, Ursus"},{"test":"abc","value":3766,"label":'Mazowieckie, Warszawa, Ursynów'},{"test":"abc","value":52485,"label":'Pomorskie, Gdańsk, VII Dwór'},{"test":"abc","value":30707,"label":"Mazowieckie, Warszawa, Wawer"},{"test":"abc","value":37544,"label":'Mazowieckie, Warszawa, Wesoła'},{"test":"abc","value":52149,"label":'Łódzkie, Łódź, Widzew'},{"test":"abc","value":52132,"label":"Pomorskie, Gdynia, Wielki Kack"},{"test":"abc","value":1320,"label":'Mazowieckie, Warszawa, Wilanów'},{"test":"abc","value":52159,"label":'Wielkopolskie, Poznań, Wilda'},{"test":"abc","value":52492,"label":'Pomorskie, Gdynia, Witomino Leśniczówka'},{"test":"abc","value":52151,"label":"Pomorskie, Gdynia, Witomino-Radiostacja"},{"test":"abc","value":3645,"label":'Mazowieckie, Warszawa, Włochy'},{"test":"abc","value":32638,"label":"Mazowieckie, Warszawa, Wola"},{"test":"abc","value":52170,"label":'Pomorskie, Gdańsk, Wrzeszcz'},{"test":"abc","value":52486,"label":'Pomorskie, Gdańsk, Wyspa Sobieszewska'},{"test":"abc","value":52120,"label":'Małopolskie, Kraków, Wzgórza Krzesławickie'},{"test":"abc","value":52487,"label":'Pomorskie, Gdańsk, Wzgórze Mickiewicza'},{"test":"abc","value":52493,"label":'Pomorskie, Gdynia, Wzgórze Św. Maksymiliana'},{"test":"abc","value":52168,"label":'Pomorskie, Gdańsk, Żabianka-Wejhera-Jelitkowo-Tysiąclecia'},{"test":"abc","value":52136,"label":'Zachodniopomorskie, Szczecin, Zachód'},{"test":"abc","value":52165,"label":'Pomorskie, Gdańsk, Zaspa-Młyniec'},{"test":"abc","value":52154,"label":'Pomorskie, Gdańsk, Zaspa-Rozstaje'},{"test":"abc","value":52143,"label":'Śląskie, Katowice, Zespół Dzielnic Północnych'},{"test":"abc","value":52144,"label":'Śląskie, Katowice, Zespół Dzielnic Południowych'},{"test":"abc","value":52161,"label":'Śląskie, Katowice, Zespół Dzielnic Śródmiejskich'},{"test":"abc","value":52475,"label":'Śląskie, Katowice, Zespół Dzielnic Wschodnich'},{"test":"abc","value":52152,"label":'Śląskie, Katowice, Zespół Dzielnic Zachodnich'},{"test":"abc","value":36021,"label":'Mazowieckie, Warszawa, Żoliborz'},{"test":"abc","value":52117,"label":'Małopolskie, Kraków, Zwierzyniec'},{"test":"abc","value":52737,"label":'Mazowieckie, Warszawa, Aleksandrów'},{"test":"abc","value":52733,"label":"Mazowieckie, Warszawa, Anin"},{"test":"abc","value":52703,"label":'Wielkopolskie, Poznań, Antoninek-Zieliniec-Kobylepole'},{"test":"abc","value":52568,"label":'Mazowieckie, Warszawa, Augustówka'},{"test":"abc","value":52762,"label":'Dolnośląskie, Wrocław, Bartoszowice'},{"test":"abc","value":52663,"label":"Mazowieckie, Warszawa, Bemowo Lotnisko"},{"test":"abc","value":52691,"label":'Mazowieckie, Warszawa, Białołęka Dworska'},{"test":"abc","value":52763,"label":'Dolnośląskie, Wrocław, Bieńkowice'},{"test":"abc","value":52764,"label":'Dolnośląskie, Wrocław, Bierdzany'},{"test":"abc","value":52765,"label":'Dolnośląskie, Wrocław, Biskupin'},{"test":"abc","value":52727,"label":'Mazowieckie, Warszawa, Błonia Wilanowskie'},{"test":"abc","value":52660,"label":"Mazowieckie, Warszawa, Boernerowo"},{"test":"abc","value":52766,"label":'Dolnośląskie, Wrocław, Borek'},{"test":"abc","value":52767,"label":'Dolnośląskie, Wrocław, Brochów'},{"test":"abc","value":52597,"label":'Mazowieckie, Warszawa, Bródno'},{"test":"abc","value":52598,"label":'Mazowieckie, Warszawa, Bródno Podgrodzie'},{"test":"abc","value":52683,"label":"Mazowieckie, Warszawa, Brzeziny"},{"test":"abc","value":52630,"label":'Wielkopolskie, Poznań, Chartowo'},{"test":"abc","value":52613,"label":'Mazowieckie, Warszawa, Chomiczówka'},{"test":"abc","value":52676,"label":'Mazowieckie, Warszawa, Choszczówka'},{"test":"abc","value":52669,"label":'Mazowieckie, Warszawa, Chrzanów'},{"test":"abc","value":52696,"label":"Mazowieckie, Warszawa, Czechowice"},{"test":"abc","value":52565,"label":'Mazowieckie, Warszawa, Czerniaków'},{"test":"abc","value":52653,"label":"Mazowieckie, Warszawa, Czyste"},{"test":"abc","value":52768,"label":'Dolnośląskie, Wrocław, Dąbie'},{"test":"abc","value":52586,"label":'Mazowieckie, Warszawa, Dąbrówka'},{"test":"abc","value":52675,"label":'Mazowieckie, Warszawa, Dąbrówka Szlachecka'},{"test":"abc","value":52601,"label":'Mazowieckie, Warszawa, Elsnerów'},{"test":"abc","value":52619,"label":'Wielkopolskie, Poznań, Fabianowo-Kotowo'},{"test":"abc","value":52736,"label":"Mazowieckie, Warszawa, Falenica"},{"test":"abc","value":52572,"label":"Mazowieckie, Warszawa, Filtry"},{"test":"abc","value":52665,"label":"Mazowieckie, Warszawa, Fort Bema"},{"test":"abc","value":52661,"label":"Mazowieckie, Warszawa, Fort Radiowo"},{"test":"abc","value":52771,"label":'Dolnośląskie, Wrocław, Gądów Mały'},{"test":"abc","value":52769,"label":'Dolnośląskie, Wrocław, Gaj'},{"test":"abc","value":52770,"label":'Dolnośląskie, Wrocław, Gajowice'},{"test":"abc","value":52622,"label":'Wielkopolskie, Poznań, Główna'},{"test":"abc","value":52686,"label":'Wielkopolskie, Poznań, Głuszyna'},{"test":"abc","value":52714,"label":'Mazowieckie, Warszawa, Gocław'},{"test":"abc","value":52746,"label":'Mazowieckie, Warszawa, Gocławek'},{"test":"abc","value":52693,"label":'Mazowieckie, Warszawa, Gołąbki'},{"test":"abc","value":52666,"label":'Mazowieckie, Warszawa, Górce'},{"test":"abc","value":52631,"label":'Wielkopolskie, Poznań, Górczyn'},{"test":"abc","value":52583,"label":'Mazowieckie, Warszawa, Grabów'},{"test":"abc","value":52745,"label":'Mazowieckie, Warszawa, Grochów'},{"test":"abc","value":52692,"label":"Mazowieckie, Warszawa, Grodzisk"},{"test":"abc","value":52750,"label":'Mazowieckie, Warszawa, Groszówka'},{"test":"abc","value":52662,"label":"Mazowieckie, Warszawa, Groty"},{"test":"abc","value":52637,"label":'Wielkopolskie, Poznań, Grunwald Północ'},{"test":"abc","value":52639,"label":'Wielkopolskie, Poznań, Grunwald Południe'},{"test":"abc","value":52678,"label":'Mazowieckie, Warszawa, Henryków'},{"test":"abc","value":52772,"label":'Dolnośląskie, Wrocław, Huby'},{"test":"abc","value":52609,"label":"Mazowieckie, Warszawa, Huta"},{"test":"abc","value":52773,"label":'Dolnośląskie, Wrocław, Jagodno'},{"test":"abc","value":52706,"label":'Wielkopolskie, Poznań, Jana III Sobieskiego i Marysieńki'},{"test":"abc","value":52774,"label":'Dolnośląskie, Wrocław, Jarnołtów'},{"test":"abc","value":52667,"label":'Mazowieckie, Warszawa, Jelonki Północne'},{"test":"abc","value":52668,"label":'Mazowieckie, Warszawa, Jelonki Południowe'},{"test":"abc","value":52775,"label":'Dolnośląskie, Wrocław, Jerzmanowo'},{"test":"abc","value":52584,"label":'Mazowieckie, Warszawa, Jeziorki Północne'},{"test":"abc","value":52585,"label":'Mazowieckie, Warszawa, Jeziorki Południowe'},{"test":"abc","value":52629,"label":'Wielkopolskie, Poznań, Junikowo'},{"test":"abc","value":52594,"label":"Mazowieckie, Warszawa, Kabaty"},{"test":"abc","value":52713,"label":"Mazowieckie, Warszawa, Kamionek"},{"test":"abc","value":52776,"label":'Dolnośląskie, Wrocław, Karłowice'},{"test":"abc","value":52577,"label":'Mazowieckie, Warszawa, Kawęczyn-Wygoda'},{"test":"abc","value":52730,"label":'Mazowieckie, Warszawa, Kępa Zawadowska'},{"test":"abc","value":52604,"label":'Wielkopolskie, Poznań, Kiekrz'},{"test":"abc","value":52777,"label":'Dolnośląskie, Wrocław, Klecina'},{"test":"abc","value":52778,"label":'Dolnośląskie, Wrocław, Kleczków'},{"test":"abc","value":52779,"label":'Dolnośląskie, Wrocław, Kłokoczyce'},{"test":"abc","value":52684,"label":'Mazowieckie, Warszawa, Kobiałka'},{"test":"abc","value":52650,"label":'Mazowieckie, Warszawa, Koło'},{"test":"abc","value":52780,"label":'Dolnośląskie, Wrocław, Kowale'},{"test":"abc","value":52781,"label":'Dolnośląskie, Wrocław, Kozanów'},{"test":"abc","value":52709,"label":'Wielkopolskie, Poznań, Krzesiny-Pokrzywno-Garaszewo'},{"test":"abc","value":52610,"label":'Wielkopolskie, Poznań, Krzyżowniki-Smochowice'},{"test":"abc","value":52560,"label":'Mazowieckie, Warszawa, Ksawerów'},{"test":"abc","value":52783,"label":'Dolnośląskie, Wrocław, Księże Małe'},{"test":"abc","value":52784,"label":'Dolnośląskie, Wrocław, Księże Wielkie'},{"test":"abc","value":52785,"label":'Dolnośląskie, Wrocław, Kuźniki'},{"test":"abc","value":52623,"label":'Wielkopolskie, Poznań, Kwiatowe'},{"test":"abc","value":52786,"label":'Dolnośląskie, Wrocław, Lamowice Stare'},{"test":"abc","value":52740,"label":"Mazowieckie, Warszawa, Las"},{"test":"abc","value":52614,"label":'Mazowieckie, Warszawa, Las Bielański'},{"test":"abc","value":52595,"label":"Mazowieckie, Warszawa, Las Kabacki"},{"test":"abc","value":52615,"label":'Wielkopolskie, Poznań, Ławica'},{"test":"abc","value":52640,"label":'Wielkopolskie, Poznań, Łazarz'},{"test":"abc","value":52787,"label":'Dolnośląskie, Wrocław, Lesica'},{"test":"abc","value":52788,"label":'Dolnośląskie, Wrocław, Leśnica'},{"test":"abc","value":52790,"label":'Dolnośląskie, Wrocław, Lipa Piotrowska'},{"test":"abc","value":52658,"label":"Mazowieckie, Warszawa, Lotnisko"},{"test":"abc","value":52791,"label":'Dolnośląskie, Wrocław, Marszowice'},{"test":"abc","value":52634,"label":"Mazowieckie, Warszawa, Marymont Kaskada"},{"test":"abc","value":52700,"label":"Mazowieckie, Warszawa, Marymont-Potok"},{"test":"abc","value":52635,"label":"Mazowieckie, Warszawa, Marymont Ruda"},{"test":"abc","value":52743,"label":"Mazowieckie, Warszawa, Marysin Wawerski"},{"test":"abc","value":52792,"label":'Dolnośląskie, Wrocław, Maślice'},{"test":"abc","value":52732,"label":"Mazowieckie, Warszawa, Miedzeszyn"},{"test":"abc","value":52734,"label":'Mazowieckie, Warszawa, Międzylesie'},{"test":"abc","value":52657,"label":'Mazowieckie, Warszawa, Mirów'},{"test":"abc","value":52605,"label":'Mazowieckie, Warszawa, Młociny'},{"test":"abc","value":52654,"label":'Mazowieckie, Warszawa, Młynów'},{"test":"abc","value":52793,"label":'Dolnośląskie, Wrocław, Mokra'},{"test":"abc","value":52702,"label":'Wielkopolskie, Poznań, Morasko-Radojewo'},{"test":"abc","value":52794,"label":'Dolnośląskie, Wrocław, Muchobór Mały'},{"test":"abc","value":52642,"label":'Mazowieckie, Warszawa, Muranów'},{"test":"abc","value":52795,"label":'Dolnośląskie, Wrocław, Nadodrze'},{"test":"abc","value":52739,"label":'Mazowieckie, Warszawa, Nadwiśle'},{"test":"abc","value":52632,"label":'Wielkopolskie, Poznań, Naramowice'},{"test":"abc","value":52592,"label":"Mazowieckie, Warszawa, Natolin"},{"test":"abc","value":52695,"label":'Mazowieckie, Warszawa, Niedźwiadek'},{"test":"abc","value":52574,"label":"Mazowieckie, Warszawa, Nowa Praga"},{"test":"abc","value":52644,"label":"Mazowieckie, Warszawa, Nowe Miasto"},{"test":"abc","value":52688,"label":'Wielkopolskie, Poznań, Nowe Winogrady Północ'},{"test":"abc","value":52687,"label":'Wielkopolskie, Poznań, Nowe Winogrady Południe'},{"test":"abc","value":52689,"label":'Wielkopolskie, Poznań, Nowe Winogrady Wschód'},{"test":"abc","value":52716,"label":'Mazowieckie, Warszawa, Nowe Włochy'},{"test":"abc","value":52670,"label":"Mazowieckie, Warszawa, Nowodwory"},{"test":"abc","value":52656,"label":"Mazowieckie, Warszawa, Nowolipki"},{"test":"abc","value":52796,"label":'Dolnośląskie, Wrocław, Nowy Dwór'},{"test":"abc","value":52578,"label":'Mazowieckie, Warszawa, Nowy Rembertów'},{"test":"abc","value":52742,"label":"Mazowieckie, Warszawa, Nowy Wawer"},{"test":"abc","value":52652,"label":"Mazowieckie, Warszawa, Odolany"},{"test":"abc","value":52626,"label":'Wielkopolskie, Poznań, Ogrody'},{"test":"abc","value":52722,"label":'Mazowieckie, Warszawa, Okęcie'},{"test":"abc","value":52797,"label":'Dolnośląskie, Wrocław, Ołbin'},{"test":"abc","value":52744,"label":"Mazowieckie, Warszawa, Olszynka Grochowska"},{"test":"abc","value":52798,"label":'Dolnośląskie, Wrocław, Ołtaszyn'},{"test":"abc","value":52720,"label":"Mazowieckie, Warszawa, Opacz Wielka"},{"test":"abc","value":52799,"label":'Dolnośląskie, Wrocław, Opatowice'},{"test":"abc","value":52800,"label":'Dolnośląskie, Wrocław, Oporów'},{"test":"abc","value":52672,"label":'Wielkopolskie, Poznań, Osiedle Jeżyce'},{"test":"abc","value":52782,"label":'Dolnośląskie, Wrocław, Osiedle Krzyki'},{"test":"abc","value":52815,"label":'Dolnośląskie, Wrocław, Osiedle Psie Pole'},{"test":"abc","value":52671,"label":'Wielkopolskie, Poznań, Osiedle Stare Miasto'},{"test":"abc","value":52674,"label":'Wielkopolskie, Poznań, Osiedle Wilda'},{"test":"abc","value":52801,"label":'Dolnośląskie, Wrocław, Osobowice'},{"test":"abc","value":52753,"label":'Wielkopolskie, Poznań, Ostrów Tumski-Śródka-Zawady-Komandoria'},{"test":"abc","value":52723,"label":"Mazowieckie, Warszawa, Paluch"},{"test":"abc","value":52802,"label":'Dolnośląskie, Wrocław, Partynice'},{"test":"abc","value":52803,"label":'Dolnośląskie, Wrocław, Pawłowice'},{"test":"abc","value":52573,"label":"Mazowieckie, Warszawa, Pelcowizna"},{"test":"abc","value":52628,"label":"Mazowieckie, Warszawa, Piaski"},{"test":"abc","value":52618,"label":'Wielkopolskie, Poznań, Piątkowo'},{"test":"abc","value":52804,"label":'Dolnośląskie, Wrocław, Pilczyce'},{"test":"abc","value":52807,"label":'Dolnośląskie, Wrocław, Plac Grunwaldzki'},{"test":"abc","value":52607,"label":'Mazowieckie, Warszawa, Placówka'},{"test":"abc","value":52752,"label":"Mazowieckie, Warszawa, Plac Wojska Polskiego"},{"test":"abc","value":52616,"label":'Wielkopolskie, Poznań, Podolany'},{"test":"abc","value":52808,"label":'Dolnośląskie, Wrocław, Polanka'},{"test":"abc","value":52809,"label":'Dolnośląskie, Wrocław, Polanowice'},{"test":"abc","value":52810,"label":'Dolnośląskie, Wrocław, Południe'},{"test":"abc","value":52811,"label":'Dolnośląskie, Wrocław, Popowice'},{"test":"abc","value":52812,"label":'Dolnośląskie, Wrocław, Poświętne'},{"test":"abc","value":52655,"label":'Mazowieckie, Warszawa, Powązki'},{"test":"abc","value":52645,"label":'Mazowieckie, Warszawa, Powiśle'},{"test":"abc","value":52731,"label":"Mazowieckie, Warszawa, Powsin"},{"test":"abc","value":52728,"label":"Mazowieckie, Warszawa, Powsinek"},{"test":"abc","value":52813,"label":'Dolnośląskie, Wrocław, Pracze Odrzańskie'},{"test":"abc","value":52814,"label":'Dolnośląskie, Wrocław, Przedmieście Oławskie'},{"test":"abc","value":52587,"label":"Mazowieckie, Warszawa, Pyry"},{"test":"abc","value":52608,"label":"Mazowieckie, Warszawa, Radiowo"},{"test":"abc","value":52735,"label":'Mazowieckie, Warszawa, Radość'},{"test":"abc","value":52719,"label":'Mazowieckie, Warszawa, Raków'},{"test":"abc","value":52569,"label":"Mazowieckie, Warszawa, Rakowiec"},{"test":"abc","value":52816,"label":'Dolnośląskie, Wrocław, Rakowiec'},{"test":"abc","value":52620,"label":'Wielkopolskie, Poznań, Rataje'},{"test":"abc","value":52817,"label":'Dolnośląskie, Wrocław, Ratyń'},{"test":"abc","value":52824,"label":'Dolnośląskie, Wrocław, Rędzin'},{"test":"abc","value":52818,"label":'Dolnośląskie, Wrocław, Różanka'},{"test":"abc","value":52741,"label":"Mazowieckie, Warszawa, Sadul"},{"test":"abc","value":52566,"label":"Mazowieckie, Warszawa, Sadyba"},{"test":"abc","value":52698,"label":'Mazowieckie, Warszawa, Sady Żoliborskie'},{"test":"abc","value":52718,"label":"Mazowieckie, Warszawa, Salomea"},{"test":"abc","value":52715,"label":'Mazowieckie, Warszawa, Saska Kępa'},{"test":"abc","value":52819,"label":'Dolnośląskie, Wrocław, Sępolno'},{"test":"abc","value":52567,"label":"Mazowieckie, Warszawa, Siekierki"},{"test":"abc","value":52563,"label":"Mazowieckie, Warszawa, Sielce"},{"test":"abc","value":52596,"label":'Mazowieckie, Warszawa, Skarpa Powsińska'},{"test":"abc","value":52697,"label":"Mazowieckie, Warszawa, Skorosze"},{"test":"abc","value":52633,"label":'Mazowieckie, Warszawa, Słodowiec'},{"test":"abc","value":52559,"label":'Mazowieckie, Warszawa, Służew'},{"test":"abc","value":52558,"label":'Mazowieckie, Warszawa, Służewiec'},{"test":"abc","value":52624,"label":'Wielkopolskie, Poznań, Sołacz'},{"test":"abc","value":52641,"label":"Mazowieckie, Warszawa, Solec"},{"test":"abc","value":52825,"label":'Dolnośląskie, Wrocław, Sołtysowice'},{"test":"abc","value":52648,"label":'Mazowieckie, Warszawa, Śródmieście Północne'},{"test":"abc","value":52649,"label":'Mazowieckie, Warszawa, Śródmieście Południowe'},{"test":"abc","value":52826,"label":'Dolnośląskie, Wrocław, Stabłowice'},{"test":"abc","value":52751,"label":'Mazowieckie, Warszawa, Stara Miłosna'},{"test":"abc","value":52571,"label":"Mazowieckie, Warszawa, Stara Ochota"},{"test":"abc","value":52575,"label":"Mazowieckie, Warszawa, Stara Praga"},{"test":"abc","value":52627,"label":"Mazowieckie, Warszawa, Stare Bielany"},{"test":"abc","value":52643,"label":"Mazowieckie, Warszawa, Stare Miasto"},{"test":"abc","value":52673,"label":'Wielkopolskie, Poznań, Stare Winogrady'},{"test":"abc","value":52717,"label":'Mazowieckie, Warszawa, Stare Włochy'},{"test":"abc","value":52754,"label":'Wielkopolskie, Poznań, Starołęka-Minikowo-Marlewo'},{"test":"abc","value":52638,"label":'Wielkopolskie, Poznań, Stary Grunwald'},{"test":"abc","value":52580,"label":"Mazowieckie, Warszawa, Stary Imielin"},{"test":"abc","value":52562,"label":'Mazowieckie, Warszawa, Stary Mokotów'},{"test":"abc","value":52579,"label":'Mazowieckie, Warszawa, Stary Rembertów'},{"test":"abc","value":52588,"label":'Mazowieckie, Warszawa, Stary Służew'},{"test":"abc","value":52699,"label":'Mazowieckie, Warszawa, Stary Żoliborz'},{"test":"abc","value":52564,"label":"Mazowieckie, Warszawa, Stegny"},{"test":"abc","value":52827,"label":'Dolnośląskie, Wrocław, Strachocin'},{"test":"abc","value":52617,"label":'Wielkopolskie, Poznań, Strzeszyn'},{"test":"abc","value":52646,"label":'Wielkopolskie, Poznań, Świerczewo'},{"test":"abc","value":52831,"label":'Dolnośląskie, Wrocław, Świniary'},{"test":"abc","value":52679,"label":"Mazowieckie, Warszawa, Szamocin"},{"test":"abc","value":52694,"label":"Mazowieckie, Warszawa, Szamoty"},{"test":"abc","value":52755,"label":'Wielkopolskie, Poznań, Szczepankowo-Spławie-Krzesinki'},{"test":"abc","value":52830,"label":'Dolnośląskie, Wrocław, Szczepin'},{"test":"abc","value":52570,"label":'Mazowieckie, Warszawa, Szczęśliwice'},{"test":"abc","value":52576,"label":"Mazowieckie, Warszawa, Szmulowizna"},{"test":"abc","value":52677,"label":"Mazowieckie, Warszawa, Tarchomin"},{"test":"abc","value":52602,"label":'Mazowieckie, Warszawa, Targówek Fabryczny'},{"test":"abc","value":52600,"label":'Mazowieckie, Warszawa, Targówek Mieszkaniowy'},{"test":"abc","value":52832,"label":'Dolnośląskie, Wrocław, Tarnogaj'},{"test":"abc","value":52636,"label":'Mazowieckie, Warszawa, Ujazdów'},{"test":"abc","value":52651,"label":'Mazowieckie, Warszawa, Ulrychów'},{"test":"abc","value":52621,"label":'Wielkopolskie, Poznań, Umultowo'},{"test":"abc","value":52591,"label":'Mazowieckie, Warszawa, Ursynów Centrum'},{"test":"abc","value":52581,"label":'Mazowieckie, Warszawa, Ursynów Północny'},{"test":"abc","value":52603,"label":"Mazowieckie, Warszawa, Utrata"},{"test":"abc","value":52761,"label":'Wielkopolskie, Poznań, Warszawskie-Pomet-Maltańskie'},{"test":"abc","value":52612,"label":"Mazowieckie, Warszawa, Wawrzyszew"},{"test":"abc","value":52749,"label":'Mazowieckie, Warszawa, Wesoła-Centrum'},{"test":"abc","value":52833,"label":'Dolnośląskie, Wrocław, Widawa'},{"test":"abc","value":52561,"label":"Mazowieckie, Warszawa, Wierzbno"},{"test":"abc","value":52726,"label":'Mazowieckie, Warszawa, Wilanów Królewski'},{"test":"abc","value":52725,"label":'Mazowieckie, Warszawa, Wilanów Niski'},{"test":"abc","value":52724,"label":'Mazowieckie, Warszawa, Wilanów Wysoki'},{"test":"abc","value":52680,"label":'Wielkopolskie, Poznań, Winiary'},{"test":"abc","value":52625,"label":'Wielkopolskie, Poznań, Wola'},{"test":"abc","value":52748,"label":"Mazowieckie, Warszawa, Wola Grzybowska"},{"test":"abc","value":52606,"label":'Mazowieckie, Warszawa, Wólka Węglowa'},{"test":"abc","value":52611,"label":"Mazowieckie, Warszawa, Wrzeciono"},{"test":"abc","value":52582,"label":'Mazowieckie, Warszawa, Wyczółki'},{"test":"abc","value":52557,"label":'Mazowieckie, Warszawa, Wyględów'},{"test":"abc","value":52599,"label":"Mazowieckie, Warszawa, Zacisze"},{"test":"abc","value":52721,"label":'Mazowieckie, Warszawa, Załuski'},{"test":"abc","value":52729,"label":"Mazowieckie, Warszawa, Zawady"},{"test":"abc","value":52659,"label":'Wielkopolskie, Poznań, Żegrze'},{"test":"abc","value":52682,"label":'Mazowieckie, Warszawa, Żerań'},{"test":"abc","value":52738,"label":'Mazowieckie, Warszawa, Zerzeń'},{"test":"abc","value":52747,"label":"Mazowieckie, Warszawa, Zielona-Grzybowa"},{"test":"abc","value":52681,"label":'Wielkopolskie, Poznań, Zielony Dębiec'}];var Container=_react2['default'].createClass({displayName:'Container',getInitialState:function getInitialState(){return options[0];},updateValue1:function updateValue1(value1){this.setState({value1:value1});},updateValue2:function updateValue2(value2){this.setState({value2:value2});},updateValue3:function updateValue3(value3){this.setState({value3:value3});},loadOptions:function loadOptions(input,callback){console.log(input);callback(null,{options:options.sort(function(){return 0.5 - Math.random();}).slice(0,10)});},optionRenderer:function optionRenderer(option){return _react2['default'].createElement('div',null,_react2['default'].createElement('strong',null,option.label),_react2['default'].createElement('em',null,option.test));},render:function render(){var optgr=[{value:"",label:"Empty"},{name:"test",options:[{value:"a",label:"a"},{value:"b",label:"b"},{value:"c",label:"c"}]},{name:"test 2",options:[{value:"d",label:"d"},{value:"e",label:"e"},{value:"f",label:"f"}]},{name:"test 3",options:[{value:"e",label:"e"},{value:"f",label:"f"},{value:"g",label:"g"}]}];return _react2['default'].createElement('div',null,_react2['default'].createElement(_reactSelect2['default'],{required:false,searchable:false,options:optgr,optgroups:true}));}});_reactDom2['default'].render(_react2['default'].createElement(Container,null),document.getElementById('example'));
 
-},{"./components/Contributors":2,"./components/CustomComponents":3,"./components/CustomRender":4,"./components/Multiselect":5,"./components/NumericSelect":6,"./components/States":7,"lodash":18,"react":undefined,"react-dom":undefined,"react-select":undefined}],2:[function(require,module,exports){
+},{"./components/Contributors":2,"./components/CustomComponents":3,"./components/CustomRender":4,"./components/Multiselect":5,"./components/NumericSelect":6,"./components/States":7,"lodash":15,"react":undefined,"react-dom":undefined,"react-select":undefined}],2:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -256,7 +256,7 @@ var UsersField = _react2['default'].createClass({
 
 module.exports = UsersField;
 
-},{"../data/users":10,"react":undefined,"react-gravatar":28,"react-select":undefined}],4:[function(require,module,exports){
+},{"../data/users":10,"react":undefined,"react-gravatar":25,"react-select":undefined}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -837,164 +837,6 @@ module.exports = charenc;
 })();
 
 },{}],13:[function(require,module,exports){
-"use strict";
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-},{}],14:[function(require,module,exports){
-(function (process){
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-'use strict';
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var validateFormat = function validateFormat(format) {};
-
-if (process.env.NODE_ENV !== 'production') {
-  validateFormat = function validateFormat(format) {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  };
-}
-
-function invariant(condition, format, a, b, c, d, e, f) {
-  validateFormat(format);
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(format.replace(/%s/g, function () {
-        return args[argIndex++];
-      }));
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-}
-
-module.exports = invariant;
-}).call(this,require('_process'))
-},{"_process":21}],15:[function(require,module,exports){
-(function (process){
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-'use strict';
-
-var emptyFunction = require('./emptyFunction');
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = emptyFunction;
-
-if (process.env.NODE_ENV !== 'production') {
-  var printWarning = function printWarning(format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function warning(condition, format) {
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-module.exports = warning;
-}).call(this,require('_process'))
-},{"./emptyFunction":13,"_process":21}],16:[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -1017,7 +859,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],17:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 module.exports = function() {
   var mediaQuery;
   if (typeof window !== "undefined" && window !== null) {
@@ -1032,12 +874,12 @@ module.exports = function() {
   return false;
 };
 
-},{}],18:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){
 /**
  * @license
  * Lodash <https://lodash.com/>
- * Copyright JS Foundation and other contributors <https://js.foundation/>
+ * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
  * Released under MIT license <https://lodash.com/license>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -1048,7 +890,7 @@ module.exports = function() {
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.5';
+  var VERSION = '4.17.15';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -1312,7 +1154,7 @@ module.exports = function() {
   var reHasUnicode = RegExp('[' + rsZWJ + rsAstralRange  + rsComboRange + rsVarRange + ']');
 
   /** Used to detect strings that need a more robust regexp to match words. */
-  var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2,}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
+  var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
 
   /** Used to assign default `context` object properties. */
   var contextProps = [
@@ -1472,6 +1314,14 @@ module.exports = function() {
   /** Used to access faster Node.js helpers. */
   var nodeUtil = (function() {
     try {
+      // Use `util.types` for Node.js 10+.
+      var types = freeModule && freeModule.require && freeModule.require('util').types;
+
+      if (types) {
+        return types;
+      }
+
+      // Legacy `process.binding('util')` for Node.js < 10.
       return freeProcess && freeProcess.binding && freeProcess.binding('util');
     } catch (e) {}
   }());
@@ -2250,20 +2100,6 @@ module.exports = function() {
       }
     }
     return result;
-  }
-
-  /**
-   * Gets the value at `key`, unless `key` is "__proto__".
-   *
-   * @private
-   * @param {Object} object The object to query.
-   * @param {string} key The key of the property to get.
-   * @returns {*} Returns the property value.
-   */
-  function safeGet(object, key) {
-    return key == '__proto__'
-      ? undefined
-      : object[key];
   }
 
   /**
@@ -3713,16 +3549,10 @@ module.exports = function() {
         value.forEach(function(subValue) {
           result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
         });
-
-        return result;
-      }
-
-      if (isMap(value)) {
+      } else if (isMap(value)) {
         value.forEach(function(subValue, key) {
           result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
         });
-
-        return result;
       }
 
       var keysFunc = isFull
@@ -4646,8 +4476,8 @@ module.exports = function() {
         return;
       }
       baseFor(source, function(srcValue, key) {
+        stack || (stack = new Stack);
         if (isObject(srcValue)) {
-          stack || (stack = new Stack);
           baseMergeDeep(object, source, key, srcIndex, baseMerge, customizer, stack);
         }
         else {
@@ -4723,7 +4553,7 @@ module.exports = function() {
           if (isArguments(objValue)) {
             newValue = toPlainObject(objValue);
           }
-          else if (!isObject(objValue) || (srcIndex && isFunction(objValue))) {
+          else if (!isObject(objValue) || isFunction(objValue)) {
             newValue = initCloneObject(srcValue);
           }
         }
@@ -6464,7 +6294,7 @@ module.exports = function() {
       return function(number, precision) {
         number = toNumber(number);
         precision = precision == null ? 0 : nativeMin(toInteger(precision), 292);
-        if (precision) {
+        if (precision && nativeIsFinite(number)) {
           // Shift with exponential notation to avoid floating-point issues.
           // See [MDN](https://mdn.io/round#Examples) for more details.
           var pair = (toString(number) + 'e').split('e'),
@@ -7644,6 +7474,26 @@ module.exports = function() {
         array[length] = isIndex(index, arrLength) ? oldArray[index] : undefined;
       }
       return array;
+    }
+
+    /**
+     * Gets the value at `key`, unless `key` is "__proto__" or "constructor".
+     *
+     * @private
+     * @param {Object} object The object to query.
+     * @param {string} key The key of the property to get.
+     * @returns {*} Returns the property value.
+     */
+    function safeGet(object, key) {
+      if (key === 'constructor' && typeof object[key] === 'function') {
+        return;
+      }
+
+      if (key == '__proto__') {
+        return;
+      }
+
+      return object[key];
     }
 
     /**
@@ -11439,6 +11289,7 @@ module.exports = function() {
           }
           if (maxing) {
             // Handle invocations in a tight loop.
+            clearTimeout(timerId);
             timerId = setTimeout(timerExpired, wait);
             return invokeFunc(lastCallTime);
           }
@@ -15825,9 +15676,12 @@ module.exports = function() {
       , 'g');
 
       // Use a sourceURL for easier debugging.
+      // The sourceURL gets injected into the source that's eval-ed, so be careful
+      // with lookup (in case of e.g. prototype pollution), and strip newlines if any.
+      // A newline wouldn't be a valid sourceURL anyway, and it'd enable code injection.
       var sourceURL = '//# sourceURL=' +
-        ('sourceURL' in options
-          ? options.sourceURL
+        (hasOwnProperty.call(options, 'sourceURL')
+          ? (options.sourceURL + '').replace(/[\r\n]/g, ' ')
           : ('lodash.templateSources[' + (++templateCounter) + ']')
         ) + '\n';
 
@@ -15860,7 +15714,9 @@ module.exports = function() {
 
       // If `variable` is not specified wrap a with-statement around the generated
       // code to add the data object to the top of the scope chain.
-      var variable = options.variable;
+      // Like with sourceURL, we take care to not check the option's prototype,
+      // as this configuration is a code injection vector.
+      var variable = hasOwnProperty.call(options, 'variable') && options.variable;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
       }
@@ -18065,10 +17921,11 @@ module.exports = function() {
     baseForOwn(LazyWrapper.prototype, function(func, methodName) {
       var lodashFunc = lodash[methodName];
       if (lodashFunc) {
-        var key = (lodashFunc.name + ''),
-            names = realNames[key] || (realNames[key] = []);
-
-        names.push({ 'name': methodName, 'func': lodashFunc });
+        var key = lodashFunc.name + '';
+        if (!hasOwnProperty.call(realNames, key)) {
+          realNames[key] = [];
+        }
+        realNames[key].push({ 'name': methodName, 'func': lodashFunc });
       }
     });
 
@@ -18133,7 +17990,7 @@ module.exports = function() {
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],19:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function(){
   var crypt = require('crypt'),
       utf8 = require('charenc').utf8,
@@ -18295,7 +18152,7 @@ module.exports = function() {
 
 })();
 
-},{"charenc":11,"crypt":12,"is-buffer":16}],20:[function(require,module,exports){
+},{"charenc":11,"crypt":12,"is-buffer":13}],17:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -18387,7 +18244,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],21:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -18573,7 +18430,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],22:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -18584,11 +18441,25 @@ process.umask = function() { return 0; };
 
 'use strict';
 
+var printWarning = function() {};
+
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = require('fbjs/lib/invariant');
-  var warning = require('fbjs/lib/warning');
   var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
   var loggedTypeFailures = {};
+  var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
 }
 
 /**
@@ -18605,7 +18476,7 @@ if (process.env.NODE_ENV !== 'production') {
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
   if (process.env.NODE_ENV !== 'production') {
     for (var typeSpecName in typeSpecs) {
-      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+      if (has(typeSpecs, typeSpecName)) {
         var error;
         // Prop type validation may throw. In case they do, we don't want to
         // fail the render phase where it didn't fail before. So we log it.
@@ -18613,12 +18484,28 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
         try {
           // This is intentionally an invariant that gets caught. It's the same
           // behavior as without this statement except with a better message.
-          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error(
+              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+            );
+            err.name = 'Invariant Violation';
+            throw err;
+          }
           error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
         } catch (ex) {
           error = ex;
         }
-        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error && !(error instanceof Error)) {
+          printWarning(
+            (componentName || 'React class') + ': type specification of ' +
+            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+            'You may have forgotten to pass an argument to the type checker ' +
+            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+            'shape all require an argument).'
+          );
+        }
         if (error instanceof Error && !(error.message in loggedTypeFailures)) {
           // Only monitor this failure once because there tends to be a lot of the
           // same error.
@@ -18626,17 +18513,30 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
           var stack = getStack ? getStack() : '';
 
-          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+          printWarning(
+            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+          );
         }
       }
     }
   }
 }
 
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+checkPropTypes.resetWarningCache = function() {
+  if (process.env.NODE_ENV !== 'production') {
+    loggedTypeFailures = {};
+  }
+}
+
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":26,"_process":21,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],23:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":23,"_process":18}],20:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -18646,9 +18546,11 @@ module.exports = checkPropTypes;
 
 'use strict';
 
-var emptyFunction = require('fbjs/lib/emptyFunction');
-var invariant = require('fbjs/lib/invariant');
 var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -18656,12 +18558,13 @@ module.exports = function() {
       // It is still safe when called from React.
       return;
     }
-    invariant(
-      false,
+    var err = new Error(
       'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
       'Use PropTypes.checkPropTypes() to call them. ' +
       'Read more at http://fb.me/use-check-prop-types'
     );
+    err.name = 'Invariant Violation';
+    throw err;
   };
   shim.isRequired = shim;
   function getShim() {
@@ -18681,22 +18584,25 @@ module.exports = function() {
     any: shim,
     arrayOf: getShim,
     element: shim,
+    elementType: shim,
     instanceOf: getShim,
     node: shim,
     objectOf: getShim,
     oneOf: getShim,
     oneOfType: getShim,
     shape: getShim,
-    exact: getShim
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
   };
 
-  ReactPropTypes.checkPropTypes = emptyFunction;
   ReactPropTypes.PropTypes = ReactPropTypes;
 
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":26,"fbjs/lib/emptyFunction":13,"fbjs/lib/invariant":14}],24:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":23}],21:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -18707,13 +18613,33 @@ module.exports = function() {
 
 'use strict';
 
-var emptyFunction = require('fbjs/lib/emptyFunction');
-var invariant = require('fbjs/lib/invariant');
-var warning = require('fbjs/lib/warning');
+var ReactIs = require('react-is');
 var assign = require('object-assign');
 
 var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
 var checkPropTypes = require('./checkPropTypes');
+
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+var printWarning = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -18804,6 +18730,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     any: createAnyTypeChecker(),
     arrayOf: createArrayOfTypeChecker,
     element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
     instanceOf: createInstanceTypeChecker,
     node: createNodeChecker(),
     objectOf: createObjectOfTypeChecker,
@@ -18857,12 +18784,13 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       if (secret !== ReactPropTypesSecret) {
         if (throwOnDirectAccess) {
           // New behavior only for users of `prop-types` package
-          invariant(
-            false,
+          var err = new Error(
             'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
             'Use `PropTypes.checkPropTypes()` to call them. ' +
             'Read more at http://fb.me/use-check-prop-types'
           );
+          err.name = 'Invariant Violation';
+          throw err;
         } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
           // Old behavior for people using React.PropTypes
           var cacheKey = componentName + ':' + propName;
@@ -18871,15 +18799,12 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
             // Avoid spamming the console because they are often not actionable except for lib authors
             manualPropTypeWarningCount < 3
           ) {
-            warning(
-              false,
+            printWarning(
               'You are manually calling a React.PropTypes validation ' +
-              'function for the `%s` prop on `%s`. This is deprecated ' +
+              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
               'and will throw in the standalone `prop-types` package. ' +
               'You may be seeing this warning due to a third-party PropTypes ' +
-              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
-              propFullName,
-              componentName
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
             );
             manualPropTypeCallCache[cacheKey] = true;
             manualPropTypeWarningCount++;
@@ -18923,7 +18848,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   }
 
   function createAnyTypeChecker() {
-    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
   }
 
   function createArrayOfTypeChecker(typeChecker) {
@@ -18959,6 +18884,18 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return createChainableTypeChecker(validate);
   }
 
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!ReactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
   function createInstanceTypeChecker(expectedClass) {
     function validate(props, propName, componentName, location, propFullName) {
       if (!(props[propName] instanceof expectedClass)) {
@@ -18973,8 +18910,17 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
   function createEnumTypeChecker(expectedValues) {
     if (!Array.isArray(expectedValues)) {
-      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
-      return emptyFunction.thatReturnsNull;
+      if (process.env.NODE_ENV !== 'production') {
+        if (arguments.length > 1) {
+          printWarning(
+            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
+            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+          );
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
     }
 
     function validate(props, propName, componentName, location, propFullName) {
@@ -18985,8 +18931,14 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
         }
       }
 
-      var valuesString = JSON.stringify(expectedValues);
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
     }
     return createChainableTypeChecker(validate);
   }
@@ -19002,7 +18954,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
         return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
       }
       for (var key in propValue) {
-        if (propValue.hasOwnProperty(key)) {
+        if (has(propValue, key)) {
           var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
           if (error instanceof Error) {
             return error;
@@ -19016,21 +18968,18 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
   function createUnionTypeChecker(arrayOfTypeCheckers) {
     if (!Array.isArray(arrayOfTypeCheckers)) {
-      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
-      return emptyFunction.thatReturnsNull;
+      process.env.NODE_ENV !== 'production' ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunctionThatReturnsNull;
     }
 
     for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
       var checker = arrayOfTypeCheckers[i];
       if (typeof checker !== 'function') {
-        warning(
-          false,
+        printWarning(
           'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
-          'received %s at index %s.',
-          getPostfixForTypeWarning(checker),
-          i
+          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
         );
-        return emptyFunction.thatReturnsNull;
+        return emptyFunctionThatReturnsNull;
       }
     }
 
@@ -19162,6 +19111,11 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       return true;
     }
 
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
+    }
+
     // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
     if (propValue['@@toStringTag'] === 'Symbol') {
       return true;
@@ -19236,13 +19190,14 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   }
 
   ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
   ReactPropTypes.PropTypes = ReactPropTypes;
 
   return ReactPropTypes;
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":22,"./lib/ReactPropTypesSecret":26,"_process":21,"fbjs/lib/emptyFunction":13,"fbjs/lib/invariant":14,"fbjs/lib/warning":15,"object-assign":20}],25:[function(require,module,exports){
+},{"./checkPropTypes":19,"./lib/ReactPropTypesSecret":23,"_process":18,"object-assign":17,"react-is":28}],22:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -19252,21 +19207,12 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
+  var ReactIs = require('react-is');
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
+  module.exports = require('./factoryWithTypeCheckers')(ReactIs.isElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
@@ -19274,7 +19220,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./factoryWithThrowingShims":23,"./factoryWithTypeCheckers":24,"_process":21}],26:[function(require,module,exports){
+},{"./factoryWithThrowingShims":20,"./factoryWithTypeCheckers":21,"_process":18,"react-is":28}],23:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -19288,7 +19234,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],27:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 var strictUriEncode = require('strict-uri-encode');
 var objectAssign = require('object-assign');
@@ -19495,7 +19441,7 @@ exports.stringify = function (obj, opts) {
 	}).join('&') : '';
 };
 
-},{"object-assign":20,"strict-uri-encode":29}],28:[function(require,module,exports){
+},{"object-assign":17,"strict-uri-encode":29}],25:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -19646,7 +19592,266 @@ Gravatar.defaultProps = {
 
 
 module.exports = Gravatar;
-},{"is-retina":17,"md5":19,"prop-types":25,"query-string":27,"react":undefined}],29:[function(require,module,exports){
+},{"is-retina":14,"md5":16,"prop-types":22,"query-string":24,"react":undefined}],26:[function(require,module,exports){
+(function (process){
+/** @license React v16.8.6
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+
+
+if (process.env.NODE_ENV !== "production") {
+  (function() {
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' ||
+  // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE);
+}
+
+/**
+ * Forked from fbjs/warning:
+ * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
+ *
+ * Only change is we use console.warn instead of console.error,
+ * and do nothing when 'console' is not supported.
+ * This really simplifies the code.
+ * ---
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var lowPriorityWarning = function () {};
+
+{
+  var printWarning = function (format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.warn(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  lowPriorityWarning = function (condition, format) {
+    if (format === undefined) {
+      throw new Error('`lowPriorityWarning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+var lowPriorityWarning$1 = lowPriorityWarning;
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+              default:
+                return $$typeof;
+            }
+        }
+      case REACT_LAZY_TYPE:
+      case REACT_MEMO_TYPE:
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+}
+
+// AsyncMode is deprecated along with isAsyncMode
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+
+var hasWarnedAboutDeprecatedIsAsyncMode = false;
+
+// AsyncMode should be deprecated
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true;
+      lowPriorityWarning$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.typeOf = typeOf;
+exports.AsyncMode = AsyncMode;
+exports.ConcurrentMode = ConcurrentMode;
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isValidElementType = isValidElementType;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+  })();
+}
+
+}).call(this,require('_process'))
+},{"_process":18}],27:[function(require,module,exports){
+/** @license React v16.8.6
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';Object.defineProperty(exports,"__esModule",{value:!0});
+var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?Symbol.for("react.memo"):
+60115,r=b?Symbol.for("react.lazy"):60116;function t(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case h:return a;default:return u}}case r:case q:case d:return u}}}function v(a){return t(a)===m}exports.typeOf=t;exports.AsyncMode=l;exports.ConcurrentMode=m;exports.ContextConsumer=k;exports.ContextProvider=h;exports.Element=c;exports.ForwardRef=n;
+exports.Fragment=e;exports.Lazy=r;exports.Memo=q;exports.Portal=d;exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||"object"===typeof a&&null!==a&&(a.$$typeof===r||a.$$typeof===q||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n)};exports.isAsyncMode=function(a){return v(a)||t(a)===l};exports.isConcurrentMode=v;exports.isContextConsumer=function(a){return t(a)===k};
+exports.isContextProvider=function(a){return t(a)===h};exports.isElement=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===c};exports.isForwardRef=function(a){return t(a)===n};exports.isFragment=function(a){return t(a)===e};exports.isLazy=function(a){return t(a)===r};exports.isMemo=function(a){return t(a)===q};exports.isPortal=function(a){return t(a)===d};exports.isProfiler=function(a){return t(a)===g};exports.isStrictMode=function(a){return t(a)===f};
+exports.isSuspense=function(a){return t(a)===p};
+
+},{}],28:[function(require,module,exports){
+(function (process){
+'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./cjs/react-is.production.min.js');
+} else {
+  module.exports = require('./cjs/react-is.development.js');
+}
+
+}).call(this,require('_process'))
+},{"./cjs/react-is.development.js":26,"./cjs/react-is.production.min.js":27,"_process":18}],29:[function(require,module,exports){
 'use strict';
 module.exports = function (str) {
 	return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {

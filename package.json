@@ -13,9 +13,10 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "lodash": "^4.5.0",
-    "react-bootstrap": "0.30.7",
-    "react-input-autosize": "^0.6.8",
-    "react-overlays": "0.6.10",
+    "prop-types": "^15.7.2",
+    "react-bootstrap": "^0.31.5",
+    "react-input-autosize": "^2.2.1",
+    "react-overlays": "^0.8.3",
     "react-tether": "^0.5.1"
   },
   "devDependencies": {
@@ -31,7 +32,7 @@
     "mocha": "^2.3.4",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
-    "react-component-gulp-tasks": "^0.7.7",
+    "react-component-gulp-tasks": "github:propertygroup/react-component-gulp-tasks#fb259b70d2c5f5041a4346dd4d61583ddab4a090",
     "react-dom": "^15.1.0",
     "react-gravatar": "^2.3.0",
     "sinon": "^1.17.2",

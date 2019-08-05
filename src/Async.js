@@ -1,5 +1,7 @@
 import React from 'react';
-import * as _ from "lodash";
+import createClass from 'create-react-class';
+import PropTypes from 'prop-types';
+import * as _ from 'lodash';
 import Select from './Select';
 import stripDiacritics from './utils/stripDiacritics';
 
@@ -36,24 +38,24 @@ function thenPromise (promise, callback) {
 	});
 }
 
-const stringOrNode = React.PropTypes.oneOfType([
-	React.PropTypes.string,
-	React.PropTypes.node
+const stringOrNode = PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.node
 ]);
 
-const Async = React.createClass({
+const Async = createClass({
 	propTypes: {
-		cache: React.PropTypes.any,                     // object to use to cache results, can be null to disable cache
-		ignoreAccents: React.PropTypes.bool,            // whether to strip diacritics when filtering (shared with Select)
-		ignoreCase: React.PropTypes.bool,               // whether to perform case-insensitive filtering (shared with Select)
-		isLoading: React.PropTypes.bool,                // overrides the isLoading state when set to true
-		loadOptions: React.PropTypes.func.isRequired,   // function to call to load options asynchronously
-		loadingPlaceholder: React.PropTypes.string,     // replaces the placeholder while options are loading
-		minimumInput: React.PropTypes.number,           // the minimum number of characters that trigger loadOptions
-		noResultsText: React.PropTypes.string,          // placeholder displayed when there are no matching search results (shared with Select)
+		cache: PropTypes.any,                     // object to use to cache results, can be null to disable cache
+		ignoreAccents: PropTypes.bool,            // whether to strip diacritics when filtering (shared with Select)
+		ignoreCase: PropTypes.bool,               // whether to perform case-insensitive filtering (shared with Select)
+		isLoading: PropTypes.bool,                // overrides the isLoading state when set to true
+		loadOptions: PropTypes.func.isRequired,   // function to call to load options asynchronously
+		loadingPlaceholder: PropTypes.string,     // replaces the placeholder while options are loading
+		minimumInput: PropTypes.number,           // the minimum number of characters that trigger loadOptions
+		noResultsText: PropTypes.string,          // placeholder displayed when there are no matching search results (shared with Select)
 		placeholder: stringOrNode,                      // field placeholder, displayed when there's no value (shared with Select)
-		searchPromptText: React.PropTypes.string,       // label to prompt for search input
-		searchingText: React.PropTypes.string,          // message to display while options are loading
+		searchPromptText: PropTypes.string,       // label to prompt for search input
+		searchingText: PropTypes.string,          // message to display while options are loading
 	},
 	getDefaultProps () {
 		return {
